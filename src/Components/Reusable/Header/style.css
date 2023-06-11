@@ -1,0 +1,17 @@
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.headerWrapper > div {
+  display: flex;
+  align-items: center;
+}
+.headerWrapper .headerLogo {
+  height: 80px;
+  width: auto;
+}
+.headerWrapper .navLink {
+  margin-left: 30px;
+}/*# sourceMappingURL=style.css.map */

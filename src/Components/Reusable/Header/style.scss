@@ -1,0 +1,20 @@
+.headerWrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    & > div{
+        display: flex;
+        align-items: center;
+    }
+
+    .headerLogo{
+        height: 80px;
+        width: auto;
+    }
+
+    .navLink{
+        margin-left: 30px;
+    }
+}

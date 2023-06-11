@@ -1,0 +1,25 @@
+.matingWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  max-width: calc(100vw - 250px);
+  overflow: hidden;
+}
+.matingWrapper .card {
+  position: relative;
+  background-color: #fff;
+  width: 80vw;
+  max-width: 260px;
+  height: 300px;
+  box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+}
+.matingWrapper .swipe {
+  position: absolute;
+}
+.matingWrapper .cardContainer {
+  height: 400px;
+  width: 400px;
+}/*# sourceMappingURL=style.css.map */

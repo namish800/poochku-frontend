@@ -1,0 +1,29 @@
+// .pupListWrapper.mating{
+//     overflow: hidden;
+// }
+.matingWrapper{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    max-width: calc(100vw - 250px);
+    overflow: hidden;
+    .card {
+        position: relative;
+        background-color: #fff;
+        width: 80vw;
+        max-width: 260px;
+        height: 300px;
+        box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
+        border-radius: 20px;
+        background-size: cover;
+        background-position: center;
+      }
+      .swipe {
+        position: absolute;
+      }
+
+      .cardContainer{
+        height: 400px;
+        width: 400px
+      }
+}

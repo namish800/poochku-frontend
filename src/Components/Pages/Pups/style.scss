@@ -1,0 +1,35 @@
+.browsePetWrapper{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+    .pupListWrapper{
+        width: calc(100% - 220px);
+        padding: 20px 30px 0;
+
+        .pageHeadingSticky{
+            position: sticky;
+            top: -1px;
+            padding: 15px;
+            background: white;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            z-index: 10;
+
+            h1{
+                margin-bottom: 10px;
+            }
+
+            input{
+                margin: 0 20px;
+            }
+
+            select, button{
+                margin: 0 20px;
+            }
+            
+        }
+    }
+}

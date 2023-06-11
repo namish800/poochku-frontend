@@ -1,0 +1,15 @@
+.adoptPromtWrapper{
+    display: flex;
+    align-items: start;
+
+    .buyPageList{
+        width: 75%;
+    }
+
+    .adoptPromt{
+        width:25%;
+        position: sticky;
+        top: 200px;
+        text-align: center;
+    }
+}

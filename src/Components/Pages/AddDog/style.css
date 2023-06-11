@@ -1,0 +1,6 @@
+.newDogForm {
+  display: flex;
+}
+.newDogForm .dogInfo, .newDogForm .dogImgWrapper {
+  width: 50%;
+}/*# sourceMappingURL=style.css.map */
