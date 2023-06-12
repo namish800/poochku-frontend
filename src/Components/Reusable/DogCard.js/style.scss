@@ -1,25 +1,40 @@
 .dogCardWrapper{
-    width: 100%;
+    width: 32%;
     display: flex;
+    flex-direction: column;
     background: linear-gradient(233deg, #ffd903, #ffa502 100%, hsla(0, 0%, 100%, 0));
+    border: 1px solid #ffd903;
     margin-bottom: 20px;
     border-radius: 12px;
     overflow: hidden;
 
     .dogCardSlider{
-        width: 30%;
+        width: 100%;
     }
 
     .dogCardDetails{
         padding: 20px;
+        width: 100%;
+
+        h3{
+            font-family: changa one;
+            margin: 0 0 15px 0;
+        }
+        p{
+            font-family: fredoka;
+            margin: 10px 0;
+        }
 
         .actionWrapper{
+            margin-top: 20px;
             display: flex;
+            justify-content: space-around;
             button{
                 padding: 10px 20px;
+                // letter-spacing: 0.2px;
                 text-transform: uppercase;
                 font-weight: 700;
-                font-size: 14px;
+                font-size: 12px;
                 font-family: poppins;
                 border: 0px;
                 display: flex;

@@ -16,6 +16,7 @@
   margin-bottom: 10px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   z-index: 10;
 }
 .browsePetWrapper .pupListWrapper .pageHeadingSticky h1 {
@@ -26,4 +27,64 @@
 }
 .browsePetWrapper .pupListWrapper .pageHeadingSticky select, .browsePetWrapper .pupListWrapper .pageHeadingSticky button {
   margin: 0 20px;
+}
+.browsePetWrapper .pupListWrapper .pageHeadingSticky .buyPageHeading {
+  font-family: changa one;
+}
+.browsePetWrapper .pupListWrapper .pageHeadingSticky .buyPageInfo {
+  font-family: fredoka;
+}
+.browsePetWrapper .pupListWrapper .pageHeadingSticky .filterInput {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-family: fredoka;
+}
+.browsePetWrapper .pupListWrapper .pageHeadingSticky .filterButton {
+  padding: 15px 30px;
+  border-radius: 15px;
+  background: linear-gradient(233deg, #ffd903, #ffa502 100%, hsla(0, 0%, 100%, 0));
+  color: #fff;
+  font-family: fredoka;
+  font-weight: 600;
+  border: 0px;
+  letter-spacing: 0.3px;
+}
+.browsePetWrapper .pupListWrapper .buyPageListWrapper {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: start;
+}
+.browsePetWrapper .pupListWrapper .buyPageListWrapper .buyPageList {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: space-between;
+}
+.browsePetWrapper .pupListWrapper .buyPageListWrapper .bannerWrapper {
+  width: 19%;
+  position: sticky;
+  top: 150px;
+  padding: 15px;
+  text-align: center;
+  background: linear-gradient(233deg, #ffd903, #ffa502 100%, hsla(0, 0%, 100%, 0));
+  color: white;
+  border: 1px solid #ffd903;
+  border-radius: 12px;
+}
+.browsePetWrapper .pupListWrapper .buyPageListWrapper .bannerWrapper h3 {
+  font-family: changa one;
+}
+.browsePetWrapper .pupListWrapper .buyPageListWrapper .bannerWrapper p {
+  font-family: fredoka;
+}
+.browsePetWrapper .pupListWrapper .buyPageListWrapper .bannerWrapper button {
+  padding: 10px 20px;
+  font-family: changa one;
+  background: #fff;
+  color: #ffd903;
+  border: 0px;
+  border-radius: 8px;
 }/*# sourceMappingURL=style.css.map */

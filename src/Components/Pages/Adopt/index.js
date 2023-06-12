@@ -17,16 +17,18 @@ const Adopt = () => {
               <h1 className='buyPageHeading'>Adopt Pups</h1>
               <p className='buyPageInfo'>Find your forever friends!</p>
             </div>
-            <input type="text" placeholder='Search Location'/>
-            <input type="text" placeholder='Search Breed'/>
-            <select>
-              <option>Select Gender</option>
-              <option>Male</option>  
-              <option>Female</option>  
-            </select>
-            <button>Search</button>
+            <div>
+              <input type="text" className='filterInput' placeholder='Search Location'/>
+              <input type="text" className='filterInput' placeholder='Search Breed'/>
+              <select className='filterInput'>
+                <option>Select Gender</option>
+                <option>Male</option>  
+                <option>Female</option>  
+              </select>
+              <button className='filterButton'>SEARCH</button>
+            </div>
           </div>
-          <div className='adoptPromtWrapper'>
+          <div className='adoptPromptWrapper'>
             <div className='buyPageList'>
               {
                 dogList.map((e) => {
@@ -36,9 +38,9 @@ const Adopt = () => {
                 })
               }            
             </div>
-            <div className='adoptPromt'>
-              <p>See a puppy in need?<br/> 
-              Help them find a forever home!</p>
+            <div className='bannerWrapper'>
+              <h3>See a puppy in need?</h3> 
+              <p>Help them find a forever home!</p>
               <button>List a Pup for adoption</button>
             </div>  
           </div>

@@ -1,6 +1,7 @@
 import Carousel from 'react-bootstrap/Carousel';
 import './style.css'
 import whatsappIcon from '../../../Assets/whatsapp.svg'
+import dog from '../../../Assets/pitbull.jpg'
 
 const id = {
     id: 1,
@@ -25,14 +26,14 @@ const DogCard = ({details, availableForAdoption}) => {
             <Carousel.Item>
                 <img
                 className="d-block w-100"
-                src="holder.js/800x400?text=First slide&bg=373940"
+                src={dog}
                 alt="First slide"
                 />
             </Carousel.Item>
             <Carousel.Item>
                 <img
                 className="d-block w-100"
-                src="holder.js/800x400?text=Second slide&bg=282c34"
+                src={dog}
                 alt="Second slide"
                 />
             </Carousel.Item>

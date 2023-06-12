@@ -55,14 +55,16 @@ const Mating = () => {
               <h1 className='buyPageHeading'>Mating</h1>
               <p className='buyPageInfo'>Find the purrfect match!</p>
             </div>
-            <input type="text" placeholder='Search Location'/>
-            <input type="text" placeholder='Search Breed'/>
-            <select>
-              <option>Select Gender</option>
-              <option>Male</option>  
-              <option>Female</option>  
-            </select>
-            <button>Search</button>
+            <div>
+              <input type="text" className='filterInput' placeholder='Search Location'/>
+              <input type="text" className='filterInput' placeholder='Search Breed'/>
+              <select className='filterInput'>
+                <option>Select Gender</option>
+                <option>Male</option>  
+                <option>Female</option>  
+              </select>
+              <button className='filterButton'>Search</button>
+            </div>
           </div>
           <div className='matingWrapper'>
             <div className='cardContainer'>

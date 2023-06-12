@@ -1,25 +1,38 @@
 .dogCardWrapper {
-  width: 100%;
+  width: 32%;
   display: flex;
+  flex-direction: column;
   background: linear-gradient(233deg, #ffd903, #ffa502 100%, hsla(0, 0%, 100%, 0));
+  border: 1px solid #ffd903;
   margin-bottom: 20px;
   border-radius: 12px;
   overflow: hidden;
 }
 .dogCardWrapper .dogCardSlider {
-  width: 30%;
+  width: 100%;
 }
 .dogCardWrapper .dogCardDetails {
   padding: 20px;
+  width: 100%;
+}
+.dogCardWrapper .dogCardDetails h3 {
+  font-family: changa one;
+  margin: 0 0 15px 0;
+}
+.dogCardWrapper .dogCardDetails p {
+  font-family: fredoka;
+  margin: 10px 0;
 }
 .dogCardWrapper .dogCardDetails .actionWrapper {
+  margin-top: 20px;
   display: flex;
+  justify-content: space-around;
 }
 .dogCardWrapper .dogCardDetails .actionWrapper button {
   padding: 10px 20px;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 12px;
   font-family: poppins;
   border: 0px;
   display: flex;
