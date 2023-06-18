@@ -17,11 +17,22 @@
 }
 .dogCardWrapper .dogCardDetails h3 {
   font-family: changa one;
-  margin: 0 0 15px 0;
+  margin: 0 0 10px 0;
+  font-size: 22px;
 }
 .dogCardWrapper .dogCardDetails p {
   font-family: fredoka;
-  margin: 10px 0;
+  margin: 5px 0;
+  font-size: 14px;
+}
+.dogCardWrapper .dogCardDetails .detailWrapper {
+  display: flex;
+  align-items: center;
+}
+.dogCardWrapper .dogCardDetails .detailWrapper img {
+  width: 20px;
+  height: auto;
+  margin-right: 15px;
 }
 .dogCardWrapper .dogCardDetails .actionWrapper {
   margin-top: 20px;

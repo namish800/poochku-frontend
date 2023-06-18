@@ -25,6 +25,11 @@ const Pups = () => {
                 <option>Male</option>  
                 <option>Female</option>  
               </select>
+              <select className='filterInput'>
+                <option>Any Quality</option>
+                <option>KCI Registered</option>  
+                <option>Champion Bloodline</option>  
+              </select>
               <button className='filterButton'>SEARCH</button>
             </div>
           </div>
@@ -40,8 +45,8 @@ const Pups = () => {
             </div> 
             <div className='bannerWrapper'>
                 <div className='mainOffer'>
-                  <h3>Let us get you, your best friend!</h3>
-                  <p>We can help you find the best fit for you, and bring your new pets right to your door step.</p>
+                  <h3>Buy with Poochku!</h3>
+                  <p>Leave it to Us! <br/>We Handpick the Finest Partners to bring you the best Pooches, so you don't have to worry.</p>
                   <button>Find your Pooch</button>
                 </div>
             </div>       

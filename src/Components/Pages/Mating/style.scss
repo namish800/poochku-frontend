@@ -4,26 +4,140 @@
 .matingWrapper{
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: stretch;
     max-width: calc(100vw - 250px);
     overflow: hidden;
+    max-height: 70vh;
+
+    .matchSection{
+      width: 50%;
+      background: #f5f5f5;
+      padding: 0 20px 20px;
+      overflow-y: scroll;
+      position: relative;
+
+      h3{
+        position: sticky;
+        top: 0;
+        font-family: changa one;
+        padding: 15px 0;
+        background: #f5f5f5;
+      }
+
+      .match{
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .dogPhotoWrapper{
+          height: 40px;
+          width: 40px;
+          border-radius: 50%;
+        }
+        .dogDetailMating{
+          font-size: 14px;
+          div{
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+
+            p{
+              margin: 0;
+            }
+
+            img{
+              width: 20px;
+              margin-right: 15px;
+            }
+          }
+        }
+        .actionWrapper{
+          display: flex;
+            justify-content: space-around;
+            button{
+                padding: 10px 20px;
+                // letter-spacing: 0.2px;
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 12px;
+                font-family: poppins;
+                border: 0px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-radius: 8px;
+            }
+            .whatsappEnquire{
+                background: rgb(100, 177, 97);
+                color: white;
+                margin-right: 20px;
+
+                &.pending{
+                  background: rgba(100, 177, 97, 0.6);
+                }
+
+                img{
+                    height: 20px;
+                    width: auto;
+                    margin-right: 10px;
+                }
+            }
+        }
+      }
+    }
+
     .card {
+      font-family: fredoka;
         position: relative;
-        background-color: #fff;
         width: 80vw;
         max-width: 260px;
-        height: 300px;
-        box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
+        box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.1);
         border-radius: 20px;
-        background-size: cover;
-        background-position: center;
+        overflow: hidden;
       }
       .swipe {
         position: absolute;
       }
 
       .cardContainer{
-        height: 400px;
-        width: 400px
+        padding: 30px 60px;
+        height: 500px;
+        width: 400px;
+        overflow: hidden;
+
+        .dogPhotoWrapper{
+          height: 400px;
+          width: 100%;
+        }
+
+        .dogDetailMating{
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          padding: 10px 10px;
+          background: rgba(0,0,0,0.4);
+          color: white;
+          h3{
+            font-size: 22px;
+          }
+          div{
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            p{
+              margin-bottom: 0;
+            }
+            img{
+              width: 20px;
+              height: auto;
+              margin-right: 15px;
+            }
+          }
+        }
       }
 }

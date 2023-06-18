@@ -19,11 +19,14 @@
   justify-content: space-between;
   z-index: 10;
 }
+.browsePetWrapper .pupListWrapper .pageHeadingSticky.nonStick {
+  position: relative;
+}
 .browsePetWrapper .pupListWrapper .pageHeadingSticky h1 {
   margin-bottom: 10px;
 }
 .browsePetWrapper .pupListWrapper .pageHeadingSticky input {
-  margin: 0 20px;
+  margin: 0 10px;
 }
 .browsePetWrapper .pupListWrapper .pageHeadingSticky select, .browsePetWrapper .pupListWrapper .pageHeadingSticky button {
   margin: 0 20px;
@@ -37,7 +40,8 @@
 .browsePetWrapper .pupListWrapper .pageHeadingSticky .filterInput {
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 15px;
-  padding: 10px 20px;
+  font-size: 14px;
+  padding: 5px 10px;
   font-family: fredoka;
 }
 .browsePetWrapper .pupListWrapper .pageHeadingSticky .filterButton {

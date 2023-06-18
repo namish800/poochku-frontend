@@ -18,11 +18,23 @@
 
         h3{
             font-family: changa one;
-            margin: 0 0 15px 0;
+            margin: 0 0 10px 0;
+            font-size: 22px;
         }
         p{
             font-family: fredoka;
-            margin: 10px 0;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .detailWrapper{
+            display: flex;
+            align-items: center;
+            img{
+                width: 20px;
+                height: auto;
+                margin-right: 15px;
+            }
         }
 
         .actionWrapper{

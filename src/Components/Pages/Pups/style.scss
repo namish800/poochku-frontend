@@ -20,12 +20,16 @@
             z-index: 10;
             // box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
 
+            &.nonStick{
+                position: relative;
+            }
+
             h1{
                 margin-bottom: 10px;
             }
 
             input{
-                margin: 0 20px;
+                margin: 0 10px;
             }
 
             select, button{
@@ -42,7 +46,8 @@
             .filterInput{
                 border: 1px solid rgba(0,0,0,0.3);
                 border-radius: 15px;
-                padding: 10px 20px;
+                font-size: 14px;
+                padding: 5px 10px;
                 font-family: fredoka;
             }
             .filterButton{
@@ -96,3 +101,5 @@
         }
     }
 }
+
+

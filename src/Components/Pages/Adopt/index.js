@@ -25,6 +25,11 @@ const Adopt = () => {
                 <option>Male</option>  
                 <option>Female</option>  
               </select>
+              <select className='filterInput'>
+                <option>Any Quality</option>
+                <option>KCI Registered</option>  
+                <option>Champion Bloodline</option>  
+              </select>
               <button className='filterButton'>SEARCH</button>
             </div>
           </div>
