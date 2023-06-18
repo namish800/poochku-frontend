@@ -3,6 +3,7 @@ import DashNavUser from '../../Reusable/DashNavUser'
 import DogForSaleCard from '../../Reusable/DogForSaleCard'
 import './style.css'
 import dogList from '../Pups/dogBuyList'
+import { Link } from 'react-router-dom'
 
 const Seller = () => {
   return (
@@ -19,7 +20,7 @@ const Seller = () => {
             <h2 className='sellerHeading'>Your Active Listings</h2>
             <div className='sellerHeader'>
                 <input type='text'placeholder='Search your listings' className='filterInput' />
-                <button className='filterButton'>+ NEW DOG</button>
+                <Link to="/newDog"><button className='filterButton'>+ NEW DOG</button></Link>
             </div>
             <hr />
             <div className='dogsForSaleWrapper'>

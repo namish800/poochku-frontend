@@ -48,6 +48,15 @@ const AddDog = () => {
                         </div>
                     </div>  
                     <div className='newDogWrapper'>
+                        <p className='newDogLabel'>Purpose</p>
+                        <label>Mating</label>
+                        <input name="purpose" type='radio'/> 
+                        <label>Adoption</label>
+                        <input name="purpose" type='radio'/> 
+                        <label>Selling</label>
+                        <input name="purpose" type='radio'/>                         
+                    </div>  
+                    <div className='newDogWrapper'>
                         <p className='newDogLabel'>Age</p>
                         <div>
                             <input type='number' placeholder='weeks' /> <label>Weeks</label>

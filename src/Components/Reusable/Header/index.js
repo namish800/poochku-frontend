@@ -7,12 +7,15 @@ const Header = () => {
     <div className='headerWrapper'>
         <div>
             <img className='headerLogo' src={logo} />
-            <Link className='navLink'>Browse Pups</Link>
-            <Link className='navLink'>Shop</Link>
-            <Link className='navLink'>Mating</Link>
-            <Link className='navLink'>Adopt</Link>
+            <Link className='navLink' to="/browse">Browse Pups</Link>
+            <Link className='navLink' to="/browse">Shop</Link>
+            <Link className='navLink' to="/mating">Mating</Link>
+            <Link className='navLink' to="/adopt">Adopt</Link>
         </div>
-        <Link>Login</Link>
+        <div>
+          <Link className='navLink' to="/seller">Seller Account</Link>
+          <Link className='navLink'>Login</Link>
+        </div>
     </div>
   )
 }
