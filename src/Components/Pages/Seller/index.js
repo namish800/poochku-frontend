@@ -1,14 +1,13 @@
-import React from 'react'
-import DashNavUser from '../../Reusable/DashNavUser'
 import DogForSaleCard from '../../Reusable/DogForSaleCard'
 import './style.css'
 import dogList from '../Pups/dogBuyList'
 import { Link } from 'react-router-dom'
+import SellerUserNav from '../../Reusable/SellerUserNav'
 
 const Seller = () => {
   return (
     <div className='browsePetWrapper'>
-        <DashNavUser />
+        <SellerUserNav />
         <div className='pupListWrapper mating'>
           <div className='pageHeadingSticky nonStick'>
             <div>
