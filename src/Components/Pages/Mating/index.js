@@ -7,6 +7,8 @@ import './style.css'
 import gender from '../../../Assets/gender-fluid.png'
 import Dog from '../../../Assets/dog.png'
 import whatsappIcon from '../../../Assets/whatsapp.svg'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 const db = [
     {
@@ -87,120 +89,147 @@ const Mating = () => {
             </div>
             <div className='matchSection'>
                   <h3>Your Matches</h3>
-                  <div className='matchWrapper'>
-                    <div className='match'>
-                      <div>
-                        <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                        <h6>Dog Breed</h6>
+                  <Tabs>
+                    <TabList>
+                      <Tab>Active</Tab>
+                      <Tab>Pending</Tab>
+                    </TabList>
+                    <TabPanel>
+                      <div className='matchWrapper'>
+                        <div className='match'>
+                          <div>
+                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
+                            <h6>Dog Breed</h6>
+                          </div>
+                          <div className='dogDetailMating'>
+                            <div><img src={gender} /><p>Male</p></div>
+                            <div><img src={Dog} /><p>KCI Registered</p></div>
+                          </div>
+                          <div className='actionWrapper'>
+                            <button className='whatsappEnquire'><img src={whatsappIcon} />Enquire</button>
+                            <button className='bestBuy'>Unmatch</button>
+                          </div>
+                        </div>
+                        <div className='match'>
+                          <div>
+                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
+                            <h6>Dog Breed</h6>
+                          </div>
+                          <div className='dogDetailMating'>
+                            <div><img src={gender} /><p>Male</p></div>
+                            <div><img src={Dog} /><p>KCI Registered</p></div>
+                          </div>
+                          <div className='actionWrapper'>
+                            <button className='whatsappEnquire'><img src={whatsappIcon} />Enquire</button>
+                            <button className='bestBuy'>Unmatch</button>
+                          </div>
+                        </div>
                       </div>
-                      <div className='dogDetailMating'>
-                        <div><img src={gender} /><p>Male</p></div>
-                        <div><img src={Dog} /><p>KCI Registered</p></div>
+                    </TabPanel>
+                    <TabPanel>
+                      <div className='matchWrapper'>
+                        <div className='match'>
+                          <div>
+                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
+                            <h6>Dog Breed</h6>
+                          </div>
+                          <div className='dogDetailMating'>
+                            <div><img src={gender} /><p>Male</p></div>
+                            <div><img src={Dog} /><p>KCI Registered</p></div>
+                          </div>
+                          <div className='actionWrapper'>
+                            <button className='whatsappEnquire'><img src={whatsappIcon} />Enquire</button>
+                            <button className='bestBuy'>ACCEPT</button>
+                          </div>
+                        </div>
+                        <div className='match'>
+                          <div>
+                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
+                            <h6>Dog Breed</h6>
+                          </div>
+                          <div className='dogDetailMating'>
+                            <div><img src={gender} /><p>Male</p></div>
+                            <div><img src={Dog} /><p>KCI Registered</p></div>
+                          </div>
+                          <div className='actionWrapper'>
+                            <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
+                            <button className='bestBuy' disabled>Pending</button>
+                          </div>
+                        </div>
+                        <div className='match'>
+                          <div>
+                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
+                            <h6>Dog Breed</h6>
+                          </div>
+                          <div className='dogDetailMating'>
+                            <div><img src={gender} /><p>Male</p></div>
+                            <div><img src={Dog} /><p>KCI Registered</p></div>
+                          </div>
+                          <div className='actionWrapper'>
+                            <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
+                            <button className='bestBuy' disabled>Pending</button>
+                          </div>
+                        </div>
+                        <div className='match'>
+                          <div>
+                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
+                            <h6>Dog Breed</h6>
+                          </div>
+                          <div className='dogDetailMating'>
+                            <div><img src={gender} /><p>Male</p></div>
+                            <div><img src={Dog} /><p>KCI Registered</p></div>
+                          </div>
+                          <div className='actionWrapper'>
+                            <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
+                            <button className='bestBuy' disabled>Pending</button>
+                          </div>
+                        </div>
+                        <div className='match'>
+                          <div>
+                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
+                            <h6>Dog Breed</h6>
+                          </div>
+                          <div className='dogDetailMating'>
+                            <div><img src={gender} /><p>Male</p></div>
+                            <div><img src={Dog} /><p>KCI Registered</p></div>
+                          </div>
+                          <div className='actionWrapper'>
+                            <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
+                            <button className='bestBuy' disabled>Pending</button>
+                          </div>
+                        </div>
+                        <div className='match'>
+                          <div>
+                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
+                            <h6>Dog Breed</h6>
+                          </div>
+                          <div className='dogDetailMating'>
+                            <div><img src={gender} /><p>Male</p></div>
+                            <div><img src={Dog} /><p>KCI Registered</p></div>
+                          </div>
+                          <div className='actionWrapper'>
+                            <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
+                            <button className='bestBuy' disabled>Pending</button>
+                          </div>
+                        </div>
+                        <div className='match'>
+                          <div>
+                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
+                            <h6>Dog Breed</h6>
+                          </div>
+                          <div className='dogDetailMating'>
+                            <div><img src={gender} /><p>Male</p></div>
+                            <div><img src={Dog} /><p>KCI Registered</p></div>
+                          </div>
+                          <div className='actionWrapper'>
+                            <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
+                            <button className='bestBuy' disabled>Pending</button>
+                          </div>
+                        </div>
                       </div>
-                      <div className='actionWrapper'>
-                        <button className='whatsappEnquire'><img src={whatsappIcon} />Enquire</button>
-                        <button className='bestBuy'>Unmatch</button>
-                      </div>
-                    </div>
-                    <div className='match'>
-                      <div>
-                        <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                        <h6>Dog Breed</h6>
-                      </div>
-                      <div className='dogDetailMating'>
-                        <div><img src={gender} /><p>Male</p></div>
-                        <div><img src={Dog} /><p>KCI Registered</p></div>
-                      </div>
-                      <div className='actionWrapper'>
-                        <button className='whatsappEnquire'><img src={whatsappIcon} />Enquire</button>
-                        <button className='bestBuy'>Unmatch</button>
-                      </div>
-                    </div>
-                    <div className='match'>
-                      <div>
-                        <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                        <h6>Dog Breed</h6>
-                      </div>
-                      <div className='dogDetailMating'>
-                        <div><img src={gender} /><p>Male</p></div>
-                        <div><img src={Dog} /><p>KCI Registered</p></div>
-                      </div>
-                      <div className='actionWrapper'>
-                        <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
-                        <button className='bestBuy' disabled>Pending</button>
-                      </div>
-                    </div>
-                    <div className='match'>
-                      <div>
-                        <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                        <h6>Dog Breed</h6>
-                      </div>
-                      <div className='dogDetailMating'>
-                        <div><img src={gender} /><p>Male</p></div>
-                        <div><img src={Dog} /><p>KCI Registered</p></div>
-                      </div>
-                      <div className='actionWrapper'>
-                        <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
-                        <button className='bestBuy' disabled>Pending</button>
-                      </div>
-                    </div>
-                    <div className='match'>
-                      <div>
-                        <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                        <h6>Dog Breed</h6>
-                      </div>
-                      <div className='dogDetailMating'>
-                        <div><img src={gender} /><p>Male</p></div>
-                        <div><img src={Dog} /><p>KCI Registered</p></div>
-                      </div>
-                      <div className='actionWrapper'>
-                        <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
-                        <button className='bestBuy' disabled>Pending</button>
-                      </div>
-                    </div>
-                    <div className='match'>
-                      <div>
-                        <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                        <h6>Dog Breed</h6>
-                      </div>
-                      <div className='dogDetailMating'>
-                        <div><img src={gender} /><p>Male</p></div>
-                        <div><img src={Dog} /><p>KCI Registered</p></div>
-                      </div>
-                      <div className='actionWrapper'>
-                        <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
-                        <button className='bestBuy' disabled>Pending</button>
-                      </div>
-                    </div>
-                    <div className='match'>
-                      <div>
-                        <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                        <h6>Dog Breed</h6>
-                      </div>
-                      <div className='dogDetailMating'>
-                        <div><img src={gender} /><p>Male</p></div>
-                        <div><img src={Dog} /><p>KCI Registered</p></div>
-                      </div>
-                      <div className='actionWrapper'>
-                        <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
-                        <button className='bestBuy' disabled>Pending</button>
-                      </div>
-                    </div>
-                    <div className='match'>
-                      <div>
-                        <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                        <h6>Dog Breed</h6>
-                      </div>
-                      <div className='dogDetailMating'>
-                        <div><img src={gender} /><p>Male</p></div>
-                        <div><img src={Dog} /><p>KCI Registered</p></div>
-                      </div>
-                      <div className='actionWrapper'>
-                        <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
-                        <button className='bestBuy' disabled>Pending</button>
-                      </div>
-                    </div>
-                  </div>
+                    </TabPanel>
+                  </Tabs>
+                  
             </div>
           </div>
         </div>

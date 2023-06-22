@@ -4,7 +4,6 @@ import React from 'react'
 import DashNavUser from '../../Reusable/DashNavUser';
 import dogList from './dogBuyList';
 import DogCard from '../../Reusable/DogCard.js';
-
 import './style.css'
 
 const Pups = () => {

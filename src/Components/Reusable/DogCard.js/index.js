@@ -6,6 +6,12 @@ import vaccine from '../../../Assets/injection.png'
 import Dog from '../../../Assets/dog.png'
 import gender from '../../../Assets/gender-fluid.png'
 import location from '../../../Assets/location-pin.png'
+import share from '../../../Assets/share.png'
+import likeOutline from '../../../Assets/heartLine.png'
+import like from '../../../Assets/heart.png'
+import quality from '../../../Assets/quality.png'
+import { Link } from 'react-router-dom';
+
 
 const id = {
     id: 1,
@@ -44,14 +50,31 @@ const DogCard = ({details, availableForAdoption}) => {
         </Carousel>
         </div>
         <div className='dogCardDetails'>
-            <h3>{details.breed}</h3>
-            <div className='detailWrapper'><img src={Dog} /><p>{details.months ? `${details.months} months`: ""}, {details.weeks ? `${details.weeks} weeks`:""} old</p></div>
-            <div className='detailWrapper'><img src={vaccine}/><p>Vaccinated: {details.isVaccinated ? "Yes" : "No"} </p></div>
-            <div className='detailWrapper'><img src={gender}/><p>Male</p></div>
-            <div className='detailWrapper'><img src={location}/><p>Delhi</p></div>
+            <div className='dogCardHeader'>
+                <h3>  {details.breed}</h3>
+                <div>
+                    <img src={likeOutline} />
+                    <img src={share} />
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div className='detailWrapper'><img src={Dog} /><p>80 days old</p></div>
+                    <div className='detailWrapper'><img src={gender}/><p>Male</p></div>
+                    <div className='detailWrapper'><img src={vaccine}/><p>Vaccinated: {details.isVaccinated ? "Yes" : "No"} </p></div>
+                </div>
+                <div>
+                    <div className='detailWrapper'><img src={location}/><p>Delhi</p></div>
+                    <div className='detailWrapper'><img src={quality}/><p>KCI Registered</p></div>
+                </div>
+            </div>
+            
             <div className='actionWrapper'>
                 <button className='whatsappEnquire'><img src={whatsappIcon} />Enquire</button>
                 {!availableForAdoption && <button className='bestBuy'>Get Best Price</button>}
+            </div>
+            <div className='actionWrapper2'>
+                <Link to="/viewDog"><button>See More</button></Link>
             </div>
         </div>
     </div>

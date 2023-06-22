@@ -1,0 +1,67 @@
+.dogViewWrapper {
+  font-family: fredoka;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+.dogViewWrapper .mainInfo {
+  width: 50%;
+  padding: 0 20px;
+}
+.dogViewWrapper .mainInfo .directInfoWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 20px;
+}
+.dogViewWrapper .mainInfo .directInfoWrapper .directInfo {
+  width: 50%;
+}
+.dogViewWrapper .mainInfo .directInfoWrapper .directInfo .InfoHeader {
+  font-size: 20px;
+  font-family: changa one;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.dogViewWrapper .mainInfo .descriptionWrapper h4 {
+  font-size: 20px;
+  font-family: changa one;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.dogViewWrapper .galleryWrapper {
+  width: 50%;
+  padding: 0 0 0 20px;
+}
+
+.actionWrapper {
+  margin-top: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.actionWrapper button {
+  padding: 12px 24px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: poppins;
+  border: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+.actionWrapper .whatsappEnquire {
+  background: #64b161;
+  color: white;
+}
+.actionWrapper .whatsappEnquire img {
+  height: 20px;
+  width: auto;
+  margin-right: 10px;
+}/*# sourceMappingURL=style.css.map */

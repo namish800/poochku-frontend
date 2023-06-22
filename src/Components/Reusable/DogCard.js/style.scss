@@ -16,9 +16,21 @@
         padding: 20px;
         width: 100%;
 
+        .dogCardHeader{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+
+            img{
+                width: 25px;
+                margin-left: 10px;
+            }
+        }
+
         h3{
             font-family: changa one;
-            margin: 0 0 10px 0;
+            margin: 0 0 0px 0;
             font-size: 22px;
         }
         p{
@@ -40,9 +52,10 @@
         .actionWrapper{
             margin-top: 20px;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             button{
                 padding: 10px 20px;
+                text-align: center;
                 // letter-spacing: 0.2px;
                 text-transform: uppercase;
                 font-weight: 700;
@@ -50,20 +63,38 @@
                 font-family: poppins;
                 border: 0px;
                 display: flex;
-                justify-content: space-between;
+                justify-content: center;
                 align-items: center;
                 border-radius: 8px;
+                width: 48%;
             }
             .whatsappEnquire{
                 background: #64b161;
                 color: white;
-                margin-right: 20px;
+                // margin-right: 20px;
 
                 img{
                     height: 20px;
                     width: auto;
                     margin-right: 10px;
                 }
+            }
+        }
+        .actionWrapper2{
+            margin-top: 15px;
+            width: 100%;
+
+            button{
+                width: 100%;
+                padding: 10px 20px;
+                // letter-spacing: 0.2px;
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 12px;
+                font-family: poppins;
+                border: 0px;
+                text-align: center;
+                border-radius: 8px;
             }
         }
     }

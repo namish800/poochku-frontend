@@ -1,0 +1,72 @@
+.dogViewWrapper{
+    font-family: fredoka;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    .mainInfo{
+        width: 50%;
+        padding: 0 20px;
+        .directInfoWrapper{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 20px;
+            .directInfo{
+                width: 50%;
+                .InfoHeader{
+                    font-size: 20px;
+                    font-family: changa one;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                }
+            }
+        }
+        .descriptionWrapper{
+            h4{
+                font-size: 20px;
+                font-family: changa one;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+        }
+    }
+    .galleryWrapper{
+        width: 50%;
+        padding: 0 0 0 20px;
+    }
+}
+.actionWrapper{
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-between;
+    button{
+        padding: 12px 24px;
+        text-align: center;
+        // letter-spacing: 0.2px;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 14px;
+        font-family: poppins;
+        border: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        // width: 48%;
+    }
+    .whatsappEnquire{
+        background: #64b161;
+        color: white;
+        // margin-right: 20px;
+
+        img{
+            height: 20px;
+            width: auto;
+            margin-right: 10px;
+        }
+    }
+}
