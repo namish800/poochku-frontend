@@ -6,8 +6,12 @@ const AddDog = () => {
     <div className='browsePetWrapper'>
         <DashNavUser />
         <div className='pupListWrapper'>
-            <h3>New Pooch</h3>
-            <p className='pageInfo'>Add your pooch!</p>
+            <div className='pageHeadingSticky'>
+                <div>
+                    <h1>New Pooch</h1>
+                    <p className='pageInfo'>Add your pooch!</p>
+                </div>
+            </div>
             <form className='newDogForm'>
                 <div className='dogInfo'>
                     <div className='newDogWrapper'>
@@ -22,7 +26,7 @@ const AddDog = () => {
                         </select>
                     </div>
                     <div className='newDogWrapper'>
-                        <div style={{display:"flex"}}>
+                        <div className='dogFormDiv'>
                             <div>
                                 <p className='newDogLabel'>Father Breed</p>
                                 <select>
@@ -35,7 +39,7 @@ const AddDog = () => {
                                 </select>
                             </div>
                             <div>
-                            <p className='newDogLabel'>Mother Breed</p>
+                                <p className='newDogLabel'>Mother Breed</p>
                                 <select>
                                     <option>Select a breed</option>
                                     <option>Mixed Breed</option>
@@ -49,12 +53,20 @@ const AddDog = () => {
                     </div>  
                     <div className='newDogWrapper'>
                         <p className='newDogLabel'>Purpose</p>
-                        <label>Mating</label>
-                        <input name="purpose" type='radio'/> 
-                        <label>Adoption</label>
-                        <input name="purpose" type='radio'/> 
-                        <label>Selling</label>
-                        <input name="purpose" type='radio'/>                         
+                        <div className='dogFormDiv'>
+                            <div>
+                                <input name="purpose" type='radio'/> 
+                                <label>Mating</label>
+                            </div>
+                            <div>
+                                <input name="purpose" type='radio'/> 
+                                <label>Adoption</label>
+                            </div>
+                            <div>
+                                <input name="purpose" type='radio'/>    
+                                <label>Selling</label>
+                            </div>           
+                        </div>          
                     </div>  
                     <div className='newDogWrapper'>
                         <p className='newDogLabel'>Age</p>
@@ -74,7 +86,7 @@ const AddDog = () => {
                     <input type="file" />
                 </div>
             </form>
-            <button>Create</button>
+            <button className='dogFormSubmitButton'>Submit</button>
         </div>
     </div>
   )

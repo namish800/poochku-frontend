@@ -1,6 +1,45 @@
 .newDogForm {
   display: flex;
+  padding: 0 15px;
+}
+.newDogForm .newDogWrapper {
+  margin-bottom: 25px;
+}
+.newDogForm .newDogWrapper input {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+.newDogForm .newDogWrapper select {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+.newDogForm .newDogWrapper label {
+  margin-left: 5px;
+  margin-right: 20px;
+}
+.newDogForm .newDogWrapper .newDogLabel {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.newDogForm .newDogWrapper .dogFormDiv {
+  display: flex;
+}
+.newDogForm .newDogWrapper .dogFormDiv div {
+  margin-right: 20px;
 }
 .newDogForm .dogInfo, .newDogForm .dogImgWrapper {
   width: 50%;
+}
+
+.dogFormSubmitButton {
+  padding: 10px 20px;
+  font-family: changa one;
+  color: #fff;
+  background: #ffd903;
+  border: 0px;
+  border-radius: 8px;
+  margin-left: 15px;
 }/*# sourceMappingURL=style.css.map */
