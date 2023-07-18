@@ -1,12 +1,30 @@
-import React from 'react'
-// import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-// import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
 import DashNavUser from '../../Reusable/DashNavUser';
-import dogList from './dogBuyList';
+// import dogList from './dogBuyList';
 import DogCard from '../../Reusable/DogCard.js';
 import './style.css'
+import axios from 'axios';
+import Search from '../../Reusable/Search';
 
 const Pups = () => {
+  const [pupList, setPupList] = useState()
+  const getPupList = async () => {
+    try{
+      const res = await axios.get("https://poochku.azurewebsites.net/pet", {params: {
+        serviceCode: "S",
+        page: 0,
+        size: 30
+      }})
+      setPupList(res.data.pets)
+      console.log(res, "dog List")
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+  useEffect(()=>{
+    getPupList()
+  }, [])
   return (
     <div className='browsePetWrapper'>
         <DashNavUser />
@@ -16,26 +34,12 @@ const Pups = () => {
               <h1 className='buyPageHeading'>Buy Pups</h1>
               <p className='buyPageInfo'>Find your forever friends!</p>
             </div>
-            <div>
-              <input type="text" className='filterInput' placeholder='Search Location'/>
-              <input type="text" className='filterInput' placeholder='Search Breed'/>
-              <select className='filterInput'>
-                <option>Select Gender</option>
-                <option>Male</option>  
-                <option>Female</option>  
-              </select>
-              <select className='filterInput'>
-                <option>Any Quality</option>
-                <option>KCI Registered</option>  
-                <option>Champion Bloodline</option>  
-              </select>
-              <button className='filterButton'>SEARCH</button>
-            </div>
+            <Search />
           </div>
           <div className='buyPageListWrapper'>
             <div className='buyPageList'>
               {
-                dogList.map((e) => {
+                pupList && pupList.map((e) => {
                   return(
                     <DogCard details={e} />
                   )

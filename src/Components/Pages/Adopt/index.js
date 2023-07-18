@@ -4,6 +4,7 @@ import React from 'react'
 import DashNavUser from '../../Reusable/DashNavUser';
 import dogList from '../Pups/dogBuyList';
 import DogCard from '../../Reusable/DogCard.js';
+import Search from '../../Reusable/Search'
 
 import './style.css'
 
@@ -17,21 +18,7 @@ const Adopt = () => {
               <h1 className='buyPageHeading'>Adopt Pups</h1>
               <p className='buyPageInfo'>Find your forever friends!</p>
             </div>
-            <div>
-              <input type="text" className='filterInput' placeholder='Search Location'/>
-              <input type="text" className='filterInput' placeholder='Search Breed'/>
-              <select className='filterInput'>
-                <option>Select Gender</option>
-                <option>Male</option>  
-                <option>Female</option>  
-              </select>
-              <select className='filterInput'>
-                <option>Any Quality</option>
-                <option>KCI Registered</option>  
-                <option>Champion Bloodline</option>  
-              </select>
-              <button className='filterButton'>SEARCH</button>
-            </div>
+            <Search />
           </div>
           <div className='adoptPromptWrapper'>
             <div className='buyPageList'>

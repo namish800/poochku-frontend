@@ -8,16 +8,17 @@
 .browsePetWrapper .pupListWrapper {
   width: calc(100% - 220px);
   padding: 20px 30px 0;
+  background: #f5f5f5;
 }
 .browsePetWrapper .pupListWrapper .pageHeadingSticky {
   position: sticky;
   top: -1px;
   padding: 15px;
-  background: white;
+  background: #f5f5f5;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: stretch;
   z-index: 10;
 }
 .browsePetWrapper .pupListWrapper .pageHeadingSticky.nonStick {
@@ -27,34 +28,11 @@
   margin-bottom: 10px;
   font-family: changa one;
 }
-.browsePetWrapper .pupListWrapper .pageHeadingSticky input {
-  margin: 0 10px;
-}
-.browsePetWrapper .pupListWrapper .pageHeadingSticky select, .browsePetWrapper .pupListWrapper .pageHeadingSticky button {
-  margin: 0 20px;
-}
 .browsePetWrapper .pupListWrapper .pageHeadingSticky .buyPageHeading {
   font-family: changa one;
 }
 .browsePetWrapper .pupListWrapper .pageHeadingSticky .buyPageInfo {
   font-family: fredoka;
-}
-.browsePetWrapper .pupListWrapper .pageHeadingSticky .filterInput {
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 15px;
-  font-size: 14px;
-  padding: 5px 10px;
-  font-family: fredoka;
-}
-.browsePetWrapper .pupListWrapper .pageHeadingSticky .filterButton {
-  padding: 15px 30px;
-  border-radius: 15px;
-  background: linear-gradient(233deg, #ffd903, #ffa502 100%, hsla(0, 0%, 100%, 0));
-  color: #fff;
-  font-family: fredoka;
-  font-weight: 600;
-  border: 0px;
-  letter-spacing: 0.3px;
 }
 .browsePetWrapper .pupListWrapper .buyPageListWrapper {
   display: flex;
@@ -73,9 +51,10 @@
   width: 19%;
   position: sticky;
   top: 150px;
-  padding: 15px;
+  padding: 20px 15px 25px;
   text-align: center;
-  background: linear-gradient(233deg, #ffd903, #ffa502 100%, hsla(0, 0%, 100%, 0));
+  background: #2e0152;
+  background: #6504b5;
   color: white;
   border: 1px solid #ffd903;
   border-radius: 12px;
@@ -87,10 +66,11 @@
   font-family: fredoka;
 }
 .browsePetWrapper .pupListWrapper .buyPageListWrapper .bannerWrapper button {
+  margin-top: 10px;
   padding: 10px 20px;
   font-family: changa one;
   background: #fff;
-  color: #ffd903;
+  color: #6504b5;
   border: 0px;
   border-radius: 8px;
 }/*# sourceMappingURL=style.css.map */

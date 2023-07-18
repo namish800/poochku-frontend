@@ -4,32 +4,34 @@
 .matingWrapper{
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: stretch;
     max-width: calc(100vw - 250px);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
     max-height: 70vh;
 
     .matchSection{
       width: 50%;
-      background: #f5f5f5;
+      background: #fff;
       padding: 0 20px 20px;
       overflow-y: scroll;
       position: relative;
+      box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
 
       h3{
         position: sticky;
         top: 0;
         font-family: changa one;
         padding: 15px 0;
-        background: #f5f5f5;
+        background: #fff;
       }
 
       .match{
         padding: 20px;
         margin-bottom: 20px;
         border-radius: 8px;
-        background: #fff;
+        background: #f5f5f5;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -70,14 +72,16 @@
                 justify-content: space-between;
                 align-items: center;
                 border-radius: 8px;
+                box-shadow: 0px 3px 15px rgba(0,0,0,0.2)
             }
             .whatsappEnquire{
-                background: rgb(100, 177, 97);
+                background: #6504b5;
                 color: white;
                 margin-right: 20px;
+                box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
 
                 &.pending{
-                  background: rgba(100, 177, 97, 0.6);
+                  background: rgba(101, 4, 180,0.5);
                 }
 
                 img{
@@ -95,7 +99,7 @@
         position: relative;
         width: 80vw;
         max-width: 260px;
-        box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.1);
+        box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
         border-radius: 20px;
         overflow: hidden;
       }
@@ -108,6 +112,7 @@
         height: 500px;
         width: 400px;
         overflow: hidden;
+        position: relative;
 
         .dogPhotoWrapper{
           height: 400px;
@@ -120,10 +125,11 @@
           left: 0;
           width: 100%;
           padding: 10px 10px;
-          background: rgba(0,0,0,0.4);
-          color: white;
+          background: rgba(255,255,255,0.7);
+          color: black;
           h3{
             font-size: 22px;
+            color: #6504b5;
           }
           div{
             display: flex;
@@ -131,6 +137,7 @@
             margin-bottom: 5px;
             p{
               margin-bottom: 0;
+              font-weight: 500;
             }
             img{
               width: 20px;
@@ -140,4 +147,33 @@
           }
         }
       }
+}
+
+.matingButtons{
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  img{
+    width: 20px;
+    height: 20px;
+  }
+  .leftSwipe{
+    background: red;
+    border-radius: 50%;
+  }
+  .rightSwipe{
+    background: green;
+    border-radius: 50%;
+  }
+
+    button{
+      padding:15px;
+      border-radius: 12px;
+      border: 0px ;
+      color: white;
+      background: #6504b5;
+    }
 }

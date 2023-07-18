@@ -15,11 +15,11 @@
   width: 19%;
   position: sticky;
   top: 150px;
-  padding: 15px;
+  padding: 20px 15px 25px;
   text-align: center;
-  background: linear-gradient(233deg, #ffd903, #ffa502 100%, hsla(0, 0%, 100%, 0));
+  background: #6504b5;
   color: white;
-  border: 1px solid #ffd903;
+  border: 1px solid #6504b5;
   border-radius: 12px;
 }
 .adoptPromptWrapper .bannerWrapper h3 {
@@ -30,9 +30,10 @@
 }
 .adoptPromptWrapper .bannerWrapper button {
   padding: 10px 20px;
+  margin-top: 10px;
   font-family: changa one;
   background: #fff;
-  color: #ffd903;
+  color: #6504b5;
   border: 0px;
   border-radius: 8px;
 }/*# sourceMappingURL=style.css.map */

@@ -9,7 +9,11 @@
     justify-content: space-between;
     align-items: stretch;
     padding: 10px 20px;
-    background: #f5f5f5;
+    background: #fff;
+
+    .linkWrapper{
+        padding: 20px;
+    }
 
     .DhashNavLogo{
         width: 100px;
@@ -19,9 +23,14 @@
     .DhashNavLink{
         width: 100%;
         display: flex;
-        justify-content: start;
+        justify-content: center;
         margin-top: 30px;
         align-items: start;
+        text-decoration: none;
+        color:#6504b5;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
 
         &.logo{
             justify-content: center;

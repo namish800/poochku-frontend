@@ -57,25 +57,20 @@ const DogCard = ({details, availableForAdoption}) => {
                     <img src={share} />
                 </div>
             </div>
-            <div>
-                <div>
-                    <div className='detailWrapper'><img src={Dog} /><p>80 days old</p></div>
-                    <div className='detailWrapper'><img src={gender}/><p>Male</p></div>
-                    <div className='detailWrapper'><img src={vaccine}/><p>Vaccinated: {details.isVaccinated ? "Yes" : "No"} </p></div>
-                </div>
-                <div>
-                    <div className='detailWrapper'><img src={location}/><p>Delhi</p></div>
-                    <div className='detailWrapper'><img src={quality}/><p>KCI Registered</p></div>
-                </div>
-            </div>
-            
+            <div className='dogDetails'>
+                    <div className='detailWrapper'><img src={gender}/><p>{details.gender ? details.gender : "N/A"}</p></div>
+                    <div className='detailWrapper'><img src={quality}/><p>{details.quality ? details.quality : "N/A"}</p></div>
+                    <div className='detailWrapper'><img src={location}/><p>{details.location ? details.location : "N/A"}</p></div>
+                    {/* <div className='detailWrapper'><img src={vaccine}/><p>Vaccinated: {details.isVaccinated ? "Yes" : "No"} </p></div> */}
+                    {/* <div className='detailWrapper'><img src={Dog} /><p>80 days old</p></div> */}
+            </div>            
             <div className='actionWrapper'>
                 <button className='whatsappEnquire'><img src={whatsappIcon} />Enquire</button>
-                {!availableForAdoption && <button className='bestBuy'>Get Best Price</button>}
+                {availableForAdoption ? <button className='bestBuy'>See More</button> : <button className='bestBuy'>Get Best Price</button>}
             </div>
-            <div className='actionWrapper2'>
+            {!availableForAdoption && <div className='actionWrapper2'>
                 <Link to="/viewDog"><button>See More</button></Link>
-            </div>
+            </div>}
         </div>
     </div>
   )

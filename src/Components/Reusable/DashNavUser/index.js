@@ -13,28 +13,30 @@ const DashNavUser = () => {
         <Link className='DhashNavLink logo' to="/">
           <img className='DhashNavLogo' src={Logo} />
         </Link>
-        <Link to="/browse" className='DhashNavLink'>
-          {/* <img className='DashNavIcon' src={Browse} /> */}
-          <p>Buy Pups</p>
-        </Link>
-        <Link to="/browse" className='DhashNavLink'>
-          {/* <img className='DashNavIcon' src={PetShop}/> */}
-          <p>Shop</p>
-        </Link>
-        <Link to="/mating" className='DhashNavLink'>
-          {/* <img className='DashNavIcon' src={dog}/> */}
-          <p>Mating</p>
-        </Link>
-        <Link to="/adopt" className='DhashNavLink'>
-          {/* <img className='DashNavIcon' src={adopt}/> */}
-          <p>Adopt</p>
-        </Link>
+        <div className='linkWrapper'>
+          <Link to="/browse" className='DhashNavLink'>
+            {/* <img className='DashNavIcon' src={Browse} /> */}
+            <p>Buy Pups</p>
+          </Link>
+          <Link to="/browse" className='DhashNavLink'>
+            {/* <img className='DashNavIcon' src={PetShop}/> */}
+            <p>Shop</p>
+          </Link>
+          <Link to="/mating" className='DhashNavLink'>
+            {/* <img className='DashNavIcon' src={dog}/> */}
+            <p>Mating</p>
+          </Link>
+          <Link to="/adopt" className='DhashNavLink'>
+            {/* <img className='DashNavIcon' src={adopt}/> */}
+            <p>Adopt</p>
+          </Link>
+        </div>
       </div>
-      <div>
+      {/* <div>
         <Link to="/seller" className='DhashNavLink' style={{textAlign:"center"}}>
             <p>Sell with us</p>
         </Link>
-      </div>
+      </div> */}
     </div>
   )
 }

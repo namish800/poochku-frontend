@@ -1,0 +1,25 @@
+.searchWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-left: 40px;
+}
+.searchWrapper .filterInput {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  font-size: 14px;
+  padding: 5px 10px;
+  font-family: fredoka;
+  margin: 0;
+}
+.searchWrapper .filterButton {
+  padding: 15px 30px;
+  border-radius: 15px;
+  background: #fff;
+  border: 1px solid #6504b5;
+  color: #6504b5;
+  font-family: fredoka;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin: 0;
+}/*# sourceMappingURL=style.css.map */

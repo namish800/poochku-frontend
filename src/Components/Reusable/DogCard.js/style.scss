@@ -2,11 +2,13 @@
     width: 32%;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(233deg, #ffd903, #ffa502 100%, hsla(0, 0%, 100%, 0));
-    border: 1px solid #ffd903;
+    background: #fff;
+    // border: 1px solid #6504b5;
     margin-bottom: 20px;
     border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    // color: white;
 
     .dogCardSlider{
         width: 100%;
@@ -16,6 +18,12 @@
         padding: 20px;
         width: 100%;
 
+        .dogDetails{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
         .dogCardHeader{
             display: flex;
             justify-content: space-between;
@@ -23,8 +31,8 @@
             margin-bottom: 10px;
 
             img{
-                width: 25px;
-                margin-left: 10px;
+                width: 22px;
+                margin-left: 20px;
             }
         }
 
@@ -32,20 +40,22 @@
             font-family: changa one;
             margin: 0 0 0px 0;
             font-size: 22px;
+            color: #6504b5;
         }
         p{
             font-family: fredoka;
             margin: 5px 0;
-            font-size: 14px;
+            font-size: 13px;
+            font-weight: 500;
         }
 
         .detailWrapper{
             display: flex;
             align-items: center;
             img{
-                width: 20px;
+                width: 15px;
                 height: auto;
-                margin-right: 15px;
+                margin-right: 5px;
             }
         }
 
@@ -67,10 +77,13 @@
                 align-items: center;
                 border-radius: 8px;
                 width: 48%;
+                // box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
             }
             .whatsappEnquire{
-                background: #64b161;
+                // background: #64b161;
+                background: #6504b5;
                 color: white;
+                box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
                 // margin-right: 20px;
 
                 img{
