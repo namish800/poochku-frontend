@@ -12,23 +12,19 @@ const SellerUserNav = () => {
         </Link>
         <Link to="/browse" className='DhashNavLink'>
           {/* <img className='DashNavIcon' src={Browse} /> */}
-          <p>Your Listings</p>
+          <p>Dashboard</p>
         </Link>
         <Link to="/browse" className='DhashNavLink'>
           {/* <img className='DashNavIcon' src={PetShop}/> */}
-          <p>List New Dog</p>
+          <p>Billing & Plans</p>
         </Link>
         <Link to="/mating" className='DhashNavLink'>
           {/* <img className='DashNavIcon' src={dog}/> */}
-          <p>Billing</p>
+          <p>Support</p>
         </Link>
         <Link to="/adopt" className='DhashNavLink'>
           {/* <img className='DashNavIcon' src={adopt}/> */}
-          <p>Help</p>
-        </Link>
-        <Link to="/adopt" className='DhashNavLink'>
-          {/* <img className='DashNavIcon' src={adopt}/> */}
-          <p>FAQs</p>
+          <p>Account</p>
         </Link>
       </div>
       {/* <div>

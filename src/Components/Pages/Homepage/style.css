@@ -7,50 +7,64 @@
   background-size: cover;
   font-family: fredoka;
 }
+.landingBanner .mainSearch {
+  font-size: 16px;
+  padding: 20px;
+  border-radius: 40px;
+  border: 0px;
+  width: 500px;
+}
 .landingBanner .landingActions {
   padding: 20px;
   position: absolute;
-  top: 25vh;
+  top: 22vh;
   left: 5vw;
-  font-weight: 700;
-  font-size: 120px;
   color: rgb(240, 82, 42);
 }
 .landingBanner .landingActions .landingHeading {
+  font-weight: 700;
+  font-size: 120px;
   line-height: 120px;
+  margin-bottom: 30px;
 }
 .landingBanner .landingActions button {
   font-family: changa one;
-  padding: 20px;
-  background: white;
+  padding: 20px 30px;
+  background: rgb(240, 82, 42);
   border: 0px;
-  border-radius: 4px;
-  color: rgb(255, 165, 2);
+  border-radius: 40px;
+  color: #fff;
   font-size: 20px;
   font-weight: 400;
   margin-top: 0;
-  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .landingButtonMain.secondary {
   font-family: changa one;
-  padding: 20px;
-  background: rgb(255, 165, 2);
+  padding: 20px 30px;
+  background: #fea501;
   border: 0px;
-  border-radius: 4px;
   color: white;
   font-size: 20px;
   font-weight: 400;
   margin-top: 0;
   margin-right: 20px;
+  border-radius: 40px;
+}
+
+.landingButtonMain.secondary.adopt {
+  background: #fff;
+  color: #6504B5;
+  border: 1px solid #6504B5;
 }
 
 .landingIntro {
   text-align: center;
-  height: 120vh;
+  height: 105vh;
   background: url("../../../Assets/introBackground.png");
   background-position: bottom;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
@@ -69,9 +83,9 @@
   font-family: changa one;
   font-size: 25px;
   width: 50%;
-  margin-top: 8vh;
+  margin-top: 10vh;
   letter-spacing: 1px;
-  color: #ffa502;
+  color: #6504B5;
 }
 .landingIntro div .introInfo {
   width: 100%;
@@ -82,7 +96,7 @@
   letter-spacing: 0px;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: center;
 }
 .landingIntro div .introInfo p {
   padding-left: 20px;
@@ -91,4 +105,189 @@
 .landingIntro div .introInfo img {
   width: auto;
   height: 200px;
+}
+
+.landingBreak {
+  background: #6504B5;
+  color: #fff;
+  text-align: center;
+  padding: 50px;
+}
+.landingBreak h1 {
+  margin-bottom: 50px;
+  font-family: changa one;
+}
+.landingBreak .cityWrapper {
+  display: flex;
+  justify-content: space-around;
+  font-family: fredoka;
+}
+.landingBreak .cityWrapper img {
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  padding: 20px;
+  border-radius: 50%;
+  height: 100px;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+.optionBoxWrapper {
+  background: #f5f5f5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 150px 0 100px;
+}
+.optionBoxWrapper .optionBox {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+  padding-top: 50px;
+}
+.optionBoxWrapper .optionBox .option {
+  width: 49%;
+  display: flex;
+  justify-content: start;
+  position: relative;
+  padding: 20px;
+  font-family: fredoka;
+  overflow: visible;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+.optionBoxWrapper .optionBox .option .optionDetails {
+  width: 50%;
+}
+.optionBoxWrapper .optionBox .option .optionDetails h1 {
+  margin-bottom: 10px;
+  font-family: changa one;
+}
+.optionBoxWrapper .optionBox .option img {
+  height: 110%;
+  max-height: 700px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.optionBoxWrapper .optionBox .option:nth-child(1) {
+  width: 100%;
+}
+.optionBoxWrapper .optionBox .option:nth-child(1) img {
+  width: 50%;
+  height: auto;
+}
+
+.articleSectionWrapper {
+  background: #6504B5;
+  padding: 100px 60px;
+  color: #fff;
+}
+.articleSectionWrapper h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: changa one;
+}
+.articleSectionWrapper p {
+  text-align: center;
+  margin-bottom: 60px;
+  font-family: fredoka;
+}
+.articleSectionWrapper .articleSection {
+  font-family: fredoka;
+  font-weight: 600;
+  color: #6504B5;
+  display: flex;
+  justify-content: space-around;
+}
+.articleSectionWrapper .articleSection .articleCategory {
+  text-align: center;
+  width: 48%;
+  height: 400px;
+  background: url("../../../Assets/dogadoption.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+.articleSectionWrapper .articleSection .articleCategory:nth-child(2) {
+  background: url("../../../Assets/catadoption.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.articleSectionWrapper .articleSection .articleCategory div {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  padding: 20px;
+}
+.articleSectionWrapper .articleSection .articleCategory div img {
+  position: absolute;
+  top: 0;
+}
+.articleSectionWrapper .articleSection .articleCategory div p {
+  margin: 0;
+}
+
+.faqWrapper {
+  background: #6504B5;
+  padding: 100px 60px;
+  color: #fff;
+}
+.faqWrapper h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: changa one;
+  margin-bottom: 60px;
+}
+.faqWrapper p {
+  font-family: fredoka;
+}
+
+.breederCallWrapper {
+  background: #fbfbfb;
+  display: flex;
+  justify-content: center;
+}
+.breederCallWrapper .breederCall {
+  width: 70%;
+  padding: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.breederCallWrapper .breederCall h4 {
+  font-family: changa one;
+}
+.breederCallWrapper .breederCall p {
+  font-family: fredoka;
+  margin-bottom: 0;
+}
+.breederCallWrapper .breederCall img {
+  width: 70px;
+  height: auto;
+}
+
+.helpSection {
+  background: #fbfbfb;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 100px 60px;
+  font-family: fredoka;
+}
+.helpSection div {
+  width: 80%;
+  padding: 10px;
+}
+.helpSection img {
+  width: 20%;
 }/*# sourceMappingURL=style.css.map */

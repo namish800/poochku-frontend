@@ -9,7 +9,7 @@
   justify-content: space-between;
   align-items: stretch;
   padding: 10px 20px;
-  background: #f5f5f5;
+  background: #fff;
 }
 .sellerNavUserWrapper .DhashNavLogo {
   width: 100px;
@@ -18,9 +18,13 @@
 .sellerNavUserWrapper .DhashNavLink {
   width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   margin-top: 30px;
   align-items: start;
+  color: #6504B5;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 .sellerNavUserWrapper .DhashNavLink.logo {
   justify-content: center;

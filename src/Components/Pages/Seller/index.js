@@ -8,7 +8,7 @@ const Seller = () => {
   return (
     <div className='browsePetWrapper'>
         <SellerUserNav />
-        <div className='pupListWrapper mating'>
+        <div className='pupListWrapper seller'>
           <div className='pageHeadingSticky nonStick'>
             <div>
               <h1 className='buyPageHeading'>Dashboard</h1>

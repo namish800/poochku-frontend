@@ -1,10 +1,16 @@
 .dogForSaleCard {
   width: 24%;
   border-radius: 8px;
-  border: 1px solid #ffd903;
+  border: 1px solid #6504B5;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   font-family: fredoka;
   padding: 15px;
   margin-bottom: 20px;
+}
+.dogForSaleCard .pupDetail {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 .dogForSaleCard .detailWrapper {
   display: flex;
