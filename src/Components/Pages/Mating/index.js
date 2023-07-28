@@ -13,6 +13,7 @@ import Search from '../../Reusable/Search'
 import Close from '../../../Assets/close.png'
 import Check from '../../../Assets/check.png'
 import Rupee from '../../../Assets/rupee.png'
+import happy from "../../../Assets/happy.png"
 
 const db = [
     {
@@ -48,7 +49,7 @@ const Mating = () => {
     const [lastDirection, setLastDirection] = useState()
     // used for outOfFrame closure
     const currentIndexRef = useRef(currentIndex)
-  
+    const [isAvailable, setIsAvailable] = useState(false);
     const childRefs = useMemo(
       () =>
         Array(db.length)
@@ -109,7 +110,7 @@ const Mating = () => {
             </div>
             <Search />
           </div>
-          <div className='matingWrapper'>
+          {isAvailable ? <div className='matingWrapper'>
             <div className='cardContainer'>
                 {dogList.map((character, index) =>
                     <TinderCard  ref={childRefs[index]}
@@ -276,10 +277,14 @@ const Mating = () => {
                       </div>
                     </TabPanel>
                   </Tabs>
-                  
             </div>
-          </div>
-        </div>
+          </div> :
+        <div className='addMatingDog'>
+          <img src={happy} />
+          <h1>Please add a dog first!</h1>
+          <button className='landingButtonMain secondary adopt'>Add a Dog</button>
+        </div>}
+        </div> 
     </div>
 
   )

@@ -177,3 +177,18 @@
       background: #6504b5;
     }
 }
+.addMatingDog{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img{
+    width: 250px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+  h1{
+    margin-bottom: 30px;
+  }
+}

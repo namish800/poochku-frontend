@@ -80,7 +80,6 @@ const AddDog = () => {
                             <option value="toy_pom">Toy Pom</option>
                             <option value="doberman">Doberman</option>
                         </select>
-
                     </div>
                     <div className='newDogWrapper'>
                         <p className='newDogLabel'>Name</p>

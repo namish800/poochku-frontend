@@ -8,11 +8,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  padding: 10px 20px;
+  padding: 10px 0px 0;
   background: #fff;
-}
-.DashNavUserWrapper .linkWrapper {
-  padding: 20px;
 }
 .DashNavUserWrapper .DhashNavLogo {
   width: 100px;
@@ -22,13 +19,13 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 0px;
   align-items: start;
   text-decoration: none;
   color: #6504b5;
   font-size: 18px;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
+  padding: 20px 0;
 }
 .DashNavUserWrapper .DhashNavLink.logo {
   justify-content: center;
@@ -40,4 +37,9 @@
 }
 .DashNavUserWrapper .DhashNavLink p {
   font-family: changa one;
+  margin-bottom: 0;
+}
+.DashNavUserWrapper .active {
+  background: #6504b5;
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */

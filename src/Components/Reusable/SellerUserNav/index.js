@@ -24,7 +24,7 @@ const SellerUserNav = () => {
         </Link>
         <Link to="/adopt" className='DhashNavLink'>
           {/* <img className='DashNavIcon' src={adopt}/> */}
-          <p>Account</p>
+          <p>My Account</p>
         </Link>
       </div>
       {/* <div>

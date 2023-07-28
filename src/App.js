@@ -8,6 +8,8 @@ import Mating from './Components/Pages/Mating';
 import AddDog from './Components/Pages/AddDog';
 import Seller from './Components/Pages/Seller';
 import ViewDog from './Components/Pages/ViewDog';
+import UserAccount from './Components/Pages/UserAccount';
+import Shop from './Components/Pages/Shop';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route exact path='/mating' element={<Mating/>}/>
           <Route exact path='/newDog' element={<AddDog/>}/>
           <Route exact path='/seller' element={<Seller/>}/>
+          <Route exact path='/shop' element={<Shop/>}/>
+          <Route exact path="/useraccount" element={<UserAccount/>}/>
         </Routes>
       </BrowserRouter>
     </div>

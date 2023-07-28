@@ -8,12 +8,12 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
-    padding: 10px 20px;
+    padding: 10px 0px 0;
     background: #fff;
 
-    .linkWrapper{
-        padding: 20px;
-    }
+    // .linkWrapper{
+    //     padding: 20px;
+    // }
 
     .DhashNavLogo{
         width: 100px;
@@ -24,13 +24,14 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        margin-top: 30px;
+        margin-top: 0px;
         align-items: start;
         text-decoration: none;
         color:#6504b5;
         font-size: 18px;
-        text-transform: uppercase;
+        // text-transform: uppercase;
         letter-spacing: 0.5px;
+        padding: 20px 0;
 
         &.logo{
             justify-content: center;
@@ -44,6 +45,12 @@
 
         p{
             font-family: changa one;
+            margin-bottom: 0;
         }
+    }
+
+    .active{
+        background: #6504b5;
+        color: #fff;
     }
 }
