@@ -290,4 +290,17 @@
 }
 .helpSection img {
   width: 20%;
+}
+
+.enquiryModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400;
+  border-radius: 12px;
+  padding: 40px;
+  background: #6504B5;
+  color: #fff;
+  font-family: fredoka;
 }/*# sourceMappingURL=style.css.map */

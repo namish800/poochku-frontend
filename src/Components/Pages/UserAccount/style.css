@@ -1,0 +1,62 @@
+.userAccountWrapper {
+  font-family: fredoka;
+}
+.userAccountWrapper h2 {
+  font-family: changa one;
+  margin-bottom: 20px;
+}
+.userAccountWrapper .MuiTypography-root {
+  font-family: fredoka;
+}
+.userAccountWrapper #vertical-tabpanel-0 {
+  flex-grow: 1;
+}
+.userAccountWrapper #vertical-tabpanel-1 {
+  flex-grow: 1;
+}
+.userAccountWrapper #vertical-tabpanel-2 {
+  flex-grow: 1;
+}
+.userAccountWrapper .MuiTabs-scroller button {
+  font-family: fredoka;
+}
+.userAccountWrapper .profileForm .formRow {
+  display: flex;
+  justify-content: space-between;
+}
+.userAccountWrapper .profileForm .formRow div {
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+}
+.userAccountWrapper .profileForm .formRow input, .userAccountWrapper .profileForm .formRow select {
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.userAccountWrapper .profileForm.security .formRow div {
+  width: 32%;
+}
+.userAccountWrapper .petSection {
+  width: 100%;
+}
+.userAccountWrapper .petSection .sectionHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.userAccountWrapper .petSection .sectionHeader h2 {
+  margin: 0;
+}
+.userAccountWrapper .petSection .addDog {
+  background: #6504B5;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 30px;
+  font-family: fredoka;
+  font-weight: 500;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  border: 0px;
+}/*# sourceMappingURL=style.css.map */

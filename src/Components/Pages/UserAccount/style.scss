@@ -1,0 +1,69 @@
+.userAccountWrapper{
+    font-family: fredoka;
+    h2{
+        font-family: changa one;
+        margin-bottom: 20px;
+    }
+    .MuiTypography-root{
+        font-family: fredoka;
+    }
+    #vertical-tabpanel-0{
+        flex-grow: 1;
+    }
+    #vertical-tabpanel-1{
+        flex-grow: 1;
+    }
+    #vertical-tabpanel-2{
+        flex-grow: 1;
+    }
+    .MuiTabs-scroller button{
+        font-family: fredoka;
+    }
+    .profileForm{
+        .formRow{
+            display: flex;
+            justify-content: space-between;
+            div{
+                width: 49%;
+                display: flex;
+                flex-direction: column;
+            }
+            input, select{
+                padding: 12px;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+        }
+        &.security{
+            .formRow{
+                div{
+                    width: 32%;
+                }
+            }
+        }
+    }
+    .petSection{
+        width: 100%;
+        .sectionHeader{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+
+            h2{
+                margin: 0;
+            }
+        }
+        .addDog{
+            background: #6504B5;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 30px;
+            font-family: fredoka;
+            font-weight: 500;
+            box-shadow: 0px 3px 15px rgba(0,0,0,0.2); 
+            border: 0px;
+        }
+    }
+}

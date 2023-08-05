@@ -7,6 +7,9 @@
   margin-bottom: 20px;
   background: #fff;
 }
+.dogForSaleCard .dogPic {
+  width: 100%;
+}
 .dogForSaleCard .pupDetail {
   display: flex;
   align-items: center;

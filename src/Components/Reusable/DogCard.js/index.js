@@ -11,6 +11,8 @@ import likeOutline from '../../../Assets/heartLine.png'
 import like from '../../../Assets/heart.png'
 import quality from '../../../Assets/quality.png'
 import { Link } from 'react-router-dom';
+import EnquiryModal from '../EnquiryModal';
+import { useState } from 'react';
 
 
 const id = {
@@ -29,6 +31,10 @@ const id = {
 }
 
 const DogCard = ({details, availableForAdoption}) => {
+    const [popup, setPopup]=useState(false)
+    const enquiryRequest = () => {
+        setPopup(!popup)
+    }
   return (
     <div className='dogCardWrapper'>
         <div className='dogCardSlider'>
@@ -66,12 +72,13 @@ const DogCard = ({details, availableForAdoption}) => {
             </div>            
             <div className='actionWrapper'>
                 <button className='whatsappEnquire'><img src={whatsappIcon} />Enquire</button>
-                {availableForAdoption ? <button className='bestBuy'>See More</button> : <button className='bestBuy'>Get Best Price</button>}
+                {availableForAdoption ? <button className='bestBuy'>See More</button> : <button className='bestBuy'onClick={enquiryRequest}>Get Best Price</button>}
             </div>
             {!availableForAdoption && <div className='actionWrapper2'>
                 <Link to="/viewDog"><button>See More</button></Link>
             </div>}
         </div>
+        <EnquiryModal open={popup} setOpen={setPopup}/>
     </div>
   )
 }

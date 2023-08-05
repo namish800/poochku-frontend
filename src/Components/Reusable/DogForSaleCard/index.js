@@ -7,7 +7,7 @@ import click from '../../../Assets/click.png'
 const DogForSaleCard = () => {
   return (
     <div className='dogForSaleCard'>
-        <img src={Pitbull}/>
+        <img className='dogPic' src={Pitbull}/>
         <hr/>
       <h3>Pitbull</h3>
         <div className='pupDetail'>

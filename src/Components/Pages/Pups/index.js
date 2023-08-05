@@ -5,9 +5,11 @@ import DogCard from '../../Reusable/DogCard.js';
 import './style.css'
 import axios from 'axios';
 import Search from '../../Reusable/Search';
+import EnquiryModal from '../../Reusable/EnquiryModal';
 
 const Pups = () => {
   const [pupList, setPupList] = useState()
+  const [popup, setPopup] = useState(false)
   const getPupList = async () => {
     try{
       const res = await axios.get("https://poochku.azurewebsites.net/pet", {params: {
@@ -21,6 +23,9 @@ const Pups = () => {
     catch(err){
       console.log(err)
     }
+  }
+  const enquiryRequest = () => {
+    setPopup(!popup);
   }
   useEffect(()=>{
     getPupList()
@@ -50,11 +55,12 @@ const Pups = () => {
                 <div className='mainOffer'>
                   <h3>Buy with Poochku!</h3>
                   <p>Leave it to Us! <br/>We Handpick the Finest Partners to bring you the best Pooches, so you don't have to worry.</p>
-                  <button>Find your Pooch</button>
+                  <button onClick={enquiryRequest}>Find your Pooch</button>
                 </div>
             </div>       
           </div>
         </div>
+        <EnquiryModal open={popup} setOpen={setPopup}/>
     </div>
   )
 }
