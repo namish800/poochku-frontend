@@ -5,7 +5,8 @@ import DashNavUser from '../../Reusable/DashNavUser';
 import dogList from '../Pups/dogBuyList';
 import DogCard from '../../Reusable/DogCard.js';
 import Search from '../../Reusable/Search'
-
+import MobileNav from '../../Reusable/MobileNav'
+import MobileSearch from '../../Reusable/MobileSearch'
 import './style.css'
 
 const Adopt = () => {
@@ -20,6 +21,7 @@ const Adopt = () => {
             </div>
             <Search />
           </div>
+          <MobileSearch />
           <div className='adoptPromptWrapper'>
             <div className='buyPageList'>
               {
@@ -37,6 +39,7 @@ const Adopt = () => {
             </div>  
           </div>
         </div>
+        <MobileNav/>
     </div>
   )
 }

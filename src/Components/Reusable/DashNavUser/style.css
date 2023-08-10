@@ -42,4 +42,10 @@
 .DashNavUserWrapper .active {
   background: #6504b5;
   color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+  .DashNavUserWrapper {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */

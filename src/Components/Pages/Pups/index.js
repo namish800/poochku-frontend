@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import DashNavUser from '../../Reusable/DashNavUser';
-// import dogList from './dogBuyList';
+import dogList from './dogBuyList';
 import DogCard from '../../Reusable/DogCard.js';
 import './style.css'
 import axios from 'axios';
 import Search from '../../Reusable/Search';
 import EnquiryModal from '../../Reusable/EnquiryModal';
+import MobileSearch from '../../Reusable/MobileSearch';
+import MobileNav from '../../Reusable/MobileNav';
 
 const Pups = () => {
   const [pupList, setPupList] = useState()
   const [popup, setPopup] = useState(false)
   const getPupList = async () => {
     try{
-      const res = await axios.get("https://poochku.azurewebsites.net/pet", {params: {
+      const res = await axios.get("https://poochku-prod.azurewebsites.net/pet", {params: {
         serviceCode: "S",
-        page: 0,
+        page: 1,
         size: 30
       }})
       setPupList(res.data.pets)
@@ -41,10 +43,11 @@ const Pups = () => {
             </div>
             <Search />
           </div>
+          <MobileSearch/>
           <div className='buyPageListWrapper'>
             <div className='buyPageList'>
               {
-                pupList && pupList.map((e) => {
+                dogList && dogList.map((e) => {
                   return(
                     <DogCard details={e} />
                   )
@@ -60,6 +63,7 @@ const Pups = () => {
             </div>       
           </div>
         </div>
+        <MobileNav />
         <EnquiryModal open={popup} setOpen={setPopup}/>
     </div>
   )

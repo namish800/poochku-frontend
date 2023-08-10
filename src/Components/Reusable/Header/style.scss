@@ -22,3 +22,29 @@
         color: #6504b5;
     }
 }
+
+.mobileHeader{
+    display: none!important;
+}
+
+@media only screen and (max-width: 768px) {
+    .headerWrapper{
+        display: none;
+    }
+    
+    .mobileHeader{
+        display: block!important;
+        font-family: fredoka;
+        font-size: 14px;
+        font-weight: 500;
+
+        a{
+            text-decoration: none;
+            color: #6504b5;
+        }
+
+        .headerLogo{
+            width: 70px;
+        }
+    }
+}

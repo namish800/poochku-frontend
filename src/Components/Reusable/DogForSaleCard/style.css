@@ -57,4 +57,68 @@
   height: 20px;
   width: auto;
   margin-right: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .dogForSaleCard {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #6504B5;
+    font-family: fredoka;
+    padding: 10px 5px;
+    margin-bottom: 20px;
+    background: #fff;
+  }
+  .dogForSaleCard .dogPic {
+    width: 100%;
+    border-radius: 8px;
+  }
+  .dogForSaleCard .pupDetail {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .dogForSaleCard .detailWrapper {
+    display: flex;
+    align-items: center;
+  }
+  .dogForSaleCard .detailWrapper img {
+    width: 20px;
+    height: auto;
+    margin-right: 15px;
+  }
+  .dogForSaleCard h3 {
+    margin-bottom: 10px;
+    font-family: changa one;
+  }
+  .dogForSaleCard p {
+    margin-bottom: 5px;
+  }
+  .dogForSaleCard .actionWrapper {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .dogForSaleCard .actionWrapper button {
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    font-family: poppins;
+    border: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+  }
+  .dogForSaleCard .actionWrapper .whatsappEnquire {
+    background: #64b161;
+    color: white;
+    margin-right: 0px;
+  }
+  .dogForSaleCard .actionWrapper .whatsappEnquire img {
+    height: 20px;
+    width: auto;
+    margin-right: 10px;
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -14,6 +14,7 @@ import Close from '../../../Assets/close.png'
 import Check from '../../../Assets/check.png'
 import Rupee from '../../../Assets/rupee.png'
 import happy from "../../../Assets/happy.png"
+import MobileNav from '../../Reusable/MobileNav'
 
 const db = [
     {
@@ -49,7 +50,7 @@ const Mating = () => {
     const [lastDirection, setLastDirection] = useState()
     // used for outOfFrame closure
     const currentIndexRef = useRef(currentIndex)
-    const [isAvailable, setIsAvailable] = useState(false);
+    const [isAvailable, setIsAvailable] = useState(true);
     const childRefs = useMemo(
       () =>
         Array(db.length)
@@ -100,7 +101,7 @@ const Mating = () => {
     }
 
   return (
-    <div className='browsePetWrapper'>
+    <div className='browsePetWrapper mating'>
         <DashNavUser />
         <div className='pupListWrapper mating'>
           <div className='pageHeadingSticky'>
@@ -285,6 +286,7 @@ const Mating = () => {
           <button className='landingButtonMain secondary adopt'>Add a Dog</button>
         </div>}
         </div> 
+        <MobileNav />
     </div>
 
   )

@@ -22,4 +22,10 @@
   font-weight: 600;
   letter-spacing: 0.3px;
   margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .searchWrapper {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */

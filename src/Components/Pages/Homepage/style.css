@@ -292,15 +292,309 @@
   width: 20%;
 }
 
-.enquiryModal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400;
-  border-radius: 12px;
-  padding: 40px;
-  background: #6504B5;
-  color: #fff;
-  font-family: fredoka;
+@media only screen and (max-width: 768px) {
+  .landingButtonMain.secondary {
+    font-family: changa one;
+    padding: 20px 30px;
+    background: #fea501;
+    border: 0px;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 0;
+    margin-right: 20px;
+    border-radius: 40px;
+  }
+  .landingButtonMain.secondary.adopt {
+    background: #fff;
+    color: #6504B5;
+    border: 1px solid #6504B5;
+  }
+  .landingBanner {
+    height: 100vh;
+    max-width: 100%;
+    background: url("../../../Assets/banner.png");
+    background-position: -50% 0;
+    position: relative;
+    background-size: cover;
+    font-family: fredoka;
+  }
+  .landingBanner .landingAction .landingButtonMain {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  .landingBanner .mainSearch {
+    font-size: 12px;
+    padding: 20px;
+    border-radius: 40px;
+    border: 0px;
+    width: 300px;
+  }
+  .landingBanner .landingActions {
+    padding: 20px;
+    position: absolute;
+    top: 15vh;
+    left: 3vw;
+    color: #fff;
+  }
+  .landingBanner .landingActions .landingHeading {
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 70px;
+    margin-bottom: 30px;
+  }
+  .landingBanner .landingActions button {
+    font-family: changa one;
+    padding: 20px 30px;
+    background: rgb(240, 82, 42);
+    border: 0px;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 0;
+    margin-left: 20px;
+  }
+  .landingIntro {
+    text-align: center;
+    height: 100vh;
+    background: url("../../../Assets/introBackground.png");
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+  }
+  .landingIntro h1 {
+    font-family: fredoka;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  .landingIntro div {
+    font-family: changa one;
+    font-size: 25px;
+    width: 80%;
+    margin-top: 6vh;
+    letter-spacing: 1px;
+    color: #6504B5;
+  }
+  .landingIntro div .introInfo {
+    width: 100%;
+    margin-top: 20px;
+    font-family: fredoka;
+    color: #333;
+    font-size: 14px;
+    letter-spacing: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .landingIntro div .introInfo p {
+    padding-left: 20px;
+    text-align: justify;
+  }
+  .landingIntro div .introInfo img {
+    width: auto;
+    height: 100px;
+  }
+  .landingBreak {
+    background: #6504B5;
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+  }
+  .landingBreak h1 {
+    margin-bottom: 50px;
+    font-family: changa one;
+  }
+  .landingBreak .cityWrapper {
+    display: flex;
+    justify-content: space-around;
+    font-family: fredoka;
+    flex-wrap: wrap;
+  }
+  .landingBreak .cityWrapper img {
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    padding: 20px;
+    border-radius: 50%;
+    height: 90px;
+    width: auto;
+    margin-bottom: 10px;
+  }
+  .landingBreak .cityWrapper p {
+    margin-bottom: 25px;
+  }
+  .optionBoxWrapper {
+    background: #f5f5f5;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+  }
+  .optionBoxWrapper .optionBox {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+    padding-top: 0px;
+  }
+  .optionBoxWrapper .optionBox .option {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    position: relative;
+    padding: 20px;
+    font-family: fredoka;
+    overflow: visible;
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+  .optionBoxWrapper .optionBox .option .optionDetails {
+    width: 100%;
+  }
+  .optionBoxWrapper .optionBox .option .optionDetails h1 {
+    margin-bottom: 10px;
+    font-family: changa one;
+  }
+  .optionBoxWrapper .optionBox .option img {
+    height: 110%;
+    max-height: 700px;
+    position: relative;
+    right: 0;
+    bottom: 0;
+  }
+  .optionBoxWrapper .optionBox .option:nth-child(1) {
+    width: 100%;
+  }
+  .optionBoxWrapper .optionBox .option:nth-child(1) img {
+    width: 100%;
+    height: auto;
+  }
+  .articleSectionWrapper {
+    background: #6504B5;
+    padding: 50px 20px;
+    color: #fff;
+  }
+  .articleSectionWrapper h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: changa one;
+  }
+  .articleSectionWrapper p {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: fredoka;
+  }
+  .articleSectionWrapper .articleSection {
+    font-family: fredoka;
+    font-weight: 600;
+    color: #6504B5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .articleSectionWrapper .articleSection .articleCategory {
+    text-align: center;
+    width: 100%;
+    height: 400px;
+    background: url("../../../Assets/dogadoption.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+  .articleSectionWrapper .articleSection .articleCategory:nth-child(2) {
+    background: url("../../../Assets/catadoption.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 20px;
+  }
+  .articleSectionWrapper .articleSection .articleCategory div {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+  }
+  .articleSectionWrapper .articleSection .articleCategory div img {
+    position: absolute;
+    top: 0;
+  }
+  .articleSectionWrapper .articleSection .articleCategory div p {
+    margin: 0;
+  }
+  .breederCallWrapper {
+    background: #fbfbfb;
+    display: flex;
+    justify-content: center;
+  }
+  .breederCallWrapper .breederCall {
+    width: 90%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+  }
+  .breederCallWrapper .breederCall h4 {
+    font-family: changa one;
+    margin-top: 20px;
+  }
+  .breederCallWrapper .breederCall p {
+    font-size: 12px;
+    font-family: fredoka;
+    margin-bottom: 0;
+    margin-bottom: 20px;
+  }
+  .breederCallWrapper .breederCall img {
+    width: 70px;
+    height: auto;
+  }
+  .faqWrapper {
+    background: #6504B5;
+    padding: 50px 20px;
+    color: #fff;
+  }
+  .faqWrapper h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: changa one;
+    margin-bottom: 20px;
+  }
+  .faqWrapper p {
+    font-family: fredoka;
+    font-size: 12px;
+  }
+  .helpSection {
+    background: #fbfbfb;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    font-family: fredoka;
+    font-size: 12px;
+  }
+  .helpSection div {
+    width: 100%;
+    padding: 10px;
+  }
+  .helpSection img {
+    width: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */

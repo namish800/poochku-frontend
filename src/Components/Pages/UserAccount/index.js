@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import LocationOpt from '../../Reusable/LocationOpt';
 import PetSection from './PetSection';
 import "./style.css"
+import MobileNav from '../../Reusable/MobileNav';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -67,7 +68,6 @@ const UserAccount = () => {
                   variant="scrollable"
                   value={value}
                   onChange={handleChange}
-                  aria-label="Vertical tabs example"
                   sx={{ borderRight: 1, borderColor: 'divider'}}
               >
                   <Tab label="Profile" {...a11yProps(0)} />
@@ -152,6 +152,7 @@ const UserAccount = () => {
             </Box>
           </div>
         </div>
+        <MobileNav/>
     </div>
   )
 }

@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
 import Logo from '../../../Assets/Logo.png'
+import { useNavigate } from 'react-router-dom'
 
 import './style.css'
 
 const SellerUserNav = () => {
+  
   return (
     <div className='sellerNavUserWrapper'>
       <div>

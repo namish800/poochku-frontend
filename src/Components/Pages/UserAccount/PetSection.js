@@ -4,7 +4,7 @@ import DogForSaleCard from '../../Reusable/DogForSaleCard';
 const PetSection = () => {
   return (
     <div>
-        <Tabs>
+        <Tabs className="profilePetSection">
             <TabList>
                 <Tab>Mating</Tab>
                 <Tab>Adoption</Tab>

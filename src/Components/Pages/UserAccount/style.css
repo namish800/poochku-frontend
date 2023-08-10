@@ -1,5 +1,6 @@
 .userAccountWrapper {
   font-family: fredoka;
+  width: 100%;
 }
 .userAccountWrapper h2 {
   font-family: changa one;
@@ -59,4 +60,81 @@
   font-weight: 500;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   border: 0px;
+}
+
+@media only screen and (max-width: 768px) {
+  .MuiTabs-root {
+    overflow: visible !important;
+  }
+  .userAccountWrapper {
+    margin-top: 20px;
+    font-family: fredoka;
+    max-width: 100%;
+  }
+  .userAccountWrapper #vertical-tabpanel-0 {
+    flex-grow: 1;
+    padding-bottom: 52px;
+  }
+  .userAccountWrapper #vertical-tabpanel-1 {
+    flex-grow: 1;
+  }
+  .userAccountWrapper #vertical-tabpanel-2 {
+    flex-grow: 1;
+  }
+  .userAccountWrapper h2 {
+    font-family: changa one;
+    margin-bottom: 20px;
+  }
+  .userAccountWrapper .MuiTypography-root {
+    font-family: fredoka;
+  }
+  .userAccountWrapper .MuiTabs-scroller button {
+    font-family: fredoka;
+    font-size: 12px;
+  }
+  .userAccountWrapper .profileForm .formRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+  .userAccountWrapper .profileForm .formRow div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .userAccountWrapper .profileForm .formRow input, .userAccountWrapper .profileForm .formRow select {
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .userAccountWrapper .profileForm.security .formRow div {
+    width: 100%;
+  }
+  .userAccountWrapper .petSection {
+    width: 100%;
+  }
+  .userAccountWrapper .petSection .sectionHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .userAccountWrapper .petSection .sectionHeader h2 {
+    margin: 0;
+  }
+  .userAccountWrapper .petSection .addDog {
+    background: #6504B5;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 30px;
+    font-family: fredoka;
+    font-weight: 500;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    border: 0px;
+  }
+  .profilePetSection {
+    font-size: 12px;
+  }
 }/*# sourceMappingURL=style.css.map */

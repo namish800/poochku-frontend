@@ -1,0 +1,38 @@
+.mobileSearchWrapper{
+    display: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .mobileSearchWrapper{
+        z-index: 10;
+        width: 100%;
+        position: sticky;
+        top: 0px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 15px;
+        background: #f5f5f5;
+        .filterInput{
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: 15px;
+            font-size: 14px;
+            padding: 5px 10px;
+            font-family: fredoka;
+            margin: 0 0 10px;
+        }
+        .filterButton{
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: #fff;
+            border: 1px solid #6504b5;
+            color: #6504b5;
+            font-family: fredoka;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            margin: 0;
+            font-size: 12px;
+        }
+    }
+}

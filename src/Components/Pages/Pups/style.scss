@@ -7,13 +7,13 @@
     
     .pupListWrapper{
         width: calc(100% - 220px);
-        padding: 20px 30px 0;
+        padding: 20px 0px 0;
         background: #f5f5f5;
 
         .pageHeadingSticky{
             position: sticky;
             top: -1px;
-            padding: 15px;
+            padding: 15px 30px;
             background: #f5f5f5;
             margin-bottom: 10px;
             display: flex;
@@ -45,13 +45,16 @@
             }
             .buyPageInfo{
                 font-family: fredoka;
+                margin-bottom: 0;
             }
         }
         .buyPageListWrapper{
+            padding: 0 30px;
             display: flex;
             position: relative;
             justify-content: space-between;
             align-items: start;
+            
             .buyPageList{
                 width: 80%;
                 display: flex;
@@ -89,5 +92,124 @@
         }
     }
 }
+.enquiryModal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40vw;
+    border-radius: 12px;
+    padding: 40px;
+    background: #6504B5;
+    color: #fff;    
+    font-family: fredoka;
+}
 
 
+@media only screen and (max-width: 768px) {
+    .browsePetWrapper{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-family: fredoka;
+
+        &.mating{
+            min-height: 100vh;
+        }
+        
+        .pupListWrapper{
+            width:100%;
+            position: relative;
+            padding: 0px 0px 0;
+            background: #f5f5f5;
+    
+            .pageHeadingSticky{
+                position: relative;
+                // top: -1px;
+                padding: 15px 15px 0;
+                background: #f5f5f5;
+                margin-bottom: 0px;
+                display: flex;
+                align-items: center;
+                justify-content: stretch;
+                z-index: 10;
+                // box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
+    
+                &.nonStick{
+                    position: relative;
+                }
+    
+                h1{
+                    margin-bottom: 10px;
+                    font-family: changa one;
+                }
+    
+                // input{
+                //     margin: 0 10px;
+                // }
+    
+                // select, button{
+                //     margin: 0 20px;
+                // }
+    
+                
+                .buyPageHeading{
+                    font-family: changa one;
+                }
+                .buyPageInfo{
+                    font-family: fredoka;
+                }
+            }
+            .buyPageListWrapper{
+                padding: 0 15px;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                justify-content: space-between;
+                align-items: start;
+                padding-bottom: 60px;
+
+                .buyPageList{
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: start;
+                    justify-content: space-between;
+                }
+                .bannerWrapper{
+                    width: 100%;
+                    position: sticky;
+                    top:150px;
+                    padding: 20px 15px 25px;
+                    text-align: center;
+                    background: #2e0152;
+                    background: #6504b5;
+                    color: white;
+                    border: 1px solid #ffd903;
+                    border-radius: 12px;
+                    h3{
+                        font-family: changa one;
+                    }
+                    p{
+                        font-family: fredoka;
+                    }
+                    button{
+                        margin-top: 10px;
+                        padding: 10px 20px;
+                        font-family: changa one;
+                        background: #fff;
+                        color: #6504b5;
+                        border: 0px;
+                        border-radius: 8px;
+                    }
+                }
+            }
+        }
+    }
+    .enquiryModal{
+        width: 80vw;
+        padding: 30px 20px;
+    }
+    
+}

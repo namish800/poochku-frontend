@@ -1,0 +1,31 @@
+.mobileNav{
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .mobileNav{
+        background: #fff;
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        z-index: 11;
+        width: 100%;
+        justify-content: space-evenly;
+
+        .DhashNavLink{
+            display: flex;
+            flex-grow: 1;
+            padding: 10px;
+            align-items: center;
+            justify-content: center;
+            &.active{
+                background: #6504b5;
+            }
+        }
+
+        img{
+            width: 25px;
+            height: auto;
+        }
+    }
+}

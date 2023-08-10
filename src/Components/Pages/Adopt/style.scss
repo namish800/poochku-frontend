@@ -1,8 +1,10 @@
 .adoptPromptWrapper{
+    width: 100%;
     display: flex;
     align-items: start;
     position: relative;
     justify-content: space-between;
+    padding: 0 45px;
 
     .buyPageList{
         width: 80%;
@@ -42,6 +44,60 @@
             color: #6504b5;
             border: 0px;
             border-radius: 8px;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .adoptPromptWrapper{
+        width: 100%;
+        display: block;
+        // flex-direction: column;
+        // align-items: stretch;
+        position: relative;
+        // justify-content: space-between;
+        padding: 0 15px;
+        padding-bottom: 60px;
+    
+        .buyPageList{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: start;
+            // justify-content: space-between;
+        }
+    
+        // .adoptPrompt{
+        //     width:25%;
+        //     position: sticky;
+        //     top: 200px;
+        //     text-align: center;
+        // }
+        .bannerWrapper{
+            width: 100%;
+            position: sticky;
+            top:150px;
+            padding: 20px 15px 25px;
+            text-align: center;
+            background: #6504b5;
+            color: white;
+            border: 1px solid #6504b5;
+            border-radius: 12px;
+            h3{
+                font-family: changa one;
+            }
+            p{
+                font-family: fredoka;
+            }
+            button{
+                padding: 10px 20px;
+                margin-top: 10px;
+                font-family: changa one;
+                background: #fff;
+                color: #6504b5;
+                border: 0px;
+                border-radius: 8px;
+            }
         }
     }
 }

@@ -26,7 +26,7 @@ const index = () => {
             hugs +<br />
             kisses
           </div>
-          <div>
+          <div className="landingAction">
             <input type="text" className="mainSearch" placeholder="Search for the purrfect match!"/>
             <button className="landingButtonMain">Browse Dogs</button>
             {/* <button className="landingButtonMain">Shop</button> */}
@@ -87,7 +87,7 @@ const index = () => {
       </section>
       <section className="optionBoxWrapper">
         <div className="optionBox">
-        <div className="option">
+          <div className="option">
             <div className="optionDetails">
               <h1>Heading</h1>
               <p>At Phoochku find yourself a loyal companions from a collection of

@@ -1,5 +1,6 @@
 .userAccountWrapper{
     font-family: fredoka;
+    width: 100%;
     h2{
         font-family: changa one;
         margin-bottom: 20px;
@@ -65,5 +66,91 @@
             box-shadow: 0px 3px 15px rgba(0,0,0,0.2); 
             border: 0px;
         }
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .MuiTabs-root{
+        overflow: visible!important;
+    }
+    .userAccountWrapper{
+        margin-top: 20px;
+        font-family: fredoka;
+        max-width: 100%;
+        #vertical-tabpanel-0{
+            flex-grow: 1;
+            padding-bottom: 52px;
+        }
+        #vertical-tabpanel-1{
+            flex-grow: 1;
+        }
+        #vertical-tabpanel-2{
+            flex-grow: 1;
+        }
+        h2{
+            font-family: changa one;
+            margin-bottom: 20px;
+        }
+        .MuiTypography-root{
+            font-family: fredoka;
+        }
+        
+        .MuiTabs-scroller button{
+            font-family: fredoka;
+            font-size: 12px;
+        }
+        .profileForm{
+            .formRow{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                font-size: 12px;
+                div{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                }
+                input, select{
+                    padding: 12px;
+                    margin-top: 10px;
+                    margin-bottom: 20px;
+                }
+            }
+            &.security{
+                .formRow{
+                    div{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .petSection{
+            width: 100%;
+            .sectionHeader{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+    
+                h2{
+                    margin: 0;
+                }
+            }
+            .addDog{
+                background: #6504B5;
+                color: #fff;
+                padding: 10px 15px;
+                border-radius: 30px;
+                font-family: fredoka;
+                font-weight: 500;
+                box-shadow: 0px 3px 15px rgba(0,0,0,0.2); 
+                border: 0px;
+            }
+        }
+    }
+    .profilePetSection{
+        font-size: 12px;
     }
 }
