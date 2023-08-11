@@ -3,7 +3,7 @@ import React from 'react'
 const LocationOpt = () => {
   return (
     <select className='filterInput'>
-        <option selected="selected" value="State">State</option>
+        <option value="State">State</option>
 		<option value="1">Andaman and Nicobar Islands</option>
 		<option value="2">Andhra Pradesh</option>
 		<option value="3">Arunachal Pradesh</option>

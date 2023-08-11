@@ -16,11 +16,11 @@ const Pups = () => {
     try{
       const res = await axios.get("https://poochku-prod.azurewebsites.net/pet", {params: {
         serviceCode: "S",
-        page: 1,
-        size: 30
+        // page: 1,
+        // size: 30
       }})
       setPupList(res.data.pets)
-      console.log(res, "dog List")
+      // console.log(res, "dog List")
     }
     catch(err){
       console.log(err)
@@ -47,9 +47,9 @@ const Pups = () => {
           <div className='buyPageListWrapper'>
             <div className='buyPageList'>
               {
-                dogList && dogList.map((e) => {
+                pupList && pupList.map((e, index) => {
                   return(
-                    <DogCard details={e} />
+                    <DogCard details={e} key={index}/>
                   )
                 })
               }    

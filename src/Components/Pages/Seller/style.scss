@@ -1,3 +1,6 @@
+.sellerDashboardWrapper{
+    padding: 0 30px;
+}
 .dogsForSaleWrapper{
     display: flex;
     flex-wrap: wrap;
@@ -7,7 +10,7 @@
 }
 .sellerHeader{
     position: sticky;
-    top: 0;
+    top: -1px;
     padding: 20px 0;
     background: #f5f5f5;
     display: flex;

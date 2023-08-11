@@ -9,9 +9,9 @@ import { useEffect } from 'react'
 
 const DashNavUser = () => {
   const location = useLocation();
-  useEffect(()=>{
-    console.log(location)
-  }, [location])
+  // useEffect(()=>{
+  //   console.log(location)
+  // }, [location])
   
   return (
     <div className='DashNavUserWrapper'>

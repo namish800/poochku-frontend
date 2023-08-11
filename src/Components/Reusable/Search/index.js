@@ -16,8 +16,8 @@ const Search = () => {
         </select>
         <select className='filterInput'>
         <option value="AQ">Any Quality</option>
-        <option value="KR">KCI Registered</option>  
-        <option value="CB">Champion Bloodline</option>  
+        <option value="HB">Home Bred</option>  
+        <option value="KB">Kennel Bred</option>  
         </select>
         <button className='filterButton'>SEARCH</button>
     </div>

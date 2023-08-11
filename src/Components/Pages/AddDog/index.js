@@ -4,7 +4,7 @@ import './style.css'
 import axios from 'axios';
 
 const initialPet = {
-    "ownerId": 1,
+    "ownerId": 2,
     "name": "",
     "petType": "Dog",
     "breed": "",
@@ -37,7 +37,7 @@ const AddDog = () => {
         // formData.append("price", pet.price);
         // formData.append("quality", pet.quality);
         console.log(pet, '********************')
-        axios.post("https://poochku.azurewebsites.net/pet", JSON.stringify(pet), {headers: {
+        axios.post("https://poochku-prod.azurewebsites.net/pet", pet, {headers: {
             "content-type": "application/json",
         }}).then((res) => {
             // console.log(formData, '-----------------')

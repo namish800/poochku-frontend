@@ -15,7 +15,7 @@ const Seller = () => {
               <p className='buyPageInfo'>List and sell your dogs here!</p>
             </div>
           </div>
-          <div>
+          <div className='sellerDashboardWrapper'>
             <h2 className='sellerHeading'>Your Active Listings</h2>
             <div className='sellerHeader'>
                 <input type='text'placeholder='Search your listings' className='filterInput' />

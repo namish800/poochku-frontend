@@ -1,6 +1,6 @@
 .newDogForm {
   display: flex;
-  padding: 0 15px;
+  padding: 0 30px;
 }
 .newDogForm .newDogWrapper {
   margin-bottom: 25px;
@@ -35,11 +35,11 @@
 }
 
 .dogFormSubmitButton {
+  margin-left: 30px;
   padding: 10px 20px;
   font-family: changa one;
   color: #fff;
   background: #ffd903;
   border: 0px;
   border-radius: 8px;
-  margin-left: 15px;
 }/*# sourceMappingURL=style.css.map */

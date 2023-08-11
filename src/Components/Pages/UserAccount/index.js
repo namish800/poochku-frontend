@@ -58,7 +58,7 @@ const UserAccount = () => {
               <p className='buyPageInfo'>Manage your account and pet details here.</p>
             </div>
           </div>
-          <div>
+          <div className='userTabsWrapper'>
             <Box
               sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex'}}
               className='userAccountWrapper'
