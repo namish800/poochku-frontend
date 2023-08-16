@@ -10,6 +10,8 @@ import Seller from './Components/Pages/Seller';
 import ViewDog from './Components/Pages/ViewDog';
 import UserAccount from './Components/Pages/UserAccount';
 import Shop from './Components/Pages/Shop';
+import Login  from './Components/Pages/Login';
+import Signup from './Components/Pages/Login/Signup';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route exact path='/seller' element={<Seller/>}/>
           <Route exact path='/shop' element={<Shop/>}/>
           <Route exact path="/useraccount" element={<UserAccount/>}/>
+          <Route exact path="/auth" element={<Login/>} />
+          <Route exact path="/signup" element={<Login/>} />
         </Routes>
       </BrowserRouter>
     </div>

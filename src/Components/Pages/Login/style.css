@@ -1,0 +1,68 @@
+.loginWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.loginWrapper .loginBg {
+  background: url("../../../Assets/backgroundLogin.jpg");
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 50%;
+  height: 100vh;
+}
+.loginWrapper .loginActions {
+  width: 50%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  font-family: fredoka;
+}
+.loginWrapper .loginActions .loginForm {
+  width: 100%;
+}
+.loginWrapper .loginActions .loginForm.signup .formWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.loginWrapper .loginActions .loginForm.signup div {
+  width: 50%;
+  padding-right: 20px;
+}
+.loginWrapper .loginActions .loginForm.signup div input {
+  width: 100%;
+}
+.loginWrapper .loginActions h1 {
+  font-family: changa one;
+  margin-bottom: 40px;
+}
+.loginWrapper .loginActions div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.loginWrapper .loginActions label {
+  font-family: changa one;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.loginWrapper .loginActions button {
+  font-family: fredoka;
+  background: #6504b5;
+  color: #fff;
+  padding: 15px 30px;
+  border: 0;
+  border-radius: 30px;
+  margin-right: 20px;
+}
+.loginWrapper .loginActions input {
+  padding: 20px;
+  border-radius: 20px;
+  width: 60%;
+  border: 1px solid #cfcfcf;
+}/*# sourceMappingURL=style.css.map */
