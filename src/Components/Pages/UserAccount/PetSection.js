@@ -13,9 +13,20 @@ const PetSection = () => {
                 <div className='petSection'>
                     <div className='sectionHeader'>
                         <h2>Dogs for Mating</h2>
-                        <button className='addDog'>+ New Dog</button>
+                        {/* <button className='addDog'>+ New Dog</button> */}
                     </div>
                     <div className='dogWrapper'>
+                        <div className='addDogCard'>
+                            + <br/> Add Dog
+                        </div>
+                        <DogForSaleCard />
+                        <DogForSaleCard />
+                        <DogForSaleCard />
+                        <DogForSaleCard />
+                        <DogForSaleCard />
+                        <DogForSaleCard />
+                        <DogForSaleCard />
+                        <DogForSaleCard />
                         <DogForSaleCard />
                     </div>
                 </div>
@@ -24,9 +35,18 @@ const PetSection = () => {
                 <div className='petSection'>
                     <div className='sectionHeader'>
                         <h2>Dogs for Adoption</h2>
-                        <button className='addDog'>+ New Dog</button>
+                        {/* <button className='addDog'>+ New Dog</button> */}
                     </div>
                     <div className='dogWrapper'>
+                        <div className='addDogCard'>
+                            + <br/> Add Dog
+                        </div>
+                        <DogForSaleCard />
+                        <DogForSaleCard />
+                        <DogForSaleCard />
+                        <DogForSaleCard />
+                        <DogForSaleCard />
+                        <DogForSaleCard />
                         <DogForSaleCard />
                     </div>
                 </div>
