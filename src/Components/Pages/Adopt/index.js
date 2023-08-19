@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 // import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 // import { Link } from 'react-router-dom';
+import axios from 'axios';
 import DashNavUser from '../../Reusable/DashNavUser';
 import dogList from '../Pups/dogBuyList';
 import DogCard from '../../Reusable/DogCard.js';
@@ -10,6 +11,24 @@ import MobileSearch from '../../Reusable/MobileSearch'
 import './style.css'
 
 const Adopt = () => {
+  const [pupList, setPupList] = useState([])
+  const getPupList = async () => {
+    try{
+      const res = await axios.get("https://poochku-prod.azurewebsites.net/pet", {params: {
+        serviceCode: "A",
+        // page: 1,
+        // size: 30
+      }})
+      setPupList(res.data.pets)
+      // console.log(res, "dog List")
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+  useEffect(()=>{
+    getPupList()
+  }, [])
   return (
     <div className='browsePetWrapper'>
         <DashNavUser />
@@ -25,7 +44,7 @@ const Adopt = () => {
           <div className='adoptPromptWrapper'>
             <div className='buyPageList'>
               {
-                dogList.map((e) => {
+                pupList.map((e) => {
                   return(
                     <DogCard details={e} availableForAdoption={true} />
                   )
