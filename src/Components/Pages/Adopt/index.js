@@ -3,24 +3,21 @@ import React, { useEffect, useState } from 'react'
 // import { Link } from 'react-router-dom';
 import axios from 'axios';
 import DashNavUser from '../../Reusable/DashNavUser';
-import dogList from '../Pups/dogBuyList';
 import DogCard from '../../Reusable/DogCard.js';
 import Search from '../../Reusable/Search'
 import MobileNav from '../../Reusable/MobileNav'
 import MobileSearch from '../../Reusable/MobileSearch'
 import './style.css'
+import petApi from '../../../services/petApi';
 
 const Adopt = () => {
   const [pupList, setPupList] = useState([])
   const getPupList = async () => {
     try{
-      const res = await axios.get("https://poochku-prod.azurewebsites.net/pet", {params: {
-        serviceCode: "A",
-        // page: 1,
-        // size: 30
-      }})
-      setPupList(res.data.pets)
-      // console.log(res, "dog List")
+      const res = await petApi.getPetListByService("A");
+      console.log("response: ", res)
+
+      setPupList(res.pets)
     }
     catch(err){
       console.log(err)
@@ -46,7 +43,7 @@ const Adopt = () => {
               {
                 pupList.map((e) => {
                   return(
-                    <DogCard details={e} availableForAdoption={true} />
+                    <DogCard details={e} availableForAdoption={true} key={e.petId}/>
                   )
                 })
               }            
