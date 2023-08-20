@@ -2,6 +2,7 @@ import { useState } from 'react';
 import DashNavUser from '../../Reusable/DashNavUser';
 import './style.css'
 import axios from 'axios';
+import petApi from '../../../services/petApi';
 
 const initialPet = {
     "ownerId": 2,
@@ -19,33 +20,38 @@ const initialPet = {
     "price": 0
 }
 
+console.log(localStorage)
+
 const AddDog = () => {
     const [pet, setPet] = useState(initialPet)
-    const submitDog = () => {
-        // let formData = new FormData();        
-        // formData.append("ownerId", "1");
-        // formData.append("name", "1");
-        // formData.append("petType", "Dog");
-        // formData.append("breed", pet.breed);
-        // formData.append("vaccination_status", pet.vaccination_status);
-        // formData.append("description", pet.description);
-        // formData.append("ageInDays", pet.ageInDays);
-        // formData.append("serviceCode", pet.serviceCode);
-        // formData.append("location", pet.location);
-        // formData.append("serviceCode", pet.serviceCode);
-        // formData.append("quality", pet.quality);
-        // formData.append("price", pet.price);
-        // formData.append("quality", pet.quality);
-        console.log(pet, '********************')
-        axios.post("https://poochku-prod.azurewebsites.net/pet", pet, {headers: {
-            "content-type": "application/json",
-        }}).then((res) => {
-            // console.log(formData, '-----------------')
-            console.log('response', res);
-            
-        }).catch((err) => console.log(err))
-    }
+    const [selectedImages, setSelectedImages] = useState([]);
 
+    const submitDog = async () => {
+        pet.ownerId = localStorage.getItem("userId")
+        const addDogRequestDto = {
+            ...pet,
+            imageBlobs: selectedImages
+        }
+        const res = await petApi.addNewPet(addDogRequestDto);
+    }
+    const handleImageInputChange = (e) => {
+        const files = e.target.files;
+        if (files && files.length > 0) {
+          const imageBlobs = [];
+          for (const file of files) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+            const uint8Array = new Uint8Array(event.target.result);
+              imageBlobs.push({
+                fileName: localStorage.getItem("userId") + "" +file.name,
+                blob: Array.from(uint8Array)
+              });
+            };
+            reader.readAsArrayBuffer(file);
+          }
+          setSelectedImages(imageBlobs);
+        }
+      };
     const handleChange = (e) => {
         console.log("state", pet, e.target.name, e.target.value, e)
         if(e.target.name === "vaccination_status"){
@@ -146,7 +152,7 @@ const AddDog = () => {
                 </div>
                 <div className='dogImgWrapper'>
                     <p>Upload Images</p>
-                    <input type="file" />
+                    <input type="file" onChange={handleImageInputChange}/>
                 </div>
             </form>
             <button className='dogFormSubmitButton' onClick={submitDog}>Submit</button>

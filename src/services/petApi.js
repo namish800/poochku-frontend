@@ -45,7 +45,10 @@ const petApi = {
   
   addNewPet: async (petDto) => {
     try {
-      const response = await instance.post('/pet', petDto);
+        
+      const response = await instance.post('/pet', petDto, {headers: {
+            "content-type": "application/json",
+        }});
       return response.data;
     } catch (error) {
       throw error;
@@ -54,7 +57,9 @@ const petApi = {
   
   updatePetDetails: async (petDto) => {
     try {
-      const response = await instance.put('/pet', petDto);
+      const response = await instance.put('/pet', petDto, {headers: {
+        "content-type": "application/json",
+    }});
       return response.data;
     } catch (error) {
       throw error;
@@ -72,5 +77,6 @@ const petApi = {
     }
   },
 };
+
 
 export default petApi;
