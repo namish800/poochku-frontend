@@ -8,23 +8,29 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  padding: 10px 20px;
+  padding: 10px 0px;
   background: #fff;
 }
 .sellerNavUserWrapper .DhashNavLogo {
   width: 100px;
   height: auto;
+  margin: 30px 0;
 }
 .sellerNavUserWrapper .DhashNavLink {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 0px;
   align-items: start;
   color: #6504B5;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  padding: 20px 0;
+}
+.sellerNavUserWrapper .DhashNavLink.active {
+  color: white;
+  background: #6504B5;
 }
 .sellerNavUserWrapper .DhashNavLink.logo {
   justify-content: center;
@@ -37,4 +43,5 @@
 .sellerNavUserWrapper .DhashNavLink p {
   font-family: fredoka;
   font-weight: 500;
+  margin: 0;
 }/*# sourceMappingURL=style.css.map */

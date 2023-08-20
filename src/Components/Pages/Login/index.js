@@ -2,9 +2,10 @@ import { useState } from "react";
 import "./style.css"
 import axios from "axios";
 import { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () =>{
+    const navigate = useNavigate();
     const location = useLocation();
     const [Signup, setSignUp] = useState({
         fName:"",
@@ -50,6 +51,14 @@ const Login = () =>{
         try{
             const res = await axios.post("https://poochku-prod.azurewebsites.net/auth/login", form);
             console.log(res, "response")
+            if(res.status===200){
+                localStorage.setItem('userId', res.data.user.userId);
+                localStorage.setItem('email', res.data.user.email);
+                localStorage.setItem('fName', res.data.user.fName);
+                localStorage.setItem('phoneNo', res.data.user.phoneNo);
+                localStorage.setItem('role', res.data.user.role);
+                navigate("/browse")
+            }
         }catch(err){
             console.log(err)
         }
@@ -73,6 +82,10 @@ const Login = () =>{
         }
     }
 
+    const goToSignup = () => {
+        navigate("/signup")
+    }
+
   return(
     <div className="loginWrapper">
         <div className="loginBg"></div>
@@ -84,8 +97,11 @@ const Login = () =>{
                 <div><label>Password</label>
                 <input type="password" onChange={(e)=>handleChange(e)} placeholder="Enter Password" name="password" value={form.password} /></div>
             </form>
-            <button onClick={handleSubmit} className="LoginButton">Login</button>
-            <Link to="/signup">Sign Up</Link>
+            <div style={{display:"flex", justifyContent:"start", flexDirection:"row", alignItems:"center"}}>
+                <button onClick={handleSubmit} className="LoginButton">Login</button>
+                <p style={{margin:"0px 10px 0"}}>Or</p>
+                <Link style={{marginLeft:"20px"}} to="/signup"><button onClick={()=>goToSignup} className="signup">Signup</button></Link>
+            </div>
         </div>}
         {isSignUp && <div className="loginActions">
             <h1>Sign up on Poochku!</h1>
@@ -121,9 +137,10 @@ const Login = () =>{
                     </div>
                 </div>
             </form>
-            <div style={{display:"flex", flexDirection:"row", width:"100%", justifyContent:"start"}}>
+            <div style={{display:"flex", flexDirection:"row", width:"100%", justifyContent:"start", alignItems:"center"}}>
                 <button onClick={()=>handleSignupSubmit()} className="LoginButton">Sign up</button>
-                <button onClick={()=>handleSellerSignupSubmit()} className="LoginButton">Seller Sign up</button>
+                <p style={{marginBottom:"0", marginRight:"20px"}}>Or</p>
+                <button onClick={()=>handleSellerSignupSubmit()} className="signup">Seller Sign up</button>
             </div>
         </div>}
     </div>

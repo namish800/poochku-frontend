@@ -12,6 +12,9 @@ import UserAccount from './Components/Pages/UserAccount';
 import Shop from './Components/Pages/Shop';
 import Login  from './Components/Pages/Login';
 import Signup from './Components/Pages/Login/Signup';
+import Billing from './Components/Pages/Billing';
+import Plans from './Components/Pages/Plans';
+import SellerProfile from './Components/Pages/SellerProfile';
 
 function App() {
   return (
@@ -24,11 +27,14 @@ function App() {
           <Route exact path='/adopt' element={<Adopt/>}/>
           <Route exact path='/mating' element={<Mating/>}/>
           <Route exact path='/newDog' element={<AddDog/>}/>
-          <Route exact path='/seller' element={<Seller/>}/>
+          <Route exact path='/sellerdashboard' element={<Seller/>}/>
           <Route exact path='/shop' element={<Shop/>}/>
           <Route exact path="/useraccount" element={<UserAccount/>}/>
           <Route exact path="/auth" element={<Login/>} />
           <Route exact path="/signup" element={<Login/>} />
+          <Route exact path='/billing' element={<Billing/>} />
+          <Route exact path="/pricing" element={<Plans/>} />
+          <Route exact path='/sellerprofile' element={<SellerProfile/>} />
         </Routes>
       </BrowserRouter>
     </div>

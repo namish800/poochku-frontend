@@ -8,6 +8,13 @@
   display: flex;
   align-items: center;
 }
+.headerWrapper > div p {
+  color: #6504b5;
+  margin-bottom: 0;
+  font-family: changa one;
+  margin-left: 30px;
+  font-weight: 500;
+}
 .headerWrapper .headerLogo {
   height: 80px;
   width: auto;

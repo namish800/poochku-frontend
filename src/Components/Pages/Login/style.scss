@@ -24,6 +24,7 @@
 
         .loginForm{
             width: 100%;
+            margin-bottom:20px ;
 
             &.signup{
                 .formWrapper{
@@ -68,6 +69,11 @@
             border: 0;
             border-radius: 30px;
             margin-right: 20px;
+            &.signup{
+                border: 1px solid #6504b5;
+                background: #fff;
+                color: #6504b5;
+            }
         }
 
         input{

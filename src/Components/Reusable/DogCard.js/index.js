@@ -12,6 +12,7 @@ import quality from '../../../Assets/quality.png'
 import { Link } from 'react-router-dom';
 import EnquiryModal from '../EnquiryModal';
 import { useState } from 'react';
+import axios from 'axios';
 
 
 const id = {
@@ -30,9 +31,16 @@ const id = {
 }
 
 const DogCard = ({details, availableForAdoption}) => {
+    const userId = localStorage.getItem('userId')
     const [popup, setPopup]=useState(false)
-    const enquiryRequest = () => {
-        setPopup(!popup)
+    const enquiryRequest = async() => {
+        try{
+            const res = await axios.post("https://poochku-prod.azurewebsites.net/enquiry/best-price", null,{params:{userId, petId:`${details.petId}`}})
+            console.log(res, "res")
+            setPopup(!popup)
+        }catch(err){
+            console.log(err)
+        }
     }
     const waEnquire = () => {
         window.open(details.owner.whatsappUrl)
@@ -61,7 +69,7 @@ const DogCard = ({details, availableForAdoption}) => {
             </div>
             <div className='dogDetails'>
                     <div className='detailWrapper'><img src={gender}/><p>{details.gender ? details.gender : "N/A"}</p></div>
-                    <div className='detailWrapper'><img src={Dog}/><p>{details.quality ? details.quality : "N/A"}</p></div>
+                    <div className='detailWrapper'><img src={Dog}/><p>{details.age ? `${details.age} days` : "N/A"}</p></div>
                     <div className='detailWrapper'><img src={location}/><p>{details.location ? details.location : "N/A"}</p></div>
                     {/* <div className='detailWrapper'><img src={vaccine}/><p>Vaccinated: {details.isVaccinated ? "Yes" : "No"} </p></div> */}
                     {/* <div className='detailWrapper'><img src={Dog} /><p>80 days old</p></div> */}

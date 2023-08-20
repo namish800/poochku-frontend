@@ -23,6 +23,9 @@
 .userAccountWrapper #vertical-tabpanel-2 {
   flex-grow: 1;
 }
+.userAccountWrapper .MuiTabs-root {
+  min-width: 100px;
+}
 .userAccountWrapper .MuiTabs-scroller button {
   font-family: fredoka;
 }

@@ -1,0 +1,48 @@
+.billingWrapper {
+  margin: 15px 30px;
+  background: #fff;
+  padding: 30px 20px;
+}
+.billingWrapper h3 {
+  font-family: changa one;
+}
+.billingWrapper .currentPlan div.currentPlanWrapper {
+  background: #f5f5f5;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.billingWrapper .currentPlan b {
+  margin-right: 10px;
+}
+.billingWrapper .currentPlan p {
+  margin-bottom: 5px;
+}
+.billingWrapper .currentPlan p:nth-child(2) {
+  margin-bottom: 0px;
+}
+.billingWrapper .previousBilling .bill {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.billingWrapper .previousBilling .bill b {
+  margin-right: 10px;
+}
+.billingWrapper .previousBilling .bill p {
+  margin-bottom: 5px;
+}
+.billingWrapper .previousBilling .bill p:nth-child(2) {
+  margin-bottom: 0;
+}
+.billingWrapper .previousBilling .bill button {
+  border: 0;
+  background: #fff;
+  color: #6504b5;
+  padding: 10px;
+}/*# sourceMappingURL=style.css.map */

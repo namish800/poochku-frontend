@@ -50,7 +50,7 @@ const Mating = () => {
     const [lastDirection, setLastDirection] = useState()
     // used for outOfFrame closure
     const currentIndexRef = useRef(currentIndex)
-    const [isAvailable, setIsAvailable] = useState(true);
+    const [isAvailable, setIsAvailable] = useState(false);
     const childRefs = useMemo(
       () =>
         Array(db.length)

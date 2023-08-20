@@ -8,24 +8,31 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
-    padding: 10px 20px;
+    padding: 10px 0px;
     background: #fff;
 
     .DhashNavLogo{
         width: 100px;
         height: auto;
+        margin: 30px 0;
     }
 
     .DhashNavLink{
         width: 100%;
         display: flex;
         justify-content: center;
-        margin-top: 30px;
+        margin-top: 0px;
         align-items: start;
         color: #6504B5;
         text-align: center;
         text-decoration: none;
         text-transform: uppercase;
+        padding: 20px 0;
+
+        &.active{
+            color: white;
+            background: #6504B5;
+        }
 
         &.logo{
             justify-content: center;
@@ -40,6 +47,7 @@
         p{
             font-family: fredoka;
             font-weight: 500;
+            margin: 0;
         }
     }
 }

@@ -21,6 +21,9 @@
     #vertical-tabpanel-2{
         flex-grow: 1;
     }
+    .MuiTabs-root{
+        min-width: 100px; ;
+    }
     .MuiTabs-scroller button{
         font-family: fredoka;
     }

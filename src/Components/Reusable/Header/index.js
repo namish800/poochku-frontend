@@ -4,8 +4,13 @@ import './style.css'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { useEffect } from 'react';
 
 const Header = () => {
+  const fName = localStorage.getItem('fName');
+  useEffect(()=>{
+
+  },[])
   return (
     <>
       <div className='headerWrapper'>
@@ -18,8 +23,10 @@ const Header = () => {
               <Link className='navLink' to="/services">Services</Link>
           </div>
           <div>
-            <Link className='navLink' to="/seller">Seller Account</Link>
-            <Link className='navLink' to="/useraccount">Login</Link>
+            <Link className='navLink' to="/sellerdashboard">Seller Account</Link>
+            {fName && <Link className='navLink' to="/useraccount">Profile</Link>}
+            {fName && <p>Welcome {fName}</p>}
+            {!fName && <Link className='navLink' to="/auth">Login</Link>}
           </div>
       </div>
       <Navbar collapseOnSelect expand="lg" className="mobileHeader">
@@ -33,9 +40,8 @@ const Header = () => {
               <Nav.Link href="/mating">Mating</Nav.Link>
               <Nav.Link href="/adopt">Adopt</Nav.Link>
               <Nav.Link href="/services">Services</Nav.Link>
-              <Nav.Link href="/seller">Seller Account</Nav.Link>
-              <Nav.Link href="/useraccount">Login/ SignUp</Nav.Link>
-              
+              <Nav.Link href="/sellerdashboard">Seller Account</Nav.Link>
+              <Nav.Link href="/auth">Login</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

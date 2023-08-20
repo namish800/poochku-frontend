@@ -7,6 +7,14 @@
     & > div{
         display: flex;
         align-items: center;
+
+        p{
+            color: #6504b5;
+            margin-bottom: 0;
+            font-family: changa one;
+            margin-left: 30px;
+            font-weight: 500;
+        }
     }
 
     .headerLogo{

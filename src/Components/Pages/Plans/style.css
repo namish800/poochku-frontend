@@ -1,0 +1,47 @@
+.planWrapper {
+  padding: 15px 30px;
+}
+.planWrapper .react-tabs__tab-list {
+  margin-bottom: 0;
+}
+.planWrapper .monthlyPlanWrapper, .planWrapper .annualPlanWrapper {
+  background: #fff;
+  padding: 30px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.planWrapper .monthlyPlanWrapper ul, .planWrapper .annualPlanWrapper ul {
+  list-style: none;
+}
+.planWrapper .monthlyPlanWrapper ul li, .planWrapper .annualPlanWrapper ul li {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.planWrapper .monthlyPlanWrapper .planName, .planWrapper .annualPlanWrapper .planName {
+  font-family: changa one;
+  font-size: 20px;
+}
+.planWrapper .monthlyPlanWrapper .planPrice, .planWrapper .annualPlanWrapper .planPrice {
+  font-family: changa one;
+  font-size: 50px;
+}
+.planWrapper .monthlyPlanWrapper .planHighlight, .planWrapper .annualPlanWrapper .planHighlight {
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.planWrapper .monthlyPlanWrapper .planHighlight button, .planWrapper .annualPlanWrapper .planHighlight button {
+  padding: 20px 40px;
+  background: #6504b5;
+  color: #fff;
+  border: 0px;
+}
+.planWrapper .monthlyPlanWrapper .planHighlight.current, .planWrapper .annualPlanWrapper .planHighlight.current {
+  background: #6504b5;
+  color: #fff;
+}
+.planWrapper .monthlyPlanWrapper .planHighlight.current button, .planWrapper .annualPlanWrapper .planHighlight.current button {
+  background: #fff;
+  color: #6504b5;
+}/*# sourceMappingURL=style.css.map */

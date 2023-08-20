@@ -23,6 +23,7 @@
 }
 .loginWrapper .loginActions .loginForm {
   width: 100%;
+  margin-bottom: 20px;
 }
 .loginWrapper .loginActions .loginForm.signup .formWrapper {
   display: flex;
@@ -59,6 +60,11 @@
   border: 0;
   border-radius: 30px;
   margin-right: 20px;
+}
+.loginWrapper .loginActions button.signup {
+  border: 1px solid #6504b5;
+  background: #fff;
+  color: #6504b5;
 }
 .loginWrapper .loginActions input {
   padding: 20px;

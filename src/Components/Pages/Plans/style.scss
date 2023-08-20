@@ -1,0 +1,53 @@
+.planWrapper{
+    padding: 15px 30px;
+
+    .react-tabs__tab-list{
+        margin-bottom: 0;
+    }
+
+    .monthlyPlanWrapper,.annualPlanWrapper{
+        background: #fff;
+        padding: 30px;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+
+        ul{
+            list-style: none;
+            li{
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+        }
+
+        .planName{
+            font-family: changa one;
+            font-size: 20px;
+        }
+
+        .planPrice{
+            font-family: changa one;
+            font-size: 50px;
+        }
+
+        .planHighlight{
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            button{
+                padding: 20px 40px;
+                background: #6504b5;
+                color: #fff;
+                border: 0px;
+            }
+            &.current{
+                background: #6504b5;
+                color: #fff;
+                button{
+                    background: #fff;
+                    color: #6504b5;
+                }
+            }
+        }
+    }
+}
