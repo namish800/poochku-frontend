@@ -23,9 +23,20 @@
   align-items: start;
   text-decoration: none;
   color: #6504b5;
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0.5px;
   padding: 20px 0;
+}
+.DashNavUserWrapper .DhashNavLink.logout {
+  background: #6504b5;
+  color: #fff;
+}
+.DashNavUserWrapper .DhashNavLink.logo:hover {
+  background: #fff;
+}
+.DashNavUserWrapper .DhashNavLink:hover {
+  color: #fff;
+  background: #6504b5;
 }
 .DashNavUserWrapper .DhashNavLink.logo {
   justify-content: center;
@@ -40,8 +51,11 @@
   margin-bottom: 0;
 }
 .DashNavUserWrapper .active {
-  background: #6504b5;
+  background: #2e0152;
   color: #fff;
+}
+.DashNavUserWrapper .active:hover {
+  background: #2e0152;
 }
 
 @media only screen and (max-width: 768px) {

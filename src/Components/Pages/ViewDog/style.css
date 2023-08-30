@@ -1,8 +1,19 @@
+div.pageHeadingSticky.viewDog {
+  justify-content: space-between !important;
+}
+div.pageHeadingSticky.viewDog .bestBuy {
+  margin-left: 20px;
+  background-color: #2e0152;
+  color: #fff;
+}
+
 .dogViewWrapper {
   font-family: fredoka;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: start;
+  padding: 15px;
 }
 .dogViewWrapper .mainInfo {
   width: 50%;
@@ -18,6 +29,7 @@
 }
 .dogViewWrapper .mainInfo .directInfoWrapper .directInfo {
   width: 50%;
+  margin-bottom: 15px;
 }
 .dogViewWrapper .mainInfo .directInfoWrapper .directInfo .InfoHeader {
   font-size: 20px;
@@ -26,16 +38,30 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+.dogViewWrapper .mainInfo .directInfoWrapper .directInfo span {
+  font-weight: 600;
+}
+.dogViewWrapper .mainInfo .descriptionWrapper {
+  margin-bottom: 40px;
+}
 .dogViewWrapper .mainInfo .descriptionWrapper h4 {
   font-size: 20px;
   font-family: changa one;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  margin-bottom: 15px;
 }
 .dogViewWrapper .galleryWrapper {
   width: 50%;
   padding: 0 0 0 20px;
+  position: sticky;
+  top: 140px;
+}
+.dogViewWrapper .galleryWrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 .actionWrapper {

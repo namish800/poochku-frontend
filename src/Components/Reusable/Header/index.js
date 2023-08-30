@@ -5,12 +5,16 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
   const fName = localStorage.getItem('fName');
-  useEffect(()=>{
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/")
+  }
 
-  },[])
   return (
     <>
       <div className='headerWrapper'>
@@ -22,11 +26,11 @@ const Header = () => {
               <Link className='navLink' to="/adopt">Adopt</Link>
               <Link className='navLink' to="/services">Services</Link>
           </div>
-          <div>
+          <div className='userActions'>
+            {fName && <p>Welcome {fName}</p>}
             <Link className='navLink' to="/sellerdashboard">Seller Account</Link>
             {fName && <Link className='navLink' to="/useraccount">Profile</Link>}
-            {fName && <p>Welcome {fName}</p>}
-            {!fName && <Link className='navLink' to="/auth">Login</Link>}
+            {!fName ? <Link className='navLink' to="/auth">Login</Link> : <Link className='navLink' onClick={handleLogout} to="/auth">Logout</Link>}
           </div>
       </div>
       <Navbar collapseOnSelect expand="lg" className="mobileHeader">

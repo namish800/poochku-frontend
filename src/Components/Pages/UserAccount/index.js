@@ -9,6 +9,7 @@ import LocationOpt from '../../Reusable/LocationOpt';
 import PetSection from './PetSection';
 import "./style.css"
 import MobileNav from '../../Reusable/MobileNav';
+import { useState } from 'react';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -43,11 +44,25 @@ function TabPanel(props) {
     };
   }
 
+  // const initialProfile = {
+  //   fname : ""
+  // }
+
 const UserAccount = () => {
     const [value, setValue] = React.useState(0);
+    const [profile, setProfile] = useState({
+      fName: localStorage.getItem('fName') ? localStorage.getItem('fName') : "",
+      lName: localStorage.getItem('lName') ? localStorage.getItem('lName') : "",
+      phoneNo : localStorage.getItem('phoneNo') ? localStorage.getItem('phoneNo') : "",
+      email: localStorage.getItem('email') ? localStorage.getItem('email') : ""
+    })
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    const handleDetailsChange = (e) => {
+      let val = e.target.value;
+      setProfile({...profile, [e.target.name] : val})
+    }
 
     let callback = function(key) {};
 
@@ -83,28 +98,24 @@ const UserAccount = () => {
                   <div className='formRow'>
                     <div>
                       <label>First Name*</label>
-                      <input type="text" placeholder='Enter your first name' name="fname"/>
+                      <input type="text" placeholder='Enter your first name' value={profile.fName} onChange={handleDetailsChange} name="fName"/>
                     </div>
                     <div>
                       <label>Last Name*</label>
-                      <input type="text" placeholder='Enter your last name' name="lname"/>
+                      <input type="text" placeholder='Enter your last name' value={profile.lName} onChange={handleDetailsChange} name="lName"/>
                     </div>
                   </div>
                   <div className='formRow'>
                     <div>
                       <label>Whatsapp Number</label>
-                      <input type="number" placeholder='Enter your whatsapp number' name="wanumber"/>
+                      <input type="number" placeholder='Enter your whatsapp number' value={profile.phoneNo} onChange={handleDetailsChange} name="phoneNo"/>
                     </div>
                     <div>
-                      <label>Contact Number</label>
-                      <input type="number" placeholder='Enter your number' name="number"/>
+                      <label>Email</label>
+                      <input type="email" placeholder='Enter your email id'  value={profile.email} onChange={handleDetailsChange} name="email"/>
                     </div>
                   </div>
                   <div className='formRow'>
-                    <div>
-                      <label>Email</label>
-                      <input type="email" placeholder='Enter your email id' name="email"/>
-                    </div>
                     <div>
                       <label>Gender</label>
                       <select>
@@ -114,8 +125,6 @@ const UserAccount = () => {
                         <option value="o">Other</option>
                       </select>
                     </div>
-                  </div>
-                  <div className='formRow'>
                     <div>
                       <label>Select State</label>
                       <LocationOpt />

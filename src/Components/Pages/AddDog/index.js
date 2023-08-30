@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DashNavUser from '../../Reusable/DashNavUser';
 import './style.css'
 import axios from 'axios';
 import petApi from '../../../services/petApi';
+import { useLocation, useNavigate } from 'react-router-dom';
+import dogDb from '../../Reusable/breeds'
 
 const initialPet = {
-    "ownerId": 2,
+    "ownerId": localStorage.getItem('userId'),
     "name": "",
     "petType": "Dog",
     "breed": "",
@@ -14,17 +16,18 @@ const initialPet = {
     "ageInDays": 0,
     "motherBreed": "",
     "fatherBreed": "",
-    "serviceCode": "S",
+    "serviceCode": "",
     "location": "Delhi",
     "quality": "0",
     "price": 0
 }
 
-console.log(localStorage)
-
-const AddDog = () => {
-    const [pet, setPet] = useState(initialPet)
+const AddDog = ({previousPath}) => {
+    const [pet, setPet] = useState(initialPet);
     const [selectedImages, setSelectedImages] = useState([]);
+    const location = useLocation();
+    const navigate = useNavigate();
+
 
     const submitDog = async () => {
         pet.ownerId = localStorage.getItem("userId")
@@ -33,6 +36,13 @@ const AddDog = () => {
             imageBlobs: selectedImages
         }
         const res = await petApi.addNewPet(addDogRequestDto);
+        if(previousPath.includes("mating")){
+            navigate("/mating")
+        }else if(previousPath.includes("sellerdashboard")){
+            navigate("/sellerdashboard")
+        }else if(previousPath.includes("sellerdashboard")){
+            navigate("/sellerdashboard")
+        }
     }
     const handleImageInputChange = (e) => {
         const files = e.target.files;
@@ -64,6 +74,25 @@ const AddDog = () => {
                 });
         }
     } 
+
+    useEffect(() => {
+        if(location.pathname.includes("seller")){
+            setPet({
+                ...pet,
+                serviceCode: "S"
+            })
+        }if(location.pathname.includes("adoption")){
+            setPet({
+                ...pet,
+                serviceCode: "A"
+            })
+        }if(location.pathname.includes("mydog")){
+            setPet({
+                ...pet,
+                serviceCode: "M"
+            })
+        }
+    }, [])
   return (
     <div className='browsePetWrapper'>
         <DashNavUser />
@@ -80,11 +109,9 @@ const AddDog = () => {
                         <p className='newDogLabel'>Breed</p>
                         <select name='breed' value={pet.breed} onChange={handleChange}>
                             <option value="0">Select a breed</option>
-                            <option value="mixed">Mixed Breed</option>
-                            <option value="pitbull">Pitbull</option>
-                            <option value="german_shephard">German Shephard</option>
-                            <option value="toy_pom">Toy Pom</option>
-                            <option value="doberman">Doberman</option>
+                            {
+                                dogDb.map((e) => <option key={e.id} value={e.breed}>{e.breed}</option>)
+                            }
                         </select>
                     </div>
                     <div className='newDogWrapper'>
@@ -99,22 +126,18 @@ const AddDog = () => {
                                 <p className='newDogLabel' >Father Breed</p>
                                 <select name="fatherBreed" onChange={handleChange} value={pet.fatherBreed}>
                                     <option value="0">Select a breed</option>
-                                    <option value="mixed">Mixed Breed</option>
-                                    <option value="pitbull">Pitbull</option>
-                                    <option value="german_shephard">German Shephard</option>
-                                    <option value="toy_pom">Toy Pom</option>
-                                    <option value="doberman">Doberman</option>
+                                    {
+                                        dogDb.map((e) => <option key={e.id} value={e.breed}>{e.breed}</option>)
+                                    }
                                 </select>
                             </div>
                             <div>
                                 <p className='newDogLabel'>Mother Breed</p>
                                 <select name="motherBreed" onChange={handleChange} value={pet.motherBreed}>
                                     <option value="0">Select a breed</option>
-                                    <option value="mixed">Mixed Breed</option>
-                                    <option value="pitbull">Pitbull</option>
-                                    <option value="german_shephard">German Shephard</option>
-                                    <option value="toy_pom">Toy Pom</option>
-                                    <option value="doberman">Doberman</option>
+                                    {
+                                        dogDb.map((e) => <option key={e.id} value={e.breed}>{e.breed}</option>)
+                                    }
                                 </select>
                             </div>
                         </div>
@@ -123,15 +146,15 @@ const AddDog = () => {
                         <p className='newDogLabel'>Purpose</p>
                         <div className='dogFormDiv'>
                             <div>
-                                <input name="serviceCode" value="M" type='radio' onChange={handleChange} disabled/> 
+                                <input name="serviceCode" value="M" type='radio' checked={pet.serviceCode==="M"} onChange={handleChange} disabled={pet.serviceCode !== "M"}/> 
                                 <label>Mating</label>
                             </div>
                             <div>
-                                <input name="serviceCode" value="A" type='radio' onChange={handleChange} disabled/> 
+                                <input name="serviceCode" value="A" type='radio' checked={pet.serviceCode==="A"} onChange={handleChange} disabled={pet.serviceCode !== "A"}/> 
                                 <label>Adoption</label>
                             </div>
                             <div>
-                                <input name="serviceCode" value="S" type='radio' checked onChange={handleChange}/>    
+                                <input name="serviceCode" value="S" type='radio' checked={pet.serviceCode==="S"} onChange={handleChange} disabled={pet.serviceCode !== "S"}/>    
                                 <label>Selling</label>
                             </div>           
                         </div>          

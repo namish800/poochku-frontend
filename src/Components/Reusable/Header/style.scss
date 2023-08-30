@@ -1,33 +1,55 @@
 .headerWrapper{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px 10px;
+    align-items: stretch;
+    padding: 0px 0px 0 20px;
+    // background: #6504b5;
 
     & > div{
         display: flex;
         align-items: center;
 
         p{
-            color: #6504b5;
+            color: #fff;
             margin-bottom: 0;
+            margin-right: 20px;
             font-family: changa one;
             margin-left: 30px;
             font-weight: 500;
+        }
+
+        &.userActions{
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(101,4,181,1) 100%);
+
+            & .navLink{
+                color: #fff;
+            }
         }
     }
 
     .headerLogo{
         height: 80px;
         width: auto;
+        border-radius: 50%;
+        margin: 10px 20px 10px 0;
     }
 
     .navLink{
-        margin-left: 30px;
-        font-family: fredoka;
+        font-family: changa one;
         text-decoration: none;
         font-weight: 500;
         color: #6504b5;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        transition: 0.1s all;
+
+        &:hover{
+            color: #fff;
+            background: #6504b5;
+        }
     }
 }
 

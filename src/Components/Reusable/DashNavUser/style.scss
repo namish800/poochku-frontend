@@ -28,10 +28,26 @@
         align-items: start;
         text-decoration: none;
         color:#6504b5;
-        font-size: 18px;
+        font-size: 16px;
         // text-transform: uppercase;
         letter-spacing: 0.5px;
         padding: 20px 0;
+
+        &.logout{
+            background: #6504b5;
+            color: #fff;
+        }
+
+        &.logo{
+            &:hover{
+                background: #fff;
+            }
+        }
+
+        &:hover{
+            color:#fff;
+            background: #6504b5;
+        }
 
         &.logo{
             justify-content: center;
@@ -50,8 +66,12 @@
     }
 
     .active{
-        background: #6504b5;
+        background: #2e0152;
         color: #fff;
+
+        &:hover{
+            background: #2e0152
+        }
     }
 }
 

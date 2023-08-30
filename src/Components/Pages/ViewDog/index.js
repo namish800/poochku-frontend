@@ -3,13 +3,47 @@ import DashNavUser from '../../Reusable/DashNavUser'
 import whatsappIcon from '../../../Assets/whatsapp.svg'
 import dog from '../../../Assets/pitbull.jpg'
 import './style.css'
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import dogDB from '../../Reusable/breeds';
+import { Rating, Skeleton } from '@mui/material';
 
 const ViewDog = () => {
+  const params = useParams();
+  const petId = params.id;
+  const [details, setDetails] = useState();
+  const [info, setInfo] = useState()
+
+  const skeleton = {
+    borderRadius: "8px",
+    marginRight: "20px",
+    marginBottom: "10px"
+  }
+
+  const getDogDetails = async (id) => {
+    try{
+      const res = await axios.get(`https://poochku-prod.azurewebsites.net/pet/${id}`);
+      console.log('dog details came', res.data)
+      setDetails(res.data)
+    }catch(err){
+      console.log(err)
+    }
+  }
+  useEffect(()=>{
+    getDogDetails(petId);
+  }, [])
+
+  useEffect(()=> {
+    details && setInfo(dogDB.filter((e) => e.breed.toLowerCase().includes(details?.breed.toLowerCase()))[0])
+    // console.log('filtereddog', dogDB.filter((e) => e.breed.toLowerCase() ==  details?.breed.toLowerCase())[0])
+  }, [details])
+  
   return (
         <div className='browsePetWrapper'>
           <DashNavUser />
           <div className='pupListWrapper'>
-            <div className='pageHeadingSticky'>
+            <div className='pageHeadingSticky viewDog'>
               <div>
                 <h1 className='buyPageHeading'>Pitbull</h1>
                 <p className='buyPageInfo'>{`Browse  >   View Dog`}</p>
@@ -18,74 +52,90 @@ const ViewDog = () => {
                 <button className='whatsappEnquire'><img src={whatsappIcon} />Enquire</button>
                 <button className='bestBuy'>Get Best Price</button>
               </div>
-              {/* <div>
-                <input type="text" className='filterInput' placeholder='Search Location'/>
-                <input type="text" className='filterInput' placeholder='Search Breed'/>
-                <select className='filterInput'>
-                  <option>Select Gender</option>
-                  <option>Male</option>  
-                  <option>Female</option>  
-                </select>
-                <select className='filterInput'>
-                  <option>Any Quality</option>
-                  <option>KCI Registered</option>  
-                  <option>Champion Bloodline</option>  
-                </select>
-                <button className='filterButton'>SEARCH</button>
-              </div> */}
             </div>
-            <div className='dogViewWrapper'>
+            {details && info ? <div className='dogViewWrapper'>
               <div className='mainInfo'>
                 <div className='directInfoWrapper'>
                   <div className='directInfo'>
                     <p className='InfoHeader'>Location</p>
-                    <p>Delhi</p>
+                    <p>{details?.location ? details?.location : "N/A"}</p>
                   </div>
                   <div className='directInfo'>
                     <p className='InfoHeader'>Gender</p>
-                    <p>Male</p>
+                    <p>{details?.gender ? details?.gender : "N/A"}</p>
                   </div>
                   <div className='directInfo'>
                     <p className='InfoHeader'>Quality</p>
-                    <p>KCI Registered</p>
+                    <p>{details?.quality ? details?.quality : "N/A"}</p>
                   </div>
                   <div className='directInfo'>
                     <p className='InfoHeader'>Age </p>
-                    <p>100 Days</p>
+                    <p>{details?.age ? `${details?.age} days` : "N/A"}</p>
                   </div>
                   <div className='directInfo'>
                     <p className='InfoHeader'>Vaccination Status </p>
-                    <p>Vaccinated</p>
+                    <p>{details?.vaccination_status ? details.vaccination_status : "N/A"}</p>
                   </div>
                   <div className='directInfo'>
                     <p className='InfoHeader'>Listed By</p>
-                    <p>Satyam</p>
+                    <p>{details?.fName ? details.fName : "N/A"}</p>
                   </div>
                 </div>
                 <div className='descriptionWrapper'>
                   <h4>Description</h4>
-                  <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.</p>
+                  <p>{info?.generalDescription ? info?.generalDescription : "No Description is available"}</p>
+                </div>
+                <div className='directInfoWrapper'>
+                  <div className='directInfo'>
+                    <p className='InfoHeader'>Kids Friendly Score</p>
+                    <Rating value={info?.kidFriendlyScore} readOnly />
+                  </div>
+                  <div className='directInfo'>
+                    <p className='InfoHeader'>Other Pet Friendliness Score</p>
+                    <Rating value={info?.dogFriendly} readOnly />
+                  </div>
+                  <div className='directInfo'>
+                    <p className='InfoHeader'>Shedding</p>
+                    <p><span>{info?.shedding}</span></p>
+                  </div>
+                  <div className='directInfo'>
+                    <p className='InfoHeader'>Ease in Grooming Score</p>
+                    <Rating value={info?.easyToGroom} readOnly />
+                  </div>
+                  <div className='directInfo'>
+                    <p className='InfoHeader'>Energy Levels</p>
+                    <p><span>{info?.energyLevel}</span></p>
+                  </div>
+                  <div className='directInfo'>
+                    <p className='InfoHeader'>Intelligence</p>
+                    <Rating value={info?.intelligence} readOnly />
+                  </div>
+                  <div className='directInfo'>
+                    <p className='InfoHeader'>Trainability</p>
+                    <Rating value={info?.easyToTrain} readOnly />
+                  </div>
                 </div>
               </div>
               <div className='galleryWrapper'>
-              <Carousel interval={null}>
-                <Carousel.Item>
-                    <img
-                    className="d-block w-100"
-                    src={dog}
-                    alt="First slide"
-                    />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                    className="d-block w-100"
-                    src={dog}
-                    alt="Second slide"
-                    />
-                </Carousel.Item>
-              </Carousel>
+                <img className='dogPic' src={details?.imageUrls ? details?.imageUrls?.[0] : dog}/>
               </div>
-            </div>
+            </div> : 
+             (<div style={{padding: "15px 30px", width: "40%"}}>
+                <div style={{display: "flex", justifyContent:"start", marginBottom:"15px"}}>
+                  <Skeleton style={skeleton} variant="reactangular" width={200} height={60}/>
+                  <Skeleton style={skeleton} variant="reactangular" width={200} height={60}/>
+                </div>
+                <div style={{display: "flex", justifyContent:"start", marginBottom:"15px"}}>
+                  <Skeleton style={skeleton} variant="reactangular" width={200} height={60}/>
+                  <Skeleton style={skeleton} variant="reactangular" width={200} height={60}/>
+                </div>
+                <div style={{display: "flex", justifyContent:"start", marginBottom:"15px"}}>
+                  <Skeleton style={skeleton} variant="reactangular" width={200} height={60}/>
+                  <Skeleton style={skeleton} variant="reactangular" width={200} height={60}/>
+                </div>
+                <Skeleton style={skeleton} variant="reactangular" width={700} height={200}/>
+              </div>)
+            }
           </div>
         </div>
   )

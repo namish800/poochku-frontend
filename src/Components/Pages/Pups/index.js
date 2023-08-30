@@ -8,6 +8,7 @@ import Search from '../../Reusable/Search';
 import EnquiryModal from '../../Reusable/EnquiryModal';
 import MobileSearch from '../../Reusable/MobileSearch';
 import MobileNav from '../../Reusable/MobileNav';
+import { Skeleton } from '@mui/material';
 
 const Pups = () => {
   const [pupList, setPupList] = useState()
@@ -47,11 +48,22 @@ const Pups = () => {
           <div className='buyPageListWrapper'>
             <div className='buyPageList'>
               {
-                pupList && pupList.map((e, index) => {
+                pupList ? pupList?.map((e, index) => {
                   return(
                     <DogCard details={e} key={index}/>
                   )
-                })
+                }) :
+                <div className='skeletonCardWrapper'>
+                  <Skeleton variant="rectangular" animation="wave" width={"100%"} height={210} className='skeletonCard' />
+                  <Skeleton variant="rectangular" animation="wave" width={"60%"} height={20} className='skeletonCard'/>
+                  <Skeleton variant="rectangular" animation="wave" width={"100%"} height={20} className='skeletonCard'/>
+                  <div style={{display: "flex", justifyContent:"space-around"}}>
+                    <Skeleton variant="rectangular" animation="wave" width={"48%"} height={40} className='skeletonCard' />
+                    <Skeleton variant="rectangular" animation="wave" width={"48%"} height={40} className='skeletonCard' />
+                  </div>
+                  <Skeleton variant="rectangular" animation="wave" width={"100%"} height={40} className='skeletonCard' />                  
+                </div>
+              
               }    
             </div> 
             <div className='bannerWrapper'>

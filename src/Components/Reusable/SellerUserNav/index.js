@@ -25,7 +25,7 @@ const SellerUserNav = () => {
           {/* <img className='DashNavIcon' src={dog}/> */}
           <p>Plans</p>
         </Link>
-        <Link to="/sellerprofile" className={location.pathname.includes("sellerprofile") ? `DhashNavLink active` : "DhashNavLink"}>
+        <Link to="/useraccount" className={"DhashNavLink"}>
           {/* <img className='DashNavIcon' src={adopt}/> */}
           <p>My Account</p>
         </Link>

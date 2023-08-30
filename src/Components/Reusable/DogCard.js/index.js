@@ -9,7 +9,7 @@ import share from '../../../Assets/share.png'
 import likeOutline from '../../../Assets/heartLine.png'
 import like from '../../../Assets/heart.png'
 import quality from '../../../Assets/quality.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import EnquiryModal from '../EnquiryModal';
 import { useState } from 'react';
 import axios from 'axios';
@@ -32,7 +32,9 @@ const id = {
 
 const DogCard = ({details, availableForAdoption}) => {
     const userId = localStorage.getItem('userId')
-    const [popup, setPopup]=useState(false)
+    const navigate = useNavigate();
+    const [popup, setPopup]=useState(false);
+    console.log(details, 'dogs details')
     const enquiryRequest = async() => {
         try{
             const res = await axios.post("https://poochku-prod.azurewebsites.net/enquiry/best-price", null,{params:{userId, petId:`${details.petId}`}})
@@ -43,7 +45,14 @@ const DogCard = ({details, availableForAdoption}) => {
         }
     }
     const waEnquire = () => {
-        window.open(details.owner.whatsappUrl)
+        if(userId){
+            window.open(details.owner.whatsappUrl)
+        }else{
+            navigate("/auth")
+        }
+    }
+    const viewDogForAdoption = () => {
+        navigate(`/viewDog/${details.petId}`)
     }
 
   return (
@@ -53,7 +62,7 @@ const DogCard = ({details, availableForAdoption}) => {
             <Carousel.Item>
                 <img
                 className="d-block w-100"
-                src={dog}
+                src={details?.imageUrls ? details.imageUrls[0] : dog}
                 alt="First slide"
                 />
             </Carousel.Item>
@@ -76,10 +85,10 @@ const DogCard = ({details, availableForAdoption}) => {
             </div>            
             <div className='actionWrapper'>
                 <button className='whatsappEnquire' onClick={waEnquire}><img src={whatsappIcon} />Enquire</button>
-                {availableForAdoption ? <button className='bestBuy'>See More</button> : <button className='bestBuy'onClick={enquiryRequest}>Get Best Price</button>}
+                {availableForAdoption ? <button className='bestBuy' onClick={viewDogForAdoption}>See More</button> : <button className='bestBuy'onClick={enquiryRequest}>Get Best Price</button>}
             </div>
             {!availableForAdoption && <div className='actionWrapper2'>
-                <Link to="/viewDog" target='_blank'><button>See More</button></Link>
+                <Link to={`/viewDog/${details.petId}`}><button>See More</button></Link>
             </div>}
         </div>
         <EnquiryModal open={popup} setOpen={setPopup}/>

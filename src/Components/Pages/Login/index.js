@@ -55,6 +55,7 @@ const Login = () =>{
                 localStorage.setItem('userId', res.data.user.userId);
                 localStorage.setItem('email', res.data.user.email);
                 localStorage.setItem('fName', res.data.user.fName);
+                localStorage.setItem('lName', res.data.user.lName);
                 localStorage.setItem('phoneNo', res.data.user.phoneNo);
                 localStorage.setItem('role', res.data.user.role);
                 navigate("/browse")

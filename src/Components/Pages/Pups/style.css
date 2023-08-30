@@ -177,4 +177,14 @@
     width: 80vw;
     padding: 30px 20px;
   }
+  .skeletonCardWrapper {
+    width: 100%;
+  }
+}
+.skeletonCardWrapper {
+  width: 32%;
+}
+.skeletonCardWrapper .skeletonCard {
+  margin-bottom: 20px;
+  border-radius: 4px;
 }/*# sourceMappingURL=style.css.map */

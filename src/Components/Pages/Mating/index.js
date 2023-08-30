@@ -15,6 +15,9 @@ import Check from '../../../Assets/check.png'
 import Rupee from '../../../Assets/rupee.png'
 import happy from "../../../Assets/happy.png"
 import MobileNav from '../../Reusable/MobileNav'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { useEffect } from 'react'
 
 const db = [
     {
@@ -46,11 +49,15 @@ const db = [
 
 const Mating = () => {
     const dogList = db;
+    const userId = localStorage.getItem("userId");
     const [currentIndex, setCurrentIndex] = useState(db.length - 1)
-    const [lastDirection, setLastDirection] = useState()
+    const [lastDirection, setLastDirection] = useState();
+    const [petList, setPetList] = useState()
     // used for outOfFrame closure
     const currentIndexRef = useRef(currentIndex)
-    const [isAvailable, setIsAvailable] = useState(false);
+    // const [isAvailable, setIsAvailable] = useState(false);
+    const navigate = useNavigate();
+
     const childRefs = useMemo(
       () =>
         Array(db.length)
@@ -100,6 +107,23 @@ const Mating = () => {
       await childRefs[newIndex].current.restoreCard()
     }
 
+    const getPetList = async() => {
+      try{
+        const res = axios.get(`https://poochku-prod.azurewebsites.net/user/${userId}`)
+        setPetList(res.data.pets.pets_for_mating)
+      }catch(err){
+        console.log(err)
+      }
+    } 
+
+    const addMyDog = () => {
+      navigate("/newdog/mydog")
+    }
+
+    useEffect(()=>{
+      getPetList()
+    }, [])
+
   return (
     <div className='browsePetWrapper mating'>
         <DashNavUser />
@@ -111,7 +135,7 @@ const Mating = () => {
             </div>
             <Search />
           </div>
-          {isAvailable ? <div className='matingWrapper'>
+          {petList?.length ? <div className='matingWrapper'>
             <div className='cardContainer'>
                 {dogList.map((character, index) =>
                     <TinderCard  ref={childRefs[index]}
@@ -283,7 +307,7 @@ const Mating = () => {
         <div className='addMatingDog'>
           <img src={happy} />
           <h1>Please add a dog first!</h1>
-          <button className='landingButtonMain secondary adopt'>Add a Dog</button>
+          <button className='landingButtonMain secondary adopt' onClick={addMyDog}>Add a Dog</button>
         </div>}
         </div> 
         <MobileNav />
