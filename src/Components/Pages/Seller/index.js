@@ -19,7 +19,7 @@ const Seller = () => {
             <h2 className='sellerHeading'>Your Active Listings</h2>
             <div className='sellerHeader'>
                 <input type='text'placeholder='Search your listings' className='filterInput' />
-                <Link to="/newDog"><button className='filterButton'>+ NEW DOG</button></Link>
+                <Link to="/newDog/seller"><button className='filterButton'>+ NEW DOG</button></Link>
             </div>
             <hr />
             <div className='dogsForSaleWrapper'>

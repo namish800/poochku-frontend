@@ -62,7 +62,7 @@ const DogCard = ({details, availableForAdoption}) => {
             <Carousel.Item>
                 <img
                 className="d-block w-100"
-                src={details?.imageUrls ? details.imageUrls[0] : dog}
+                src={details?.imageUrls.length > 0 ? details.imageUrls[0] : dog}
                 alt="First slide"
                 />
             </Carousel.Item>

@@ -36,7 +36,7 @@ const DashNavUser = () => {
             {/* <img className='DashNavIcon' src={dog}/> */}
             <p>Mating</p>
           </Link>
-          <Link to="/adopt" className={location.pathname.includes("adopt") ? 'DhashNavLink active' : 'DhashNavLink'}>
+          <Link to="/adopt" className={(location.pathname.includes("adopt") && !location.pathname.includes("adoption")) ? 'DhashNavLink active' : 'DhashNavLink'}>
             {/* <img className='DashNavIcon' src={adopt}/> */}
             <p>Adopt</p>
           </Link>

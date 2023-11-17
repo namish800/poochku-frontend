@@ -52,7 +52,8 @@ const Mating = () => {
     const userId = localStorage.getItem("userId");
     const [currentIndex, setCurrentIndex] = useState(db.length - 1)
     const [lastDirection, setLastDirection] = useState();
-    const [petList, setPetList] = useState()
+    const [petList, setPetList] = useState();
+    const [matingList, setMatingList] = useState([]);
     // used for outOfFrame closure
     const currentIndexRef = useRef(currentIndex)
     // const [isAvailable, setIsAvailable] = useState(false);
@@ -75,9 +76,13 @@ const Mating = () => {
     const canSwipe = currentIndex >= 0
   
     // set last direction and decrease current index
-    const swiped = (direction, nameToDelete, index) => {
+    const swiped = (direction, nameToDelete, index, swiper, target) => {
       setLastDirection(direction)
       updateCurrentIndex(index - 1)
+      console.log(direction, "direction")
+      if(direction === "right"){
+        swipeAction(swiper, target)
+      }
     }
 
     const outOfFrame = (name, idx) => {
@@ -109,12 +114,35 @@ const Mating = () => {
 
     const getPetList = async() => {
       try{
-        const res = axios.get(`https://poochku-prod.azurewebsites.net/user/${userId}`)
-        setPetList(res.data.pets.pets_for_mating)
+        const res = await axios.get(`https://poochku-prod.azurewebsites.net/user/${userId}`)
+        console.log('pets for mating', res)
+        setPetList(res?.data.pets.pets_for_mating)
       }catch(err){
         console.log(err)
       }
-    } 
+    }
+
+    const getMatingList = async() => {
+      try{
+        const res = await axios.get("https://poochku-prod.azurewebsites.net/pet?serviceCode=M", {params:{
+          page:0,
+          size: 20
+        }})
+        console.log("Mating List", res)
+        setMatingList(res?.data?.pets)
+      }catch(err){ 
+        console.log("Error", err)
+      }
+    }
+
+    const swipeAction = async(swiperId, targetId) => {
+      try{
+        const res = await axios.post('https://poochku-prod.azurewebsites.net/swipe', {swiperId, targetId})
+        console.log("swiped", res)
+      }catch(err){
+        console.log("Error", err)
+      }
+    }
 
     const addMyDog = () => {
       navigate("/newdog/mydog")
@@ -122,6 +150,7 @@ const Mating = () => {
 
     useEffect(()=>{
       getPetList()
+      getMatingList()
     }, [])
 
   return (
@@ -135,20 +164,20 @@ const Mating = () => {
             </div>
             <Search />
           </div>
-          {petList?.length ? <div className='matingWrapper'>
+          {petList?.length > 0 ? <div className='matingWrapper'>
             <div className='cardContainer'>
-                {dogList.map((character, index) =>
+                {matingList.map((character, index) =>
                     <TinderCard  ref={childRefs[index]}
                       className='swipe'
-                      key={character.name}
-                      onSwipe={(dir) => swiped(dir, character.name, index)}
+                      key={index}
+                      onSwipe={(dir) => swiped(dir, character.name, index, petList[0]?.petId, character.petId)}
                       onCardLeftScreen={() => outOfFrame(character.name, index)}>
                         <div className='card'>
-                          <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
+                          <div className='dogPhotoWrapper' style={{background:`url(${character.imageUrls.length > 0 ? character.imageUrls[0] : dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
                           <div className='dogDetailMating'>
-                            <h3>{character.name}</h3>
-                            <div><img src={gender} /><p>Male</p></div>
-                            <div><img src={Dog} /><p>KCI Registered</p></div>
+                            <h3>{character.name ? character.name : character.breed}</h3>
+                            <div><img src={gender} /><p>{character.gender ? character.gender : "N/A"}</p></div>
+                            <div><img src={Dog} /><p>{character.quality ? character.quality : "N/A" }</p></div>
                             <div><img src={Rupee} /><p>10,000</p></div>
                           </div>
                         </div>
