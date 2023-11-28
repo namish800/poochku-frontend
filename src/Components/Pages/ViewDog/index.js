@@ -3,17 +3,21 @@ import DashNavUser from '../../Reusable/DashNavUser'
 import whatsappIcon from '../../../Assets/whatsapp.svg'
 import dog from '../../../Assets/pitbull.jpg'
 import './style.css'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import dogDB from '../../Reusable/breeds';
 import { Rating, Skeleton } from '@mui/material';
+import EnquiryModal from '../../Reusable/EnquiryModal/EnquiryModal';
 
 const ViewDog = () => {
   const params = useParams();
   const petId = params.id;
   const [details, setDetails] = useState();
   const [info, setInfo] = useState()
+  const [popup, setPopup]=useState(false);
+  const userId = localStorage.getItem('userId')
+  const navigate = useNavigate();
 
   const skeleton = {
     borderRadius: "8px",
@@ -30,6 +34,33 @@ const ViewDog = () => {
       console.log(err)
     }
   }
+
+  const enquiryRequest = async() => {
+    if(userId){
+        setPopup(!popup)
+        try{
+            const res = await axios.post("https://poochku-prod.azurewebsites.net/enquiry/best-price", null,{params:{userId, petId:`${details.petId}`}})
+            console.log(res, "res")
+        }catch(err){
+            console.log(err)
+        }}
+    else{
+        navigate("/auth")
+    }
+  }
+
+  const waEnquire = () => {
+    if(userId){
+        window.open(details.owner.whatsappUrl)
+        axios.post('https://poochku-prod.azurewebsites.net/enquiry/whatsapp-inquiry', {}, {params:{
+            userId,
+            petId : details.petId
+        }})
+    }else{
+        navigate("/auth")
+    }
+}
+
   useEffect(()=>{
     getDogDetails(petId);
   }, [])
@@ -49,8 +80,8 @@ const ViewDog = () => {
                 <p className='buyPageInfo'>{`Browse  >   View Dog`}</p>
               </div>
               <div className='actionWrapper'>
-                <button className='whatsappEnquire'><img src={whatsappIcon} />Enquire</button>
-                <button className='bestBuy'>Get Best Price</button>
+                <button className='whatsappEnquire' onClick={waEnquire}><img src={whatsappIcon} />Enquire</button>
+                <button className='bestBuy' onClick={enquiryRequest}>Get Best Price</button>
               </div>
             </div>
             {details && info ? <div className='dogViewWrapper'>
@@ -137,6 +168,7 @@ const ViewDog = () => {
               </div>)
             }
           </div>
+          <EnquiryModal  open={popup} setOpen={setPopup}/>
         </div>
   )
 }

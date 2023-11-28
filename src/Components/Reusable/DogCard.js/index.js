@@ -10,25 +10,10 @@ import likeOutline from '../../../Assets/heartLine.png'
 import like from '../../../Assets/heart.png'
 import quality from '../../../Assets/quality.png'
 import { Link, useNavigate } from 'react-router-dom';
-import EnquiryModal from '../EnquiryModal';
+import EnquiryModal from '../EnquiryModal/EnquiryModal';
 import { useState } from 'react';
 import axios from 'axios';
 
-
-const id = {
-    id: 1,
-    breed:"Pitbull",
-    weeks:"5",
-    months:"2",
-    isVaccinated:true,
-    isMixedBreed:true,
-    motherBreed:"Poodle",
-    fatherBreed:"Pitbull",
-    photos:[],
-    ownerName:"Satyam Mahajan",
-    colors:["white", "black"],
-    waLink: "",
-}
 
 const DogCard = ({details, availableForAdoption}) => {
     const userId = localStorage.getItem('userId')
@@ -36,23 +21,43 @@ const DogCard = ({details, availableForAdoption}) => {
     const [popup, setPopup]=useState(false);
     console.log(details, 'dogs details')
     const enquiryRequest = async() => {
-        try{
-            const res = await axios.post("https://poochku-prod.azurewebsites.net/enquiry/best-price", null,{params:{userId, petId:`${details.petId}`}})
-            console.log(res, "res")
+        if(userId){
             setPopup(!popup)
-        }catch(err){
-            console.log(err)
+            try{
+                const res = await axios.post("https://poochku-prod.azurewebsites.net/enquiry/best-price", null,{params:{userId, petId:`${details.petId}`}})
+                console.log(res, "res")
+            }catch(err){
+                console.log(err)
+            }}
+        else{
+            navigate("/auth")
         }
     }
     const waEnquire = () => {
         if(userId){
             window.open(details.owner.whatsappUrl)
+            axios.post('https://poochku-prod.azurewebsites.net/enquiry/whatsapp-inquiry', {}, {params:{
+                userId,
+                petId : details.petId
+            }})
         }else{
             navigate("/auth")
         }
     }
+    const seeMoreEnquiry = () => {
+        // navigate(`/viewDog/${details.petId}`)
+        axios.post('https://poochku-prod.azurewebsites.net/enquiry/see-more', {}, {params:{
+                userId,
+                petId : details.petId
+            }})
+    }
+
     const viewDogForAdoption = () => {
-        navigate(`/viewDog/${details.petId}`)
+        // navigate(`/viewDog/${details.petId}`)
+        axios.post('https://poochku-prod.azurewebsites.net/enquiry/see-more', {}, {params:{
+                userId,
+                petId : details.petId
+            }})
     }
 
   return (
@@ -60,11 +65,12 @@ const DogCard = ({details, availableForAdoption}) => {
         <div className='dogCardSlider'>
         <Carousel interval={null}>
             <Carousel.Item>
-                <img
+                {/* <img
                 className="d-block w-100"
                 src={details?.imageUrls.length > 0 ? details.imageUrls[0] : dog}
                 alt="First slide"
-                />
+                /> */}
+                <div className='DogImageWrapper' style={{background: `url(${details?.imageUrls.length > 0 ? details.imageUrls[0] : dog})`}}></div>
             </Carousel.Item>
         </Carousel>
         </div>
@@ -72,7 +78,7 @@ const DogCard = ({details, availableForAdoption}) => {
             <div className='dogCardHeader'>
                 <h3>  {details.breed}</h3>
                 <div>
-                    <img src={likeOutline} />
+                    {/* <img src={likeOutline} /> */}
                     <img src={share} />
                 </div>
             </div>
@@ -85,10 +91,10 @@ const DogCard = ({details, availableForAdoption}) => {
             </div>            
             <div className='actionWrapper'>
                 <button className='whatsappEnquire' onClick={waEnquire}><img src={whatsappIcon} />Enquire</button>
-                {availableForAdoption ? <button className='bestBuy' onClick={viewDogForAdoption}>See More</button> : <button className='bestBuy'onClick={enquiryRequest}>Get Best Price</button>}
+                {availableForAdoption ? <Link to={`/viewDog/${details.petId}`} className='bestBuy' target="_blank" rel="noopener noreferrer"><button onClick={viewDogForAdoption}>See More</button></Link> : <button className='bestBuy'onClick={enquiryRequest}>Get Best Price</button>}
             </div>
             {!availableForAdoption && <div className='actionWrapper2'>
-                <Link to={`/viewDog/${details.petId}`}><button>See More</button></Link>
+                <Link to={`/viewDog/${details.petId}`} target="_blank" rel="noopener noreferrer"><button onClick={seeMoreEnquiry}>See More</button></Link>
             </div>}
         </div>
         <EnquiryModal open={popup} setOpen={setPopup}/>

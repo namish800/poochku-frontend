@@ -1,17 +1,27 @@
 .dogCardWrapper{
-    width: 32%;
+    width: 24%;
     display: flex;
     flex-direction: column;
     background: #fff;
     // border: 1px solid #6504b5;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 5px 0px #b6b6b6;
+    // box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    margin-right: 1%;
     // color: white;
 
     .dogCardSlider{
         width: 100%;
+    }
+
+    .DogImageWrapper{
+        height: 25vh;
+        width: 100%;
+        background-repeat: no-repeat!important;
+        background-size: cover!important;
+        background-position: center!important;
     }
 
     .dogCardDetails{
@@ -48,6 +58,7 @@
             font-size: 13px;
             font-weight: 500;
         }
+        
 
         .detailWrapper{
             display: flex;
@@ -78,6 +89,14 @@
                 border-radius: 8px;
                 width: 48%;
                 // box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+            }
+            a{
+                text-decoration: none;
+                width: 48%;
+
+                button{
+                    width: 100%;
+                }
             }
             .whatsappEnquire{
                 // background: #64b161;
@@ -112,8 +131,10 @@
         }
     }
 }
+
 @media only screen and (max-width: 768px) {
     .dogCardWrapper{
         width: 100%;
+        margin-right: 0;
     }
 }

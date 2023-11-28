@@ -5,6 +5,8 @@ import axios from 'axios';
 import petApi from '../../../services/petApi';
 import { useLocation, useNavigate } from 'react-router-dom';
 import dogDb from '../../Reusable/breeds'
+import { useCallback } from 'react';
+import { useDropzone} from 'react-dropzone';
 
 const initialPet = {
     "ownerId": localStorage.getItem('userId'),
@@ -27,7 +29,17 @@ const AddDog = ({previousPath}) => {
     const [selectedImages, setSelectedImages] = useState([]);
     const location = useLocation();
     const navigate = useNavigate();
-
+    const [preview, setPreview] = useState(null);
+    const onDrop = useCallback((acceptedFiles) => {
+        const file = new FileReader;
+        
+        file.onload = function() {
+            setPreview(file.result);
+        }
+        
+        file.readAsDataURL(acceptedFiles[0])
+    }, [])
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({onDrop});
 
     const submitDog = async () => {
         pet.ownerId = localStorage.getItem("userId")
@@ -106,6 +118,18 @@ const AddDog = ({previousPath}) => {
             <form className='newDogForm'>
                 <div className='dogInfo'>
                     <div className='newDogWrapper'>
+                        <div className='dogFormDiv'>
+                            <div>
+                                <p className='newDogLabel'>Name</p>
+                                <input type="text" value={pet.name} name='name' onChange={handleChange} placeholder='Enter pet name'/>
+                            </div>
+                            <div>
+                                <p className='newDogLabel'>Age in Days</p>
+                                <input type='number' name='ageInDays' value={pet.ageInDays} placeholder='days' onChange={handleChange}/> <label>Days</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='newDogWrapper'>
                         <p className='newDogLabel'>Breed</p>
                         <select name='breed' value={pet.breed} onChange={handleChange}>
                             <option value="0">Select a breed</option>
@@ -115,10 +139,6 @@ const AddDog = ({previousPath}) => {
                         </select>
                     </div>
                     <div className='newDogWrapper'>
-                        <p className='newDogLabel'>Name</p>
-                        <div className='dogFormDiv'>
-                            <input type="text" value={pet.name} name='name' onChange={handleChange} placeholder='Enter pet name'/>
-                        </div>
                     </div>
                     <div className='newDogWrapper'>
                         <div className='dogFormDiv'>
@@ -160,22 +180,26 @@ const AddDog = ({previousPath}) => {
                         </div>          
                     </div>  
                     <div className='newDogWrapper'>
-                        <p className='newDogLabel'>Age in Days</p>
-                        <input type='number' name='ageInDays' value={pet.ageInDays} placeholder='days' onChange={handleChange}/> <label>Days</label>
-                    </div>
-                    <div className='newDogWrapper'>
                         <p className='newDogLabel'>Vaccinations</p>
                         <label>Is your dog vaccinated?</label>
                         <input type='checkbox' onChange={handleChange} value={pet.vaccination_status} name='vaccination_status'/> 
                     </div>  
                     <div className='newDogWrapper'>
                         <p className='newDogLabel'>Description</p>
-                        <textarea value={pet.description} name='description' onChange={handleChange}/> 
+                        <textarea value={pet.description} placeholder='Add dog description' name='description' onChange={handleChange}/> 
                     </div>  
                 </div>
                 <div className='dogImgWrapper'>
                     <p>Upload Images</p>
-                    <input type="file" onChange={handleImageInputChange}/>
+                    {/* <input type="file" onChange={handleImageInputChange}/> */}
+                    <div {...getRootProps()}>
+                        <input {...getInputProps()} />
+                        {
+                            isDragActive ?
+                            <p>Drop the files here ...</p> :
+                            <p>Drag 'n' drop some files here, or click to select files</p>
+                        }
+                    </div>
                 </div>
             </form>
             <button className='dogFormSubmitButton' onClick={submitDog}>Submit</button>

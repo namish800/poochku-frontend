@@ -1,6 +1,6 @@
 .searchWrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   flex-grow: 1;
   margin-left: 40px;
 }
@@ -11,6 +11,7 @@
   padding: 5px 10px;
   font-family: fredoka;
   margin: 0;
+  margin-right: 10px;
 }
 .searchWrapper .filterButton {
   padding: 15px 30px;

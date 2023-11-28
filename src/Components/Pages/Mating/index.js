@@ -17,7 +17,9 @@ import happy from "../../../Assets/happy.png"
 import MobileNav from '../../Reusable/MobileNav'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import location from '../../../Assets/location-pin.png'
 import { useEffect } from 'react'
+import MatingDropdown from '../../Reusable/MatingDropdown'
 
 const db = [
     {
@@ -54,6 +56,13 @@ const Mating = () => {
     const [lastDirection, setLastDirection] = useState();
     const [petList, setPetList] = useState();
     const [matingList, setMatingList] = useState([]);
+    const [value, setValue] = useState(1)
+    const [swipeList, setSwipeList] = useState([])
+    const [accepted, setAccepted] = useState([]);
+    const [pendingFromSwiper, setPendingFromSwiper] = useState([]);
+    const [pendingFromTarget, setPendingFromTarget] = useState([])
+    const [selectedDog, setSelectedDog] = useState()
+
     // used for outOfFrame closure
     const currentIndexRef = useRef(currentIndex)
     // const [isAvailable, setIsAvailable] = useState(false);
@@ -77,6 +86,7 @@ const Mating = () => {
   
     // set last direction and decrease current index
     const swiped = (direction, nameToDelete, index, swiper, target) => {
+      console.log("swipeddd", direction, nameToDelete, index, swiper, target)
       setLastDirection(direction)
       updateCurrentIndex(index - 1)
       console.log(direction, "direction")
@@ -116,7 +126,10 @@ const Mating = () => {
       try{
         const res = await axios.get(`https://poochku-prod.azurewebsites.net/user/${userId}`)
         console.log('pets for mating', res)
-        setPetList(res?.data.pets.pets_for_mating)
+        setPetList(res?.data.pets.pets_for_mating);
+        if(res?.data.pets.pets_for_mating.length > 0){
+          setSelectedDog(res?.data?.pets.pets_for_mating[0].petId)
+        }
       }catch(err){
         console.log(err)
       }
@@ -148,10 +161,28 @@ const Mating = () => {
       navigate("/newdog/mydog")
     }
 
+    const getSwipedResults = async () => {
+      try{
+        const res = await axios.get(`https://poochku-prod.azurewebsites.net/swipe/${petList[0]?.petId}`)
+        console.log("swipeResult", res)
+        setAccepted(res.data.accepted)
+        setPendingFromSwiper(res.data.pendingFromSwiper);
+        setPendingFromTarget(res.data.pendingFromTarget)
+      }catch(err){
+        console.log("Err in Swiped Results", err)
+      }
+    }
+
     useEffect(()=>{
       getPetList()
       getMatingList()
     }, [])
+
+    useEffect(() => {
+      if(petList && petList.length > 0){
+        getSwipedResults()
+      }
+    }, [petList])
 
   return (
     <div className='browsePetWrapper mating'>
@@ -164,173 +195,120 @@ const Mating = () => {
             </div>
             <Search />
           </div>
+          {/* <hr className='mainPageHr' /> */}
           {petList?.length > 0 ? <div className='matingWrapper'>
-            <div className='cardContainer'>
-                {matingList.map((character, index) =>
-                    <TinderCard  ref={childRefs[index]}
-                      className='swipe'
-                      key={index}
-                      onSwipe={(dir) => swiped(dir, character.name, index, petList[0]?.petId, character.petId)}
-                      onCardLeftScreen={() => outOfFrame(character.name, index)}>
-                        <div className='card'>
-                          <div className='dogPhotoWrapper' style={{background:`url(${character.imageUrls.length > 0 ? character.imageUrls[0] : dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                          <div className='dogDetailMating'>
-                            <h3>{character.name ? character.name : character.breed}</h3>
-                            <div><img src={gender} /><p>{character.gender ? character.gender : "N/A"}</p></div>
-                            <div><img src={Dog} /><p>{character.quality ? character.quality : "N/A" }</p></div>
-                            <div><img src={Rupee} /><p>10,000</p></div>
-                          </div>
-                        </div>
-                    </TinderCard>
-                )}
-                <div className='matingButtons'>
-                  <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} className="leftSwipe" onClick={() => swipe('left')}><img src={Close}/></button>
-                  <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button>
-                  <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} className="rightSwipe" onClick={() => swipe('right')}><img src={Check}/></button>
+            <div className='MatingSection'>
+              <div className='matingTabs'>
+                <div className={`matingTab ${value===1 ? "active" : ""}`} onClick={() => setValue(1)}>Pooch World</div>
+                <div className={`matingTab ${value===2 ? "active" : ""}`} onClick={() => setValue(2)}>Your Matches</div>
+              </div>
+              {value === 1 && <div className='matingPanel'>
+                    <div className='matingSelector'>
+                      <h2>Currently Matching for</h2>
+                      {petList && <MatingDropdown petList = {petList} selectedDog={selectedDog} setSelectedDog={setSelectedDog} />}
+                    </div>
+                    <div className='cardContainer'>
+                      <div style={{position: "relative", height: "400px", width: '100%'}}>
+                        {matingList.map((character, index) =>
+                            <TinderCard  ref={childRefs[index]}
+                              className='swipe'
+                              key={index}
+                              onSwipe={(dir) => swiped(dir, character.name, index, selectedDog, character.petId)}
+                              onCardLeftScreen={() => outOfFrame(character.name, index)}>
+                                <div className='card'>
+                                  <div className='dogPhotoWrapper' style={{background:`url(${character.imageUrls.length > 0 ? character.imageUrls[0] : dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
+                                  <div className='dogDetailMating'>
+                                    <h3>{character.name ? character.name : character.breed}</h3>
+                                    <div><img src={gender} /><p>{character.gender ? character.gender : "N/A"}</p></div>
+                                    <div><img src={Dog} /><p>{character.quality ? character.quality : "N/A" }</p></div>
+                                    <div><img src={Rupee} /><p>10,000</p></div>
+                                  </div>
+                                </div>
+                            </TinderCard>
+                        )}
+                      </div>
+                      <div className='matingButtons'>
+                        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} className="leftSwipe" onClick={() => swipe('left')}><img src={Close}/></button>
+                        {/* <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button> */}
+                        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} className="rightSwipe" onClick={() => swipe('right')}><img src={Check}/></button>
+                      </div>
+                    </div>
+              </div>}
+              {
+                value === 2 && <div className='matingPanel'>
+                  <div className='matchSection'>
+                        <h3>Your Matches</h3>
+                        <Tabs>
+                          <TabList>
+                            <Tab>Active</Tab>
+                            <Tab>Pending</Tab>
+                          </TabList>
+                          <TabPanel>
+                            <div className='matchWrapper'>
+                                {accepted.length > 0 && accepted?.map((match, index) => {
+                                  return(
+                                    <div className='match' key={index}>
+                                      <div>
+                                        <div className='dogPhotoWrapper' style={{background:`url(${match.petDetails.imageUrls?.length > 0 ? match.petDetails.imageUrls[0] : dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
+                                        <h6>{match.petDetails.name ? match.petDetails.name : match.petDetails.breed}</h6>
+                                      </div>
+                                      <div className='dogDetailMating'>
+                                        <div><img src={gender} /><p>{match.petDetails.gender ? match.petDetails.gender : "N/A"}</p></div>
+                                        <div><img src={location} /><p>{match.petDetails.location ? match.petDetails.location : "N/A"}</p></div>
+                                        <div><img src={Dog} /><p>{match.petDetails.quality ? match.petDetails.quality : "N/A"}</p></div>
+                                      </div>
+                                      <div className='actionWrapper'>
+                                        <button className='whatsappEnquire'><img src={whatsappIcon} />Enquire</button>
+                                        <button className='bestBuy'>Unmatch</button>
+                                      </div>
+                                    </div>)})
+                                }
+                            </div>
+                          </TabPanel>
+                          <TabPanel>
+                            <div className='matchWrapper'>
+                              {pendingFromSwiper.length > 0 && pendingFromSwiper?.map((match, index) => {
+                                return(
+                                  <div className='match' key={index}>
+                                    <div>
+                                      <div className='dogPhotoWrapper' style={{background:`url(${match.petDetails.imageUrls?.length > 0 ? match.petDetails.imageUrls[0] : dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
+                                      <h6>{match.petDetails.name ? match.petDetails.name : match.petDetails.breed}</h6>
+                                    </div>
+                                    <div className='dogDetailMating'>
+                                      <div><img src={gender} /><p>{match.petDetails.gender ? match.petDetails.gender : "N/A"}</p></div>
+                                      <div><img src={location} /><p>{match.petDetails.location ? match.petDetails.location : "N/A"}</p></div>
+                                      <div><img src={Dog} /><p>{match.petDetails.quality ? match.petDetails.quality : "N/A"}</p></div>
+                                    </div>
+                                    <div className='actionWrapper'>
+                                      <button className='whatsappEnquire'><img src={whatsappIcon} />Enquire</button>
+                                      <button className='bestBuy'>ACCEPT</button>
+                                    </div>
+                                  </div>)})
+                              }
+                              {pendingFromTarget.length > 0 && pendingFromTarget?.map((match, index) => {
+                                return(
+                                  <div className='match' key={index}>
+                                    <div>
+                                      <div className='dogPhotoWrapper' style={{background:`url(${match.petDetails.imageUrls?.length > 0 ? match.petDetails.imageUrls[0] : dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
+                                      <h6>{match.petDetails.name ? match.petDetails.name : match.petDetails.breed}</h6>
+                                    </div>
+                                    <div className='dogDetailMating'>
+                                      <div><img src={gender} /><p>{match.petDetails.gender ? match.petDetails.gender : "N/A"}</p></div>
+                                      <div><img src={location} /><p>{match.petDetails.location ? match.petDetails.location : "N/A"}</p></div>
+                                      <div><img src={Dog} /><p>{match.petDetails.quality ? match.petDetails.quality : "N/A"}</p></div>
+                                    </div>
+                                    <div className='actionWrapper'>
+                                      <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
+                                      <button className='bestBuy' disabled>Pending</button>
+                                    </div>
+                                  </div>)})
+                              }
+                            </div>
+                          </TabPanel>
+                        </Tabs>
+                  </div>
                 </div>
-            </div>
-            <div className='matchSection'>
-                  <h3>Your Matches</h3>
-                  <Tabs>
-                    <TabList>
-                      <Tab>Active</Tab>
-                      <Tab>Pending</Tab>
-                    </TabList>
-                    <TabPanel>
-                      <div className='matchWrapper'>
-                        <div className='match'>
-                          <div>
-                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                            <h6>Dog Breed</h6>
-                          </div>
-                          <div className='dogDetailMating'>
-                            <div><img src={gender} /><p>Male</p></div>
-                            <div><img src={Dog} /><p>KCI Registered</p></div>
-                          </div>
-                          <div className='actionWrapper'>
-                            <button className='whatsappEnquire'><img src={whatsappIcon} />Enquire</button>
-                            <button className='bestBuy'>Unmatch</button>
-                          </div>
-                        </div>
-                        <div className='match'>
-                          <div>
-                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                            <h6>Dog Breed</h6>
-                          </div>
-                          <div className='dogDetailMating'>
-                            <div><img src={gender} /><p>Male</p></div>
-                            <div><img src={Dog} /><p>KCI Registered</p></div>
-                          </div>
-                          <div className='actionWrapper'>
-                            <button className='whatsappEnquire'><img src={whatsappIcon} />Enquire</button>
-                            <button className='bestBuy'>Unmatch</button>
-                          </div>
-                        </div>
-                      </div>
-                    </TabPanel>
-                    <TabPanel>
-                      <div className='matchWrapper'>
-                        <div className='match'>
-                          <div>
-                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                            <h6>Dog Breed</h6>
-                          </div>
-                          <div className='dogDetailMating'>
-                            <div><img src={gender} /><p>Male</p></div>
-                            <div><img src={Dog} /><p>KCI Registered</p></div>
-                          </div>
-                          <div className='actionWrapper'>
-                            <button className='whatsappEnquire'><img src={whatsappIcon} />Enquire</button>
-                            <button className='bestBuy'>ACCEPT</button>
-                          </div>
-                        </div>
-                        <div className='match'>
-                          <div>
-                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                            <h6>Dog Breed</h6>
-                          </div>
-                          <div className='dogDetailMating'>
-                            <div><img src={gender} /><p>Male</p></div>
-                            <div><img src={Dog} /><p>KCI Registered</p></div>
-                          </div>
-                          <div className='actionWrapper'>
-                            <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
-                            <button className='bestBuy' disabled>Pending</button>
-                          </div>
-                        </div>
-                        <div className='match'>
-                          <div>
-                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                            <h6>Dog Breed</h6>
-                          </div>
-                          <div className='dogDetailMating'>
-                            <div><img src={gender} /><p>Male</p></div>
-                            <div><img src={Dog} /><p>KCI Registered</p></div>
-                          </div>
-                          <div className='actionWrapper'>
-                            <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
-                            <button className='bestBuy' disabled>Pending</button>
-                          </div>
-                        </div>
-                        <div className='match'>
-                          <div>
-                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                            <h6>Dog Breed</h6>
-                          </div>
-                          <div className='dogDetailMating'>
-                            <div><img src={gender} /><p>Male</p></div>
-                            <div><img src={Dog} /><p>KCI Registered</p></div>
-                          </div>
-                          <div className='actionWrapper'>
-                            <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
-                            <button className='bestBuy' disabled>Pending</button>
-                          </div>
-                        </div>
-                        <div className='match'>
-                          <div>
-                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                            <h6>Dog Breed</h6>
-                          </div>
-                          <div className='dogDetailMating'>
-                            <div><img src={gender} /><p>Male</p></div>
-                            <div><img src={Dog} /><p>KCI Registered</p></div>
-                          </div>
-                          <div className='actionWrapper'>
-                            <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
-                            <button className='bestBuy' disabled>Pending</button>
-                          </div>
-                        </div>
-                        <div className='match'>
-                          <div>
-                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                            <h6>Dog Breed</h6>
-                          </div>
-                          <div className='dogDetailMating'>
-                            <div><img src={gender} /><p>Male</p></div>
-                            <div><img src={Dog} /><p>KCI Registered</p></div>
-                          </div>
-                          <div className='actionWrapper'>
-                            <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
-                            <button className='bestBuy' disabled>Pending</button>
-                          </div>
-                        </div>
-                        <div className='match'>
-                          <div>
-                            <div className='dogPhotoWrapper' style={{background:`url(${dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                            <h6>Dog Breed</h6>
-                          </div>
-                          <div className='dogDetailMating'>
-                            <div><img src={gender} /><p>Male</p></div>
-                            <div><img src={Dog} /><p>KCI Registered</p></div>
-                          </div>
-                          <div className='actionWrapper'>
-                            <button className='whatsappEnquire pending' disabled><img src={whatsappIcon} />Enquire</button>
-                            <button className='bestBuy' disabled>Pending</button>
-                          </div>
-                        </div>
-                      </div>
-                    </TabPanel>
-                  </Tabs>
+              }
             </div>
           </div> :
         <div className='addMatingDog'>

@@ -10,6 +10,12 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
 }
+.newDogForm .newDogWrapper textarea {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  width: 100%;
+}
 .newDogForm .newDogWrapper select {
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -39,7 +45,7 @@
   padding: 10px 20px;
   font-family: changa one;
   color: #fff;
-  background: #ffd903;
+  background: #6504b5;
   border: 0px;
   border-radius: 8px;
 }/*# sourceMappingURL=style.css.map */

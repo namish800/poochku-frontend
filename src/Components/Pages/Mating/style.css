@@ -1,20 +1,53 @@
 .matingWrapper {
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: stretch;
-  max-width: calc(100vw - 250px);
-  overflow-x: hidden;
+  width: 100%;
+  padding: 0 30px;
   overflow-y: visible;
-  max-height: 70vh;
+}
+.matingWrapper .MatingSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+.matingWrapper .MatingSection .matingTabs {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.matingWrapper .MatingSection .matingTabs div {
+  margin-right: 30px;
+  font-size: 20px;
+  font-family: changa one;
+  cursor: pointer;
+  padding: 15px;
+}
+.matingWrapper .MatingSection .matingTabs div.active {
+  background: #6504b5;
+  color: #fff;
+  box-shadow: 0px 0px 5px 0px #b6b6b6;
+  border-radius: 8px;
+}
+.matingWrapper .matingPanel {
+  width: 70vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  padding: 0 20px 20px;
 }
 .matingWrapper .matchSection {
-  width: 50%;
-  background: #fff;
-  padding: 0 20px 20px;
-  overflow-y: scroll;
+  width: 100%;
   position: relative;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 .matingWrapper .matchSection h3 {
   position: sticky;
@@ -39,18 +72,23 @@
 }
 .matingWrapper .matchSection .match .dogDetailMating {
   font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .matingWrapper .matchSection .match .dogDetailMating div {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
+  margin-right: 30px;
 }
 .matingWrapper .matchSection .match .dogDetailMating div p {
   margin: 0;
 }
 .matingWrapper .matchSection .match .dogDetailMating div img {
   width: 20px;
-  margin-right: 15px;
+  margin-right: 10px;
 }
 .matingWrapper .matchSection .match .actionWrapper {
   display: flex;
@@ -97,7 +135,7 @@
 }
 .matingWrapper .cardContainer {
   padding: 30px 60px;
-  height: 500px;
+  height: auto;
   width: 400px;
   overflow: hidden;
   position: relative;
@@ -134,8 +172,13 @@
   margin-right: 15px;
 }
 
+.matingSelector h2 {
+  font-family: changa one;
+  margin-bottom: 20px;
+}
+
 .matingButtons {
-  position: absolute;
+  position: relative;
   bottom: 0px;
   left: 0;
   width: 100%;
@@ -201,7 +244,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
-    max-width: 100%;
     overflow-x: hidden;
     overflow-y: visible;
     max-height: none;
@@ -301,7 +343,6 @@
     padding: 30px 50px;
     height: 75vh;
     width: 100%;
-    overflow: hidden;
     position: relative;
   }
   .matingWrapper .cardContainer .dogPhotoWrapper {

@@ -1,6 +1,5 @@
 import DogForSaleCard from '../../Reusable/DogForSaleCard'
 import './style.css'
-import dogList from '../Pups/dogBuyList'
 import { Link } from 'react-router-dom'
 import SellerUserNav from '../../Reusable/SellerUserNav'
 

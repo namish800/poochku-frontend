@@ -1,5 +1,6 @@
-import React from 'react'
 import { Modal, Box } from '@mui/material'
+import EnquiryImage from '../../../Assets/enquiryImage.png'
+import './style.css'
 
 const EnquiryModal = ({open, setOpen}) => {
     const handleClose = () => {
@@ -14,9 +15,12 @@ const EnquiryModal = ({open, setOpen}) => {
         aria-describedby="modal-modal-description"
       >
         <Box className="enquiryModal">
-          <h1>We hear you!</h1>
-          <p>Stay put... We'll find the pawfect match for you!</p>
-          <button className='landingButtonMain secondary adopt' onClick={handleClose}>Okay</button>
+          <div>
+            <h1>We hear you!</h1>
+            <p>Stay put and keep a check on your whatsapp... We'll find the pawfect match for you! </p>
+            <button className='landingButtonMain secondary adopt' onClick={handleClose}>Okay</button>
+          </div>
+          <img className='enquiryImage' src={EnquiryImage} />
         </Box>
       </Modal>
     </div>

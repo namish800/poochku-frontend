@@ -7,19 +7,23 @@
 }
 .browsePetWrapper .pupListWrapper {
   width: calc(100% - 220px);
-  padding: 20px 0px 20px;
+  z-index: 10;
+  padding: 0px 0px 20px;
   background: #f5f5f5;
+  box-shadow: 0px 0px 5px 0px #b6b6b6;
 }
 .browsePetWrapper .pupListWrapper .pageHeadingSticky {
   position: sticky;
   top: -1px;
-  padding: 15px 30px;
-  background: #f5f5f5;
-  margin-bottom: 10px;
+  padding: 35px 30px 15px;
+  background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(101, 4, 181) 100%);
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: stretch;
+  flex-wrap: wrap;
   z-index: 10;
+  color: #fff;
 }
 .browsePetWrapper .pupListWrapper .pageHeadingSticky.nonStick {
   position: relative;
@@ -47,7 +51,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: start;
-  justify-content: space-between;
+  justify-content: start;
 }
 .browsePetWrapper .pupListWrapper .buyPageListWrapper .bannerWrapper {
   width: 19%;
@@ -90,7 +94,14 @@
   font-family: fredoka;
 }
 
+.mainPageHr {
+  margin: 0px 30px 25px;
+}
+
 @media only screen and (max-width: 768px) {
+  .mainPageHr {
+    display: none;
+  }
   .browsePetWrapper {
     position: relative;
     display: flex;
@@ -110,7 +121,7 @@
   .browsePetWrapper .pupListWrapper .pageHeadingSticky {
     position: relative;
     padding: 15px 15px 0;
-    background: #f5f5f5;
+    background: #fff;
     margin-bottom: 0px;
     display: flex;
     align-items: center;
@@ -144,7 +155,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: start;
-    justify-content: space-between;
+    justify-content: start;
   }
   .browsePetWrapper .pupListWrapper .buyPageListWrapper .bannerWrapper {
     width: 100%;
