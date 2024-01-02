@@ -9,7 +9,7 @@ const DogForSaleCard = ({dogDetails}) => {
   return (
     <div className='dogForSaleCard'>
         <img className='dogPic' src={Pitbull}/>
-        <hr/>
+        {/* <hr/> */}
       {dogDetails?.breed ? <h3>{dogDetails?.breed}</h3> : <h3>Other</h3>}
         <div className='pupDetail'>
           <div className='detailWrapper'><img src={view} /><p>40</p></div>

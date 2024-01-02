@@ -10,8 +10,8 @@ import whatsappIcon from '../../../Assets/whatsapp.svg'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Search from '../../Reusable/Search'
-import Close from '../../../Assets/close.png'
-import Check from '../../../Assets/check.png'
+import Close from '../../../Assets/matingCancel.png'
+import Check from '../../../Assets/matingHeart.png'
 import Rupee from '../../../Assets/rupee.png'
 import happy from "../../../Assets/happy.png"
 import MobileNav from '../../Reusable/MobileNav'
@@ -20,6 +20,7 @@ import axios from 'axios'
 import location from '../../../Assets/location-pin.png'
 import { useEffect } from 'react'
 import MatingDropdown from '../../Reusable/MatingDropdown'
+import Cross from '../../../Assets/thick-cross-mark.png'
 
 const db = [
     {
@@ -109,7 +110,8 @@ const Mating = () => {
     // }
 
     const swipe = async (dir) => {
-      if (canSwipe && currentIndex < db.length) {
+      console.log(`this is the dir ${dir} and currentIndex ${currentIndex}, ${db.length}`, childRefs[currentIndex])
+      if (canSwipe && currentIndex < db.length && childRefs[currentIndex].current) {
         await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
       }
     }
@@ -207,6 +209,7 @@ const Mating = () => {
                       <h2>Currently Matching for</h2>
                       {petList && <MatingDropdown petList = {petList} selectedDog={selectedDog} setSelectedDog={setSelectedDog} />}
                     </div>
+                    <img src={Cross} className='crossIcon' />
                     <div className='cardContainer'>
                       <div style={{position: "relative", height: "400px", width: '100%'}}>
                         {matingList.map((character, index) =>
@@ -248,7 +251,7 @@ const Mating = () => {
                                 {accepted.length > 0 && accepted?.map((match, index) => {
                                   return(
                                     <div className='match' key={index}>
-                                      <div>
+                                      <div style={{display: "flex", flexDirection: "column", justifyContent: "start", alignItems: 'center'}}>
                                         <div className='dogPhotoWrapper' style={{background:`url(${match.petDetails.imageUrls?.length > 0 ? match.petDetails.imageUrls[0] : dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
                                         <h6>{match.petDetails.name ? match.petDetails.name : match.petDetails.breed}</h6>
                                       </div>
@@ -270,7 +273,7 @@ const Mating = () => {
                               {pendingFromSwiper.length > 0 && pendingFromSwiper?.map((match, index) => {
                                 return(
                                   <div className='match' key={index}>
-                                    <div>
+                                    <div style={{display: "flex", flexDirection: "column", justifyContent: "start", alignItems: 'center'}}>
                                       <div className='dogPhotoWrapper' style={{background:`url(${match.petDetails.imageUrls?.length > 0 ? match.petDetails.imageUrls[0] : dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
                                       <h6>{match.petDetails.name ? match.petDetails.name : match.petDetails.breed}</h6>
                                     </div>
@@ -288,7 +291,7 @@ const Mating = () => {
                               {pendingFromTarget.length > 0 && pendingFromTarget?.map((match, index) => {
                                 return(
                                   <div className='match' key={index}>
-                                    <div>
+                                    <div style={{display: "flex", flexDirection: "column", justifyContent: "start", alignItems: 'center'}}>
                                       <div className='dogPhotoWrapper' style={{background:`url(${match.petDetails.imageUrls?.length > 0 ? match.petDetails.imageUrls[0] : dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
                                       <h6>{match.petDetails.name ? match.petDetails.name : match.petDetails.breed}</h6>
                                     </div>

@@ -11,6 +11,7 @@
   background: #fff;
   max-height: 200px;
   overflow: auto;
+  z-index: 10;
 }
 
 .selectedDropDown {

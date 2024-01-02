@@ -107,6 +107,10 @@
     .MuiTabs-root{
         overflow: visible!important;
     }
+    .userTabsWrapper{
+        padding: 0 10px;
+        max-width: 100%;
+    }
     .userAccountWrapper{
         margin-top: 20px;
         font-family: fredoka;
@@ -180,6 +184,23 @@
                 font-weight: 500;
                 box-shadow: 0px 3px 15px rgba(0,0,0,0.2); 
                 border: 0px;
+            }
+            .addDogCard{
+                background: #6504B5;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                text-align: center;
+                font-family: changa one;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                font-size: 20px;
+                margin-right: 1%;
+                cursor: pointer;
+                padding: 20px 40px;
+                opacity: 0.8;
             }
         }
     }

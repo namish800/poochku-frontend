@@ -81,15 +81,3 @@
     border: 0px;
     border-radius: 8px;
 }
-
-
-@media only screen and (max-width: 768px) {
-    .newDogForm{
-        flex-direction: column;
-    }
-    .newDogWrapper{
-        .dogFormDiv{
-            flex-direction: column;
-        }
-    }
-}
