@@ -28,9 +28,9 @@ const Header = () => {
           </div>
           <div className='userActions'>
             {fName && <p>Welcome {fName}</p>}
-            <Link className='navLink' to="/sellerdashboard">Seller Account</Link>
+            <Link className='navLink sellerLink' to="/sellerdashboard">Seller Account</Link>
             {fName && <Link className='navLink' to="/useraccount">Profile</Link>}
-            {!fName ? <Link className='navLink' to="/auth">Login</Link> : <Link className='navLink' onClick={handleLogout} to="/auth">Logout</Link>}
+            {!fName ? <Link className='navLink login' to="/auth">Login</Link> : <Link className='navLink' onClick={handleLogout} to="/auth">Logout</Link>}
           </div>
       </div>
       <Navbar collapseOnSelect expand="lg" className="mobileHeader">

@@ -163,6 +163,10 @@ const Mating = () => {
       navigate("/newdog/mydog")
     }
 
+    const login = () => {
+      navigate("/auth")
+    }
+
     const getSwipedResults = async () => {
       try{
         const res = await axios.get(`https://poochku-prod.azurewebsites.net/swipe/${petList[0]?.petId}`)
@@ -317,7 +321,7 @@ const Mating = () => {
         <div className='addMatingDog'>
           <img src={happy} />
           <h1>Please add a dog first!</h1>
-          <button className='landingButtonMain secondary adopt' onClick={addMyDog}>Add a Dog</button>
+          {userId ? <button className='landingButtonMain secondary adopt' onClick={addMyDog}>Add a Dog</button> : <button className='landingButtonMain secondary adopt' onClick={login}>Login</button>}
         </div>}
         </div> 
         <MobileNav />

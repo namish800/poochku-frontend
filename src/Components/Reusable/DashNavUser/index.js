@@ -23,7 +23,8 @@ const DashNavUser = () => {
         <Link className='DhashNavLink logo' to="/">
           <img className='DhashNavLogo' src={Logo} />
         </Link>
-        <div className='linkWrapper'>
+        {!location.pathname.toLowerCase().includes("sellerdashboard") &&
+          <div className='linkWrapper'>
           <Link to="/browse" className={location.pathname.toLowerCase().includes("browse") || location.pathname.toLowerCase().includes("viewdog") ? 'DhashNavLink active' : 'DhashNavLink'}>
             {/* <img className='DashNavIcon' src={Browse} /> */}
             <p>Buy Pooch</p>
@@ -40,7 +41,20 @@ const DashNavUser = () => {
             {/* <img className='DashNavIcon' src={adopt}/> */}
             <p>Adopt</p>
           </Link>
-        </div>
+        </div>}
+        {
+          location.pathname.toLowerCase().includes("sellerdashboard") &&
+          <div className='linkWrapper'>
+            <Link to="/sellerdashboard" className={location.pathname.includes("sellerdashboard") && !location.pathname.includes("billing") ? `DhashNavLink active` : "DhashNavLink"}>
+            {/* <img className='DashNavIcon' src={Browse} /> */}
+            <p>Dashboard</p>
+          </Link>
+          <Link to="/sellerdashboard/billing" className={location.pathname.includes("billing") ? `DhashNavLink active` : "DhashNavLink"}>
+            {/* <img className='DashNavIcon' src={PetShop}/> */}
+            <p>Billing</p>
+          </Link>
+          </div>
+        }
       </div>
       <div>
         {!fName ? <Link to="/auth" className={'DhashNavLink'} style={{textAlign:"center"}}>

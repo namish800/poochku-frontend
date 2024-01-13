@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: stretch;
   padding: 0px 0px 0 20px;
+  background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(101, 4, 181) 100%);
 }
 .headerWrapper > div {
   display: flex;
@@ -17,11 +18,10 @@
   font-weight: 500;
 }
 .headerWrapper > div.userActions {
-  background: rgb(2, 0, 36);
-  background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(101, 4, 181) 100%);
+  background: #fff;
 }
 .headerWrapper > div.userActions .navLink {
-  color: #fff;
+  color: #6504b5;
 }
 .headerWrapper .headerLogo {
   height: 80px;
@@ -33,7 +33,7 @@
   font-family: changa one;
   text-decoration: none;
   font-weight: 500;
-  color: #6504b5;
+  color: #fff;
   height: 100%;
   display: flex;
   align-items: center;
@@ -43,6 +43,13 @@
 .headerWrapper .navLink:hover {
   color: #fff;
   background: #6504b5;
+}
+.headerWrapper .navLink.login {
+  background: #6504b5;
+  color: #fff !important;
+}
+.headerWrapper .navLink.sellerLink:hover {
+  background: #fff;
 }
 
 .mobileHeader {

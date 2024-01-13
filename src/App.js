@@ -37,7 +37,7 @@ function App() {
           <Route exact path="/useraccount" element={<UserAccount/>}/>
           <Route exact path="/auth" element={<Login/>} />
           <Route exact path="/signup" element={<Login/>} />
-          <Route exact path='/billing' element={<Billing/>} />
+          <Route exact path='sellerdashboard/billing' element={<Billing/>} />
           <Route exact path="/pricing" element={<Plans/>} />
           <Route exact path='/sellerprofile' element={<SellerProfile/>} />
           <Route exact path ='/editdog' element={<EditDog />} />

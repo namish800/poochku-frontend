@@ -2,11 +2,14 @@ import DogForSaleCard from '../../Reusable/DogForSaleCard'
 import './style.css'
 import { Link } from 'react-router-dom'
 import SellerUserNav from '../../Reusable/SellerUserNav'
+import DashNavUser from '../../Reusable/DashNavUser'
+import MobileSearch from '../../Reusable/MobileSearch'
 
 const Seller = () => {
   return (
     <div className='browsePetWrapper'>
-        <SellerUserNav />
+        {/* <SellerUserNav /> */}
+        <DashNavUser />
         <div className='pupListWrapper seller'>
           <div className='pageHeadingSticky nonStick'>
             <div>
@@ -14,6 +17,7 @@ const Seller = () => {
               <p className='buyPageInfo'>List and sell your dogs here!</p>
             </div>
           </div>
+          <MobileSearch/>
           <div className='sellerDashboardWrapper'>
             <h2 className='sellerHeading'>Your Active Listings</h2>
             <div className='sellerHeader'>

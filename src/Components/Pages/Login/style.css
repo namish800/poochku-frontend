@@ -60,6 +60,9 @@
   border: 0;
   border-radius: 30px;
   margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .loginWrapper .loginActions button.signup {
   border: 1px solid #6504b5;

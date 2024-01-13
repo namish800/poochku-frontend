@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: stretch;
     padding: 0px 0px 0 20px;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(101,4,181,1) 100%);
     // background: #6504b5;
 
     & > div{
@@ -19,11 +20,12 @@
         }
 
         &.userActions{
-            background: rgb(2,0,36);
-            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(101,4,181,1) 100%);
+            background: #fff;
+            // background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(101,4,181,1) 100%);
 
             & .navLink{
-                color: #fff;
+                color: #6504b5;
+            // color: #fff;
             }
         }
     }
@@ -39,7 +41,7 @@
         font-family: changa one;
         text-decoration: none;
         font-weight: 500;
-        color: #6504b5;
+        color: #fff;
         height: 100%;
         display: flex;
         align-items: center;
@@ -49,6 +51,17 @@
         &:hover{
             color: #fff;
             background: #6504b5;
+        }
+
+        &.login{
+            background: #6504b5;
+            color: #fff!important;
+        }
+
+        &.sellerLink{
+            &:hover{
+                background: #fff;
+            }
         }
     }
 }

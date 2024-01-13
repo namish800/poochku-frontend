@@ -3,10 +3,12 @@ import "./style.css"
 import axios from "axios";
 import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
 
 const Login = () =>{
     const navigate = useNavigate();
     const location = useLocation();
+    const [loading, setLoading] = useState(false)
     const [Signup, setSignUp] = useState({
         fName:"",
         lName:"",
@@ -48,6 +50,7 @@ const Login = () =>{
     },[location])
 
     const handleSubmit = async() => {
+        setLoading(true)
         try{
             const res = await axios.post("https://poochku-prod.azurewebsites.net/auth/login", form);
             console.log(res, "response")
@@ -61,7 +64,8 @@ const Login = () =>{
                 navigate("/browse")
             }
         }catch(err){
-            console.log(err)
+            console.log(err);
+            setLoading(false)
         }
     }
 
@@ -87,6 +91,13 @@ const Login = () =>{
         navigate("/signup")
     }
 
+    const enterPressed = (e) => {
+        if(e.code === "Enter"){
+            // setLoading(true);
+            handleSubmit();
+        }
+    }
+
   return(
     <div className="loginWrapper">
         <div className="loginBg"></div>
@@ -96,10 +107,10 @@ const Login = () =>{
                 <div><label>Phone Number</label>
                 <input type="number" onChange={(e)=>handleChange(e)} placeholder="Enter your Phone Number" name="username" value={form.username}/></div>
                 <div><label>Password</label>
-                <input type="password" onChange={(e)=>handleChange(e)} placeholder="Enter Password" name="password" value={form.password} /></div>
+                <input type="password" onChange={(e)=>handleChange(e)} onKeyDown={enterPressed} placeholder="Enter Password" name="password" value={form.password} /></div>
             </form>
             <div style={{display:"flex", justifyContent:"start", flexDirection:"row", alignItems:"center"}}>
-                <button onClick={handleSubmit} className="LoginButton">Login</button>
+                <button onClick={handleSubmit} className="LoginButton">{loading ? <CircularProgress color="secondary" size={20} sx={{color:"white"}} /> : "Login"}</button>
                 <p style={{margin:"0px 10px 0"}}>Or</p>
                 <Link style={{marginLeft:"20px"}} to="/signup"><button onClick={()=>goToSignup} className="signup">Signup</button></Link>
             </div>
