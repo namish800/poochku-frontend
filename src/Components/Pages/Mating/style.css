@@ -134,7 +134,7 @@
   position: absolute;
 }
 .matingWrapper .cardContainer {
-  padding: 30px 60px;
+  padding: 30px 60px 30px 0;
   height: auto;
   width: 400px;
   overflow: hidden;
@@ -186,15 +186,13 @@
   justify-content: space-between;
 }
 .matingButtons img {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
 }
 .matingButtons .leftSwipe {
-  background: red;
   border-radius: 50%;
 }
 .matingButtons .rightSwipe {
-  background: green;
   border-radius: 50%;
 }
 .matingButtons button {
@@ -219,6 +217,13 @@
 }
 .addMatingDog h1 {
   margin-bottom: 30px;
+}
+
+.crossIcon {
+  height: 80px;
+  width: auto;
+  margin: 0px 60px;
+  opacity: 0.4;
 }
 
 @media only screen and (max-width: 768px) {
@@ -247,6 +252,39 @@
     overflow-x: hidden;
     overflow-y: visible;
     max-height: none;
+    padding: 0 15px;
+  }
+  .matingWrapper .matingTabs {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .matingWrapper .matingTabs div {
+    margin-right: 10px;
+    font-size: 14px;
+    font-family: changa one;
+    cursor: pointer;
+    padding: 10px;
+  }
+  .matingWrapper .matingTabs div.active {
+    background: #6504b5;
+    color: #fff;
+    box-shadow: 0px 0px 5px 0px #b6b6b6;
+    border-radius: 8px;
+  }
+  .matingWrapper .matingPanel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    background: #fff;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    padding: 30px 20px 20px;
   }
   .matingWrapper .matchSection {
     width: 100%;
@@ -270,6 +308,7 @@
     border-radius: 8px;
     background: #f5f5f5;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
   }
@@ -277,6 +316,9 @@
     height: 40px;
     width: 40px;
     border-radius: 50%;
+  }
+  .matingWrapper .matchSection .match h6 {
+    margin-bottom: 20px;
   }
   .matingWrapper .matchSection .match .dogDetailMating {
     font-size: 12px;
@@ -295,8 +337,10 @@
   }
   .matingWrapper .matchSection .match .actionWrapper {
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
     justify-content: space-around;
   }
   .matingWrapper .matchSection .match .actionWrapper button {
@@ -316,7 +360,7 @@
     background: #6504b5;
     color: white;
     margin-right: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   }
   .matingWrapper .matchSection .match .actionWrapper .whatsappEnquire.pending {
@@ -340,8 +384,8 @@
     position: absolute;
   }
   .matingWrapper .cardContainer {
-    padding: 30px 50px;
-    height: 75vh;
+    padding: 0px 50px 30px;
+    height: 400px;
     width: 100%;
     position: relative;
   }
@@ -387,21 +431,23 @@
     padding: 10px;
   }
   .matingButtons img {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
   }
   .matingButtons .leftSwipe {
-    background: red;
     border-radius: 50%;
   }
   .matingButtons .rightSwipe {
-    background: green;
     border-radius: 50%;
   }
   .matingButtons button {
     border-radius: 12px;
     border: 0px;
     color: white;
-    background: #6504b5;
+  }
+  .crossIcon {
+    height: 80px;
+    width: auto;
+    margin: 20px 60px;
   }
 }/*# sourceMappingURL=style.css.map */

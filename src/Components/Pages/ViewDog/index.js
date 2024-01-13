@@ -9,6 +9,7 @@ import axios from 'axios';
 import dogDB from '../../Reusable/breeds';
 import { Rating, Skeleton } from '@mui/material';
 import EnquiryModal from '../../Reusable/EnquiryModal/EnquiryModal';
+import MobileNav from '../../Reusable/MobileNav'
 
 const ViewDog = () => {
   const params = useParams();
@@ -77,7 +78,7 @@ const ViewDog = () => {
             <div className='pageHeadingSticky viewDog'>
               <div>
                 <h1 className='buyPageHeading'>Pitbull</h1>
-                <p className='buyPageInfo'>{`Browse  >   View Dog`}</p>
+                {/* <p className='buyPageInfo'>{`Browse  >   View Dog`}</p> */}
               </div>
               <div className='actionWrapper'>
                 <button className='whatsappEnquire' onClick={waEnquire}><img src={whatsappIcon} />Enquire</button>
@@ -169,6 +170,7 @@ const ViewDog = () => {
             }
           </div>
           <EnquiryModal  open={popup} setOpen={setPopup}/>
+          <MobileNav />
         </div>
   )
 }

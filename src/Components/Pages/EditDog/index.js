@@ -7,7 +7,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import dogDb from '../../Reusable/breeds'
 import { useCallback } from 'react';
 import { useDropzone} from 'react-dropzone';
-import MobileNav from '../../Reusable/MobileNav';
 
 const initialPet = {
     "ownerId": localStorage.getItem('userId'),
@@ -71,7 +70,7 @@ const FileName = {
   marginTop: "8px",
 };
 
-const AddDog = ({previousPath}) => {
+const EditDog = ({previousPath}) => {
     const [pet, setPet] = useState(initialPet);
     const [selectedImages, setSelectedImages] = useState([]);
     const location = useLocation();
@@ -281,11 +280,10 @@ const AddDog = ({previousPath}) => {
             </form>
             <button className='dogFormSubmitButton' onClick={submitDog}>Submit</button>
         </div>
-        <MobileNav/>
     </div>
   )
 }
 
-export default AddDog
+export default EditDog
 
 
