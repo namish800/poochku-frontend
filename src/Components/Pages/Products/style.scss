@@ -1,0 +1,23 @@
+.shopWrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 52px;
+    font-weight: 700;
+    font-family: fredoka;
+    flex-grow: 1;
+}
+
+.pupListWrapper.shop{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+@media only screen and (max-width: 768px) {
+    .shopWrapper{
+        font-size: 32px;
+    }
+}
