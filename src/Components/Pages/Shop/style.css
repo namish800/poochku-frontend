@@ -21,3 +21,35 @@
     font-size: 32px;
   }
 }/*# sourceMappingURL=style.css.map */
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.product {
+  border: 2px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  color: #6504b5;
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+}
+
+.store {
+  max-width: 800px;
+  padding: 20px;
+}
+
+.out-of-stock {
+  opacity: 0.7; /* Reduce opacity for out-of-stock products */
+}
+
+.out-of-stock-message {
+  color: #ff0000; /* Red text for the out-of-stock message */
+  font-weight: bold;
+}
