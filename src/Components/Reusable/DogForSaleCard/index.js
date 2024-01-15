@@ -11,10 +11,15 @@ const DogForSaleCard = ({dogDetails}) => {
         <img className='dogPic' src={dogDetails.imageUrls.length ? dogDetails.imageUrls[0] : Pitbull}/>
         {/* <hr/> */}
       {dogDetails?.breed ? <h3>{dogDetails?.breed}</h3> : <h3>Other</h3>}
-        <div className='pupDetail'>
-          <div className='detailWrapper'><img src={view} /><p>40</p></div>
-          <div className='detailWrapper'><img src={click}/><p>20</p></div>
-        </div>
+        {dogDetails?.statistics ? 
+          <div className='pupDetail'>
+            {/* See more count */}
+            <div className='detailWrapper'><img src={view} /><p>{dogDetails?.statistics?.view_count}</p></div>
+
+            {/* Whatsapp click count */}
+            <div className='detailWrapper'><img src={click}/><p>{dogDetails?.statistics?.whatsapp_count}</p></div>
+          </div>
+        : <div></div>}
         <div className='actionWrapper'>
             <button className='bestBuy'>Edit</button>
             <button className='whatsappEnquire'>Mark as Sold</button>
