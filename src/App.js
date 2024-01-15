@@ -16,6 +16,7 @@ import Billing from './Components/Pages/Billing';
 import Plans from './Components/Pages/Plans';
 import SellerProfile from './Components/Pages/SellerProfile';
 import EditDog from './Components/Pages/EditDog';
+import SellerRegister from './Components/Pages/SellerRegister';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route exact path="/pricing" element={<Plans/>} />
           <Route exact path='/sellerprofile' element={<SellerProfile/>} />
           <Route exact path ='/editdog' element={<EditDog />} />
+          <Route exact path='/sellerRegister' element={<SellerRegister/>} />
         </Routes>
       </BrowserRouter>
     </div>

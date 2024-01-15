@@ -1,11 +1,25 @@
 import DogForSaleCard from '../../Reusable/DogForSaleCard'
-import './style.css'
+import './style.scss'
 import { Link } from 'react-router-dom'
 import SellerUserNav from '../../Reusable/SellerUserNav'
 import DashNavUser from '../../Reusable/DashNavUser'
 import MobileSearch from '../../Reusable/MobileSearch'
+import userApi from '../../../services/userApi'
+import { useEffect, useState } from 'react'
 
 const Seller = () => {
+  const [dogList, setDogList] = useState([])
+  const userId = localStorage.getItem("userId")
+  const [search, setSearch] = useState("")
+
+  useEffect(async () => {
+    const data = await userApi.getUserById(userId)
+    console.log(data, "seller data")
+    if(data){
+      setDogList(data.pets.pets_for_sell)
+    }
+  }, [])
+
   return (
     <div className='browsePetWrapper'>
         {/* <SellerUserNav /> */}
@@ -26,18 +40,13 @@ const Seller = () => {
             </div>
             <hr />
             <div className='dogsForSaleWrapper'>
-                <DogForSaleCard />
-                <DogForSaleCard />
-                <DogForSaleCard />
-                <DogForSaleCard />
-                <DogForSaleCard />
-                <DogForSaleCard />
-                <DogForSaleCard />
-                <DogForSaleCard />
-                <DogForSaleCard />
-                <DogForSaleCard />
-                <DogForSaleCard />
-                <DogForSaleCard />
+                {
+                  dogList.map((dog, index)=>{
+                    return(
+                      <DogForSaleCard dogDetails={dog} />
+                    )
+                  })
+                }
             </div>
           </div>
         </div>

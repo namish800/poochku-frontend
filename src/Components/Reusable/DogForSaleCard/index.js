@@ -8,7 +8,7 @@ const DogForSaleCard = ({dogDetails}) => {
   console.log("dog details", dogDetails)
   return (
     <div className='dogForSaleCard'>
-        <img className='dogPic' src={Pitbull}/>
+        <img className='dogPic' src={dogDetails.imageUrls.length ? dogDetails.imageUrls[0] : Pitbull}/>
         {/* <hr/> */}
       {dogDetails?.breed ? <h3>{dogDetails?.breed}</h3> : <h3>Other</h3>}
         <div className='pupDetail'>

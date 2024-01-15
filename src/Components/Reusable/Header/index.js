@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 const Header = () => {
   const navigate = useNavigate();
   const fName = localStorage.getItem('fName');
+  const userRole = localStorage.getItem("role")
   const handleLogout = () => {
     localStorage.clear();
     navigate("/")
@@ -44,7 +45,7 @@ const Header = () => {
               <Nav.Link href="/mating">Mating</Nav.Link>
               <Nav.Link href="/adopt">Adopt</Nav.Link>
               <Nav.Link href="/services">Services</Nav.Link>
-              <Nav.Link href="/sellerdashboard">Seller Account</Nav.Link>
+              <Nav.Link href={!userRole ? "/auth" : userRole && userRole === "seller" ? "/sellerdashboard" : "sellerregister" }>Seller Account</Nav.Link>
               <Nav.Link href="/auth">Login</Nav.Link>
             </Nav>
           </Navbar.Collapse>
