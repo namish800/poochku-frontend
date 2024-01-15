@@ -3,42 +3,23 @@ import DogForSaleCard from '../../Reusable/DogForSaleCard';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import userApi from '../../../services/userApi'
 
 const PetSection = () => {
     const [adoptionList, setAdoptionList] = useState([]);
-    const [matingList, setMatingList] = useState([])
+    const [matingList, setMatingList] = useState([]);
+    const [sellingList, setSellingList] = useState([]);
     const navigate = useNavigate();
-
-    const getAdoptionList = async () => {
-        try{
-            const res = await axios.get("https://poochku-prod.azurewebsites.net/pet", {params: {
-                serviceCode: "A",
-                page: "0",
-                size: "10"
-            }});
-            console.log("pets for adoption", res)
-            setAdoptionList(res?.data?.pets)
-        }catch(err){
-            console.log(err)
-        }
-    }
-    const getMatingList = async () => {
-        try{
-            const res = await axios.get("https://poochku-prod.azurewebsites.net/pet", {params: {
-                serviceCode: "M",
-                page: "0",
-                size: "10"
-            }});
-            // console.log("pets for mating", res)
-            setMatingList(res?.data?.pets)
-        }catch(err){
-            console.log(err)
-        }
+    
+    const getDogsList = async () => {
+        let userDetails = await userApi.getUserById(localStorage.getItem("userId"));
+        setAdoptionList(userDetails?.pets?.pets_for_adoption);
+        setMatingList(userDetails?.pets?.pets_for_mating);
+        setSellingList(userDetails?.pets?.pets_for_selling);
     }
 
     useEffect(() => {
-        getAdoptionList();
-        getMatingList();
+        getDogsList();
     }, [])
   return (
     <div>
