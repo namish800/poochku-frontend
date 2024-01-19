@@ -41,7 +41,7 @@ function App() {
           <Route exact path='sellerdashboard/billing' element={<Billing/>} />
           <Route exact path="/pricing" element={<Plans/>} />
           <Route exact path='/sellerprofile' element={<SellerProfile/>} />
-          <Route exact path ='/editdog' element={<EditDog />} />
+          <Route exact path ='/editdog/:service/:id' element={<EditDog />} />
           <Route exact path='/sellerRegister' element={<SellerRegister/>} />
         </Routes>
       </BrowserRouter>

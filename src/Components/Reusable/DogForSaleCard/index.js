@@ -3,8 +3,10 @@ import whatsappIcon from '../../../Assets/whatsapp.svg'
 import Pitbull from '../../../Assets/pitbull.jpg'
 import view from '../../../Assets/view.png'
 import click from '../../../Assets/click.png'
+import { useNavigate } from 'react-router-dom'
 
 const DogForSaleCard = ({dogDetails}) => {
+  const navigate = useNavigate()
   console.log("dog details", dogDetails)
   return (
     <div className='dogForSaleCard'>
@@ -21,7 +23,7 @@ const DogForSaleCard = ({dogDetails}) => {
           </div>
         : <div></div>}
         <div className='actionWrapper'>
-            <button className='bestBuy'>Edit</button>
+            <button className='bestBuy' onClick={() => navigate(`/editdog/${dogDetails.service.serviceCode}/${dogDetails.petId}`)}>Edit</button>
             <button className='whatsappEnquire'>Mark as Sold</button>
         </div>
     </div>

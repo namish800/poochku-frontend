@@ -3,15 +3,16 @@ import DashNavUser from '../../Reusable/DashNavUser';
 import './style.css'
 import axios from 'axios';
 import petApi from '../../../services/petApi';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import dogDb from '../../Reusable/breeds'
 import { useCallback } from 'react';
 import { useDropzone} from 'react-dropzone';
+import userApi from '../../../services/userApi';
 
 const initialPet = {
     "ownerId": localStorage.getItem('userId'),
     "name": "",
-    "petType": "Dog",
+    "petType": "dog",
     "breed": "",
     "vaccination_status": false,
     "description": "",
@@ -76,6 +77,8 @@ const EditDog = ({previousPath}) => {
     const location = useLocation();
     const navigate = useNavigate();
     const [preview, setPreview] = useState(null);
+    const params = useParams();
+    const userId = localStorage.getItem('userId');
     const onDrop = useCallback((acceptedFiles) => {
         console.log(acceptedFiles)
         setSelectedImages(
@@ -106,6 +109,7 @@ const EditDog = ({previousPath}) => {
         </li>
       ));
 
+
     const submitDog = async () => {
         pet.ownerId = localStorage.getItem("userId")
         const addDogRequestDto = {
@@ -119,8 +123,15 @@ const EditDog = ({previousPath}) => {
             navigate("/sellerdashboard")
         }else if(previousPath.includes("sellerdashboard")){
             navigate("/sellerdashboard")
+        }else if(previousPath.toLowerCase().includes("editdog")){
+            navigate("/useraccount")
         }
     }
+
+    const updateDog = () => {
+        petApi.updatePetDetails({...pet, ageInDays: pet.age})
+    } 
+
     const handleImageInputChange = (e) => {
         const files = e.target.files;
         if (files && files.length > 0) {
@@ -153,22 +164,31 @@ const EditDog = ({previousPath}) => {
     } 
 
     useEffect(() => {
-        if(location.pathname.includes("seller")){
-            setPet({
-                ...pet,
-                serviceCode: "S"
-            })
-        }if(location.pathname.includes("adoption")){
-            setPet({
-                ...pet,
-                serviceCode: "A"
-            })
-        }if(location.pathname.includes("mydog")){
-            setPet({
-                ...pet,
-                serviceCode: "M"
-            })
+        const getData = async () => {
+            const data = await userApi.getUserById(userId)
+            console.log(data, "data data")
+            // setPet(data.)
+            if(params.service.includes("S")){
+                setPet({
+                    ...data.pets.pets_for_sell.filter((e) => e.petId === Number(params.id))[0],
+                    serviceCode: "S"
+                });
+                setSelectedImages(data.pets.pets_for_sell.filter((e) => e.petId === Number(params.id))[0].imageUrls)
+            }if(params.service.includes("A")){
+                setPet({
+                    ...data.pets.pets_for_adoption.filter((e) => e.petId === Number(params.id))[0],
+                    serviceCode: "A"
+                })
+                setSelectedImages(data.pets.pets_for_adoption.filter((e) => e.petId === Number(params.id))[0].imageUrls)
+            }if(params.service.includes("M")){
+                setPet({
+                    ...data.pets.pets_for_mating.filter((e) => e.petId === Number(params.id))[0],
+                    serviceCode: "M"
+                });
+                setSelectedImages(data.pets.pets_for_mating.filter((e) => e.petId === Number(params.id))[0].imageUrls)
+            }
         }
+        getData();
     }, [])
   return (
     <div className='browsePetWrapper'>
@@ -190,13 +210,13 @@ const EditDog = ({previousPath}) => {
                             </div>
                             <div>
                                 <p className='newDogLabel'>Age in Days</p>
-                                <input type='number' name='ageInDays' value={pet.ageInDays} placeholder='days' onChange={handleChange}/> <label>Days</label>
+                                <input type='number' name='age' value={pet.age} placeholder='days' onChange={handleChange}/> <label>Days</label>
                             </div>
                         </div>
                     </div>
                     <div className='newDogWrapper'>
                         <p className='newDogLabel'>Breed</p>
-                        <select name='breed' value={pet.breed} onChange={handleChange}>
+                        <select name='breed' value={pet.breed.toUpperCase()} onChange={handleChange}>
                             <option value="0">Select a breed</option>
                             {
                                 dogDb.map((e) => <option key={e.id} value={e.breed}>{e.breed}</option>)
@@ -209,7 +229,7 @@ const EditDog = ({previousPath}) => {
                         <div className='dogFormDiv'>
                             <div>
                                 <p className='newDogLabel' >Father Breed</p>
-                                <select name="fatherBreed" onChange={handleChange} value={pet.fatherBreed}>
+                                <select name="fatherBreed" onChange={handleChange} value={pet.fatherBreed.toUpperCase()}>
                                     <option value="0">Select a breed</option>
                                     {
                                         dogDb.map((e) => <option key={e.id} value={e.breed}>{e.breed}</option>)
@@ -218,7 +238,7 @@ const EditDog = ({previousPath}) => {
                             </div>
                             <div>
                                 <p className='newDogLabel'>Mother Breed</p>
-                                <select name="motherBreed" onChange={handleChange} value={pet.motherBreed}>
+                                <select name="motherBreed" onChange={handleChange} value={pet.motherBreed.toUpperCase()}>
                                     <option value="0">Select a breed</option>
                                     {
                                         dogDb.map((e) => <option key={e.id} value={e.breed}>{e.breed}</option>)
@@ -278,7 +298,7 @@ const EditDog = ({previousPath}) => {
                     }
                 </div>
             </form>
-            <button className='dogFormSubmitButton' onClick={submitDog}>Submit</button>
+            <button className='dogFormSubmitButton' onClick={updateDog}>Submit</button>
         </div>
     </div>
   )
