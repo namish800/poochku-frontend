@@ -25,9 +25,10 @@ import Modal from './Components/Reusable/Modal';
 function App() {
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    setTimeout(setOpen(true), 3000)
-  }, [])
+  // useEffect(() => {
+  //   setTimeout(setOpen(true), 3000)
+  // }, [])
+
   return (
     <div className="App">
       <BrowserRouter>
