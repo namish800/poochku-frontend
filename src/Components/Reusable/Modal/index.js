@@ -2,14 +2,11 @@ import React, { useEffect } from 'react'
 import CloseIcon from '@mui/icons-material/Close';
 import { Box } from '@mui/material';
 
-const Modal = ({open, setOpen, heading, subheading, callback = () => {}}) => {
+const Modal = ({open, setOpen, heading, subheading}) => {
     
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  useEffect(()=>{
-    callback()
-  }, [])
 
   return (
     <div>

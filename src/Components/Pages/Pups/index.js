@@ -8,6 +8,7 @@ import EnquiryModal from '../../Reusable/EnquiryModal/EnquiryModal.js';
 import MobileSearch from '../../Reusable/MobileSearch';
 import MobileNav from '../../Reusable/MobileNav';
 import { Skeleton } from '@mui/material';
+// import Modal from '../../Reusable/Modal'
 
 const Pups = () => {
   const [pupList, setPupList] = useState()
@@ -16,6 +17,7 @@ const Pups = () => {
   const [selectedQuality, setSelectedQuality] = useState("")
   const [selectedGender, setSelectedGender] = useState("")
   const [selectedBreed, setSelectedBreed] = useState("")
+  // const [open, setOpen] = useState(true);
 
 
   const getPupList = async () => {
@@ -38,6 +40,7 @@ const Pups = () => {
   useEffect(()=>{
     getPupList()
   }, [])
+
   return (
     <div className='browsePetWrapper'>
         <DashNavUser />
@@ -83,6 +86,7 @@ const Pups = () => {
         </div>
         <MobileNav />
         <EnquiryModal open={popup} setOpen={setPopup}/>
+        {/* <Modal open={open} setOpen={setOpen} heading={"Can't find desired pup?"} subheading={"Let us find them for you!"} /> */}
     </div>
   )
 }

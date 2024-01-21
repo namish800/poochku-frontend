@@ -76,7 +76,7 @@ const AddDog = ({previousPath}) => {
     const [selectedImages, setSelectedImages] = useState([]);
     const location = useLocation();
     const navigate = useNavigate();
-    const [preview, setPreview] = useState(null);
+    // const [preview, setPreview] = useState(null);
     const onDrop = useCallback((acceptedFiles) => {
         console.log(acceptedFiles)
         handleCallback(acceptedFiles)
@@ -200,8 +200,9 @@ const AddDog = ({previousPath}) => {
             })
         }
 
-        
     }, [])
+
+    
   return (
     <div className='browsePetWrapper'>
         <DashNavUser />
