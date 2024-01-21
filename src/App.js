@@ -17,9 +17,17 @@ import Plans from './Components/Pages/Plans';
 import SellerProfile from './Components/Pages/SellerProfile';
 import EditDog from './Components/Pages/EditDog';
 import SellerRegister from './Components/Pages/SellerRegister';
+import { useEffect, useState } from 'react';
+import Modal from './Components/Reusable/Modal';
+
 
 
 function App() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setTimeout(setOpen(true), 3000)
+  }, [])
   return (
     <div className="App">
       <BrowserRouter>
@@ -45,6 +53,7 @@ function App() {
           <Route exact path='/sellerRegister' element={<SellerRegister/>} />
         </Routes>
       </BrowserRouter>
+      <Modal open={open} setOpen={setOpen} heading={"Can't find desired pup?"} subheading={"Let us find them for you!"} />
     </div>
   );
 }

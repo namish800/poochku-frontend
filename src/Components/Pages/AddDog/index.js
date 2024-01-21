@@ -79,13 +79,14 @@ const AddDog = ({previousPath}) => {
     const [preview, setPreview] = useState(null);
     const onDrop = useCallback((acceptedFiles) => {
         console.log(acceptedFiles)
-        setSelectedImages(
-            acceptedFiles.map((file) => 
-                Object.assign(file, {
-                    preview: URL.createObjectURL(file)
-                })
-            )
-        )
+        handleCallback(acceptedFiles)
+        // setSelectedImages(
+        //     acceptedFiles.map((file) => 
+        //         Object.assign(file, {
+        //             preview: URL.createObjectURL(file)
+        //         })
+        //     )
+        // )
         // const file = new FileReader;
         
         // file.onload = function() {
@@ -121,6 +122,34 @@ const AddDog = ({previousPath}) => {
         }else if(previousPath.includes("sellerdashboard")){
             navigate("/sellerdashboard")
         }
+    }
+    const handleCallback = (files) => {
+        console.log("Before:", files)
+        console.log("Before:", selectedImages)
+        
+        files.map((file) => 
+            Object.assign(file, {
+                preview: URL.createObjectURL(file)
+            })
+        )
+        files.map((file) => {
+            const reader = new FileReader();
+              reader.onload = (event) => {
+              const uint8Array = new Uint8Array(event.target.result);
+                // imageBlobs.push({
+                //   fileName: localStorage.getItem("userId") + "" +file.name,
+                //   blob: Array.from(uint8Array)
+                // });
+                Object.assign(file, {
+                    preview: URL.createObjectURL(file),
+                    fileName: localStorage.getItem("userId") + "" +file.name,
+                    blob: Array.from(uint8Array)
+                });
+                console.log("After:", files)
+                
+              };
+              reader.readAsArrayBuffer(file);
+        })
     }
     const handleImageInputChange = (e) => {
         const files = e.target.files;
@@ -170,6 +199,8 @@ const AddDog = ({previousPath}) => {
                 serviceCode: "M"
             })
         }
+
+        
     }, [])
   return (
     <div className='browsePetWrapper'>
