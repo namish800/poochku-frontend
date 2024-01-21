@@ -1,6 +1,6 @@
 import logo from '../../../Assets/Logo.png'
 import { Link } from "react-router-dom";
-import './style.css'
+import './style.scss'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -26,11 +26,11 @@ const Header = () => {
               <Link className='navLink' to="/mating">Mating</Link>
               <Link className='navLink' to="/adopt">Adopt</Link>
               <Link className='navLink' to="/services">Services</Link>
+              <Link className='navLink sellerLink' to="/sellerdashboard">Seller Account</Link>
           </div>
           <div className='userActions'>
-            {fName && <p>Welcome {fName}</p>}
-            <Link className='navLink sellerLink' to="/sellerdashboard">Seller Account</Link>
-            {fName && <Link className='navLink' to="/useraccount">Profile</Link>}
+            {/* {fName && <p>Welcome {fName}</p>} */}
+            {fName && <Link className='navLink' to="/useraccount">Welcome {fName}</Link>}
             {!fName ? <Link className='navLink login' to="/auth">Login</Link> : <Link className='navLink' onClick={handleLogout} to="/auth">Logout</Link>}
           </div>
       </div>

@@ -25,7 +25,16 @@
 
             & .navLink{
                 color: #6504b5;
+                &:hover{
+                    color: #fff;
+                }
             // color: #fff;
+            }
+
+            & p:nth-child(1){
+                color: #6504b5;
+                // background: rgba(101,4,181,1);
+                // margin-left: 0;
             }
         }
     }
@@ -58,11 +67,11 @@
             color: #fff!important;
         }
 
-        &.sellerLink{
-            &:hover{
-                background: #fff;
-            }
-        }
+        // &.sellerLink{
+        //     &:hover{
+        //         background: #fff;
+        //     }
+        // }
     }
 }
 

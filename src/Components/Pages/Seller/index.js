@@ -12,13 +12,15 @@ const Seller = () => {
   const userId = localStorage.getItem("userId")
   const [search, setSearch] = useState("")
 
-  useEffect(async () => {
-    const data = await userApi.getUserById(userId)
-    console.log(data, "seller data")
-    if(data){
-      setDogList(data.pets.pets_for_sell)
-    }
-  }, [])
+  // useEffect(async () => {
+  //   if(userId){
+  //     const data = await userApi.getUserById(userId)
+  //     console.log(data, "seller data")
+  //     if(data){
+  //       setDogList(data.pets.pets_for_sell)
+  //     }
+  //   }
+  // }, [])
 
   return (
     <div className='browsePetWrapper'>
