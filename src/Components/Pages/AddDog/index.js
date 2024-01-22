@@ -110,6 +110,7 @@ const AddDog = ({previousPath}) => {
 
     const submitDog = async () => {
         pet.ownerId = localStorage.getItem("userId")
+        console.log("selectedImages", selectedImages)
         const addDogRequestDto = {
             ...pet,
             imageBlobs: selectedImages
@@ -123,52 +124,43 @@ const AddDog = ({previousPath}) => {
             navigate("/sellerdashboard")
         }
     }
-    const handleCallback = (files) => {
-        console.log("Before:", files)
-        console.log("Before:", selectedImages)
+    const handleCallback = async (files) => {
         
-        files.map((file) => 
-            Object.assign(file, {
-                preview: URL.createObjectURL(file)
-            })
-        )
-        files.map((file) => {
-            const reader = new FileReader();
-              reader.onload = (event) => {
-              const uint8Array = new Uint8Array(event.target.result);
-                // imageBlobs.push({
-                //   fileName: localStorage.getItem("userId") + "" +file.name,
-                //   blob: Array.from(uint8Array)
-                // });
-                Object.assign(file, {
-                    preview: URL.createObjectURL(file),
-                    fileName: localStorage.getItem("userId") + "" +file.name,
-                    blob: Array.from(uint8Array)
-                });
-                console.log("After:", files)
-                
-              };
-              reader.readAsArrayBuffer(file);
-        })
-    }
-    const handleImageInputChange = (e) => {
-        const files = e.target.files;
-        if (files && files.length > 0) {
-          const imageBlobs = [];
-          for (const file of files) {
-            const reader = new FileReader();
-            reader.onload = (event) => {
-            const uint8Array = new Uint8Array(event.target.result);
-              imageBlobs.push({
-                fileName: localStorage.getItem("userId") + "" +file.name,
-                blob: Array.from(uint8Array)
-              });
-            };
-            reader.readAsArrayBuffer(file);
-          }
-          setSelectedImages(imageBlobs);
+        const newSelectedImages = [];
+        console.log("files ", files);
+        // Loop through the files
+        for (const file of files) {
+            const uint8Array = await readFileAsync(file);
+            newSelectedImages.push({ fileName: file.name, blob: Array.from(uint8Array), preview: URL.createObjectURL(file) });
         }
+
+        console.log("new selected images", newSelectedImages);
+        // Update the state with the newSelectedImages array
+        setSelectedImages((prevSelectedImages) => [
+            ...prevSelectedImages,
+            ...newSelectedImages,
+        ]);
+    }
+
+    const readFileAsync = (file) => {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+    
+          // Set up the FileReader callbacks
+          reader.onload = (event) => {
+            const uint8Array = new Uint8Array(event.target.result);
+            resolve(uint8Array); // Resolve with the Uint8Array content
+          };
+    
+          reader.onerror = (error) => {
+            reject(error);
+          };
+    
+          // Read the file as a Blob
+          reader.readAsArrayBuffer(file);
+        });
       };
+
     const handleChange = (e) => {
         console.log("state", pet, e.target.name, e.target.value, e)
         if(e.target.name === "vaccination_status"){
