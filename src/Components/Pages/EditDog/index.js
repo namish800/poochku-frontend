@@ -81,26 +81,50 @@ const EditDog = ({previousPath}) => {
     const userId = localStorage.getItem('userId');
     const onDrop = useCallback((acceptedFiles) => {
         console.log(acceptedFiles)
-        setSelectedImages(
-            acceptedFiles.map((file) => 
-                Object.assign(file, {
-                    preview: URL.createObjectURL(file)
-                })
-            )
-        )
-        // const file = new FileReader;
-        
-        // file.onload = function() {
-        //     setPreview(file.result);
-        // }
-        
-        // file.readAsDataURL(acceptedFiles[0])
+        handleCallback(acceptedFiles)
     }, [])
     const { getRootProps, getInputProps, isDragActive } = useDropzone({onDrop,
         accept: "image/*",
         maxSize: 1024 * 1024 * 5,
         maxFiles: 3,
     });
+
+    const handleCallback = async (files) => {
+        
+        const newSelectedImages = [];
+        console.log("files ", files);
+        // Loop through the files
+        for (const file of files) {
+            const uint8Array = await readFileAsync(file);
+            newSelectedImages.push({ fileName: file.name, blob: Array.from(uint8Array), preview: URL.createObjectURL(file) });
+        }
+
+        console.log("new selected images", newSelectedImages);
+        // Update the state with the newSelectedImages array
+        setSelectedImages((prevSelectedImages) => [
+            ...prevSelectedImages,
+            ...newSelectedImages,
+        ]);
+    }
+
+    const readFileAsync = (file) => {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+    
+          // Set up the FileReader callbacks
+          reader.onload = (event) => {
+            const uint8Array = new Uint8Array(event.target.result);
+            resolve(uint8Array); // Resolve with the Uint8Array content
+          };
+    
+          reader.onerror = (error) => {
+            reject(error);
+          };
+    
+          // Read the file as a Blob
+          reader.readAsArrayBuffer(file);
+        });
+      };
 
     const fileList = selectedImages.map((file) => (
         <li key={file.name}>
@@ -128,28 +152,45 @@ const EditDog = ({previousPath}) => {
         }
     }
 
-    const updateDog = () => {
-        petApi.updatePetDetails({...pet, ageInDays: pet.age})
+    function convertPetToUpdatePetDetailsReqDto(pet, selectedImages) {
+        const updatePetDetailsReqDto = {
+          petId: pet.petId.toString(),
+          ownerId: pet.owner.userId.toString(),
+          name: pet.name,
+          petType: pet.petType,
+          breed: pet.breed,
+          vaccination_status: pet.vaccination_status,
+          description: pet.description,
+          ageInDays: pet.age.toString(),
+          motherBreed: pet.motherBreed,
+          fatherBreed: pet.fatherBreed,
+          serviceCode: pet.service.serviceCode,
+          location: pet.location,
+          quality: pet.quality,
+          price: pet.service.price.toString(),
+          gender: pet.gender,
+          imageBlobs: selectedImages
+        };
+      
+        return updatePetDetailsReqDto;
+      }
+
+    const updateDog = async () => {
+        const updatePetDetailsRequestDto = convertPetToUpdatePetDetailsReqDto(pet, selectedImages);
+        
+        console.log(updatePetDetailsRequestDto);
+        const res = await petApi.updatePetDetails(updatePetDetailsRequestDto);
+        if(previousPath.includes("mating")){
+            navigate("/mating")
+        }else if(previousPath.includes("sellerdashboard")){
+            navigate("/sellerdashboard")
+        }else if(previousPath.includes("sellerdashboard")){
+            navigate("/sellerdashboard")
+        }else if(previousPath.toLowerCase().includes("editdog")){
+            navigate("/useraccount")
+        }
     } 
 
-    const handleImageInputChange = (e) => {
-        const files = e.target.files;
-        if (files && files.length > 0) {
-          const imageBlobs = [];
-          for (const file of files) {
-            const reader = new FileReader();
-            reader.onload = (event) => {
-            const uint8Array = new Uint8Array(event.target.result);
-              imageBlobs.push({
-                fileName: localStorage.getItem("userId") + "" +file.name,
-                blob: Array.from(uint8Array)
-              });
-            };
-            reader.readAsArrayBuffer(file);
-          }
-          setSelectedImages(imageBlobs);
-        }
-      };
     const handleChange = (e) => {
         console.log("state", pet, e.target.name, e.target.value, e)
         if(e.target.name === "vaccination_status"){
@@ -164,32 +205,55 @@ const EditDog = ({previousPath}) => {
     } 
 
     useEffect(() => {
-        const getData = async () => {
-            const data = await userApi.getUserById(userId)
-            console.log(data, "data data")
-            // setPet(data.)
-            if(params.service.includes("S")){
-                setPet({
-                    ...data.pets.pets_for_sell.filter((e) => e.petId === Number(params.id))[0],
-                    serviceCode: "S"
-                });
-                setSelectedImages(data.pets.pets_for_sell.filter((e) => e.petId === Number(params.id))[0].imageUrls)
-            }if(params.service.includes("A")){
-                setPet({
-                    ...data.pets.pets_for_adoption.filter((e) => e.petId === Number(params.id))[0],
-                    serviceCode: "A"
-                })
-                setSelectedImages(data.pets.pets_for_adoption.filter((e) => e.petId === Number(params.id))[0].imageUrls)
-            }if(params.service.includes("M")){
-                setPet({
-                    ...data.pets.pets_for_mating.filter((e) => e.petId === Number(params.id))[0],
-                    serviceCode: "M"
-                });
-                setSelectedImages(data.pets.pets_for_mating.filter((e) => e.petId === Number(params.id))[0].imageUrls)
-            }
-        }
         getData();
     }, [])
+
+    const getData = async () => {
+        const data = await petApi.getPetById(params.id);
+        console.log("data data", data);
+        // setPet(data.)
+        setPet(data);
+        convertImgUrlsToSelectedImages(data.imageUrls).then((newSelectedImages) => {
+            setSelectedImages(newSelectedImages);
+          });
+    }
+
+    // Function to fetch and convert image to Uint8Array
+const fetchAndConvertToUint8Array = async (url) => {
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      const arrayBuffer = await new Response(blob).arrayBuffer();
+      return new Uint8Array(arrayBuffer);
+    } catch (error) {
+      console.error(`Error fetching image from ${url}:`, error);
+      return null;
+    }
+  };
+  
+  // Convert imgUrls to selectedImages format
+const convertImgUrlsToSelectedImages = async (imgUrls) => {
+    const selectedImagesPromises = imgUrls.map(async (url) => {
+      const blob = await fetchAndConvertToUint8Array(url);
+      if (blob) {
+        return {
+          fileName: url.substring(url.lastIndexOf('/') + 1),
+          blob: Array.from(blob),
+          preview: url,
+        };
+      } else {
+        return null; // Handle the case where fetching or conversion fails
+      }
+    });
+  
+    // Wait for all promises to resolve
+    const newSelectedImages = await Promise.all(selectedImagesPromises);
+  
+    // Remove any items that are null (failed to fetch/convert)
+    return newSelectedImages.filter((item) => item !== null);
+  };
+  
+
   return (
     <div className='browsePetWrapper'>
         <DashNavUser />
