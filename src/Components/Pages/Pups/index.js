@@ -8,7 +8,7 @@ import EnquiryModal from '../../Reusable/EnquiryModal/EnquiryModal.js';
 import MobileSearch from '../../Reusable/MobileSearch';
 import MobileNav from '../../Reusable/MobileNav';
 import { Skeleton } from '@mui/material';
-// import Modal from '../../Reusable/Modal'
+import PopupModal from '../../Reusable/PopupModal/index.js'
 
 const Pups = () => {
   const [pupList, setPupList] = useState()
@@ -17,7 +17,7 @@ const Pups = () => {
   const [selectedQuality, setSelectedQuality] = useState("")
   const [selectedGender, setSelectedGender] = useState("")
   const [selectedBreed, setSelectedBreed] = useState("")
-  // const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
 
   const getPupList = async () => {
@@ -39,6 +39,9 @@ const Pups = () => {
   }
   useEffect(()=>{
     getPupList()
+    setTimeout(() => {
+      setOpen(true)
+    }, 20000)
   }, [])
 
   return (
@@ -86,7 +89,7 @@ const Pups = () => {
         </div>
         <MobileNav />
         <EnquiryModal open={popup} setOpen={setPopup}/>
-        {/* <Modal open={open} setOpen={setOpen} heading={"Can't find desired pup?"} subheading={"Let us find them for you!"} /> */}
+        <PopupModal open={open} setOpen={setOpen} heading={"Can't find desired pup?"} subheading={"Let us find them for you!"} />
     </div>
   )
 }

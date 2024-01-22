@@ -4,7 +4,7 @@ import Logo from "../../../Assets/Logo.png";
 import Dogfood from '../../../Assets/dogfood.png'
 import StandingDog from '../../../Assets/standing-dog.png'
 import StaringDog from '../../../Assets/staringdog.png'
-import "./style.css";
+import "./style.scss";
 import FAQs from "../../Reusable/FAQs";
 import Delhi from "../../../Assets/delhi.png"
 import Chandigarh from "../../../Assets/chandigarh.png"
@@ -13,6 +13,7 @@ import Kolkata from "../../../Assets/kolkata.png"
 import Mumbai from "../../../Assets/mumbai.png"
 import Kennel from '../../../Assets/dog-house.png'
 import Animation from "../../../Assets/animated.gif"
+import { Link } from "react-router-dom";
 
 const index = () => {
   return (
@@ -27,9 +28,9 @@ const index = () => {
             kisses
           </div>
           <div className="landingAction">
-            <input type="text" className="mainSearch" placeholder="Search for the purrfect match!"/>
-            <button className="landingButtonMain">Browse Dogs</button>
-            {/* <button className="landingButtonMain">Shop</button> */}
+            {/* <input type="text" className="mainSearch" placeholder="Search for the purrfect match!"/> */}
+            <a href="https://vdo2385601y.typeform.com/to/fBb79EOi" target="_blank" rel="noreferrer"><button className="landingButtonMain finder">Pet Finder</button></a>
+            <Link to="/browse"><button className="landingButtonMain">Browse Dogs</button></Link>
           </div>
         </div>
       </div>
