@@ -19,7 +19,6 @@ const DogCard = ({details, availableForAdoption}) => {
     const userId = localStorage.getItem('userId')
     const navigate = useNavigate();
     const [popup, setPopup]=useState(false);
-    console.log(details, 'dogs details')
     const enquiryRequest = async() => {
         if(userId){
             setPopup(!popup)
@@ -82,6 +81,7 @@ const DogCard = ({details, availableForAdoption}) => {
                     <img src={share} />
                 </div>
             </div>
+            <p className='ownerDetails'>Listed by <Link to={`/sellerview/${details.owner.userId}`}>{details.owner.fName}</Link></p>
             <div className='dogDetails'>
                     <div className='detailWrapper'><img src={gender}/><p>{details.gender ? details.gender : "N/A"}</p></div>
                     <div className='detailWrapper'><img src={Dog}/><p>{details.age ? `${details.age} days` : "N/A"}</p></div>

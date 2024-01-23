@@ -89,7 +89,7 @@ const Pups = () => {
         </div>
         <MobileNav />
         <EnquiryModal open={popup} setOpen={setPopup}/>
-        <PopupModal open={open} setOpen={setOpen} heading={"Can't find desired pup?"} subheading={"Let us find them for you!"} />
+        <PopupModal open={open} setOpen={setOpen} heading={"Can't find your desired pup?"} subheading={"Let us find them for you!"} />
     </div>
   )
 }

@@ -17,6 +17,7 @@ import Plans from './Components/Pages/Plans';
 import SellerProfile from './Components/Pages/SellerProfile';
 import EditDog from './Components/Pages/EditDog';
 import SellerRegister from './Components/Pages/SellerRegister';
+import SellerView from './Components/Pages/SellerView';
 
 
 function App() {
@@ -43,7 +44,8 @@ function App() {
           <Route exact path="/pricing" element={<Plans/>} />
           <Route exact path='/sellerprofile' element={<SellerProfile/>} />
           <Route exact path ='/editdog/:service/:id' element={<EditDog />} />
-          <Route exact path='/sellerRegister' element={<SellerRegister/>} />
+          <Route exact path='/sellerregister' element={<SellerRegister/>} />
+          <Route exact path='/sellerview/:id' element={<SellerView/>} />
         </Routes>
       </BrowserRouter>
     </div>

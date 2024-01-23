@@ -68,7 +68,6 @@ const ViewDog = () => {
 
   useEffect(()=> {
     details && setInfo(dogDB.filter((e) => e.breed.toLowerCase().includes(details?.breed.toLowerCase()))[0])
-    // console.log('filtereddog', dogDB.filter((e) => e.breed.toLowerCase() ==  details?.breed.toLowerCase())[0])
   }, [details])
   
   return (

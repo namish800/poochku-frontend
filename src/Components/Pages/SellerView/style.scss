@@ -1,0 +1,55 @@
+.sellerViewWrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+
+    .sellerDetailSection{
+        width: 20%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+
+        .sellerDP{
+            background-size: cover!important;
+            background-repeat: no-repeat!important;
+            background-position: center!important;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 1px solid #2e0152;
+            margin-bottom: 20px;
+        }
+
+    }
+    
+    .sellerListingSection{
+        flex-grow: 1;
+        padding: 20px;
+        padding-top: 0;
+        padding-left: 40px;
+        border-left: 1px solid #cbcbcb;
+
+        .sellerTabWrapper{
+            width: 100%;
+        }
+    }
+
+    .ratingSectionWrapper{
+        margin-bottom: 20px;
+        
+        .ratingFields{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            textarea{
+                margin-right: 20px;
+            }
+        }
+    }
+}
