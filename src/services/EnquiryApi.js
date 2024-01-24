@@ -49,6 +49,19 @@ const enquiryApi = {
       throw error;
     }
   },
+
+  saveFindAPetEnquiry: async (userId) => {
+    try{
+      const response = await instance.post('/enquiry/find-a-pet', null, {
+        params: {
+          userId
+        }
+      });
+      return response.data;
+    } catch (error){
+      throw error;
+    }
+  } 
 };
 
 export default enquiryApi;

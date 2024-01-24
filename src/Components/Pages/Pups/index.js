@@ -34,9 +34,11 @@ const Pups = () => {
       console.log(err)
     }
   }
+  
   const enquiryRequest = () => {
     setPopup(!popup);
   }
+  
   useEffect(()=>{
     getPupList()
     setTimeout(() => {
