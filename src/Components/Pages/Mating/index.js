@@ -21,6 +21,7 @@ import location from '../../../Assets/location-pin.png'
 import { useEffect } from 'react'
 import MatingDropdown from '../../Reusable/MatingDropdown'
 import Cross from '../../../Assets/thick-cross-mark.png'
+import petApi from '../../../services/petApi'
 
 const db = [
     {
@@ -63,6 +64,11 @@ const Mating = () => {
     const [pendingFromSwiper, setPendingFromSwiper] = useState([]);
     const [pendingFromTarget, setPendingFromTarget] = useState([])
     const [selectedDog, setSelectedDog] = useState()
+    const [selectedState, setSelectedState] = useState("");
+    const [selectedQuality, setSelectedQuality] = useState("")
+    const [selectedGender, setSelectedGender] = useState("")
+    const [selectedBreed, setSelectedBreed] = useState("")
+    const [serviceCode, setServiceCode] = useState("M")
 
     // used for outOfFrame closure
     const currentIndexRef = useRef(currentIndex)
@@ -139,12 +145,9 @@ const Mating = () => {
 
     const getMatingList = async() => {
       try{
-        const res = await axios.get("https://poochku-prod.azurewebsites.net/pet?serviceCode=M", {params:{
-          page:0,
-          size: 20
-        }})
-        console.log("Mating List", res)
-        setMatingList(res?.data?.pets)
+        const data = await petApi.searchPets(serviceCode, selectedState, selectedBreed, selectedGender, selectedQuality);
+        console.log("data", data);
+        setMatingList(data?.pets)
       }catch(err){ 
         console.log("Error", err)
       }
@@ -199,7 +202,17 @@ const Mating = () => {
               <h1 className='buyPageHeading'>Mating</h1>
               <p className='buyPageInfo'>Find the purrfect match!</p>
             </div>
-            <Search />
+            <Search
+            populatePupList={getMatingList}
+            selectedBreed={selectedBreed}
+            setSelectedBreed={setSelectedBreed}
+            selectedGender={selectedGender}
+            setSelectedGender={setSelectedGender}
+            selectedQuality={selectedQuality}
+            setSelectedQuality={setSelectedQuality}
+            selectedState={selectedState}
+            setSelectedState={setSelectedState}
+          />
           </div>
           {/* <hr className='mainPageHr' /> */}
           {petList?.length > 0 ? <div className='matingWrapper'>

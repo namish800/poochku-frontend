@@ -66,10 +66,19 @@ const petApi = {
     }
   },
   
-  searchPets: async (queryParams) => {
+  searchPets: async (serviceCode, location, breed, gender, quality, userId=null, page = 0, size = 10) => {
     try {
       const response = await instance.get('/pet/search', {
-        params: queryParams,
+        params: {
+          serviceCode,
+          location,
+          breed,
+          gender,
+          quality,
+          userId,
+          page,
+          size
+        },
       });
       return response.data;
     } catch (error) {

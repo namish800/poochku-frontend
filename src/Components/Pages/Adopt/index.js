@@ -12,12 +12,18 @@ import petApi from '../../../services/petApi';
 
 const Adopt = () => {
   const [pupList, setPupList] = useState([])
+  const [popup, setPopup] = useState(false)
+  const [selectedState, setSelectedState] = useState("");
+  const [selectedQuality, setSelectedQuality] = useState("")
+  const [selectedGender, setSelectedGender] = useState("")
+  const [selectedBreed, setSelectedBreed] = useState("")
+  const [serviceCode, setServiceCode] = useState("A")
+  const [open, setOpen] = useState(false);
   const getPupList = async () => {
     try{
-      const res = await petApi.getPetListByService("A");
-      console.log("response: ", res)
-
-      setPupList(res.pets)
+      const data = await petApi.searchPets(serviceCode, selectedState, selectedBreed, selectedGender, selectedQuality);
+      console.log("data", data);
+      setPupList(data.pets)
     }
     catch(err){
       console.log(err)
@@ -35,7 +41,17 @@ const Adopt = () => {
               <h1 className='buyPageHeading'>Adopt Pups</h1>
               <p className='buyPageInfo'>Find your forever friends!</p>
             </div>
-            <Search />
+            <Search
+            populatePupList={getPupList}
+            selectedBreed={selectedBreed}
+            setSelectedBreed={setSelectedBreed}
+            selectedGender={selectedGender}
+            setSelectedGender={setSelectedGender}
+            selectedQuality={selectedQuality}
+            setSelectedQuality={setSelectedQuality}
+            selectedState={selectedState}
+            setSelectedState={setSelectedState}
+          />
           </div>
           <MobileSearch />
           <div className='adoptPromptWrapper'>
