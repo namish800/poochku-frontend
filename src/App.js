@@ -18,6 +18,7 @@ import SellerProfile from './Components/Pages/SellerProfile';
 import EditDog from './Components/Pages/EditDog';
 import SellerRegister from './Components/Pages/SellerRegister';
 import SellerView from './Components/Pages/SellerView';
+import Otp from './Components/Pages/Otp';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route exact path ='/editdog/:service/:id' element={<EditDog />} />
           <Route exact path='/sellerregister' element={<SellerRegister/>} />
           <Route exact path='/sellerview/:id' element={<SellerView/>} />
+          <Route exact path='/otp' element={<Otp/>} />
         </Routes>
       </BrowserRouter>
     </div>
