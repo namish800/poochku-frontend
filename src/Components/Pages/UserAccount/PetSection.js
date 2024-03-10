@@ -59,7 +59,7 @@ const PetSection = () => {
                             + <br/> Add Dog
                         </div>
                         {
-                            adoptionList.length > 0 && adoptionList.map((e, i) => {
+                            adoptionList!=null && adoptionList.length > 0 && adoptionList.map((e, i) => {
                                 return(
                                     <DogForSaleCard key={i} dogDetails={e}/>
                                 )

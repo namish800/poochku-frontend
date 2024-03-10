@@ -192,18 +192,6 @@ const dogDB = [
         "easyToTrain": 5
     },
     {
-        "id": 33,
-        "breed": "PITBULL",
-        "generalDescription": "The Labrador Retriever is a versatile and popular breed known for its intelligence and friendly demeanor. They have a short, water-resistant coat that comes in three standard colors: black, yellow, and chocolate. Labrador Retrievers are highly trainable and make excellent family companions, service dogs, and working partners. Their playful and loving nature endears them to people of all ages.",
-        "kidFriendlyScore": 5,
-        "dogFriendly": 5,
-        "shedding": "High",
-        "easyToGroom": 3,
-        "energyLevel": "High",
-        "intelligence": 5,
-        "easyToTrain": 5
-    },
-    {
         "id": 17,
         "breed": "AMERICAN BULLY",
         "generalDescription": "The American Bully is a muscular breed with a confident and outgoing personality. They have a strong and athletic build, often characterized by their wide chest and powerful stance. American Bullies are known for their loyalty and make devoted family pets. Proper training and socialization are important to ensure they develop well-rounded behavior.",
@@ -394,6 +382,30 @@ const dogDB = [
         "energyLevel": "Low",
         "intelligence": 3,
         "easyToTrain": 2
+    },
+    {
+        "id": 33,
+        "breed": "INDIE",
+        "generalDescription": "The Chihuahua is a tiny breed with a big personality. Originating in Mexico, they were revered by ancient civilizations. Chihuahuas are loyal to their owners and can be bold and confident. They have a delicate build, a distinctive apple-shaped head, and a short or long coat. Chihuahuas are well-suited for apartment living and are often devoted companions.",
+        "kidFriendlyScore": 2,
+        "dogFriendly": 2,
+        "shedding": "Low",
+        "easyToGroom": 1,
+        "energyLevel": "Low",
+        "intelligence": 3,
+        "easyToTrain": 2
+    },
+    {
+        "id": 34,
+        "breed": "PITBULL",
+        "generalDescription": "The Labrador Retriever is a versatile and popular breed known for its intelligence and friendly demeanor. They have a short, water-resistant coat that comes in three standard colors: black, yellow, and chocolate. Labrador Retrievers are highly trainable and make excellent family companions, service dogs, and working partners. Their playful and loving nature endears them to people of all ages.",
+        "kidFriendlyScore": 5,
+        "dogFriendly": 5,
+        "shedding": "High",
+        "easyToGroom": 3,
+        "energyLevel": "High",
+        "intelligence": 5,
+        "easyToTrain": 5
     }
 ]
 

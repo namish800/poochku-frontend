@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
+import userApi from "../../../services/userApi";
 
 const Login = () =>{
     const navigate = useNavigate();
@@ -71,8 +72,18 @@ const Login = () =>{
 
     const handleSellerSignupSubmit = async() => {
         try{
-            const res = await axios.post("https://poochku-prod.azurewebsites.net/user", {...Signup, role:"seller"});
+            // const res = await axios.post("https://poochku-prod.azurewebsites.net/user", {...Signup, role:"seller"});
+            const res = await userApi.createUser({...Signup, role:"seller"});
             console.log(res, "response")
+            if(res.status===200){
+                localStorage.setItem('userId', res.data.user.userId);
+                localStorage.setItem('email', res.data.user.email);
+                localStorage.setItem('fName', res.data.user.fName);
+                localStorage.setItem('lName', res.data.user.lName);
+                localStorage.setItem('phoneNo', res.data.user.phoneNo);
+                localStorage.setItem('role', res.data.user.role);
+                navigate("/browse")
+            }
         }catch(err){
             console.log(err)
         }
@@ -80,8 +91,17 @@ const Login = () =>{
 
     const handleSignupSubmit = async() => {
         try{
-            const res = await axios.post("https://poochku-prod.azurewebsites.net/user", {...Signup, role:"user"});
+            const res = await userApi.createUser({...Signup, role:"user"});
             console.log(res, "response")
+            if(res.status===200){
+                localStorage.setItem('userId', res.data.user.userId);
+                localStorage.setItem('email', res.data.user.email);
+                localStorage.setItem('fName', res.data.user.fName);
+                localStorage.setItem('lName', res.data.user.lName);
+                localStorage.setItem('phoneNo', res.data.user.phoneNo);
+                localStorage.setItem('role', res.data.user.role);
+                navigate("/browse")
+            }
         }catch(err){
             console.log(err)
         }

@@ -10,7 +10,7 @@ const userApi = {
   createUser: async (userDto) => {
     try {
       const response = await instance.post('/user', userDto);
-      return response.data;
+      return response;
     } catch (error) {
       throw error;
     }
@@ -19,7 +19,7 @@ const userApi = {
   updateUser: async (userDto) => {
     try {
       const response = await instance.put('/user', userDto);
-      return response.data;
+      return response;
     } catch (error) {
       throw error;
     }
