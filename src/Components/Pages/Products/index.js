@@ -7,7 +7,7 @@ const Product = ({ product }) => {
     <div className={`product ${inStock ? '' : 'out-of-stock'}`}>
       <img src={imageUrl} alt={name} />
       <h3>{name}</h3>
-      <p className='productdetail'>{description}</p>
+      {/* <p className='productdetail'>{description}</p> */}
       <p id='productdetail'>&#x20b9; {price}</p>
       {inStock ? (
         <button>Add to Cart</button>
