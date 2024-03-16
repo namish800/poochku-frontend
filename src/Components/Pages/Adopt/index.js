@@ -9,8 +9,12 @@ import MobileNav from '../../Reusable/MobileNav'
 import MobileSearch from '../../Reusable/MobileSearch'
 import './style.css'
 import petApi from '../../../services/petApi';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 
 const Adopt = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [pupList, setPupList] = useState([])
   const [popup, setPopup] = useState(false)
   const [selectedState, setSelectedState] = useState("");
@@ -27,6 +31,12 @@ const Adopt = () => {
     }
     catch(err){
       console.log(err)
+    }
+  }
+  const navigateToListAdoptionIfLoggedIn = () => {
+    if(localStorage.getItem('userId')==null){
+      //navigate to auth page
+      navigate("/auth", { state: { prevPath: location.pathname } })
     }
   }
   useEffect(()=>{
@@ -67,7 +77,7 @@ const Adopt = () => {
             <div className='bannerWrapper'>
               <h3>See a puppy in need?</h3> 
               <p>Help them find a forever home!</p>
-              <button>List a Pup for adoption</button>
+              <button onClick={navigateToListAdoptionIfLoggedIn}>List a Pup for adoption</button>
             </div>  
           </div>
         </div>

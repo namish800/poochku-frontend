@@ -9,6 +9,7 @@ import userApi from "../../../services/userApi";
 const Login = () =>{
     const navigate = useNavigate();
     const location = useLocation();
+    const { prevPath } = location.state || { prevPath: "/" };
     const [loading, setLoading] = useState(false)
     const [Signup, setSignUp] = useState({
         fName:"",
@@ -48,6 +49,7 @@ const Login = () =>{
         if(location.pathname.includes("signup")){
             setIsSignUp(true)
         }else(setIsSignUp(false))
+        console.log("prevPath", prevPath)
     },[location])
 
     const handleSubmit = async() => {
@@ -62,7 +64,7 @@ const Login = () =>{
                 localStorage.setItem('lName', res.data.user.lName);
                 localStorage.setItem('phoneNo', res.data.user.phoneNo);
                 localStorage.setItem('role', res.data.user.role);
-                navigate("/browse")
+                navigate(prevPath)
             }
         }catch(err){
             console.log(err);
@@ -82,7 +84,7 @@ const Login = () =>{
                 localStorage.setItem('lName', res.data.user.lName);
                 localStorage.setItem('phoneNo', res.data.user.phoneNo);
                 localStorage.setItem('role', res.data.user.role);
-                navigate("/browse")
+                navigate(prevPath)
             }
         }catch(err){
             console.log(err)
@@ -100,7 +102,7 @@ const Login = () =>{
                 localStorage.setItem('lName', res.data.lName);
                 localStorage.setItem('phoneNo', res.data.phoneNo);
                 localStorage.setItem('role', res.data.role);
-                navigate("/browse")
+                navigate(prevPath)
             }
         }catch(err){
             console.log(err)
