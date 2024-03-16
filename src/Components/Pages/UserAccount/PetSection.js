@@ -25,29 +25,9 @@ const PetSection = () => {
     <div>
         <Tabs className="profilePetSection">
             <TabList>
-                <Tab>Mating</Tab>
                 <Tab>Adoption</Tab>
+                <Tab>Mating</Tab>
             </TabList>
-            <TabPanel>
-                <div className='petSection'>
-                    <div className='sectionHeader'>
-                        <h2>Dogs for Mating</h2>
-                        {/* <button className='addDog'>+ New Dog</button> */}
-                    </div>
-                    <div className='dogWrapper'>
-                        <div className='addDogCard' onClick={()=>navigate("/newDog/mydog")}>
-                            + <br/> Add Dog
-                        </div>
-                        {
-                            matingList.length > 0 && matingList.map((e, i) => {
-                                return(
-                                    <DogForSaleCard dogDetails={e}/>
-                                )
-                            })
-                        }
-                    </div>
-                </div>
-            </TabPanel>
             <TabPanel>
                 <div className='petSection'>
                     <div className='sectionHeader'>
@@ -62,6 +42,26 @@ const PetSection = () => {
                             adoptionList!=null && adoptionList.length > 0 && adoptionList.map((e, i) => {
                                 return(
                                     <DogForSaleCard key={i} dogDetails={e}/>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+            </TabPanel>
+            <TabPanel>
+                <div className='petSection'>
+                    <div className='sectionHeader'>
+                        <h2>Dogs for Mating</h2>
+                        {/* <button className='addDog'>+ New Dog</button> */}
+                    </div>
+                    <div className='dogWrapper'>
+                        <div className='addDogCard' onClick={()=>navigate("/newDog/mydog")}>
+                            + <br/> Add Dog
+                        </div>
+                        {
+                            matingList.length > 0 && matingList.map((e, i) => {
+                                return(
+                                    <DogForSaleCard dogDetails={e}/>
                                 )
                             })
                         }
