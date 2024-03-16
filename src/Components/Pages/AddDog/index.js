@@ -227,7 +227,18 @@ const AddDog = ({previousPath}) => {
                         <select name='breed' value={pet.breed} onChange={handleChange}>
                             <option value="0">Select a breed</option>
                             {
-                                dogDb.map((e) => <option key={e.id} value={e.breed}>{e.breed}</option>)
+                                dogDb.sort((a, b) => {
+                                    let fa = a.breed.toLowerCase(),
+                                        fb = b.breed.toLowerCase();
+                                
+                                    if (fa < fb) {
+                                        return -1;
+                                    }
+                                    if (fa > fb) {
+                                        return 1;
+                                    }
+                                    return 0;
+                                }).map((e) => <option key={e.id} value={e.breed}>{e.breed}</option>)
                             }
                         </select>
                     </div>
