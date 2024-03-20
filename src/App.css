@@ -58,3 +58,10 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #fea501;
 }
+
+.font-face-D {
+  font-family: "Durea"!important;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
+}

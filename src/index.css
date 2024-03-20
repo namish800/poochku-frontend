@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Durea";
+  src: local("Durea"),
+   url("./fonts/Durea/Duera-ExpaBold-PERSONAL.ttf") format("truetype");
+  font-weight: bold;
+ }
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
