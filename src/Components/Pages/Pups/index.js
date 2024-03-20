@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import DashNavUser from '../../Reusable/DashNavUser';
 import DogCard from '../../Reusable/DogCard.js';
-import './style.css'
+import './style.scss'
 import axios from 'axios';
 import Search from '../../Reusable/Search';
 import EnquiryModal from '../../Reusable/EnquiryModal/EnquiryModal.js';
