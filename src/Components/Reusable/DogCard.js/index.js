@@ -1,5 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
-import './style.css'
+import './style.scss'
 import whatsappIcon from '../../../Assets/whatsapp.svg'
 import dog from '../../../Assets/pitbull.jpg'
 import Dog from '../../../Assets/dog.png'
