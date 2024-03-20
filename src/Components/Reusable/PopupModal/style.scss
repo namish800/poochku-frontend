@@ -57,7 +57,12 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .popUp{
-        width: 80%;
+    .popupWrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .popUp{
+            width: 90%;
+        }
     }
 }
