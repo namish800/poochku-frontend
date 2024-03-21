@@ -199,7 +199,7 @@ const Mating = () => {
         <div className='pupListWrapper mating'>
           <div className='pageHeadingSticky'>
             <div>
-              <h1 className='buyPageHeading'>Mating</h1>
+              <h1 className='buyPageHeading font-face-D'>Mating</h1>
               <p className='buyPageInfo'>Find the purrfect match!</p>
             </div>
             <Search
@@ -215,7 +215,8 @@ const Mating = () => {
           />
           </div>
           {/* <hr className='mainPageHr' /> */}
-          {petList?.length > 0 ? <div className='matingWrapper'>
+          {petList?.length > 0 ? 
+          <div className='matingWrapper'>
             <div className='MatingSection'>
               <div className='matingTabs'>
                 <div className={`matingTab ${value===1 ? "active" : ""}`} onClick={() => setValue(1)}>Pooch World</div>

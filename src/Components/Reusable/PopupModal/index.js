@@ -23,7 +23,7 @@ const PopupModal = ({open, setOpen, heading, subheading}) => {
               <CloseIcon onClick={handleClose} />
           </div>
           <Box>
-              <p className='heading'>{heading}</p>
+              <p className='heading font-face-D'>{heading}</p>
               <p className='subHeading'>{subheading}</p>
               <div className='popupActions'>
                 <a href='https://vdo2385601y.typeform.com/to/fBb79EOi' target='_blank' rel='noreferrer' className='formButton' onClick={enquiredPet}>Find me a pooch!</a>

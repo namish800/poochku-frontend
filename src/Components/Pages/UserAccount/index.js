@@ -72,7 +72,7 @@ const UserAccount = () => {
         <div className='pupListWrapper'>
           <div className='pageHeadingSticky nonStick'>
             <div>
-              <h1 className='buyPageHeading'>My Account</h1>
+              <h1 className='buyPageHeading font-face-D'>My Account</h1>
               <p className='buyPageInfo'>Manage your account and pet details here.</p>
             </div>
           </div>

@@ -13,9 +13,10 @@ import Kolkata from "../../../Assets/kolkata.png"
 import Mumbai from "../../../Assets/mumbai.png"
 import Kennel from '../../../Assets/dog-house.png'
 import Animation from "../../../Assets/animated.gif"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const index = () => {
+const Homepage = () => {
+  const navigate = useNavigate()
   return (
     <>
       <div>
@@ -57,7 +58,7 @@ const index = () => {
             </p>
           </div>
           <div style={{marginTop:"0px", display:"flex"}}></div>
-             <button className="landingButtonMain secondary font-face-D">Adopt a Pooch</button>
+             <button className="landingButtonMain secondary font-face-D" onClick={()=>navigate("/browse")}>Adopt a Pooch</button>
              {/* <button className="landingButtonMain secondary adopt font-face-D">Adopt Dogs</button> */}
         </div>
       </section>
@@ -66,24 +67,24 @@ const index = () => {
         <div className="cityWrapper">
           <div>
             <img src={Delhi}/>
-            <p>Delhi</p>
+            <p>Delhi-NCR</p>
           </div>
           <div>
             <img src={Mumbai} />
             <p>Mumbai</p>
           </div>
-          <div>
+          {/* <div>
             <img src={Kolkata} />
             <p>Kolkata</p>
-          </div>
+          </div> */}
           <div>
             <img src={Chandigarh}/>
             <p>Chandigarh</p>
           </div>
-          <div>
+          {/* <div>
             <img src={Panjab} />
             <p>Panjab</p>
-          </div>
+          </div> */}
         </div>
       </section>
       <section className="optionBoxWrapper">
@@ -167,4 +168,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Homepage;

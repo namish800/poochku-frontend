@@ -32,7 +32,7 @@ const Shop = () => {
     <div className='pupListWrapper shop'>
         <div className='pageHeadingSticky'>
             <div>
-                <h1 className='buyPageHeading'>Shop</h1>
+                <h1 className='buyPageHeading font-face-D'>Shop</h1>
                 <p className='buyPageInfo'>For all your Pooch needs!</p>
             </div>
         {/* <Search /> */}

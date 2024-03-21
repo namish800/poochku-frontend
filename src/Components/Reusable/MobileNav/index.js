@@ -8,7 +8,8 @@ import Shop from '../../../Assets/pet-shop.png'
 import WhiteShop from '../../../Assets/pet-shop-white.png'
 import User from '../../../Assets/user.png'
 import WhiteUser from '../../../Assets/user-white.png'
-import './style.css'
+import Logo from '../../../Assets/poochkuLogo.jpg'
+import './style.scss'
 import { Link, useLocation } from 'react-router-dom'
 
 const MobileNav = () => {
@@ -23,13 +24,13 @@ const MobileNav = () => {
         {/* <img className='DashNavIcon' src={PetShop}/> */}
         <img src={location.pathname.includes("shop") ? WhiteShop : Shop}/>
         </Link>
+        <Link to="/" className={'DhashNavLink mobileHomeLink'}>
+        {/* <img className='DashNavIcon' src={adopt}/> */}
+        <img src={Logo}/>
+        </Link>
         <Link to="/mating" className={location.pathname.includes("mating") ? 'DhashNavLink active' : 'DhashNavLink'}>
         {/* <img className='DashNavIcon' src={dog}/> */}
         <img src={location.pathname.includes("mating") ? WhiteMating : Mating}/>
-        </Link>
-        <Link to="/adopt" className={location.pathname.includes("adopt") ? 'DhashNavLink active' : 'DhashNavLink'}>
-        {/* <img className='DashNavIcon' src={adopt}/> */}
-        <img src={location.pathname.includes("adopt") ? WhiteAdopt : Adopt}/>
         </Link>
         <Link to="/useraccount" className={location.pathname.includes("useraccount") ? 'DhashNavLink active' : 'DhashNavLink'}>
         {/* <img className='DashNavIcon' src={adopt}/> */}

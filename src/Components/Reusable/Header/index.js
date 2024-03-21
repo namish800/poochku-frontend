@@ -44,10 +44,10 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/browse">Browse Pups</Nav.Link>
+              <Nav.Link href="/browse">Pooches</Nav.Link>
               <Nav.Link href="/shop">Shop</Nav.Link>
               <Nav.Link href="/mating">Mating</Nav.Link>
-              <Nav.Link href="/adopt">Adopt</Nav.Link>
+              {/* <Nav.Link href="/adopt">Adopt</Nav.Link> */}
               <Nav.Link href="/services">Services</Nav.Link>
               <Nav.Link href={!userRole ? "/auth" : userRole && userRole === "seller" ? "/sellerdashboard" : "sellerregister" }>Seller Account</Nav.Link>
               <Nav.Link href="/auth">Login/SignUp</Nav.Link>

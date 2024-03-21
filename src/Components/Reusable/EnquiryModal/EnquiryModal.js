@@ -25,7 +25,7 @@ const EnquiryModal = ({open, setOpen}) => {
       > 
         <Box className="enquiryModal">
           <div>
-            <h1>We hear you!</h1>
+            <h1 className='font-face-D'>We hear you!</h1>
             <p className='modalP'>Stay put and keep a check on your whatsapp... We'll find the pawfect match for you! </p>
             <a href='https://vdo2385601y.typeform.com/to/fBb79EOi' target='_blank' rel='noreferrer' className='landingButtonMain secondary adopt' onClick={enquiredPet}>Find me a pooch!</a>
             {/* <button className='landingButtonMain secondary adopt' onClick={handleClose}>Okay</button> */}
