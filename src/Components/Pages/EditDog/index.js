@@ -22,7 +22,8 @@ const initialPet = {
     "serviceCode": "",
     "location": "Delhi",
     "quality": "0",
-    "price": 0
+    "price": 0,
+    "gender": ""
 }
 
 // Styles
@@ -192,7 +193,8 @@ const EditDog = ({previousPath}) => {
     } 
 
     const handleChange = (e) => {
-        console.log("state", pet, e.target.name, e.target.value, e)
+        console.log("***************")
+        console.log(e.target.name, e.target.value, e)
         if(e.target.name === "vaccination_status"){
             setPet({...pet, 
                 [e.target.name] : e.target.checked
@@ -202,6 +204,7 @@ const EditDog = ({previousPath}) => {
                 [e.target.name] : e.target.value
                 });
         }
+        console.log(pet);
     } 
 
     useEffect(() => {
@@ -285,6 +288,14 @@ const convertImgUrlsToSelectedImages = async (imgUrls) => {
                             {
                                 dogDb.map((e) => <option key={e.id} value={e.breed}>{e.breed}</option>)
                             }
+                        </select>
+                    </div>
+                    <div className='newDogWrapper'>
+                        <p className='newDogLabel'>Gender</p>
+                        <select name='gender' className='filterInput' value={pet.gender} onChange={handleChange}>
+                            <option value="">Select Gender</option>
+                            <option key="M" value="M">Male</option>
+                            <option key="F" value="F">Female</option>
                         </select>
                     </div>
                     <div className='newDogWrapper'>

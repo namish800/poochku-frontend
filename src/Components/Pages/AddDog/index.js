@@ -8,6 +8,7 @@ import dogDb from '../../Reusable/breeds'
 import { useCallback } from 'react';
 import { useDropzone} from 'react-dropzone';
 import MobileNav from '../../Reusable/MobileNav';
+import GenderOpt from '../../Reusable/GenderOpt';
 
 const initialPet = {
     "ownerId": localStorage.getItem('userId'),
@@ -22,7 +23,8 @@ const initialPet = {
     "serviceCode": "",
     "location": "Delhi",
     "quality": "0",
-    "price": 0
+    "price": 0,
+    "gender": ""
 }
 
 // Styles
@@ -162,6 +164,7 @@ const AddDog = ({previousPath}) => {
       };
 
     const handleChange = (e) => {
+        console.log(e)
         console.log("state", pet, e.target.name, e.target.value, e)
         if(e.target.name === "vaccination_status"){
             setPet({...pet, 
@@ -224,8 +227,27 @@ const AddDog = ({previousPath}) => {
                         <select name='breed' value={pet.breed} onChange={handleChange}>
                             <option value="0">Select a breed</option>
                             {
-                                dogDb.map((e) => <option key={e.id} value={e.breed}>{e.breed}</option>)
+                                dogDb.sort((a, b) => {
+                                    let fa = a.breed.toLowerCase(),
+                                        fb = b.breed.toLowerCase();
+                                
+                                    if (fa < fb) {
+                                        return -1;
+                                    }
+                                    if (fa > fb) {
+                                        return 1;
+                                    }
+                                    return 0;
+                                }).map((e) => <option key={e.id} value={e.breed}>{e.breed}</option>)
                             }
+                        </select>
+                    </div>
+                    <div className='newDogWrapper'>
+                        <p className='newDogLabel'>Gender</p>
+                        <select name='gender' className='filterInput' value={pet.gender} onChange={handleChange}>
+                            <option value="">Select Gender</option>
+                            <option key="M" value="M">Male</option>
+                            <option key="F" value="F">Female</option>
                         </select>
                     </div>
                     <div className='newDogWrapper'>

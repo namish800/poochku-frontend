@@ -192,18 +192,6 @@ const dogDB = [
         "easyToTrain": 5
     },
     {
-        "id": 33,
-        "breed": "PITBULL",
-        "generalDescription": "The Labrador Retriever is a versatile and popular breed known for its intelligence and friendly demeanor. They have a short, water-resistant coat that comes in three standard colors: black, yellow, and chocolate. Labrador Retrievers are highly trainable and make excellent family companions, service dogs, and working partners. Their playful and loving nature endears them to people of all ages.",
-        "kidFriendlyScore": 5,
-        "dogFriendly": 5,
-        "shedding": "High",
-        "easyToGroom": 3,
-        "energyLevel": "High",
-        "intelligence": 5,
-        "easyToTrain": 5
-    },
-    {
         "id": 17,
         "breed": "AMERICAN BULLY",
         "generalDescription": "The American Bully is a muscular breed with a confident and outgoing personality. They have a strong and athletic build, often characterized by their wide chest and powerful stance. American Bullies are known for their loyalty and make devoted family pets. Proper training and socialization are important to ensure they develop well-rounded behavior.",
@@ -393,6 +381,54 @@ const dogDB = [
         "easyToGroom": 1,
         "energyLevel": "Low",
         "intelligence": 3,
+        "easyToTrain": 2
+    },
+    {
+        "id": 33,
+        "breed": "INDIE",
+        "generalDescription": "The Chihuahua is a tiny breed with a big personality. Originating in Mexico, they were revered by ancient civilizations. Chihuahuas are loyal to their owners and can be bold and confident. They have a delicate build, a distinctive apple-shaped head, and a short or long coat. Chihuahuas are well-suited for apartment living and are often devoted companions.",
+        "kidFriendlyScore": 2,
+        "dogFriendly": 2,
+        "shedding": "Low",
+        "easyToGroom": 1,
+        "energyLevel": "Low",
+        "intelligence": 3,
+        "easyToTrain": 2
+    },
+    {
+        "id": 34,
+        "breed": "PITBULL",
+        "generalDescription": "The Labrador Retriever is a versatile and popular breed known for its intelligence and friendly demeanor. They have a short, water-resistant coat that comes in three standard colors: black, yellow, and chocolate. Labrador Retrievers are highly trainable and make excellent family companions, service dogs, and working partners. Their playful and loving nature endears them to people of all ages.",
+        "kidFriendlyScore": 5,
+        "dogFriendly": 5,
+        "shedding": "High",
+        "easyToGroom": 3,
+        "energyLevel": "High",
+        "intelligence": 5,
+        "easyToTrain": 5
+    },
+    {
+        "id": 35,
+        "breed": "TOY POMERANIAN",
+        "generalDescription": "The Toy Pomeranian, often simply called the Pomeranian, is a small breed known for its fluffy coat, fox-like face, and bright personality. Originating from the Pomerania region in Central Europe, these dogs have become popular companions due to their compact size and charming demeanor. Despite their diminutive stature, Pomeranians possess a confident and lively disposition, often displaying a fearless attitude. They are highly affectionate towards their owners and tend to form strong bonds with them. Pomeranians are adaptable to various living environments, making them suitable for both apartment living and larger homes. However, their high energy levels require regular exercise and mental stimulation to prevent boredom and destructive behavior. While Pomeranians are generally friendly, they can be wary of strangers and may exhibit territorial behavior if not properly socialized. Due to their thick double coat, Pomeranians require regular grooming to maintain their fluffy appearance and prevent matting.",
+        "kidFriendlyScore": 3,
+        "dogFriendly": 3,
+        "shedding": "Moderate",
+        "easyToGroom": 2,
+        "energyLevel": "High",
+        "intelligence": 3,
+        "easyToTrain": 2
+    },
+    {
+        "id": 36,
+        "breed": "YORKSHIRE TERRIER",
+        "generalDescription": "The Yorkshire Terrier, often affectionately called the Yorkie, is a small breed with a big personality. Originating from Yorkshire, England, these dogs were initially bred for catching rats in clothing mills but have since become beloved companions and show dogs. Yorkies are known for their long, silky coats that come in a variety of colors, including blue and tan. Despite their small size, Yorkies are spirited and confident, often exhibiting a bold and feisty demeanor. They are fiercely loyal to their families and can form strong bonds with their owners. Due to their compact size, Yorkies are well-suited for apartment living, although they still require regular exercise and mental stimulation to stay healthy and happy. Yorkies are intelligent dogs, but their independent nature can make them stubborn at times, requiring patient and consistent training. They can be wary of strangers and may exhibit protective behaviors, making early socialization crucial. While their coat is beautiful, it requires frequent grooming to prevent matting and maintain its luxurious appearance.",
+        "kidFriendlyScore": 3,
+        "dogFriendly": 2,
+        "shedding": "Low",
+        "easyToGroom": 1,
+        "energyLevel": "Moderate",
+        "intelligence": 4,
         "easyToTrain": 2
     }
 ]

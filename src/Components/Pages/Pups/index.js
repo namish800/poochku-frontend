@@ -9,6 +9,7 @@ import MobileSearch from '../../Reusable/MobileSearch';
 import MobileNav from '../../Reusable/MobileNav';
 import { Skeleton } from '@mui/material';
 import PopupModal from '../../Reusable/PopupModal/index.js'
+import petApi from '../../../services/petApi.js';
 
 const Pups = () => {
   const [pupList, setPupList] = useState()
@@ -17,17 +18,15 @@ const Pups = () => {
   const [selectedQuality, setSelectedQuality] = useState("")
   const [selectedGender, setSelectedGender] = useState("")
   const [selectedBreed, setSelectedBreed] = useState("")
+  const [serviceCode, setServiceCode] = useState("S")
   const [open, setOpen] = useState(false);
 
 
   const getPupList = async () => {
     try{
-      const res = await axios.get("https://poochku-prod.azurewebsites.net/pet", {params: {
-        serviceCode: "S",
-        // page: 1,
-        // size: 30
-      }})
-      setPupList(res.data.pets)
+      const data = await petApi.searchPets(serviceCode, selectedState, selectedBreed, selectedGender, selectedQuality);
+      console.log("data", data);
+      setPupList(data.pets)
       // console.log(res, "dog List")
     }
     catch(err){
@@ -55,7 +54,17 @@ const Pups = () => {
               <h1 className='buyPageHeading'>Buy Pups</h1>
               <p className='buyPageInfo'>Find your forever friends!</p>
             </div>
-            <Search selectedBreed = {selectedBreed} selectedGender = {selectedGender} selectedQuality = {selectedQuality} selectedState = {selectedState} />
+            <Search
+            populatePupList={getPupList}
+            selectedBreed={selectedBreed}
+            setSelectedBreed={setSelectedBreed}
+            selectedGender={selectedGender}
+            setSelectedGender={setSelectedGender}
+            selectedQuality={selectedQuality}
+            setSelectedQuality={setSelectedQuality}
+            selectedState={selectedState}
+            setSelectedState={setSelectedState}
+          />
           </div>
           {/* <hr className='mainPageHr' /> */}
           <MobileSearch/>

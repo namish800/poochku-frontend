@@ -89,29 +89,34 @@ const index = () => {
       <section className="optionBoxWrapper">
         <div className="optionBox">
           <div className="option">
-            <div className="optionDetails">
-              <h1>Heading</h1>
-              <p>At Phoochku find yourself a loyal companions from a collection of
-              pure bred and well trained dogs Huskies, Beagles, Spaniels and
-              lots of pups of other popular breeds.</p>
+          <div className="optionDetails">
+              <h1>Swipe Right for Puppy Love!</h1>
+              <p>Discover potential matches for your dog with a fun and easy swipe. It's basically tinder, but for your pooch ;)</p>
+              <div>
+                <button className="landingButtonMain secondary adopt">Woof</button>
+              </div>
             </div>
             <img src={StaringDog} />
           </div>
           <div className="option">
             <div className="optionDetails">
-              <h1>Heading</h1>
-              <p>At Phoochku find yourself a loyal companions from a collection of
-              pure bred and well trained dogs Huskies, Beagles, Spaniels and
-              lots of pups of other popular breeds.</p>
+              <h1>Find a Pup</h1>
+              <p>At Phoochku find yourself a loyal companion.</p>
+              <div>
+                <button className="landingButtonMain secondary">Adopt</button>
+                <button className="landingButtonMain secondary adopt">Buy</button>
+              </div>
             </div>
             <img src={Dogfood} />
           </div>
           <div className="option">
             <div className="optionDetails">
-              <h1>Heading</h1>
-              <p>At Phoochku find yourself a loyal companions from a collection of
-              pure bred and well trained dogs Huskies, Beagles, Spaniels and
-              lots of pups of other popular breeds.</p>
+              <h1>Pooch Shop</h1>
+              <p>Explore our range of comfortable and stylish dog beds.</p>
+              <div>
+                <button className="landingButtonMain secondary">Adopt</button>
+                <button className="landingButtonMain secondary adopt">Buy</button>
+              </div>
             </div>
             <img src={StandingDog} />
           </div>

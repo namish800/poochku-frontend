@@ -4,10 +4,12 @@ import axios from "axios";
 import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
+import userApi from "../../../services/userApi";
 
 const Login = () =>{
     const navigate = useNavigate();
     const location = useLocation();
+    const { prevPath } = location.state || { prevPath: "/" };
     const [loading, setLoading] = useState(false)
     const [Signup, setSignUp] = useState({
         fName:"",
@@ -47,6 +49,7 @@ const Login = () =>{
         if(location.pathname.includes("signup")){
             setIsSignUp(true)
         }else(setIsSignUp(false))
+        console.log("prevPath", prevPath)
     },[location])
 
     const handleSubmit = async() => {
@@ -61,7 +64,7 @@ const Login = () =>{
                 localStorage.setItem('lName', res.data.user.lName);
                 localStorage.setItem('phoneNo', res.data.user.phoneNo);
                 localStorage.setItem('role', res.data.user.role);
-                navigate("/browse")
+                navigate(prevPath)
             }
         }catch(err){
             console.log(err);
@@ -71,8 +74,18 @@ const Login = () =>{
 
     const handleSellerSignupSubmit = async() => {
         try{
-            const res = await axios.post("https://poochku-prod.azurewebsites.net/user", {...Signup, role:"seller"});
+            // const res = await axios.post("https://poochku-prod.azurewebsites.net/user", {...Signup, role:"seller"});
+            const res = await userApi.createUser({...Signup, role:"seller"});
             console.log(res, "response")
+            if(res.status===200){
+                localStorage.setItem('userId', res.data.user.userId);
+                localStorage.setItem('email', res.data.user.email);
+                localStorage.setItem('fName', res.data.user.fName);
+                localStorage.setItem('lName', res.data.user.lName);
+                localStorage.setItem('phoneNo', res.data.user.phoneNo);
+                localStorage.setItem('role', res.data.user.role);
+                navigate(prevPath)
+            }
         }catch(err){
             console.log(err)
         }
@@ -80,8 +93,17 @@ const Login = () =>{
 
     const handleSignupSubmit = async() => {
         try{
-            const res = await axios.post("https://poochku-prod.azurewebsites.net/user", {...Signup, role:"user"});
-            console.log(res, "response")
+            const res = await userApi.createUser({...Signup, role:"user"});
+            console.log("response", res)
+            if(res.status===201){
+                localStorage.setItem('userId', res.data.userId);
+                localStorage.setItem('email', res.data.email);
+                localStorage.setItem('fName', res.data.fName);
+                localStorage.setItem('lName', res.data.lName);
+                localStorage.setItem('phoneNo', res.data.phoneNo);
+                localStorage.setItem('role', res.data.role);
+                navigate(prevPath)
+            }
         }catch(err){
             console.log(err)
         }
@@ -151,8 +173,8 @@ const Login = () =>{
             </form>
             <div style={{display:"flex", flexDirection:"row", width:"100%", justifyContent:"start", alignItems:"center"}}>
                 <button onClick={()=>handleSignupSubmit()} className="LoginButton">Sign up</button>
-                <p style={{marginBottom:"0", marginRight:"20px"}}>Or</p>
-                <button onClick={()=>handleSellerSignupSubmit()} className="signup">Seller Sign up</button>
+                {/* <p style={{marginBottom:"0", marginRight:"20px"}}>Or</p>
+                <button onClick={()=>handleSellerSignupSubmit()} className="signup">Seller Sign up</button> */}
             </div>
         </div>}
     </div>
