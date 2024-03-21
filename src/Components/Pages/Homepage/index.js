@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "../../Reusable/Header";
 import Logo from "../../../Assets/Logo.png";
-import Dogfood from '../../../Assets/dogfood.png'
-import StandingDog from '../../../Assets/standing-dog.png'
-import StaringDog from '../../../Assets/staringdog.png'
+import Dogfood from '../../../Assets/poochku2.png'
+import StandingDog from '../../../Assets/poochku3.png'
+import StaringDog from '../../../Assets/poochku1.png'
 import "./style.scss";
 import FAQs from "../../Reusable/FAQs";
 import Delhi from "../../../Assets/delhi.png"
@@ -21,9 +21,9 @@ const index = () => {
       <div>
         <Header />
       </div>
-      <div className="landingBanner">
+      <div className="landingBanner font-face-D">
         <div className="landingActions">
-          <div className="landingHeading" >
+          <div className="landingHeading font-face-D" >
             hugs +<br />
             kisses
           </div>
@@ -36,11 +36,11 @@ const index = () => {
       </div>
       <section className="landingIntro">
         <div>
-          <h1>
+          <h1 className="font-face-D">
             WELCOME TO, <br />
             POOCHKU!
           </h1>
-          <p style={{marginBottom:"0"}}>NO.1 PET SHOP IN INDIA </p>
+          <p style={{marginBottom:"0"}} className="font-face-D">NO.1 PET SHOP IN INDIA </p>
           <div className="introInfo">
             <img src={Logo} />
             <p>
@@ -57,12 +57,12 @@ const index = () => {
             </p>
           </div>
           <div style={{marginTop:"0px", display:"flex"}}></div>
-             <button className="landingButtonMain secondary">Shop Dogs</button>
-             <button className="landingButtonMain secondary adopt">Adopt Dogs</button>
+             <button className="landingButtonMain secondary font-face-D">Adopt a Pooch</button>
+             {/* <button className="landingButtonMain secondary adopt font-face-D">Adopt Dogs</button> */}
         </div>
       </section>
       <section className="landingBreak">
-        <h1>Major Cities We Cover!</h1>
+        <h1 className="font-face-D">Major Cities We Cover!</h1>
         <div className="cityWrapper">
           <div>
             <img src={Delhi}/>
@@ -90,32 +90,32 @@ const index = () => {
         <div className="optionBox">
           <div className="option">
           <div className="optionDetails">
-              <h1>Swipe Right for Puppy Love!</h1>
+              <h1 className="font-face-D">Swipe Right for Puppy Love!</h1>
               <p>Discover potential matches for your dog with a fun and easy swipe. It's basically tinder, but for your pooch ;)</p>
               <div>
-                <button className="landingButtonMain secondary adopt">Woof</button>
+                <button className="landingButtonMain secondary adopt font-face-D">Woof</button>
               </div>
             </div>
             <img src={StaringDog} />
           </div>
-          <div className="option">
+          <div className="option ">
             <div className="optionDetails">
-              <h1>Find a Pup</h1>
+              <h1 className="font-face-D">Find a Pup</h1>
               <p>At Phoochku find yourself a loyal companion.</p>
               <div>
-                <button className="landingButtonMain secondary">Adopt</button>
-                <button className="landingButtonMain secondary adopt">Buy</button>
+                <button className="landingButtonMain secondary font-face-D">Adopt a pooch</button>
+                {/* <button className="landingButtonMain secondary adopt font-face-D">Buy</button> */}
               </div>
             </div>
             <img src={Dogfood} />
           </div>
           <div className="option">
             <div className="optionDetails">
-              <h1>Pooch Shop</h1>
+              <h1 className="font-face-D">Pooch Shop</h1>
               <p>Explore our range of comfortable and stylish dog beds.</p>
               <div>
-                <button className="landingButtonMain secondary">Adopt</button>
-                <button className="landingButtonMain secondary adopt">Buy</button>
+                <button className="landingButtonMain secondary font-face-D">shop</button>
+                {/* <button className="landingButtonMain secondary adopt">Buy</button> */}
               </div>
             </div>
             <img src={StandingDog} />
@@ -123,7 +123,7 @@ const index = () => {
         </div>
       </section>
       <section className="articleSectionWrapper">
-        <h1>Getting a pet for the first time?</h1>
+        <h1 className="font-face-D">Getting a pet for the first time?</h1>
         <p>Download our guides for absolutely free!</p>
         <div className="articleSection">
           <div className="articleCategory">
@@ -140,25 +140,25 @@ const index = () => {
           </div>
         </div>
       </section>
+      <section className="faqWrapper">
+        <h1 className="font-face-D">Still got questions? Let us answer!</h1>
+        {/* <p>Download our guides for absolutely free!</p> */}
+        <FAQs />
+      </section>
       <section className="breederCallWrapper">
         <div className="breederCall">
-          <img src={Kennel}/>
+          {/* <img src={Kennel}/>
           <div>
             <h4>Are you a breeder?</h4>
             <p>It takes only a few clicks to connect with genuine pet lovers. Register Now!</p>
           </div>
-          <button className="landingButtonMain secondary">Join as a Breeder</button>
+          <button className="landingButtonMain secondary">Join as a Breeder</button> */}
         </div>  
-      </section>
-      <section className="faqWrapper">
-        <h1>Still got questions? Let us answer!</h1>
-        {/* <p>Download our guides for absolutely free!</p> */}
-        <FAQs />
       </section>
       <section className="helpSection">
         <div>
-          <h1>Can't Find The Puppy You Really Want?</h1>
-          <i><p>We'll do the work for you!</p></i>
+          <h1 className="font-face-D">Can't Find The Puppy You Really Want?</h1>
+          <i><p>Let us!</p></i>
           <p>In case the breed you are looking for is not listed on our website contact us by reaching out to us on whatsapp or any other social media or call us on +91-9717479570 & we will happily assist you in finding you the right puppy.</p>
         </div>
         <img src={Animation} />
