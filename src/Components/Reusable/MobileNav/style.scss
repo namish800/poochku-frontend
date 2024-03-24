@@ -15,14 +15,14 @@
         .DhashNavLink{
             display: flex;
             flex-grow: 1;
-            padding:15px;
+            padding:15px 20px;
             align-items: center;
             justify-content: center;
             &.active{
                 background: #6504b5;
             }
             &.mobileHomeLink{
-                padding: 0px;   
+                padding: 0px 20px;   
 
                 img{
                     border-radius: 50%;

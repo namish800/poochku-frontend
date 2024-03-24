@@ -162,7 +162,6 @@ const Pups = () => {
                       </div>
                       <Skeleton variant="rectangular" animation="wave" width={"100%"} height={40} className='skeletonCard' />                  
                     </div>
-                  
                   }    
                   </div>
                 <div className='bannerWrapper'>

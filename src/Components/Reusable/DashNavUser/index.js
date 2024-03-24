@@ -37,10 +37,10 @@ const DashNavUser = () => {
             {/* <img className='DashNavIcon' src={dog}/> */}
             <p className='font-face-D para'>Mating</p>
           </Link>
-          <Link to="/adopt" className={(location.pathname.includes("adopt") && !location.pathname.includes("adoption")) ? 'DhashNavLink active' : 'DhashNavLink'}>
-            {/* <img className='DashNavIcon' src={adopt}/> */}
+          {/* <Link to="/adopt" className={(location.pathname.includes("adopt") && !location.pathname.includes("adoption")) ? 'DhashNavLink active' : 'DhashNavLink'}>
+            <img className='DashNavIcon' src={adopt}/>
             <p className='font-face-D para'>Adopt</p>
-          </Link>
+          </Link> */}
         </div>}
         {
           location.pathname.toLowerCase().includes("sellerdashboard") &&

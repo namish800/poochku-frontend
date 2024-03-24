@@ -141,14 +141,17 @@
     .card {
       font-family: fredoka;
         position: relative;
-        width: 80vw;
-        max-width: 260px;
-        box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+        width: 100%;
+        // max-width: 260px;
+        box-shadow: 0px 0px 5px 0px #b6b6b6;
         border-radius: 20px;
         overflow: hidden;
       }
       .swipe {
         position: absolute;
+        left: 50%;
+        transform: translateX(-50%) !important;
+        width: 80%;
       }
 
       .cardContainer{
@@ -202,14 +205,13 @@
 
 .matingButtons{
   position: relative;
-  bottom: 0px;
-  left: 0;
+  margin-top: 20px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   img{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
   .leftSwipe{
     // background: red;
@@ -221,11 +223,12 @@
   }
 
     button{
-      padding:15px;
+      padding:0px;
       border-radius: 12px;
       border: 0px ;
       color: white;
-      background: #6504b5;
+      background: #fff;
+      box-shadow: 0px 0px 5px 0px #b6b6b6;
     }
 }
 .addMatingDog{
@@ -278,7 +281,7 @@
     overflow-x: hidden;
     overflow-y: visible;
     max-height: none;
-    padding: 0 15px;
+    padding: 0 15px 30px;
 
     .matingTabs{
       height: 100%;
@@ -318,10 +321,10 @@
       width: 100%;
       max-width: 100%;
       background: #fff;
-      padding: 20px 15px 20px;
+      padding: 0px 0px 20px;
       overflow-y: visible;
       position: relative;
-      box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+      // box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
 
       h3{
         position: sticky;
@@ -410,18 +413,21 @@
     .card {
       font-family: fredoka;
         position: relative;
-        width: 80vw;
-        max-width: 260px;
+        width: 100%;
+        // max-width: 260px;
         box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
         border-radius: 20px;
         overflow: hidden;
       }
       .swipe {
         position: absolute;
+        left: 50%;
+        transform: translateX(-50%) !important;
+        width: 80%;
       }
 
       .cardContainer{
-        padding: 0px 50px 30px;
+        padding: 0px 0px 30px;
         height: 400px;
         width: 100%;
         // overflow: hidden;
@@ -463,16 +469,17 @@
   }
   .matingButtons{
     position: absolute;
-    bottom: 30px;
+    bottom: 20px;
     left: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 10px;
+    // margin-top: 30px;
     img{
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
     }
     .leftSwipe{
       // background: red;

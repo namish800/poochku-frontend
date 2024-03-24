@@ -2,7 +2,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import DashNavUser from '../../Reusable/DashNavUser'
 import whatsappIcon from '../../../Assets/whatsapp.svg'
 import dog from '../../../Assets/pitbull.jpg'
-import './style.css'
+import './style.scss'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -81,90 +81,92 @@ const ViewDog = () => {
               </div>
               <div className='actionWrapper'>
                 <button className='whatsappEnquire' onClick={waEnquire}><img src={whatsappIcon} />Enquire</button>
-                <button className='bestBuy' onClick={enquiryRequest}>Get Best Price</button>
+                {details && details?.service?.serviceCode !== "A" && <button className='bestBuy' onClick={enquiryRequest}>Get Best Price</button>}
               </div>
             </div>
-            {details && info ? <div className='dogViewWrapper'>
-              <div className='mainInfo'>
-                <div className='directInfoWrapper'>
-                  <div className='directInfo'>
-                    <p className='InfoHeader'>Location</p>
-                    <p>{details?.location ? details?.location : "N/A"}</p>
+            {details && info ?
+              (<div className='dogViewWrapper'>
+                <div className='mainInfo'>
+                  <div className='directInfoWrapper'>
+                    <div className='directInfo'>
+                      <p className='InfoHeader'>Location</p>
+                      <p>{details?.location ? details?.location : "N/A"}</p>
+                    </div>
+                    <div className='directInfo'>
+                      <p className='InfoHeader'>Gender</p>
+                      <p>{details?.gender ? details?.gender : "N/A"}</p>
+                    </div>
+                    <div className='directInfo'>
+                      <p className='InfoHeader'>Quality</p>
+                      <p>{details?.quality ? details?.quality : "N/A"}</p>
+                    </div>
+                    <div className='directInfo'>
+                      <p className='InfoHeader'>Age </p>
+                      <p>{details?.age ? `${details?.age} days` : "N/A"}</p>
+                    </div>
+                    <div className='directInfo'>
+                      <p className='InfoHeader'>Vaccination Status </p>
+                      <p>{details?.vaccination_status ? details.vaccination_status : "N/A"}</p>
+                    </div>
+                    <div className='directInfo'>
+                      <p className='InfoHeader'>Listed By</p>
+                      <p>{details?.fName ? details.fName : "N/A"}</p>
+                    </div>
                   </div>
-                  <div className='directInfo'>
-                    <p className='InfoHeader'>Gender</p>
-                    <p>{details?.gender ? details?.gender : "N/A"}</p>
+                  <div className='descriptionWrapper'>
+                    <h4>Description</h4>
+                    <p>{info?.generalDescription ? info?.generalDescription : "No Description is available"}</p>
                   </div>
-                  <div className='directInfo'>
-                    <p className='InfoHeader'>Quality</p>
-                    <p>{details?.quality ? details?.quality : "N/A"}</p>
-                  </div>
-                  <div className='directInfo'>
-                    <p className='InfoHeader'>Age </p>
-                    <p>{details?.age ? `${details?.age} days` : "N/A"}</p>
-                  </div>
-                  <div className='directInfo'>
-                    <p className='InfoHeader'>Vaccination Status </p>
-                    <p>{details?.vaccination_status ? details.vaccination_status : "N/A"}</p>
-                  </div>
-                  <div className='directInfo'>
-                    <p className='InfoHeader'>Listed By</p>
-                    <p>{details?.fName ? details.fName : "N/A"}</p>
+                  <div className='directInfoWrapper'>
+                    <div className='directInfo'>
+                      <p className='InfoHeader'>Kids Friendly Score</p>
+                      <Rating value={info?.kidFriendlyScore} readOnly />
+                    </div>
+                    <div className='directInfo'>
+                      <p className='InfoHeader'>Other Pet Friendliness Score</p>
+                      <Rating value={info?.dogFriendly} readOnly />
+                    </div>
+                    <div className='directInfo'>
+                      <p className='InfoHeader'>Shedding</p>
+                      <p><span>{info?.shedding}</span></p>
+                    </div>
+                    <div className='directInfo'>
+                      <p className='InfoHeader'>Ease in Grooming Score</p>
+                      <Rating value={info?.easyToGroom} readOnly />
+                    </div>
+                    <div className='directInfo'>
+                      <p className='InfoHeader'>Energy Levels</p>
+                      <p><span>{info?.energyLevel}</span></p>
+                    </div>
+                    <div className='directInfo'>
+                      <p className='InfoHeader'>Intelligence</p>
+                      <Rating value={info?.intelligence} readOnly />
+                    </div>
+                    <div className='directInfo'>
+                      <p className='InfoHeader'>Trainability</p>
+                      <Rating value={info?.easyToTrain} readOnly />
+                    </div>
                   </div>
                 </div>
-                <div className='descriptionWrapper'>
-                  <h4>Description</h4>
-                  <p>{info?.generalDescription ? info?.generalDescription : "No Description is available"}</p>
+                <div className='galleryWrapper'>
+                  <img className='dogPic' src={details?.imageUrls ? details?.imageUrls?.[0] : dog}/>
                 </div>
-                <div className='directInfoWrapper'>
-                  <div className='directInfo'>
-                    <p className='InfoHeader'>Kids Friendly Score</p>
-                    <Rating value={info?.kidFriendlyScore} readOnly />
-                  </div>
-                  <div className='directInfo'>
-                    <p className='InfoHeader'>Other Pet Friendliness Score</p>
-                    <Rating value={info?.dogFriendly} readOnly />
-                  </div>
-                  <div className='directInfo'>
-                    <p className='InfoHeader'>Shedding</p>
-                    <p><span>{info?.shedding}</span></p>
-                  </div>
-                  <div className='directInfo'>
-                    <p className='InfoHeader'>Ease in Grooming Score</p>
-                    <Rating value={info?.easyToGroom} readOnly />
-                  </div>
-                  <div className='directInfo'>
-                    <p className='InfoHeader'>Energy Levels</p>
-                    <p><span>{info?.energyLevel}</span></p>
-                  </div>
-                  <div className='directInfo'>
-                    <p className='InfoHeader'>Intelligence</p>
-                    <Rating value={info?.intelligence} readOnly />
-                  </div>
-                  <div className='directInfo'>
-                    <p className='InfoHeader'>Trainability</p>
-                    <Rating value={info?.easyToTrain} readOnly />
-                  </div>
-                </div>
-              </div>
-              <div className='galleryWrapper'>
-                <img className='dogPic' src={details?.imageUrls ? details?.imageUrls?.[0] : dog}/>
-              </div>
-            </div> : 
-             (<div style={{padding: "15px 30px", width: "40%"}}>
+              </div>) 
+            : 
+             (<div className='seeMoreSkeletonnWrapper'>
                 <div style={{display: "flex", justifyContent:"start", marginBottom:"15px"}}>
-                  <Skeleton style={skeleton} variant="reactangular" width={200} height={60}/>
-                  <Skeleton style={skeleton} variant="reactangular" width={200} height={60}/>
-                </div>
-                <div style={{display: "flex", justifyContent:"start", marginBottom:"15px"}}>
-                  <Skeleton style={skeleton} variant="reactangular" width={200} height={60}/>
-                  <Skeleton style={skeleton} variant="reactangular" width={200} height={60}/>
+                  <Skeleton style={skeleton} variant="reactangular" width={"40%"} height={60}/>
+                  <Skeleton style={skeleton} variant="reactangular" width={"40%"} height={60}/>
                 </div>
                 <div style={{display: "flex", justifyContent:"start", marginBottom:"15px"}}>
-                  <Skeleton style={skeleton} variant="reactangular" width={200} height={60}/>
-                  <Skeleton style={skeleton} variant="reactangular" width={200} height={60}/>
+                  <Skeleton style={skeleton} variant="reactangular" width={"40%"} height={60}/>
+                  <Skeleton style={skeleton} variant="reactangular" width={"40%"} height={60}/>
                 </div>
-                <Skeleton style={skeleton} variant="reactangular" width={700} height={200}/>
+                <div style={{display: "flex", justifyContent:"start", marginBottom:"15px"}}>
+                  <Skeleton style={skeleton} variant="reactangular" width={"40%"} height={60}/>
+                  <Skeleton style={skeleton} variant="reactangular" width={"40%"} height={60}/>
+                </div>
+                <Skeleton style={skeleton} variant="reactangular" width={"100%"} height={200}/>
               </div>)
             }
           </div>
