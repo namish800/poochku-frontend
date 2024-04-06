@@ -16,16 +16,16 @@ const VetCard = ({data}) => {
         </div>
         <div className='vetCard'>
             <div className='vetRow'>
-                <h3 className='vetName'>{data.name}</h3>
-                <p className='vetVerification'>{data.verified}</p>
+                <h3 className='vetName'>{data?.name || "Vet"}</h3>
+                <p className='vetVerification'>{data?.verified || ''}</p>
             </div>
             <p className='vetQualification'>
                 {data?.qualification ? data?.qualification : ''}
             </p>
-            {data.type === "doctor" && 
+            {data?.type === "doctor" && 
                 <>
                     <p className='vetExperience'>
-                        {data.experience}
+                        {data?.experience}
                     </p>
                     <p className='vetAddress'>
                         {data?.address ? data?.address : 'No Address'}
