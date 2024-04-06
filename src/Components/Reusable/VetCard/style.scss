@@ -1,0 +1,59 @@
+.vetCardWrapper{
+    max-width: 24%;
+    width: 24%;
+    margin-bottom: 20px;
+    margin-right: 1%;
+
+    h3{
+        font-family: changa one;
+    }
+    
+    .vetImage{
+        width: 100%;
+        height: 20px;
+        margin-top: 20px;
+        position: relative;
+        background: #fff;
+    
+        img{
+            border-radius: 50%;
+            border: 2px solid white;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+        }
+    }
+    .vetCard{
+        background: white;
+        padding: 10px;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .vetCardWrapper{
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+
+        .vetImage{
+            height: 20px;
+            margin-top: 20px;    
+            width: 100%;
+            position: relative;
+            background: #fff;
+    
+            img{
+                border-radius: 50%;
+                border: 2px solid white;
+                height: 100px;
+                width: 100px;
+                position: absolute;
+                bottom: 0;
+                left: 20px;
+            }
+        }
+    }
+}

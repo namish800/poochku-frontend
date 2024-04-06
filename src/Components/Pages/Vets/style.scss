@@ -1,0 +1,139 @@
+.vetListPage{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-family: fredoka;
+    
+    .vetListSection{
+        width: calc(100% - 220px);
+        z-index: 10;
+        padding: 0px 0px 20px;
+        background: #f5f5f5;
+        // box-shadow: -5px 0px 5px 0px #bebebe;
+        box-shadow: 0px 0px 5px 0px #b6b6b6;
+
+
+        .pageHeadingSticky{
+            position: sticky;
+            top: -1px;
+            padding: 35px 30px 15px;
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(101,4,181,1) 100%);;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: stretch;
+            flex-wrap: wrap;
+            z-index: 10;
+            color: #fff;
+            // box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
+
+            &.nonStick{
+                position: relative;
+            }
+
+            h1{
+                margin-bottom: 10px;
+                font-family: changa one;
+            }
+
+            // input{
+            //     margin: 0 10px;
+            // }
+
+            // select, button{
+            //     margin: 0 20px;
+            // }
+
+            
+            .buyPageHeading{
+                font-family: changa one;
+            }
+            .buyPageInfo{
+                font-family: fredoka;
+                margin-bottom: 0;
+            }
+        }
+
+        .vetListWrapper{
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: stretch;
+            width: 100%;
+            padding: 50px 30px;
+            margin-bottom: 20px;
+        }
+        
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .vetListPage{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-family: fredoka;
+
+        .vetListSection{
+            width:100%;
+            position: relative;
+            padding: 0px 0px 0;
+            background: #f5f5f5;
+    
+            .pageHeadingSticky{
+                position: relative;
+                // top: -1px;
+                padding: 15px 15px 15px;
+                background: #fff;
+                margin-bottom: 0px;
+                display: flex;
+                align-items: center;
+                justify-content: stretch;
+                z-index: 10;
+                color: #000;
+                // box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
+    
+                &.nonStick{
+                    position: relative;
+                }
+    
+                h1{
+                    margin-bottom: 10px;
+                    font-family: changa one;
+                }
+    
+                // input{
+                //     margin: 0 10px;
+                // }
+    
+                // select, button{
+                //     margin: 0 20px;
+                // }
+    
+                
+                .buyPageHeading{
+                    font-family: changa one;
+                }
+                .buyPageInfo{
+                    font-family: fredoka;
+                }
+            }
+
+            .vetListWrapper{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: start;
+                width: 100%;
+                padding: 50px 10px;
+                padding-bottom: 50px;
+            }
+        }
+    }
+
+}
