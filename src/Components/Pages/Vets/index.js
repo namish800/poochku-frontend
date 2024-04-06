@@ -1,12 +1,57 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.scss'
 import DashNavUser from '../../Reusable/DashNavUser'
 import MobileNav from '../../Reusable/MobileNav'
 import VetCard from '../../Reusable/VetCard'
 import data from './data'
+import vetApi from '../../../services/vetApi'
+import { useLocation, useNavigate } from 'react-router-dom';
+
 
 const Vets = () => {
-  return (
+
+    const [vetList, setVetList] = useState([]);
+    const [clinicList, setClinicList] = useState([]);
+    const [city, setCity] = useState('')
+
+
+    const getVetList = async () => {
+        try{
+          const response = await vetApi.getDoctors(city);
+          console.log(response.data)
+          if(response.status===200){
+            setVetList(response.data.doctors)
+          } else {
+            console.log("Request failed ", response)
+          }
+          
+        }
+        catch(err){
+          console.log(err)
+        }
+    }
+    
+    const getClinicList = async () => {
+        try{
+          const response = await vetApi.getClinics(city);
+          console.log(response.data)
+          if(response.status===200){
+            setClinicList(response.data.clinics)
+          } else {
+            console.log("Request failed ", response)
+          }
+        }
+        catch(err){
+          console.log(err)
+        }
+    }
+
+
+    useEffect(()=>{
+        getVetList()
+        getClinicList()
+      }, [])
+    return (
     <div className='vetListPage'>
         <DashNavUser />
         <div className='vetListSection'>
@@ -17,7 +62,7 @@ const Vets = () => {
             </div>
             </div>
             <div className='vetListWrapper'>
-                {data?.map((vet, index) => {
+                {vetList?.map((vet, index) => {
                     return(
                         <VetCard data={vet} key={index} />
                     )
@@ -26,7 +71,7 @@ const Vets = () => {
         </div>
         <MobileNav />
     </div>
-  )
+    )
 }
 
 export default Vets

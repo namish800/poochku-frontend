@@ -9,9 +9,9 @@ const VetCard = ({data}) => {
     <div className='vetCardWrapper'>
         <div className='vetImage'>
             {data?.type === "clinic" ? 
-                (<img src={data?.image ?data?.image : Hospital} alt="icon of a hospital"/>) 
+                (<img src={data?.image?.url ?data?.image?.url : Hospital} alt="icon of a hospital"/>) 
                 : 
-                (<img src={data?.image ?data?.image : Doctor} alt="icon of a doctor"/>) 
+                (<img src={data?.image?.url ?data?.image?.url : Doctor} alt="icon of a doctor"/>) 
             }
         </div>
         <div className='vetCard'>
