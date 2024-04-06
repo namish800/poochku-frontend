@@ -1,5 +1,6 @@
 const  data = [
     {
+        "id": 1, 
         "type": "doctor",
         "name": "Dr. Satyam",
         "image": "",
@@ -12,6 +13,7 @@ const  data = [
         "clinics": []
     },
     {
+        "id": 2,
         "type": "clinic",
         "name": "Pet clinic",
         "image": "",

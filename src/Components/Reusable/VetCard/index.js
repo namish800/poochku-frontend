@@ -22,26 +22,22 @@ const VetCard = ({data}) => {
             <p className='vetQualification'>
                 {data?.qualification ? data?.qualification : ''}
             </p>
-            {data?.type === "doctor" && 
-                <>
-                    <p className='vetExperience'>
-                        {data?.experience}
-                    </p>
-                    <p className='vetAddress'>
-                        {data?.address ? data?.address : 'No Address'}
-                    </p>
-                </>
+            {data?.type === "doctor" ?
+                <p className='vetExperience'>
+                    {data?.experience}
+                </p> 
+                :
+                <p className='vetAddress'>
+                    {data?.address ? data?.address : 'No Address'}
+                </p>
             }
-            <p className='vetAddress'>
-                {data?.address ? data?.address : 'No Address'}
-            </p>
             <p className='vetDesc'>
                 {data?.description ? data?.description : 'No Description'}
             </p>
             <Link to={data?.meeting_url} className='button primary'>
                 {data?.type === "doctor" ? "Book Online Consultation" : "Book a Visit"}
             </Link>
-            <Link className='button secondary'>See More</Link>
+            <Link className='button secondary' to={`/doctor/${data?.id}`}>See More</Link>
         </div>
     </div>
   )
