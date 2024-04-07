@@ -1,0 +1,128 @@
+.doctorImage{
+    background-repeat: no-repeat!important;
+    background-position: center!important;
+    background-size: cover!important;
+    border-radius: 50%;
+    box-shadow: 0px 5px 10px 0px #b6b6b6;
+}
+
+.clinicListWrapper{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding-right: 30px;
+
+    .vetCardWrapper{
+        width: 100%;
+        max-width: 100%;
+    }
+
+    h1{
+        font-family: changa one;
+        margin-bottom: 50px;
+    }
+}
+
+.vetProfilePage{
+    width: calc(100% - 220px);
+    z-index: 10;
+    padding: 0px 0px 20px;
+    background: #f5f5f5;
+    // box-shadow: -5px 0px 5px 0px #bebebe;
+    box-shadow: 0px 0px 5px 0px #b6b6b6;
+}
+
+.vetDetailCardWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+
+    .pageSelector{
+        margin-bottom: 10px;
+    }
+
+    .vetDetailCard{
+        margin: 50px 10px 30px 30px;
+        padding: 0 10px 30px 30px;
+        background: #fff;
+    
+        .vetImageHolder{
+            height: 40px;
+            width: 100%;
+            position: relative;
+    
+            .doctorImage{
+                position: absolute;
+                bottom: 0;
+                left: 0px;
+            }
+        }
+    
+        .doctorName{
+            font-family: changa one;
+        }
+    
+        p{
+            margin-bottom: 0;
+            color: #858585;
+        }
+    }
+
+    .vetViewWrapper{
+        margin: 0px 10px 30px 30px;
+        padding: 30px;
+        background: #fff;
+
+        p{
+            margin-bottom: 0;
+        }
+    }
+
+    .vetMain{
+        width: 69%;
+    }
+}
+
+.pageHeadingSticky{
+    position: sticky;
+    top: -1px;
+    padding: 35px 30px 15px;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(101,4,181,1) 100%);;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    flex-wrap: wrap;
+    z-index: 10;
+    color: #fff;
+    // box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
+
+    &.nonStick{
+        position: relative;
+    }
+
+    h1{
+        margin-bottom: 10px;
+        font-family: changa one;
+    }
+
+    // input{
+    //     margin: 0 10px;
+    // }
+
+    // select, button{
+    //     margin: 0 20px;
+    // }
+
+    
+    .buyPageHeading{
+        font-family: changa one;
+    }
+    .buyPageInfo{
+        font-family: fredoka;
+        margin-bottom: 0;
+    }
+}

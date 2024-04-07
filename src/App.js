@@ -20,6 +20,7 @@ import SellerRegister from './Components/Pages/SellerRegister';
 import SellerView from './Components/Pages/SellerView';
 import Otp from './Components/Pages/Otp';
 import Vets from './Components/Pages/Vets';
+import Doctor from './Components/Pages/Doctor';
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           <Route exact path='/sellerview/:id' element={<SellerView/>} />
           <Route exact path='/otp' element={<Otp/>} />
           <Route exact path='/vets' element={<Vets/>}/>
+          <Route exact path='/doctor/:id' element={<Doctor />} />
         </Routes>
       </BrowserRouter>
     </div>
