@@ -23,6 +23,8 @@ import Otp from './Components/Pages/Otp';
 import Vets from './Components/Pages/Vets';
 import Doctor from './Components/Pages/Doctor';
 import * as analytics from './ga4/ga4'
+import { AuthProvider } from './Components/Auth/AuthContext';
+import PrivateRoute from './Components/Auth/PrivateRoute';
 
 function App() {
   // useAnalytics()
@@ -43,11 +45,8 @@ function App() {
     <div className="App">
         <Routes>
           <Route exact path='/' element={<Homepage />}/>
-          <Route exact path='/viewDog/:id' element={<ViewDog/>}/>
           <Route exact path='/browse' element={<Pups/>}/>
           <Route exact path='/adopt' element={<Adopt/>}/>
-          <Route exact path='/mating' element={<Mating/>}/>
-          <Route exact path='/newDog/:type' element={<AddDog/>}/>
           {/* <Route exact path='/newDog' element={<AddDog/>}/> */}
           {/* <Route exact path='/newDog/adoption' element={<AddDog/>}/>
           <Route exact path='/newDog/mydog' element={<AddDog/>}/> */}
@@ -59,13 +58,46 @@ function App() {
           <Route exact path='sellerdashboard/billing' element={<Billing/>} />
           <Route exact path="/pricing" element={<Plans/>} />
           <Route exact path='/sellerprofile' element={<SellerProfile/>} />
-          <Route exact path ='/editdog/:service/:id' element={<EditDog />} />
           <Route exact path='/sellerregister' element={<SellerRegister/>} />
           <Route exact path='/sellerview/:id' element={<SellerView/>} />
           <Route exact path='/otp' element={<Otp/>} />
           <Route exact path='/vets' element={<Vets/>}/>
           <Route exact path='/doctor/:id' element={<Doctor />} />
+
+
+
+          {/* Private Routes */}
+          <Route exact path='/mating' element={<PrivateRoute/>}>
+            <Route exact path='/mating' element={<Mating/>}/>
+          </Route>
+          <Route exact path='/viewDog/:id' element={<PrivateRoute/>}>
+            <Route exact path='/viewDog/:id' element={<ViewDog/>}/>
+          </Route>
+          <Route path='/newDog/:type' element={<PrivateRoute/>}>
+            <Route  path='/newDog/:type' element={<AddDog/>}/>
+          </Route>
+          <Route path='/editdog/:service/:id' element={<PrivateRoute/>}>
+            <Route exact path ='/editdog/:service/:id' element={<EditDog />} />
+          </Route>
+
+          {/* Add a catch-all route for 404 */}
+          <Route path="*" element={<NoMatch />} />
         </Routes>
+    </div>
+  );
+}
+
+function NoMatch() {
+  const location = useLocation();
+
+  React.useEffect(() => {
+    // Track 404 errors
+    analytics.sendPageview(location.pathname + location.search);
+  }, [location]);
+
+  return (
+    <div>
+      <h3>No match for <code>{location.pathname}</code></h3>
     </div>
   );
 }

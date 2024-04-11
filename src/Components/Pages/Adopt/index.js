@@ -34,10 +34,8 @@ const Adopt = () => {
     }
   }
   const navigateToListAdoptionIfLoggedIn = () => {
-    if(localStorage.getItem('userId')==null){
-      //navigate to auth page
-      navigate("/auth", { state: { prevPath: location.pathname } })
-    }
+    console.log("trying to navigate")
+    navigate("/newDog/adoption")
   }
   useEffect(()=>{
     getPupList()

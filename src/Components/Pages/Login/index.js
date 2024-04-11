@@ -5,8 +5,10 @@ import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import userApi from "../../../services/userApi";
+import { useAuth } from "../../Auth/AuthContext";
 
 const Login = () =>{
+    const { isLoggedIn, login, logout } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
     const { prevPath } = location.state || { prevPath: "/" };
@@ -64,6 +66,7 @@ const Login = () =>{
                 localStorage.setItem('lName', res.data.user.lName);
                 localStorage.setItem('phoneNo', res.data.user.phoneNo);
                 localStorage.setItem('role', res.data.user.role);
+                login()
                 navigate(prevPath)
             }
         }catch(err){
@@ -84,6 +87,7 @@ const Login = () =>{
                 localStorage.setItem('lName', res.data.user.lName);
                 localStorage.setItem('phoneNo', res.data.user.phoneNo);
                 localStorage.setItem('role', res.data.user.role);
+                login()
                 navigate(prevPath)
             }
         }catch(err){
@@ -102,6 +106,7 @@ const Login = () =>{
                 localStorage.setItem('lName', res.data.lName);
                 localStorage.setItem('phoneNo', res.data.phoneNo);
                 localStorage.setItem('role', res.data.role);
+                login()
                 navigate(prevPath)
             }
         }catch(err){

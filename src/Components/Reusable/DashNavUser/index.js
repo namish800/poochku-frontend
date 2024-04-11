@@ -6,13 +6,17 @@ import PetShop from '../../../Assets/pet-shop.png'
 import adopt from '../../../Assets/animal-rights.png'
 import './style.css'
 import { useEffect } from 'react'
+import { useAuth } from "../../Auth/AuthContext";
 
 const DashNavUser = () => {
   const fName = localStorage.getItem('fName');
   const navigate = useNavigate();
   const location = useLocation();
+  const { isLoggedIn, login, logout } = useAuth();
+
 
   const handleLogout = () => {
+    logout()
     navigate("/");
     localStorage.clear();
   }
