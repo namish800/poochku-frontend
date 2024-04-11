@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react'
 import Homepage from './Components/Pages/Homepage'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import Pups from './Components/Pages/Pups';
@@ -21,13 +22,25 @@ import SellerView from './Components/Pages/SellerView';
 import Otp from './Components/Pages/Otp';
 import Vets from './Components/Pages/Vets';
 import Doctor from './Components/Pages/Doctor';
-
+import * as analytics from './ga4/ga4'
 
 function App() {
+  // useAnalytics()
+
+  const location = useLocation()
+
+  React.useEffect(() => {
+    analytics.init()
+  }, [])
+
+  React.useEffect(() => {
+    const path = location.pathname + location.search
+    analytics.sendPageview(path)
+  }, [location])
+
 
   return (
     <div className="App">
-      <BrowserRouter>
         <Routes>
           <Route exact path='/' element={<Homepage />}/>
           <Route exact path='/viewDog/:id' element={<ViewDog/>}/>
@@ -53,7 +66,6 @@ function App() {
           <Route exact path='/vets' element={<Vets/>}/>
           <Route exact path='/doctor/:id' element={<Doctor />} />
         </Routes>
-      </BrowserRouter>
     </div>
   );
 }
