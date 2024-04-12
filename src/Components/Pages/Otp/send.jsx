@@ -4,7 +4,7 @@ import "react-phone-input-2/lib/style.css";
 import toast from "react-hot-toast";
 import otpApi from "../../../services/otpApi";
 
-const Send = ({setAppState, token, setOtpVerifyDto}) => {
+const Send = ({setAppState, setOtpVerifyDto}) => {
   const [phone, setPhone] = useState("");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
@@ -25,8 +25,7 @@ const Send = ({setAppState, token, setOtpVerifyDto}) => {
       setIsButtonDisabled(true);
       const mobileNumber=phone;
       const response = await otpApi.sendVerification(
-        mobileNumber,
-        token
+        mobileNumber
       );
       toast.success("otp sent successfully");
       setOtpVerifyDto(response.data)

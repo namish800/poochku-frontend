@@ -3,25 +3,23 @@ import PhoneInput from "react-phone-input-2"
 import Send from './send';
 import InputOtp from './OtpInput';
 import otpApi from '../../../services/otpApi';
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../../Auth/AuthContext";
 
-const OtpController = ({previousPath}) => {
+
+const OtpController = () => {
+    const { isLoggedIn, login, logout } = useAuth();
     const [otp, setOtp] = useState('');
-    const [token, setToken] = useState('');
     const [appState, setAppState] = useState('review');
     const [otpVerifyDto, setOtpVerifyDto] = useState({});
-    const getOtpToken = async () => {
-        const response = await otpApi.requestAuthenticationToken();
-        console.log(response)
-        setToken(response.token);
-    }
-    useEffect(()=>{
-        getOtpToken();
-      }, [])
+    const location = useLocation();
+    const { prevPath } = location.state || { prevPath: "/" };
+    
     const getComponentFromAppState = () => {
         if(appState==='review'){
-            return <Send setAppState={setAppState} token={token} setOtpVerifyDto={setOtpVerifyDto}/>;
+            return <Send setAppState={setAppState} setOtpVerifyDto={setOtpVerifyDto}/>;
         } else if(appState==='otpinput'){
-            return <InputOtp setAppState={setAppState} token={token} otpVerifyDto={otpVerifyDto}/>;
+            return <InputOtp setAppState={setAppState} otpVerifyDto={otpVerifyDto} prevPath={prevPath}/>;
         } else if(appState==='success'){
             return (<div>Successfully verfied</div>)
         }

@@ -53,7 +53,7 @@ function App() {
           <Route exact path='/sellerdashboard' element={<Seller/>}/>
           <Route exact path='/shop' element={<Shop/>}/>
           <Route exact path="/useraccount" element={<UserAccount/>}/>
-          <Route exact path="/auth" element={<Login/>} />
+          <Route exact path="/auth" element={<Otp/>} />
           <Route exact path="/signup" element={<Login/>} />
           <Route exact path='sellerdashboard/billing' element={<Billing/>} />
           <Route exact path="/pricing" element={<Plans/>} />
