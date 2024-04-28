@@ -50,7 +50,7 @@ const Mating = () => {
     const getPetList = async() => {
       try{
         const res = await axios.get(`https://poochku-prod.azurewebsites.net/user/${userId}`)
-        console.log('pets for mating', res)
+        // console.log('pets for mating', res)
         setPetList(res?.data.pets.pets_for_mating);
         if(res?.data.pets.pets_for_mating.length > 0){
           setSelectedDog(res?.data?.pets.pets_for_mating[0].petId)
@@ -62,8 +62,8 @@ const Mating = () => {
 
     const getMatingList = async() => {
       try{
-        const data = await petApi.searchPets(serviceCode, selectedState, selectedBreed, selectedGender, selectedQuality);
-        console.log("data", data);
+        const data = await petApi.searchPets(serviceCode, selectedState, selectedBreed, selectedGender, selectedQuality, userId, selectedDog);
+        console.log("selectedDog", selectedDog);
         setMatingList(data?.pets)
       }catch(err){ 
         console.log("Error", err)
