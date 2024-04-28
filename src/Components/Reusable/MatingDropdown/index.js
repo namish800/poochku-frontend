@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import dog from '../../../Assets/pitbull.jpg'
-import './style.css'
+import dog from '../../../Assets/pitbull.png'
+import './style.scss'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 const MatingDropdown = ({petList, selectedDog, setSelectedDog}) => {
-    console.log("pet list for mating", petList);
     const [isVisible, setIsVisible] = useState(false)
     
     const toggleView = () => {

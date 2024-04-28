@@ -1,6 +1,6 @@
 import './style.css'
 import whatsappIcon from '../../../Assets/whatsapp.svg'
-import Pitbull from '../../../Assets/pitbull.jpg'
+import Pitbull from '../../../Assets/pitbull.png'
 import view from '../../../Assets/view.png'
 import click from '../../../Assets/click.png'
 import { useNavigate } from 'react-router-dom'

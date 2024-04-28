@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import userApi from "../../../services/userApi";
 import { useAuth } from "../../Auth/AuthContext";
+import OtpController from '../../Pages/Otp'
 
 const Login = () =>{
     const { isLoggedIn, login, logout } = useAuth();
@@ -13,6 +14,7 @@ const Login = () =>{
     const location = useLocation();
     const { prevPath } = location.state || { prevPath: "/" };
     const [loading, setLoading] = useState(false)
+    const [isSignUp, setIsSignUp] = useState(false);
     const [Signup, setSignUp] = useState({
         fName:"",
         lName:"",
@@ -25,7 +27,6 @@ const Login = () =>{
         username:"",
         password:""
     });
-    const [isSignUp, setIsSignUp] = useState(false);
 
     const handleChange = (e) =>{
         let temp = {
@@ -130,12 +131,16 @@ const Login = () =>{
         <div className="loginBg"></div>
         {!isSignUp && <div className="loginActions">
             <h1>Woof woof, hooman!</h1>
-            <form className="loginForm">
+            {/* <form className="loginForm">
                 <div><label>Phone Number</label>
                 <input type="number" onChange={(e)=>handleChange(e)} placeholder="Enter your Phone Number" name="username" value={form.username}/></div>
                 <div><label>Password</label>
                 <input type="password" onChange={(e)=>handleChange(e)} onKeyDown={enterPressed} placeholder="Enter Password" name="password" value={form.password} /></div>
-            </form>
+            </form> */}
+
+            <OtpController />
+
+
             <div style={{display:"flex", justifyContent:"start", flexDirection:"row", alignItems:"center"}}>
                 <button onClick={handleSubmit} className="LoginButton">{loading ? <CircularProgress color="secondary" size={20} sx={{color:"white"}} /> : "Login"}</button>
                 <p style={{margin:"0px 10px 0"}}>Or</p>

@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import Pups from './Components/Pages/Pups';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Adopt from './Components/Pages/Adopt';
-import Mating from './Components/Pages/Mating';
+import Mating from './Components/Pages/Mating/Mating';
 import AddDog from './Components/Pages/AddDog';
 import Seller from './Components/Pages/Seller';
 import ViewDog from './Components/Pages/ViewDog';
@@ -53,7 +53,8 @@ function App() {
           <Route exact path='/sellerdashboard' element={<Seller/>}/>
           <Route exact path='/shop' element={<Shop/>}/>
           <Route exact path="/useraccount" element={<UserAccount/>}/>
-          <Route exact path="/auth" element={<Otp/>} />
+          <Route exact path="/auth" element={<Login/>} />
+          {/* <Route exact path="/auth" element={<Otp/>} /> */}
           <Route exact path="/signup" element={<Login/>} />
           <Route exact path='sellerdashboard/billing' element={<Billing/>} />
           <Route exact path="/pricing" element={<Plans/>} />

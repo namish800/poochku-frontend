@@ -1,7 +1,7 @@
 import Carousel from 'react-bootstrap/Carousel';
 import DashNavUser from '../../Reusable/DashNavUser'
 import whatsappIcon from '../../../Assets/whatsapp.svg'
-import dog from '../../../Assets/pitbull.jpg'
+import dog from '../../../Assets/pitbull.png'
 import './style.scss'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -76,7 +76,7 @@ const ViewDog = () => {
           <div className='pupListWrapper'>
             <div className='pageHeadingSticky viewDog'>
               <div>
-                <h1 className='buyPageHeading'>Pitbull</h1>
+                <h1 className='buyPageHeading'>Adopt { details?.name ? details?.name : `Pooch`}</h1>
                 {/* <p className='buyPageInfo'>{`Browse  >   View Dog`}</p> */}
               </div>
               <div className='actionWrapper'>
@@ -114,8 +114,9 @@ const ViewDog = () => {
                     </div>
                   </div>
                   <div className='descriptionWrapper'>
-                    <h4>Description</h4>
-                    <p>{info?.generalDescription ? info?.generalDescription : "No Description is available"}</p>
+                    <h4>{details?.name ? `About ${details?.name}` : `Description`}</h4>
+                    <p>{details?.description ? details?.description : "No Description is available"}</p>
+                    {/* <p>{info?.generalDescription ? info?.generalDescription : "No Description is available"}</p> */}
                   </div>
                   <div className='directInfoWrapper'>
                     <div className='directInfo'>

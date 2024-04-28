@@ -1,5 +1,9 @@
 div.pageHeadingSticky.viewDog{
-    justify-content: space-between!important;
+    justify-content: start!important;
+
+    .whatsappEnquire{
+        margin-left: 30px;
+    }
 
     .bestBuy{
         margin-left: 20px;
@@ -15,7 +19,7 @@ div.pageHeadingSticky.viewDog{
     align-items: start;
     padding: 15px;
     .mainInfo{
-        width: 50%;
+        width: 65%;
         padding: 0 20px;
         .directInfoWrapper{
             display: flex;
@@ -52,7 +56,7 @@ div.pageHeadingSticky.viewDog{
         }
     }
     .galleryWrapper{
-        width: 50%;
+        width: 35%;
         padding: 0 0 0 20px;
         position: sticky;
         top: 140px;

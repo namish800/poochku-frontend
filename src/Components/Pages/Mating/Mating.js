@@ -23,44 +23,15 @@ import MatingDropdown from '../../Reusable/MatingDropdown'
 import Cross from '../../../Assets/thick-cross-mark.png'
 import petApi from '../../../services/petApi'
 import { Skeleton } from '@mui/material'
-
-const db = [
-    {
-      name: 'Mr Singh',
-      url: '../../../Assets/Logo.png'
-    },
-    {
-      name: 'Stevie',
-      url: '../../../Assets/Logo.png'
-    },
-    {
-      name: 'Phoochku',
-      url: '../../../Assets/Logo.png'
-    },
-    {
-      name: 'Tommy',
-      url: '../../../Assets/Logo.png'
-    },
-    {
-      name: 'Magic',
-      url: '../../../Assets/Logo.png'
-    },
-    {
-      name: 'Thanos',
-      url: '../../../Assets/Logo.png'
-    },
-    
-  ]
+import Matchcard from '../../Reusable/MatchCard'
+import MatingDogPopup from '../../Reusable/MatingDogPopup'
 
 const Mating = () => {
-    const dogList = db;
+    // const dogList = db;
     const userId = localStorage.getItem("userId");
-    const [currentIndex, setCurrentIndex] = useState(db.length - 1)
-    const [lastDirection, setLastDirection] = useState();
     const [petList, setPetList] = useState();
     const [matingList, setMatingList] = useState([]);
     const [value, setValue] = useState(1)
-    const [swipeList, setSwipeList] = useState([])
     const [accepted, setAccepted] = useState([]);
     const [pendingFromSwiper, setPendingFromSwiper] = useState([]);
     const [pendingFromTarget, setPendingFromTarget] = useState([])
@@ -70,66 +41,11 @@ const Mating = () => {
     const [selectedGender, setSelectedGender] = useState("")
     const [selectedBreed, setSelectedBreed] = useState("")
     const [serviceCode, setServiceCode] = useState("M")
-
-    // used for outOfFrame closure
-    const currentIndexRef = useRef(currentIndex)
-    // const [isAvailable, setIsAvailable] = useState(false);
+    const [open, setOpen] = useState(false);
+    const [popUpDog, setPopUpDog] = useState("")
     const navigate = useNavigate();
 
-    const childRefs = useMemo(
-      () =>
-        Array(db.length)
-          .fill(0)
-          .map((i) => React.createRef()),
-      []
-    )
-    const updateCurrentIndex = (val) => {
-      setCurrentIndex(val)
-      currentIndexRef.current = val
-    }
-  
-    const canGoBack = currentIndex < db.length - 1
-  
-    const canSwipe = currentIndex >= 0
-  
-    // set last direction and decrease current index
-    const swiped = (direction, nameToDelete, index, swiper, target) => {
-      console.log("swipeddd", direction, nameToDelete, index, swiper, target)
-      setLastDirection(direction)
-      updateCurrentIndex(index - 1)
-      console.log(direction, "direction")
-      if(direction === "right"){
-        swipeAction(swiper, target)
-      }
-    }
 
-    const outOfFrame = (name, idx) => {
-      console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current)
-      // handle the case in which go back is pressed before card goes outOfFrame
-      currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
-      // TODO: when quickly swipe and restore multiple times the same card,
-      // it happens multiple outOfFrame events are queued and the card disappear
-      // during latest swipes. Only the last outOfFrame event should be considered valid
-    }
-
-    // const outOfFrame = (name) => {
-    //     console.log(name + ' left the screen!')
-    // }
-
-    const swipe = async (dir) => {
-      console.log(`this is the dir ${dir} and currentIndex ${currentIndex}, ${db.length}`, childRefs[currentIndex])
-      if (canSwipe && currentIndex < db.length && childRefs[currentIndex].current) {
-        await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
-      }
-    }
-  
-    // increase current index and show card
-    const goBack = async () => {
-      if (!canGoBack) return
-      const newIndex = currentIndex + 1
-      updateCurrentIndex(newIndex)
-      await childRefs[newIndex].current.restoreCard()
-    }
 
     const getPetList = async() => {
       try{
@@ -150,15 +66,6 @@ const Mating = () => {
         console.log("data", data);
         setMatingList(data?.pets)
       }catch(err){ 
-        console.log("Error", err)
-      }
-    }
-
-    const swipeAction = async(swiperId, targetId) => {
-      try{
-        const res = await axios.post('https://poochku-prod.azurewebsites.net/swipe', {swiperId, targetId})
-        console.log("swiped", res)
-      }catch(err){
         console.log("Error", err)
       }
     }
@@ -227,52 +134,35 @@ const Mating = () => {
             : 
             (petList && petList?.length > 0) ?  
             (<div className='matingWrapper'>
+                <div className='matingSelector'>
+                    <h2>Currently Matching for</h2>
+                    {petList && <MatingDropdown petList = {petList} selectedDog={selectedDog} setSelectedDog={setSelectedDog} />}
+                </div>
               <div className='MatingSection'>
                 <div className='matingTabs'>
                   <div className={`matingTab ${value===1 ? "active" : ""} font-face-D`} onClick={() => setValue(1)}>Pooch World</div>
-                  <div className={`matingTab ${value===2 ? "active" : ""} font-face-D`} onClick={() => setValue(2)}>Your Matches</div>
+                  <div className={`matingTab ${value===2 ? "active" : ""} font-face-D`} onClick={() => setValue(2)}>Notifications</div>
                 </div>
                 {value === 1 && <div className='matingPanel'>
-                      <div className='matingSelector'>
-                        <h2>Currently Matching for</h2>
-                        {petList && <MatingDropdown petList = {petList} selectedDog={selectedDog} setSelectedDog={setSelectedDog} />}
-                      </div>
-                      <img src={Cross} className='crossIcon' />
-                      <div className='cardContainer'>
-                        <div style={{position: "relative", height: "400px", width: '100%'}}>
-                          {matingList.map((character, index) =>
-                              <TinderCard  ref={childRefs[index]}
-                                className='swipe'
-                                key={index}
-                                onSwipe={(dir) => swiped(dir, character.name, index, selectedDog, character.petId)}
-                                onCardLeftScreen={() => outOfFrame(character.name, index)}>
-                                  <div className='card'>
-                                    <div className='dogPhotoWrapper' style={{background:`url(${character.imageUrls.length > 0 ? character.imageUrls[0] : dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
-                                    <div className='dogDetailMating'>
-                                      <h3 className='font-face-D'>{character.name ? character.name : character.breed}</h3>
-                                      <div><img src={gender} /><p>{character.gender ? character.gender : "N/A"}</p></div>
-                                      <div><img src={Dog} /><p>{character.quality ? character.quality : "N/A" }</p></div>
-                                      <div><img src={Rupee} /><p>10,000</p></div>
-                                    </div>
-                                  </div>
-                              </TinderCard>
-                          )}
-                        </div>
-                        <div className='matingButtons'>
-                          <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} className="leftSwipe" onClick={() => swipe('left')}><img src={Close}/></button>
-                          {/* <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button> */}
-                          <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} className="rightSwipe" onClick={() => swipe('right')}><img src={Check}/></button>
-                        </div>
-                      </div>
+                    
+                    <div className='matingListWrapper'>
+                          {matingList.map((character, index) =>{
+                            if(character.petId !== selectedDog){
+                              return (
+                                  <Matchcard character={character} popUpDog={popUpDog} setOpen={setOpen} setPopUpDog={setPopUpDog} selectedDog={selectedDog} key={index} />
+                              )
+                            }
+                          })}
+                    </div>
                 </div>}
                 {
                   value === 2 && <div className='matingPanel'>
                     <div className='matchSection'>
-                          <h3>Your Matches</h3>
+                          {/* <h3>Your Matches</h3> */}
                           <Tabs>
                             <TabList>
-                              <Tab>Active</Tab>
-                              <Tab>Pending</Tab>
+                              <Tab>Likes</Tab>
+                              {/* <Tab>Pending</Tab> */}
                             </TabList>
                             <TabPanel>
                               <div className='matchWrapper'>
@@ -301,7 +191,7 @@ const Mating = () => {
                                 {pendingFromSwiper.length > 0 && pendingFromSwiper?.map((match, index) => {
                                   return(
                                     <div className='match' key={index}>
-                                      <div style={{display: "flex", flexDirection: "column", justifyContent: "start", alignItems: 'center'}}>
+                                      <div style={{display: "flex", flexDirection: "row", justifyContent: "start", alignItems: 'center'}}>
                                         <div className='dogPhotoWrapper' style={{background:`url(${match.petDetails.imageUrls?.length > 0 ? match.petDetails.imageUrls[0] : dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
                                         <h6>{match.petDetails.name ? match.petDetails.name : match.petDetails.breed}</h6>
                                       </div>
@@ -319,7 +209,7 @@ const Mating = () => {
                                 {pendingFromTarget.length > 0 && pendingFromTarget?.map((match, index) => {
                                   return(
                                     <div className='match' key={index}>
-                                      <div style={{display: "flex", flexDirection: "column", justifyContent: "start", alignItems: 'center'}}>
+                                      <div style={{display: "flex", flexDirection: "row", justifyContent: "start", alignItems: 'center'}}>
                                         <div className='dogPhotoWrapper' style={{background:`url(${match.petDetails.imageUrls?.length > 0 ? match.petDetails.imageUrls[0] : dog})`, backgroundPosition:"center", backgroundSize:"cover"}}></div>
                                         <h6>{match.petDetails.name ? match.petDetails.name : match.petDetails.breed}</h6>
                                       </div>
@@ -351,6 +241,7 @@ const Mating = () => {
           }
         </div> 
         <MobileNav />
+        <MatingDogPopup open={open} setOpen={setOpen} selectedDog={selectedDog} popUpDog={popUpDog} setPopUpDog={setPopUpDog}/>
     </div>
 
   )

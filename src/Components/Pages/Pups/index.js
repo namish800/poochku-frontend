@@ -94,7 +94,7 @@ const Pups = () => {
           {/* <hr className='mainPageHr' /> */}
           <MobileSearch/>
 
-          <div className='pageSelector'>
+          {/* <div className='pageSelector'>
             <button 
               className={`selectorButton font-face-D para ${value ==="adopt" ? "active" : ""}`} 
               onClick={()=>{
@@ -111,7 +111,7 @@ const Pups = () => {
               }}>
               Buy
             </button>
-          </div>
+          </div> */}
           <div className='buyPageListWrapper'>
             {value === "adopt" && 
               <div className='adoptionSection '>
@@ -140,7 +140,7 @@ const Pups = () => {
                 <div className='bannerWrapper'>
                   <h3 className='font-face-D'>See a puppy in need?</h3> 
                   <p>Help them find a forever home!</p>
-                  <button onClick={navigateToListAdoptionIfLoggedIn}>List a Pup for adoption</button>
+                  <button onClick={navigateToListAdoptionIfLoggedIn}>Add Pooch</button>
                 </div>  
               </div>}
             {value === "buy" && 

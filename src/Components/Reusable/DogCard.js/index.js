@@ -1,7 +1,7 @@
 import Carousel from 'react-bootstrap/Carousel';
 import './style.scss'
 import whatsappIcon from '../../../Assets/whatsapp.svg'
-import dog from '../../../Assets/pitbull.jpg'
+import dog from '../../../Assets/pitbull.png'
 import Dog from '../../../Assets/dog.png'
 import gender from '../../../Assets/gender-fluid.png'
 import location from '../../../Assets/location-pin.png'
@@ -81,7 +81,7 @@ const DogCard = ({details, availableForAdoption}) => {
                     <img src={share} />
                 </div>
             </div>
-            {/* <p className='ownerDetails'>Listed by <Link to={`/sellerview/${details.owner.userId}`}>{details.owner.fName}</Link></p> */}
+            <p className='ownerDetails'>Listed by <Link to={`/sellerview/${details.owner.userId}`}>{details.owner.fName}</Link></p>
             <div className='dogDetails'>
                     <div className='detailWrapper'><img src={gender}/><p>{details.gender ? details.gender : "N/A"}</p></div>
                     <div className='detailWrapper'><img src={Dog}/><p>{details.age ? `${details.age} days` : "N/A"}</p></div>
