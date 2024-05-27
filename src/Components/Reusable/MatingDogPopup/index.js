@@ -1,6 +1,6 @@
 import { Modal } from '@mui/material'
 import axios from 'axios';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { FavoriteBorder } from '@mui/icons-material';
 import gender from '../../../Assets/gender-fluid.png'
@@ -12,7 +12,7 @@ import whatsappIcon from '../../../Assets/whatsapp.svg'
 
 
 const MatingDogPopup = ({open, setOpen, selectedDog, popUpDog, setPopUpDog}) => {
-  const [liked, setLiked] = useState(popUpDog?.liked ? popUpDog?.liked : false);
+  const [liked, setLiked] = useState(false);
   const handleClose = () => {
     setOpen(false);
     setPopUpDog({})
@@ -39,7 +39,11 @@ const MatingDogPopup = ({open, setOpen, selectedDog, popUpDog, setPopUpDog}) => 
 
   const colorStyle = {color: "red", fontSize: "2rem"} ;
 
+  useEffect(() => {
+    setLiked(popUpDog?.liked)
+  }, [popUpDog])
 
+  
   return (
     <Modal
         open={open}

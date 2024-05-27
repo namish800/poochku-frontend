@@ -1,6 +1,6 @@
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { FavoriteBorder } from '@mui/icons-material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import gender from '../../../Assets/gender-fluid.png'
 import Dog from '../../../Assets/dog.png'
 import dog from '../../../Assets/Dog3d.png'
@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Matchcard = ({character, selectedDog, setOpen, setPopUpDog, popUpDog}) => {
-  const [liked, setLiked] = useState(character?.liked ? character?.liked : false);
+  const [liked, setLiked] = useState(false);
   const colorStyle = {color: "red", fontSize: "2rem"} ;
   const navigate = useNavigate();
 
@@ -24,6 +24,8 @@ const Matchcard = ({character, selectedDog, setOpen, setPopUpDog, popUpDog}) => 
     }
   }
 
+  console.log("liked", character?.liked)
+
   const handleDogLike = () => {
     setLiked(!liked);
     swipeAction(selectedDog, character.petId)
@@ -34,6 +36,10 @@ const Matchcard = ({character, selectedDog, setOpen, setPopUpDog, popUpDog}) => 
       window.open(`${address}`, '_blank', 'rel= noopener noreferrer')
     }
   }
+
+  useEffect(() => {
+    setLiked(character?.liked)
+  }, [character])
 
   return (
     <div className='matchCardWrapper' onClick={()=>{setPopUpDog({...popUpDog, ...character}); setOpen(true)}}>

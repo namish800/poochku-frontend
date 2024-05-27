@@ -28,11 +28,11 @@ const PetSection = () => {
     <div>
         <Tabs className="profilePetSection">
             <TabList>
-                {userRole==="seller"? <Tab>Selling</Tab> : <span></span>}
+                {/* {userRole==="seller"? <Tab>Selling</Tab> : <span></span>} */}
                 <Tab>Adoption</Tab>
                 <Tab>Mating</Tab>
             </TabList>
-            {userRole==="seller" ? 
+            {userRole==="NA" ? 
             <TabPanel>
                 <div className='petSection'>
                     <div className='sectionHeader'>

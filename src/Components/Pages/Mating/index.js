@@ -200,7 +200,7 @@ const Mating = () => {
         <div className='pupListWrapper mating'>
           <div className='pageHeadingSticky'>
             <div>
-              <h1 className='buyPageHeading font-face-D'>Mating</h1>
+              <h1 className='buyPageHeading font-face-D'>Paw Match</h1>
               <p className='buyPageInfo'>Find the purrfect match!</p>
             </div>
             <Search

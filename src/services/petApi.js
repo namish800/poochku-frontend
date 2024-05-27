@@ -66,7 +66,7 @@ const petApi = {
     }
   },
   
-  searchPets: async (serviceCode, location, breed, gender, quality, userId=null, dogId=null, page = 0, size = 10) => {
+  searchPets: async (serviceCode, location, breed, gender, quality, userId=null, petId=null, page = 0, size = 10) => {
     try {
       const response = await instance.get('/pet/search', {
         params: {
@@ -76,7 +76,7 @@ const petApi = {
           gender,
           quality,
           userId,
-          dogId,
+          petId,
           page,
           size
         },

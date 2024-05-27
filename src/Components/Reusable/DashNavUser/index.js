@@ -33,16 +33,16 @@ const DashNavUser = () => {
             {/* <img className='DashNavIcon' src={Browse} /> */}
             <p className='font-face-D para'>Pooches</p>
           </Link>
-          {/* <Link to="/shop" className={location.pathname.includes("shop") ? 'DhashNavLink active' : 'DhashNavLink'}>
-            <img className='DashNavIcon' src={PetShop}/>
-            <p className='font-face-D para'>Shop</p>
-          </Link> */}
           <Link to="/mating" className={location.pathname.includes("mating") ? 'DhashNavLink active' : 'DhashNavLink'}>
             {/* <img className='DashNavIcon' src={dog}/> */}
-            <p className='font-face-D para'>Mating</p>
+            <p className='font-face-D para'>Paw Match</p>
           </Link>
           <Link to="/vets" className={location.pathname.includes("vets") ? 'DhashNavLink active' : 'DhashNavLink'}>
             <p className='font-face-D para'>Vets</p>
+          </Link>
+          <Link to="https://shop.poochku.in" className={location.pathname.includes("shop") ? 'DhashNavLink active' : 'DhashNavLink'}>
+            {/* <img className='DashNavIcon' src={PetShop}/> */}
+            <p className='font-face-D para'>Shop</p>
           </Link>
           {/* <Link to="/adopt" className={(location.pathname.includes("adopt") && !location.pathname.includes("adoption")) ? 'DhashNavLink active' : 'DhashNavLink'}>
             <img className='DashNavIcon' src={adopt}/>

@@ -23,8 +23,8 @@ const Header = () => {
           <div>
               <img className='headerLogo' src={logo} />
               <Link className='navLink' to="/browse">Pooches</Link>
-              <Link className='navLink' to="/shop">Shop</Link>
-              <Link className='navLink' to="/mating">Mating</Link>
+              <Link className='navLink' to="https://shop.poochku.in">Shop</Link>
+              <Link className='navLink' to="/mating">Paw Match</Link>
               {/* <Link className='navLink' to="/adopt">Adopt</Link> */}
               <Link className='navLink' to="/services">Services</Link>
               {/* <Link className='navLink sellerLink' to="/sellerdashboard">Seller Account</Link> */}
@@ -45,8 +45,8 @@ const Header = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/browse">Pooches</Nav.Link>
-              <Nav.Link href="/shop">Shop</Nav.Link>
-              <Nav.Link href="/mating">Mating</Nav.Link>
+              <Nav.Link href="https://shop.poochku.in">Shop</Nav.Link>
+              <Nav.Link href="/mating">Paw Match</Nav.Link>
               {/* <Nav.Link href="/adopt">Adopt</Nav.Link> */}
               <Nav.Link href="/services">Services</Nav.Link>
               <Nav.Link href={!userRole ? "/auth" : userRole && userRole === "seller" ? "/sellerdashboard" : "sellerregister" }>Seller Account</Nav.Link>

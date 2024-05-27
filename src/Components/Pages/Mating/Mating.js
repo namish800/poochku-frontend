@@ -63,7 +63,7 @@ const Mating = () => {
     const getMatingList = async() => {
       try{
         const data = await petApi.searchPets(serviceCode, selectedState, selectedBreed, selectedGender, selectedQuality, userId, selectedDog);
-        console.log("selectedDog", selectedDog);
+        // console.log("selectedDog", selectedDog);
         setMatingList(data?.pets)
       }catch(err){ 
         console.log("Error", err)
@@ -92,8 +92,11 @@ const Mating = () => {
 
     useEffect(()=>{
       getPetList()
-      getMatingList()
     }, [])
+
+    useEffect(() => {
+      getMatingList()
+    }, [selectedDog])
 
     useEffect(() => {
       if(petList && petList.length > 0){
@@ -107,8 +110,8 @@ const Mating = () => {
         <div className='pupListWrapper mating'>
           <div className='pageHeadingSticky'>
             <div>
-              <h1 className='buyPageHeading font-face-D'>Mating</h1>
-              <p className='buyPageInfo'>Find the purrfect match!</p>
+              <h1 className='buyPageHeading font-face-D'>Paw Match</h1>
+              <p className='buyPageInfo'>Find the purrfect Jodi on Poochku!</p>
             </div>
             <Search
             populatePupList={getMatingList}
@@ -141,7 +144,7 @@ const Mating = () => {
               <div className='MatingSection'>
                 <div className='matingTabs'>
                   <div className={`matingTab ${value===1 ? "active" : ""} font-face-D`} onClick={() => setValue(1)}>Pooch World</div>
-                  <div className={`matingTab ${value===2 ? "active" : ""} font-face-D`} onClick={() => setValue(2)}>Notifications</div>
+                  <div className={`matingTab ${value===2 ? "active" : ""} font-face-D`} onClick={() => setValue(2)}>Messages</div>
                 </div>
                 {value === 1 && <div className='matingPanel'>
                     
