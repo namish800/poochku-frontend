@@ -20,7 +20,7 @@ const MobileNav = () => {
         {/* <img className='DashNavIcon' src={Browse} /> */}
         <img src={location.pathname.includes("browse") ? WhiteDog : Dog}/>
         </Link>
-        <Link to="/shop" className={location.pathname.includes("shop") ? 'DhashNavLink active' : 'DhashNavLink'}>
+        <Link to="https://shop.poochku.in" className={location.pathname.includes("shop") ? 'DhashNavLink active' : 'DhashNavLink'}>
         {/* <img className='DashNavIcon' src={PetShop}/> */}
         <img src={location.pathname.includes("shop") ? WhiteShop : Shop}/>
         </Link>

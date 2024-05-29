@@ -395,13 +395,13 @@ const AddDog = ({previousPath}) => {
                 </div>}
                 {activeStep === 4 && <div className='formView view-5'>
                     <div className='dogFormDiv'>
-                        {pet?.gender === "Boy" && <div>
+                         <div>
                             <p className='newDogLabel'>What's the stud fee?</p>
                             <div className='poochTypeWrapper'>
-                                <input type='number' className='form-price' value={pet?.price} name='price'/>
+                                <input type='number' className='form-price poochTextField' value={pet?.price} name='price'/>
                                 <label>Rupees</label>
                             </div>
-                        </div>}
+                        </div>
                         <p className='newDogLabel'>Instagram handle of {`${pet?.name || 'your pooch'}`} (optional)</p>
                         <div className='poochTypeWrapper'> 
                             <label>@</label>
@@ -412,9 +412,9 @@ const AddDog = ({previousPath}) => {
                 {activeStep === 5 && <div className='formView view-6'>
                     <div className='dogFormDiv'>
                         <div>
-                            <p className='newDogLabel'>Add some photos of {`${pet?.name || 'your pooch'}`}</p>
+                            <p className='newDogLabel heading-view-6'>Add some photos of {`${pet?.name || 'your pooch'}`}</p>
                             <div className='dogImgWrapper'>
-                                <p>Upload Images</p>
+                                {/* <p>Upload Images</p> */}
                                 <div style={
                                         isDragActive
                                         ? { ...dropzoneStyle, ...activeDropzoneStyle }
@@ -425,7 +425,7 @@ const AddDog = ({previousPath}) => {
                                     {
                                         isDragActive ?
                                         <p>Drop the files here ...</p> :
-                                        <p p style={DropzoneText}>Drag 'n' drop some files here, or click to select files</p>
+                                        <p p style={DropzoneText}>Drag 'n' drop some images here, or click to select files</p>
                                     }
                                 </div>
                                 {   selectedImages.length > 0 &&

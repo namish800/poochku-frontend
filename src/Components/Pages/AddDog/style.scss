@@ -56,7 +56,7 @@
         max-height: 90vh;
         overflow-x: visible;
         overflow-y: auto;
-        div{
+        div div{
             margin-right: 20px;
         }
         .labelImg{
@@ -115,6 +115,8 @@
     
     .dogInfo, .dogImgWrapper{
         width: 50%;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
 
         p{
             font-weight: 600;
@@ -287,6 +289,9 @@
             }
         }
 
+        .heading-view-6{
+         font-size: 1.2rem;
+        }
         .dogImgWrapper{
             width: 100%;
         }
@@ -308,13 +313,152 @@
 @media only screen and (max-width: 768px) {
     .newDogForm{
         flex-direction: column;
-    }
-    .dogFormDiv{
-        flex-direction: column;
-        .labelImg{
-            width: 120px !important;
-            max-width: 120px;
-            height: auto;
+
+        .poochTypeWrapper{
+    
+            .imgLabel{
+                padding: 20px;
+            }
+        }
+        
+        .formView{
+            display: flex;
+            justify-content: stretch;
+            align-items: center;
+            padding: 20px 0px 10px;
+        }
+
+        .dogFormDiv{
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            padding: 20px 0;
+            overflow: visible;
+            // height: calc(100vh - 25px);
+            max-width: 100%;
+
+            p{
+                font-size: 1rem;
+                font-weight: 700;
+                letter-spacing: 0px;
+                color: #6504b5;
+                font-family: cabin;
+            }
+
+            .labelImg{
+                width: 50px !important;
+                max-width: 50px;
+                height: auto;
+            }
+        }
+
+        .poochTextField{
+            padding: 10px 0 10px;
+            border: 0px;
+            border-bottom: 1px solid #6504b5;
+            font-size: 1.5rem;
+            line-height: 1.5rem;
         }
     }
+    
+
+
+    .view-2 .dogFormDiv{
+    .poochGenderWrapper{
+        label{
+            padding: 20px;
+        }
+    }
+
+        label{
+            margin: 20px 30px 0 10px;
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+            font-family: cabin;
+        }
+    
+        select{
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-family: cabin;
+            line-height: 1rem;
+        }
+    
+    }
+
+    .view-3 .dogFormDiv{
+        .poochTypeWrapper{
+            margin: 10px 0 40px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+    
+            input{
+                margin-right: 10px;
+            }
+    
+            label{
+                // padding: 30px;
+                font-size: 1.2rem;
+                line-height: 1.2rem;
+                font-family: cabin;
+                margin-right: 40px;
+            }
+            
+        }
+    }
+
+    .view-4 .dogFormDiv{
+        div{
+            width: 100%;
+        }
+        .poochTypeWrapper{
+            margin: 0px 0 80px;
+            max-width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: start;
+    
+            input{
+                margin-right: 10px;
+                max-width: 60%;
+            }
+    
+            label{
+                font-size: 1.2rem;
+                line-height: 1.2rem;
+            }
+        }
+    
+        .form-description{
+            width: 100%;
+            font-size: 1.2rem !important;
+        }
+    }
+
+    .view-5 .dogFormDiv{
+        .poochTypeWrapper{
+            margin: 0px 0 80px;
+            max-width: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+    
+            input{
+                margin-right: 10px;
+            }
+    
+            label{
+                margin: 20px 30px 0 10px;
+                font-size: 1.2rem;
+                line-height: 1.2rem;
+                font-family: cabin;
+            }
+        }
+    }
+    
+    
 }
