@@ -27,14 +27,13 @@ const initialPet = {
     "breed": "",
     "vaccination_status": false,
     "description": "",
-    "ageInDays": 0,
-    "motherBreed": "",
-    "fatherBreed": "",
+    "age": 0,
     "serviceCode": "",
     "location": "Delhi",
-    "quality": "0",
-    "price": 0,
-    "gender": ""
+    "price": null,
+    "gender": "",
+    "socials": {"instagram": ""},
+    "age": {"months":0, "years":0}
 }
 
 // Styles
@@ -83,13 +82,14 @@ const FileName = {
   marginTop: "8px",
 };
 
-const AddDog = ({previousPath}) => {
+const AddDog = () => {
     const [pet, setPet] = useState(initialPet);
     const [selectedImages, setSelectedImages] = useState([]);
     const location = useLocation();
     const navigate = useNavigate();
     const theme = useTheme();
     const [activeStep, setActiveStep] = useState(0);
+    const { prevPath } = location.state || { prevPath: "/" };
     // const [preview, setPreview] = useState(null);
     const onDrop = useCallback((acceptedFiles) => {
         console.log(acceptedFiles)
@@ -108,20 +108,20 @@ const AddDog = ({previousPath}) => {
         </li>
       ));
 
-    const submitDog = async () => {
+    const submitDog = async (event) => {
+        event.preventDefault();
         pet.ownerId = localStorage.getItem("userId")
-        console.log("selectedImages", selectedImages)
         const addDogRequestDto = {
             ...pet,
             imageBlobs: selectedImages
         }
+        console.log(addDogRequestDto)
         const res = await petApi.addNewPet(addDogRequestDto);
-        if(previousPath.includes("mating")){
+        console.log(prevPath)
+        if(prevPath.includes("mating")){
             navigate("/mating")
-        }else if(previousPath.includes("sellerdashboard")){
-            navigate("/sellerdashboard")
-        }else if(previousPath.includes("sellerdashboard")){
-            navigate("/sellerdashboard")
+        }else if(prevPath.includes("useraccount")){
+            navigate("/useraccount")
         }
     }
     const handleCallback = async (files) => {
@@ -162,13 +162,17 @@ const AddDog = ({previousPath}) => {
       };
 
     const handleChange = (e) => {
-        console.log(e)
-        console.log("state", pet, e.target.name, e.target.value, e)
-        if(e.target.name === "vaccination_status"){
+        console.log("state", pet, e.target.name, e.target.value)
+        
+        if(e.target.name==='instagram'){
+            let socials = {...pet.socials, [e.target.name]: e.target.value}
             setPet({...pet, 
-                [e.target.name] : e.target.checked
-                });
-        }else{
+                "socials" : socials
+                })
+        } else if(e.target.name==='months' || e.target.name==='years') {
+            let age = {...pet.age, [e.target.name]: e.target.value}
+            setPet({...pet, "age": age})
+        } else {
             setPet({...pet, 
                 [e.target.name] : e.target.value
                 });
@@ -291,9 +295,9 @@ const AddDog = ({previousPath}) => {
                         <div>
                             <p className='newDogLabel'>What's the breed of {`${pet?.name || 'your pooch'}`}?</p>
                             <div className='poochBreedWrapper'>
-                            <input type="radio" value={pet?.isPurebred} name='isPurebred' onChange={handleChange} />
+                            <input type="radio" value="purebred" name='breedType' onChange={handleChange} />
                             <label>Purebred</label>
-                            <input type="radio" value={!pet?.isPurebred} name='isPurebred' onChange={handleChange} />
+                            <input type="radio" value="mixbreed" name='breedType' onChange={handleChange} />
                             <label>Mix Breed</label>
                             </div>
                         </div>
@@ -360,9 +364,9 @@ const AddDog = ({previousPath}) => {
                         <div>
                             <p className='newDogLabel'>Breeding for the first time</p>
                             <div className='poochTypeWrapper'>
-                                <input type='radio' className='form-firstTime' value='Yes' onChange={handleChange} checked={pet?.firstTime === 'Yes'} name='firstTime'/>
+                                <input type='radio' className='form-firstTime' value='Yes' onChange={handleChange} checked={pet?.breedingForTheFirstTime === 'Yes'} name='breedingForTheFirstTime'/>
                                 <label>Yes</label>
-                                <input type='radio' className='form-firstTime' value='No' onChange={handleChange} checked={pet?.firstTime === 'No'} name='firstTime'/>
+                                <input type='radio' className='form-firstTime' value='No' onChange={handleChange} checked={pet?.breedingForTheFirstTime === 'No'} name='breedingForTheFirstTime'/>
                                 <label>No</label>
                             </div>
                         </div>
@@ -374,9 +378,9 @@ const AddDog = ({previousPath}) => {
                         <div>
                             <p className='newDogLabel'>How old is {`${pet?.name || 'your pooch'}`}?</p>
                             <div className='poochTypeWrapper'>
-                                <input type='number' className='form-years poochTextField' onChange={handleChange} value={pet?.years} name='years'/>
+                                <input type='number' className='form-years poochTextField' onChange={handleChange} value={pet?.age?.years} name='years'/>
                                 <label>years</label>
-                                <input type='number' className='form-months poochTextField' onChange={handleChange} value={pet?.months} name='months'/>
+                                <input type='number' className='form-months poochTextField' onChange={handleChange} value={pet?.age?.months} name='months'/>
                                 <label>months</label>
                             </div>
                         </div>
@@ -398,14 +402,14 @@ const AddDog = ({previousPath}) => {
                          <div>
                             <p className='newDogLabel'>What's the stud fee?</p>
                             <div className='poochTypeWrapper'>
-                                <input type='number' className='form-price poochTextField' value={pet?.price} name='price'/>
+                                <input type='number' className='form-price poochTextField' value={pet?.price} placeholder='0' name='price' onChange={handleChange}/>
                                 <label>Rupees</label>
                             </div>
                         </div>
                         <p className='newDogLabel'>Instagram handle of {`${pet?.name || 'your pooch'}`} (optional)</p>
                         <div className='poochTypeWrapper'> 
                             <label>@</label>
-                            <input type="text" className='poochTextField' value={pet.insta} name='insta' onChange={handleChange} placeholder='instagram'/>
+                            <input type="text" className='poochTextField' value={pet?.socials?.instagram} name='instagram' onChange={handleChange} placeholder='instagram'/>
                         </div>
                     </div>
                 </div>}

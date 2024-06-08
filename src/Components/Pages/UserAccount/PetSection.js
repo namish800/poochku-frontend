@@ -3,6 +3,7 @@ import DogForSaleCard from '../../Reusable/DogForSaleCard';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import userApi from '../../../services/userApi'
 
 const PetSection = () => {
@@ -11,7 +12,8 @@ const PetSection = () => {
     const [sellingList, setSellingList] = useState([]);
     const [userRole, setUserRole] = useState("");
     const navigate = useNavigate();
-    
+    const location = useLocation();
+
     const getDogsList = async () => {
         let userDetails = await userApi.getUserById(localStorage.getItem("userId"));
         
@@ -63,7 +65,7 @@ const PetSection = () => {
                         {/* <button className='addDog'>+ New Dog</button> */}
                     </div>
                     <div className='dogWrapper'>
-                        <div className='addDogCard' onClick={()=>navigate("/newDog/adoption")}>
+                        <div className='addDogCard' onClick={()=>navigate("/newDog/adoption", {state:{prevPath: location.pathname}})}>
                             + <br/> Add Dog
                         </div>
                         {
@@ -83,7 +85,7 @@ const PetSection = () => {
                         {/* <button className='addDog'>+ New Dog</button> */}
                     </div>
                     <div className='dogWrapper'>
-                        <div className='addDogCard' onClick={()=>navigate("/newDog/mydog")}>
+                        <div className='addDogCard' onClick={()=>navigate("/newDog/mydog",{state:{prevPath: location.pathname}})}>
                             + <br/> Add Dog
                         </div>
                         {
