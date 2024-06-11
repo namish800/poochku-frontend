@@ -41,11 +41,12 @@ const Send = ({setAppState, setOtpVerifyDto}) => {
   return (
     <div>
       <div className="phone-container">
-        <div className="phone-title">otp authentication</div>
+        <div className="phone-title">Enter Phone number</div>
         <div className="phone-subcontainer">
           <div className="phone-filed">
           <input type='text' 
               value={phone}
+              placeholder="Phone Number"
               onChange={(e) => {setPhone(e.target.value)}}
             />
             
@@ -56,7 +57,7 @@ const Send = ({setAppState, setOtpVerifyDto}) => {
               id="signup-btn"
               disabled={isButtonDisabled}
             >
-              <span>{isButtonDisabled ? "Sending..." : "Send SMS"}</span>
+              <span>{isButtonDisabled ? "Sending..." : "Send OTP"}</span>
             </button>
           </div>
         </div>

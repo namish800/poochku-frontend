@@ -129,7 +129,7 @@ const Login = () =>{
   return(
     <div className="loginWrapper">
         <div className="loginBg"></div>
-        {!isSignUp && <div className="loginActions">
+        <div className="loginActions">
             <h1>Woof woof, hooman!</h1>
             {/* <form className="loginForm">
                 <div><label>Phone Number</label>
@@ -141,13 +141,13 @@ const Login = () =>{
             <OtpController />
 
 
-            <div style={{display:"flex", justifyContent:"start", flexDirection:"row", alignItems:"center"}}>
+            {/* <div style={{display:"flex", justifyContent:"start", flexDirection:"row", alignItems:"center"}}>
                 <button onClick={handleSubmit} className="LoginButton">{loading ? <CircularProgress color="secondary" size={20} sx={{color:"white"}} /> : "Login"}</button>
                 <p style={{margin:"0px 10px 0"}}>Or</p>
                 <Link style={{marginLeft:"20px"}} to="/signup"><button onClick={()=>goToSignup} className="signup">Signup</button></Link>
-            </div>
-        </div>}
-        {isSignUp && <div className="loginActions">
+            </div> */}
+        </div>
+        {/* {isSignUp && <div className="loginActions">
             <h1>Sign up on Poochku!</h1>
             <form className="loginForm signup">
                 <div className="formWrapper">
@@ -183,10 +183,10 @@ const Login = () =>{
             </form>
             <div style={{display:"flex", flexDirection:"row", width:"100%", justifyContent:"start", alignItems:"center"}}>
                 <button onClick={()=>handleSignupSubmit()} className="LoginButton">Sign up</button>
-                {/* <p style={{marginBottom:"0", marginRight:"20px"}}>Or</p>
-                <button onClick={()=>handleSellerSignupSubmit()} className="signup">Seller Sign up</button> */}
+                <p style={{marginBottom:"0", marginRight:"20px"}}>Or</p>
+                <button onClick={()=>handleSellerSignupSubmit()} className="signup">Seller Sign up</button>
             </div>
-        </div>}
+        </div>} */}
     </div>
   );
 }

@@ -5,10 +5,11 @@ import { Button } from '@mui/material';
 import otpApi from '../../../services/otpApi';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Auth/AuthContext";
-
+import CircularProgress from '@mui/material/CircularProgress';
 
 const InputOtp = ({setAppState, otpVerifyDto, prevPath}) => {
     const { isLoggedIn, login, logout } = useAuth();
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate();
 
     const [otp, setOtp] = useState('');
@@ -25,26 +26,35 @@ const InputOtp = ({setAppState, otpVerifyDto, prevPath}) => {
     }
 
     const verifyOtp = async () => {
-        console.log(otp);
+        setLoading(true)
+        // console.log(otp);
         const response = await otpApi.validateOtp(otpVerifyDto.mobileNumber, otp, otpVerifyDto.verificationId);
         if(response.responseCode===200){
             setUserInLocalStorage(response.user)
             setAppState('success');
+            setLoading(false)
         } else {
             setAppState('failed');
+            setLoading(false)
         }
     }
     return (
-        <div>
-            <div>Enter OTP</div>
+        <div className='otpVerificationWrapper'>
+            <p>Enter OTP</p>
             <OtpInput
                 value={otp}
                 onChange={setOtp}
                 numInputs={4}
-                renderSeparator={<span>-</span>}
+                renderSeparator={<span>{`  `}</span>}
                 renderInput={(props) => <input {...props} />}
+                inputStyle={{
+                    width: "2.5rem",
+                    fontFamily: "changa one",
+                    marginRight: "20px",
+                    fontSize: "2rem"
+                }}
               />
-            <button onClick={verifyOtp}> Verify </button>
+            <button onClick={verifyOtp} disabled={loading}> {loading ? <CircularProgress sx={{color: "white", height: "1rem !important", width: "1rem !important"}} />  : "Verify"} </button>
         </div>
     );
 };
