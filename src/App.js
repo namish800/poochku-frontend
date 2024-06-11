@@ -64,6 +64,7 @@ function App() {
           <Route exact path='/otp' element={<Otp/>} />
           <Route exact path='/vets' element={<Vets/>}/>
           <Route exact path='/doctor/:id' element={<Doctor />} />
+          <Route exact path='/viewDog/:id' element={<ViewDog/>}/>
 
 
 
@@ -71,9 +72,9 @@ function App() {
           <Route exact path='/mating' element={<PrivateRoute/>}>
             <Route exact path='/mating' element={<Mating/>}/>
           </Route>
-          <Route exact path='/viewDog/:id' element={<PrivateRoute/>}>
+          {/* <Route exact path='/viewDog/:id' element={<PrivateRoute/>}>
             <Route exact path='/viewDog/:id' element={<ViewDog/>}/>
-          </Route>
+          </Route> */}
           <Route path='/newDog/:type' element={<PrivateRoute/>}>
             <Route  path='/newDog/:type' element={<AddDog/>}/>
           </Route>

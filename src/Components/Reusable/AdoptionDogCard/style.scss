@@ -1,0 +1,24 @@
+.adoptionCardImg{
+    width: 100%;
+    height: 300px;
+}
+
+.adoptionDogCardWrapper{
+    width: 24%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-right: 1%;
+
+    &:hover p{
+        background: #2e0152;
+        color: #fff;
+    }
+
+    p{
+        font-family: fredoka;
+        padding: 20px 0;
+        text-transform: capitalize;
+        margin-bottom: 0;
+    }
+}
