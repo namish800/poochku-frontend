@@ -76,7 +76,7 @@ function App() {
             <Route exact path='/viewDog/:id' element={<ViewDog/>}/>
           </Route> */}
           <Route path='/newDog/:type' element={<PrivateRoute/>}>
-            <Route  path='/newDog/:type' element={<AddDog/>}/>
+            <Route  path='/newDog/:type' element={<AddDog />}/>
           </Route>
           <Route path='/editdog/:service/:id' element={<PrivateRoute/>}>
             <Route exact path ='/editdog/:service/:id' element={<EditDog />} />
