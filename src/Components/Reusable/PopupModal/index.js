@@ -4,7 +4,7 @@ import { Box, Modal } from '@mui/material';
 import './style.scss'
 import enquiryApi from '../../../services/EnquiryApi';
 
-const PopupModal = ({open, setOpen, heading, subheading}) => {
+const PopupModal = ({img, open, setOpen, heading, subheading}) => {
   const handleClose = () => setOpen(false);
   const userId = localStorage.getItem("userId");
 
@@ -23,6 +23,7 @@ const PopupModal = ({open, setOpen, heading, subheading}) => {
               <CloseIcon onClick={handleClose} />
           </div>
           <Box>
+              {img && <img src={img} />}
               <p className='heading font-face-D'>{heading}</p>
               <p className='subHeading'>{subheading}</p>
               <div className='popupActions'>

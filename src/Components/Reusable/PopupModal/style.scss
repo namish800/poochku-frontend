@@ -3,6 +3,13 @@
     justify-content: center;
     align-items: center;
 
+    img{
+        width: 150px;
+        height: auto;
+        position: relative;
+        transform: translateY(-60%) scale(2);
+    }
+
     .popUp{
         width: 50%;
         border-radius: 8px;
@@ -10,6 +17,7 @@
         background: #6504b5;
         color: #fff;
         padding: 20px 20px 30px;
+        position: relative;
         text-align: center;
 
         .modalActions{

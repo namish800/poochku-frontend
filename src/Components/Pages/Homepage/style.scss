@@ -476,13 +476,14 @@
     }
 
     .landingBanner{
-        height: 70vh;
+        height: 80vh;
         max-width: 100%;
         background: url("../../../Assets/landingbanner.png");
-        background-position: -50% 0;
+        background-position: right;
         position: relative;
         background-size: cover;
         font-family: fredoka;
+        background-repeat: no-repeat;
 
         .landingAction{
             .landingButtonMain{

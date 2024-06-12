@@ -25,6 +25,7 @@ import petApi from '../../../services/petApi'
 import { Skeleton } from '@mui/material'
 import Matchcard from '../../Reusable/MatchCard'
 import MatingDogPopup from '../../Reusable/MatingDogPopup'
+import VetCtaCard from '../../Reusable/VetCtaCard'
 
 const Mating = () => {
     // const dogList = db;
@@ -138,13 +139,16 @@ const Mating = () => {
             (petList && petList?.length > 0) ?  
             (<div className='matingWrapper'>
                 <div className='matingSelector'>
+                  <div>
                     <h2>Currently Matching for</h2>
                     {petList && <MatingDropdown petList = {petList} selectedDog={selectedDog} setSelectedDog={setSelectedDog} />}
+                  </div>
+                  <VetCtaCard />
                 </div>
               <div className='MatingSection'>
                 <div className='matingTabs'>
                   <div className={`matingTab ${value===1 ? "active" : ""} font-face-D`} onClick={() => setValue(1)}>Pooch World</div>
-                  <div className={`matingTab ${value===2 ? "active" : ""} font-face-D`} onClick={() => setValue(2)}>Messages</div>
+                  <div className={`matingTab ${value===2 ? "active" : ""} font-face-D`} onClick={() => setValue(2)}>Likes</div>
                 </div>
                 {value === 1 && <div className='matingPanel'>
                     
@@ -186,6 +190,14 @@ const Mating = () => {
                                           <button className='bestBuy'>Unmatch</button>
                                         </div>
                                       </div>)})
+                                  }
+                                  {
+                                    accepted.length === 0 && 
+                                    <div className='nothingWrapper'>
+                                      <img src={happy} />
+                                      <h4>No Likes Yet... </h4>
+                                      <p>Come back later?</p>
+                                    </div>
                                   }
                               </div>
                             </TabPanel>

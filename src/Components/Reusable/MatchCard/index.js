@@ -53,7 +53,7 @@ const Matchcard = ({character, selectedDog, setOpen, setPopUpDog, popUpDog}) => 
                 </div>
                 <div><img src={location} /><p>{character?.location ? `${character.location} location` : "N/A"}</p></div>
                 <div><img src={gender} /><p>{character?.gender ? character.gender : "N/A"}</p></div>
-                <div><img src={Dog} /><p>{character?.age ? `${character.age} days old` : "N/A" }</p></div>
+                <div><img src={Dog} /><p>{character?.age?.months ? `${character?.age?.years ? character?.age?.years + " years ": ""}  ${character?.age?.months ? character?.age?.months + " months" : ""} old` : "N/A" }</p></div>
             </div>
             <div className='actionWrapper'>
               <button className='whatsappEnquire' onClick={() => openWhatsapp(character?.owner?.whatsappUrl)}><img src={whatsappIcon} />Enquire</button>

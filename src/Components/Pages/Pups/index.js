@@ -11,6 +11,8 @@ import { Skeleton } from '@mui/material';
 import PopupModal from '../../Reusable/PopupModal/index.js'
 import petApi from '../../../services/petApi.js';
 import { useLocation, useNavigate } from 'react-router-dom';
+import HoldUp from '../../../Assets/holdUp.png'
+import VetCtaCard from '../../Reusable/VetCtaCard/index.js';
 
 const Pups = () => {
   const [buyPupList, setBuyPupList] = useState()
@@ -138,9 +140,12 @@ const Pups = () => {
                 }            
                 </div>
                 <div className='bannerWrapper'>
-                  <h3 className='font-face-D'>See a puppy in need?</h3> 
-                  <p>Help them find a forever home!</p>
-                  <button onClick={navigateToListAdoptionIfLoggedIn}>Add Pooch</button>
+                  {/* <div>
+                    <h3 className='font-face-D'>See a puppy in need?</h3> 
+                    <p>Help them find a forever home!</p>
+                    <button onClick={navigateToListAdoptionIfLoggedIn}>Add Pooch</button>
+                  </div> */}
+                <VetCtaCard />
                 </div>  
               </div>}
             {value === "buy" && 
@@ -165,11 +170,11 @@ const Pups = () => {
                   }    
                   </div>
                 <div className='bannerWrapper'>
-                <div className='mainOffer'>
-                  <h3 className='font-face-D'>Buy with Poochku!</h3>
-                  <p>Leave it to Us! <br/>We Handpick the Finest Partners to bring you the best Pooches, so you don't have to worry.</p>
-                  <button onClick={enquiryRequest}>Find your Pooch</button>
-                </div>
+                  <div className='mainOffer'>
+                    <h3 className='font-face-D'>Buy with Poochku!</h3>
+                    <p>Leave it to Us! <br/>We Handpick the Finest Partners to bring you the best Pooches, so you don't have to worry.</p>
+                    <button onClick={enquiryRequest}>Find your Pooch</button>
+                  </div>
                 </div> 
               </div>}
                   
@@ -177,7 +182,7 @@ const Pups = () => {
         </div>
         <MobileNav />
         <EnquiryModal open={popup} setOpen={setPopup}/>
-        <PopupModal open={open} setOpen={setOpen} heading={"Can't find your desired pup?"} subheading={"Let us find them for you!"} />
+        <PopupModal open={open} setOpen={setOpen} img={HoldUp} heading={"Can't find your desired pup?"} subheading={"Let us find them for you!"} />
     </div>
   )
 }

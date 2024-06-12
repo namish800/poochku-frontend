@@ -4,17 +4,28 @@
     flex-grow: 1;
     margin-left: 40px;
     .filterInput{
-        border: 1px solid rgba(0,0,0,0.3);
-        border-radius: 15px;
-        font-size: 14px;
-        padding: 5px 10px;
-        font-family: fredoka;
+        border: 0px;
+        border-bottom: 1px solid rgba(255,255,255,0.9);
+        background: none;
+        font-size: 15px;
+        padding: 5px 0px;
+        font-family: changa one;
         margin: 0;
-        margin-right: 10px;
+        margin-right: 30px;
+        text-transform: uppercase;
+        color: #fff;
+        outline: 0;
+        cursor: pointer;
+        letter-spacing: 0.5px;
+    }
+    option{
+        color: #000;
+        padding: 5px;
+        text-transform: uppercase;
     }
     .filterButton{
         padding: 15px 30px;
-        border-radius: 15px;
+        border-radius: 30px;
         background: #fff;
         border: 1px solid #6504b5;
         color: #6504b5;

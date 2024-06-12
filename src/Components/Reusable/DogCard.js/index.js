@@ -84,7 +84,7 @@ const DogCard = ({details, availableForAdoption}) => {
             <p className='ownerDetails'>Listed by <Link to={`/sellerview/${details.owner.userId}`}>{details.owner.fName}</Link></p>
             <div className='dogDetails'>
                     <div className='detailWrapper'><img src={gender}/><p>{details.gender ? details.gender : "N/A"}</p></div>
-                    <div className='detailWrapper'><img src={Dog}/><p>{details.age ? `${details.age} days` : "N/A"}</p></div>
+                    <div className='detailWrapper'><img src={Dog}/><p>{details?.age?.months ? `${details?.age?.years ? details?.age?.years + " years ": ""}  ${details?.age?.months ? details?.age?.months + " months" : ""} old` : "N/A" }</p></div>
                     <div className='detailWrapper'><img src={location}/><p>{details.location ? details.location : "N/A"}</p></div>
                     {/* <div className='detailWrapper'><img src={vaccine}/><p>Vaccinated: {details.isVaccinated ? "Yes" : "No"} </p></div> */}
                     {/* <div className='detailWrapper'><img src={Dog} /><p>80 days old</p></div> */}
