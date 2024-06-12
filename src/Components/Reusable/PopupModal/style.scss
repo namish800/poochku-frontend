@@ -24,6 +24,7 @@
             width: 100%;
             display: flex;
             flex-direction: row-reverse;
+            cursor: pointer;
         }
 
         .heading{
@@ -50,12 +51,14 @@
                 border-radius: 8px;
                 color: #fff;
                 background: #6504b5;
-                font-family: changa one;
+                font-family: Durea;
+                text-transform: uppercase;
                 text-decoration: none;
+                letter-spacing: 0.5px;
             }
 
             .formButton{
-                text-transform: capitalize;
+                text-transform: uppercase;
                 margin-right: 15px;
                 background: #fff;
                 color: #6504b5;
