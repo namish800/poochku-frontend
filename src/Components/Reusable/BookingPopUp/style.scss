@@ -1,0 +1,36 @@
+.bookbookingPopUpModal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .BookingPopUP{
+        width: 50vw;
+        background: #6504b5;
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+
+        .slotDetails{
+            max-width: 100%;
+            padding: 0 0 20px;
+            text-align: left;
+            overflow: none;
+            margin-bottom: 10px;
+            // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+            img{
+                height: 50px;
+                width: auto;
+                margin-bottom: 5px;
+            }
+
+            p{
+                text-overflow: ellipsis; /* enables ellipsis */
+                white-space: nowrap; /* keeps the text in a single line */
+                overflow: hidden;
+                margin-bottom: 5px;
+                font-family: fredoka;
+            }
+        }
+    }
+}

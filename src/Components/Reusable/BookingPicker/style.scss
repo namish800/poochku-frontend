@@ -1,0 +1,54 @@
+.bookingPickerWrapper{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+
+    .pickerWrapper{
+        width: 50%;
+    }
+
+    .slotWrapper{
+        flex-grow: 1;
+        max-width: 50%;
+        // max-width: 500px;
+        text-align: center;
+        padding: 0 0px 20px;
+
+        
+
+        h4{
+            font-family: fredoka;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .timeSlot{
+            width: 100%;
+            border-radius: 30px;
+            border: 1px solid #6504b5;
+            color: #6504b5;
+            font-family: fredoka;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+
+            &.active{
+                border: 1px solid #6504b5;
+                background: #6504b5;
+                color: #fff;
+            }
+        }
+
+        .confirmButton{
+            font-family: helvetica;
+            font-weight: 600;
+            padding: 15px 20px;
+            margin-top: 30px;
+            border-radius: 12px;
+            background: #6504b5;
+            color: #fff;
+            border: 1px solid #6504b5;
+        }
+    }
+}

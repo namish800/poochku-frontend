@@ -128,19 +128,40 @@ const Mating = () => {
           </div>
           {/* <hr className='mainPageHr' /> */}
           {!petList ?
-            (<div className='skeletonCardWrapper' style={{padding: "20px"}}>
-              <div style={{display: "flex", justifyContent:"space-around"}}>
-                <Skeleton variant="rectangular" animation="wave" width={"48%"} height={50} className='skeletonCard' />
-                <Skeleton variant="rectangular" animation="wave" width={"48%"} height={50} className='skeletonCard' />
+            (<div className='skeletonCardWrapperMating' style={{padding: "20px"}}>
+              <div className='matingSkeleton1'>
+                <Skeleton variant='rectangular' animation="wave" width={"80%"} height={40} />
+                <Skeleton variant='rectangular' animation="wave" width={"100%"} height={60}/>
               </div>
-              <Skeleton variant="rectangular" animation="wave" width={"100%"} height={400} className='skeletonCard' />
+              <div className='matingSkeleton2Wrapper'>
+                <div style={{display: "flex", justifyContent:"space-around", width: "350px", marginBottom:"20px"}}>
+                  <Skeleton variant="rectangular" animation="wave" width={"48%"} height={50} className='skeletonCard' />
+                  <Skeleton variant="rectangular" animation="wave" width={"48%"} height={50} className='skeletonCard' />
+                </div>
+                <div className='matingSkeleton2Section'>
+                  <div className='matingSkeleton2'>
+                    <Skeleton variant="rectangular" animation="wave" width={"100%"} height={400} className='skeletonCard' />
+                    <div style={{display: "flex", justifyContent:"space-around"}}>
+                      <Skeleton variant="rectangular" animation="wave" width={"100%"} height={50} className='skeletonCard' />
+                      {/* <Skeleton variant="rectangular" animation="wave" width={"48%"} height={50} className='skeletonCard' /> */}
+                    </div>
+                  </div>
+                  <div className='matingSkeleton2'>
+                    <Skeleton variant="rectangular" animation="wave" width={"100%"} height={400} className='skeletonCard' />
+                    <div style={{display: "flex", justifyContent:"space-around"}}>
+                      <Skeleton variant="rectangular" animation="wave" width={"100%"} height={50} className='skeletonCard' />
+                      {/* <Skeleton variant="rectangular" animation="wave" width={"48%"} height={50} className='skeletonCard' /> */}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>)
             : 
             (petList && petList?.length > 0) ?  
             (<div className='matingWrapper'>
                 <div className='matingSelector'>
                   <div>
-                    <h2>Currently Matching for</h2>
+                    <h2>Select Pet</h2>
                     {petList && <MatingDropdown petList = {petList} selectedDog={selectedDog} setSelectedDog={setSelectedDog} />}
                   </div>
                   <VetCtaCard />

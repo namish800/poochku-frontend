@@ -6,13 +6,16 @@ import VetCard from '../../Reusable/VetCard'
 import data from './data'
 import vetApi from '../../../services/vetApi'
 import { useLocation, useNavigate } from 'react-router-dom';
+import BookingPopUp from '../../Reusable/BookingPopUp'
 
 
 const Vets = () => {
 
     const [vetList, setVetList] = useState([]);
     const [clinicList, setClinicList] = useState([]);
-    const [city, setCity] = useState('')
+    const [city, setCity] = useState('');
+    const [currentSelection, setCurrentSelection] = useState({});
+    const [open, setOpen] = useState(false) 
     const [ view, setView ] = useState("doctor");
 
 
@@ -91,13 +94,14 @@ const Vets = () => {
               view === "clinic" && <div className='vetListWrapper'>
                 {clinicList?.map((vet, index) => {
                     return(
-                        <VetCard data={vet} key={index} />
+                        <VetCard setOpen={setOpen} setCurrentSelection={setCurrentSelection} data={vet} key={index} />
                     )
                 })}
               </div>
             }
         </div>
         <MobileNav />
+        <BookingPopUp open={open} setOpen={setOpen} currentSelection={currentSelection} setCurrentSelection={setCurrentSelection} />
     </div>
     )
 }
