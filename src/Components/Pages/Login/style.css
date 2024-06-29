@@ -19,7 +19,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  font-family: fredoka;
+  font-family: poppins;
 }
 .loginWrapper .loginActions .loginForm {
   width: 100%;
@@ -53,7 +53,7 @@
   font-size: 20px;
 }
 .loginWrapper .loginActions button {
-  font-family: fredoka;
+  font-family: poppins;
   background: #6504b5;
   color: #fff;
   padding: 15px 30px;

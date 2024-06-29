@@ -12,7 +12,7 @@ div.pageHeadingSticky.viewDog{
     }
 }
 .dogViewWrapper{
-    font-family: fredoka;
+    font-family: poppins;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -71,6 +71,7 @@ div.pageHeadingSticky.viewDog{
     margin-top: 0px;
     display: flex;
     justify-content: space-between;
+    padding: 10px 15px 15px;
     button{
         padding: 12px 24px;
         text-align: center;
@@ -89,6 +90,7 @@ div.pageHeadingSticky.viewDog{
     .whatsappEnquire{
         background: #64b161;
         color: white;
+        border-radius: 8px;
         // margin-right: 20px;
 
         img{

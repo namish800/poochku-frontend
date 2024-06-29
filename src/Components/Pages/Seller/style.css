@@ -23,12 +23,12 @@
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   padding: 10px 20px;
-  font-family: fredoka;
+  font-family: poppins;
   width: 300px;
 }
 
 .sellerHeading {
-  font-family: fredoka;
+  font-family: poppins;
 }
 
 .filterButton {
@@ -36,7 +36,7 @@
   border-radius: 15px;
   background: #6504B5;
   color: #fff;
-  font-family: fredoka;
+  font-family: poppins;
   font-weight: 600;
   border: 0px;
   letter-spacing: 0.3px;

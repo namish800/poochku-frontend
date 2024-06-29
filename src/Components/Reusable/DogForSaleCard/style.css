@@ -1,7 +1,7 @@
 .dogForSaleCard {
   width: 24%;
   border-radius: 8px;
-  font-family: fredoka;
+  font-family: poppins;
   padding: 15px;
   margin-bottom: 20px;
   margin-right: 1%;
@@ -63,7 +63,7 @@
   .dogForSaleCard {
     width: 100%;
     border-radius: 8px;
-    font-family: fredoka;
+    font-family: poppins;
     padding: 0px 0px;
     margin-bottom: 20px;
     background: #fff;
