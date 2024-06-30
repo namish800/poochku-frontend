@@ -4,7 +4,7 @@
 }
 
 .userAccountWrapper {
-  font-family: fredoka;
+  font-family: poppins;
   max-width: 100%;
 }
 .userAccountWrapper h2 {
@@ -12,7 +12,7 @@
   margin-bottom: 20px;
 }
 .userAccountWrapper .MuiTypography-root {
-  font-family: fredoka;
+  font-family: poppins;
 }
 .userAccountWrapper #vertical-tabpanel-0 {
   flex-grow: 1;
@@ -27,7 +27,7 @@
   min-width: 100px;
 }
 .userAccountWrapper .MuiTabs-scroller button {
-  font-family: fredoka;
+  font-family: poppins;
 }
 .userAccountWrapper .profileForm .formRow {
   display: flex;
@@ -64,7 +64,7 @@
   color: #fff;
   padding: 10px 15px;
   border-radius: 30px;
-  font-family: fredoka;
+  font-family: poppins;
   font-weight: 500;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   border: 0px;
@@ -104,7 +104,7 @@
   }
   .userAccountWrapper {
     margin-top: 20px;
-    font-family: fredoka;
+    font-family: poppins;
     max-width: 100%;
   }
   .userAccountWrapper #vertical-tabpanel-0 {
@@ -122,10 +122,10 @@
     margin-bottom: 20px;
   }
   .userAccountWrapper .MuiTypography-root {
-    font-family: fredoka;
+    font-family: poppins;
   }
   .userAccountWrapper .MuiTabs-scroller button {
-    font-family: fredoka;
+    font-family: poppins;
     font-size: 12px;
   }
   .userAccountWrapper .profileForm .formRow {
@@ -165,7 +165,7 @@
     color: #fff;
     padding: 10px 15px;
     border-radius: 30px;
-    font-family: fredoka;
+    font-family: poppins;
     font-weight: 500;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
     border: 0px;

@@ -25,6 +25,7 @@ import Doctor from './Components/Pages/Doctor';
 import * as analytics from './ga4/ga4'
 import { AuthProvider } from './Components/Auth/AuthContext';
 import PrivateRoute from './Components/Auth/PrivateRoute';
+import Clinic from './Components/Pages/Clinic';
 
 function App() {
   // useAnalytics()
@@ -64,6 +65,7 @@ function App() {
           <Route exact path='/otp' element={<Otp/>} />
           <Route exact path='/vets' element={<Vets/>}/>
           <Route exact path='/doctor/:id' element={<Doctor />} />
+          <Route exact path='/clinic/:id' element={<Clinic />} />
           <Route exact path='/viewDog/:id' element={<ViewDog/>}/>
 
 
