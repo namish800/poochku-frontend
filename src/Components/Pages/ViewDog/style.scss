@@ -1,15 +1,11 @@
 div.pageHeadingSticky.viewDog{
     justify-content: start!important;
 
-    .whatsappEnquire{
-        margin-left: 30px;
-    }
-
-    .bestBuy{
-        margin-left: 20px;
-        background-color: #2e0152;
-        color: #fff
-    }
+    // .bestBuy{
+    //     margin-left: 20px;
+    //     background-color: #2e0152;
+    //     color: #fff
+    // }
 }
 .dogViewWrapper{
     font-family: poppins;
@@ -19,8 +15,8 @@ div.pageHeadingSticky.viewDog{
     align-items: start;
     padding: 15px;
     .mainInfo{
-        width: 65%;
-        padding: 0 20px;
+        width: 70%;
+        padding: 0 20px 0 50px;
         .directInfoWrapper{
             display: flex;
             flex-direction: row;
@@ -28,15 +24,68 @@ div.pageHeadingSticky.viewDog{
             justify-content: space-between;
             align-items: start;
             margin-bottom: 20px;
+            margin-top: 60px;
+
+            &.scores{
+                color: #fff;
+                position: relative;
+                align-items: stretch;
+                margin-top: 100px;
+
+                .directInfo{
+                    position: relative;
+                    padding: 50px 20px 20px;
+                    margin-bottom: 100px;
+                    background: #6504b5;
+                    width: 33%;
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+                    border-radius: 12px;
+
+                    img{
+                        position: absolute;
+                        top: -40%;
+                        height: 100px;
+                        width: auto;
+                        left: 50%;
+                        transform: translateX(-50%) scale(1.6);
+                    }
+
+                    p{
+                        margin-bottom: 0;
+                        letter-spacing: 1px;
+                        font-size: 1rem;
+                        font-family: poppins;
+                        font-weight: 700;
+                        margin-bottom: 10px;
+                    }
+                }
+
+            }
+
             .directInfo{
-                width: 50%;
+                width: 25%;
                 margin-bottom: 15px;
+                text-align: center;
+
+                & p{
+                    font-family: poppins;
+                    text-transform: capitalize;
+                    font-size: 1sem;
+                    margin-bottom: 30px;
+                }
+
+                .dogDetailIcon{
+                    font-size: 2em;
+                }
+
+
                 .InfoHeader{
-                    font-size: 20px;
-                    font-family: changa one;
-                    font-weight: 500;
+                    font-size: 1rem;
+                    font-family: durea;
+                    font-weight: 600;
                     text-transform: uppercase;
                     letter-spacing: 0.5px;
+                    margin-top: 20px;
                 }
                 span{
                     font-weight: 600;
@@ -56,7 +105,7 @@ div.pageHeadingSticky.viewDog{
         }
     }
     .galleryWrapper{
-        width: 35%;
+        width: 30%;
         padding: 0 0 0 20px;
         position: sticky;
         top: 140px;
@@ -65,19 +114,47 @@ div.pageHeadingSticky.viewDog{
             height: auto;
             border-radius: 8px;
         }
+        p{
+            font-family: poppins;
+            margin-bottom: 30px;
+        }
     }
 }
-.actionWrapper{
+
+.listerDetailWrapper{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    text-transform: capitalize;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    
+    p{
+        margin: 0;
+        font-family: poppins;
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+}
+
+.listerDetailWrapper, .actionWrapper{
     margin-top: 0px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px 15px 15px;
+    
+    img{
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+    
     button{
         padding: 12px 24px;
         text-align: center;
         // letter-spacing: 0.2px;
-        text-transform: uppercase;
-        font-weight: 700;
+        text-transform: capitalize;
+        font-weight: 500;
         font-size: 14px;
         font-family: poppins;
         border: 0px;
@@ -88,10 +165,11 @@ div.pageHeadingSticky.viewDog{
         // width: 48%;
     }
     .whatsappEnquire{
-        background: #64b161;
         color: white;
         border-radius: 8px;
         // margin-right: 20px;
+        margin-left: 30px;
+        background: rgb(41, 178, 0);
 
         img{
             height: 20px;
