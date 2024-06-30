@@ -7,6 +7,8 @@ import data from './data'
 import vetApi from '../../../services/vetApi'
 import { useLocation, useNavigate } from 'react-router-dom';
 import BookingPopUp from '../../Reusable/BookingPopUp'
+import PrivateRoute from '../../Auth/PrivateRoute'
+import { useAuth } from "../../Auth/AuthContext";
 
 
 const Vets = () => {
@@ -17,6 +19,7 @@ const Vets = () => {
     const [currentSelection, setCurrentSelection] = useState({});
     const [open, setOpen] = useState(false) 
     const [ view, setView ] = useState("doctor");
+    const { isLoggedIn, login, logout } = useAuth();
 
 
     const getVetList = async () => {
@@ -37,7 +40,7 @@ const Vets = () => {
     
     const getClinicList = async () => {
         try{
-          const response = await vetApi.getClinics(city);
+          const response = await vetApi.getClinics(city, 'clinic');
           console.log(response.data)
           if(response.status===200){
             setClinicList(response.data.clinics)
