@@ -23,15 +23,21 @@
     .DhashNavLink{
         width: 100%;
         display: flex;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
         margin-top: 0px;
-        align-items: start;
         text-decoration: none;
         color:#6504b5;
         font-size: 16px;
         // text-transform: uppercase;
         letter-spacing: 0.5px;
-        padding: 20px 0;
+        padding: 5px 0;
+
+        &.bottom{
+            padding: 20px 0;
+        }
+
 
         &.logout{
             background: #6504b5;
@@ -54,9 +60,10 @@
         }
 
         .DashNavIcon{
-            width: 30px;
+            width: 30%;
             height: auto;
-            margin-right: 20px;
+            transform: scale(1.3);
+            margin-bottom: 10px;
         }
 
         p{

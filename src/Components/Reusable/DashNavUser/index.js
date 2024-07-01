@@ -1,10 +1,10 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Logo from '../../../Assets/Logo.png'
-import dog from '../../../Assets/dog.png'
-import Browse from '../../../Assets/browse.png'
-import PetShop from '../../../Assets/pet-shop.png'
-import adopt from '../../../Assets/animal-rights.png'
-import './style.css'
+import Pooches from '../../../Assets/pooches.png'
+import DogVet from '../../../Assets/dog-vet.png'
+import DogMating from '../../../Assets/dog-mating.png'
+import DogService from '../../../Assets/services.png'
+import './style.scss'
 import { useEffect } from 'react'
 import { useAuth } from "../../Auth/AuthContext";
 
@@ -30,18 +30,19 @@ const DashNavUser = () => {
         {!location.pathname.toLowerCase().includes("sellerdashboard") &&
           <div className='linkWrapper'>
           <Link to="/browse" className={location.pathname.toLowerCase().includes("browse") || location.pathname.toLowerCase().includes("viewdog") ? 'DhashNavLink active' : 'DhashNavLink'}>
-            {/* <img className='DashNavIcon' src={Browse} /> */}
+            <img className='DashNavIcon' src={Pooches} />
             <p className='font-face-D para'>Pooches</p>
           </Link>
           <Link to="/mating" className={location.pathname.includes("mating") ? 'DhashNavLink active' : 'DhashNavLink'}>
-            {/* <img className='DashNavIcon' src={dog}/> */}
+            <img className='DashNavIcon' src={DogMating}/>
             <p className='font-face-D para'>Paw Match</p>
           </Link>
           <Link to="/vets" className={location.pathname.includes("vets") ? 'DhashNavLink active' : 'DhashNavLink'}>
+            <img className='DashNavIcon' src={DogVet}/>
             <p className='font-face-D para'>Vets</p>
           </Link>
           <Link to="https://shop.poochku.in" className={location.pathname.includes("shop") ? 'DhashNavLink active' : 'DhashNavLink'}>
-            {/* <img className='DashNavIcon' src={PetShop}/> */}
+            <img className='DashNavIcon' src={DogService}/>
             <p className='font-face-D para'>Shop</p>
           </Link>
           {/* <Link to="/adopt" className={(location.pathname.includes("adopt") && !location.pathname.includes("adoption")) ? 'DhashNavLink active' : 'DhashNavLink'}>
@@ -53,7 +54,6 @@ const DashNavUser = () => {
           location.pathname.toLowerCase().includes("sellerdashboard") &&
           <div className='linkWrapper'>
             <Link to="/sellerdashboard" className={location.pathname.includes("sellerdashboard") && !location.pathname.includes("billing") ? `DhashNavLink active` : "DhashNavLink"}>
-            {/* <img className='DashNavIcon' src={Browse} /> */}
             <p className='font-face-D para'>Dashboard</p>
           </Link>
           <Link to="/sellerdashboard/billing" className={location.pathname.includes("billing") ? `DhashNavLink active` : "DhashNavLink"}>
@@ -64,15 +64,15 @@ const DashNavUser = () => {
         }
       </div>
       <div>
-        {!fName ? <Link to="/auth" className={'DhashNavLink'} style={{textAlign:"center"}}>
+        {!fName ? <Link to="/auth" className={'DhashNavLink bottom'} style={{textAlign:"center"}}>
             <p className='font-face-D para'>Login/ Sign Up</p>
         </Link> : 
-        <Link to="/useraccount" className={location.pathname.includes("useraccount") ? 'DhashNavLink active' : 'DhashNavLink'} style={{textAlign:"center"}}>
+        <Link to="/useraccount" className={location.pathname.includes("useraccount") ? 'DhashNavLink bottom active' : 'DhashNavLink bottom'} style={{textAlign:"center"}}>
             <p className='font-face-D para'>User Account</p>
         </Link>
         }
         {
-          fName && <Link to="/" className={'DhashNavLink logout'} style={{textAlign:"center"}} onClick={handleLogout}>
+          fName && <Link to="/" className={'DhashNavLink bottom logout'} style={{textAlign:"center"}} onClick={handleLogout}>
           <p className='font-face-D para'>Logout</p>
       </Link>
         }
