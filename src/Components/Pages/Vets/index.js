@@ -68,7 +68,7 @@ const Vets = () => {
                   <p className='buyPageInfo'>Best healthcare for your pooch, always!</p>
               </div>
             </div>
-            <div className='pageSelector'>
+            {/* <div className='pageSelector'>
               <button 
                 className={`selectorButton font-face-D para ${view ==="doctor" ? "active" : ""}`} 
                 onClick={()=>{
@@ -83,8 +83,8 @@ const Vets = () => {
                 }}>
                 Clinics
               </button>
-            </div>
-            {
+            </div> */}
+            {/* {
               view === "doctor" && <div className='vetListWrapper'>
                 {vetList?.map((vet, index) => {
                     return(
@@ -92,16 +92,17 @@ const Vets = () => {
                     )
                 })}
               </div>
-            }
-            {
-              view === "clinic" && <div className='vetListWrapper'>
-                {clinicList?.map((vet, index) => {
-                    return(
-                        <VetCard setOpen={setOpen} setCurrentSelection={setCurrentSelection} data={vet} key={index} />
-                    )
-                })}
-              </div>
-            }
+            } */}
+            
+              {/* view === "clinic" &&  */}
+            <div className='vetListWrapper'>
+              {clinicList?.map((vet, index) => {
+                  return(
+                      <VetCard setOpen={setOpen} setCurrentSelection={setCurrentSelection} data={vet} key={index} />
+                  )
+              })}
+            </div>
+            
         </div>
         <MobileNav />
         <BookingPopUp open={open} setOpen={setOpen} currentSelection={currentSelection} setCurrentSelection={setCurrentSelection} />
