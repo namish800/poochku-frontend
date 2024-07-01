@@ -78,11 +78,12 @@ const vetApi = {
     }
   },
 
-  getClinics: async (city, page = 0, size = 10) => {
+  getClinics: async (city, type, page = 0, size = 10) => {
     try {
       const response = await instance.get('/vet/clinic', {
         params: {
           city,
+          type,
           page,
           size,
         },
