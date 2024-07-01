@@ -4,6 +4,7 @@ import Pooches from '../../../Assets/pooches.png'
 import DogVet from '../../../Assets/dog-vet.png'
 import DogMating from '../../../Assets/dog-mating.png'
 import DogService from '../../../Assets/services.png'
+import DogShop from '../../../Assets/dog-shop.png'
 import './style.scss'
 import { useEffect } from 'react'
 import { useAuth } from "../../Auth/AuthContext";
@@ -41,8 +42,12 @@ const DashNavUser = () => {
             <img className='DashNavIcon' src={DogVet}/>
             <p className='font-face-D para'>Vets</p>
           </Link>
-          <Link to="https://shop.poochku.in" className={location.pathname.includes("shop") ? 'DhashNavLink active' : 'DhashNavLink'}>
+          <Link to="/services" className={location.pathname.includes("services") ? 'DhashNavLink active' : 'DhashNavLink'}>
             <img className='DashNavIcon' src={DogService}/>
+            <p className='font-face-D para'>Services</p>
+          </Link>
+          <Link to="https://shop.poochku.in" className={location.pathname.includes("shop") ? 'DhashNavLink active' : 'DhashNavLink'}>
+            <img className='DashNavIcon' src={DogShop}/>
             <p className='font-face-D para'>Shop</p>
           </Link>
           {/* <Link to="/adopt" className={(location.pathname.includes("adopt") && !location.pathname.includes("adoption")) ? 'DhashNavLink active' : 'DhashNavLink'}>
@@ -68,7 +73,7 @@ const DashNavUser = () => {
             <p className='font-face-D para'>Login/ Sign Up</p>
         </Link> : 
         <Link to="/useraccount" className={location.pathname.includes("useraccount") ? 'DhashNavLink bottom active' : 'DhashNavLink bottom'} style={{textAlign:"center"}}>
-            <p className='font-face-D para'>User Account</p>
+            <p className='font-face-D para'>My Profile</p>
         </Link>
         }
         {
