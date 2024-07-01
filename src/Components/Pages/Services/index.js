@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DashNavUser from '../../Reusable/DashNavUser';
 import SpaIcon from '../../../Assets/spaIcon.png';
 import GroomingIcon from '../../../Assets/grooming.png'
 import BoardingIcon from '../../../Assets/boardingIcon.png'
 import VetCard from '../../Reusable/VetCard';
 import './style.scss'
+import vetApi from '../../../services/vetApi';
 
 const services = {
   "G" : {
@@ -18,12 +19,38 @@ const services = {
   "B" : {
     serviceName : "Boarding",
     icon: BoardingIcon
+  },
+  "W" : {
+    serviceName : "Walking",
+    icon: BoardingIcon 
   }
 }
 
 const Services = () => {
   const [service, setService] = useState("G");
   const [serviceList, setServiceList] = useState([]);
+  const [city, setCity] = useState('');
+
+
+  const getServiceList = async () => {
+    try{
+      const response = await vetApi.getClinics(city, 'clinic');
+      console.log(response.data)
+      if(response.status===200){
+        setServiceList(response.data.clinics)
+      } else {
+        console.log("Request failed ", response)
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+}
+
+  useEffect(()=>{
+    getServiceList()
+  }, [])
+
   return (
     <div className='serviceListPage'>
         <DashNavUser />
@@ -35,15 +62,16 @@ const Services = () => {
               </div>
             </div>
             <div className='serviceSelector'>
-              <p>Select a service</p>
+              <p>Looking for</p>
               <select className='serviceDropdown'>
                 <option className='serviceOptions' value="">Select a service</option>
                 {Object.keys(services).map((ser, index) => {
                   return(<option value={ser} key={index}>{services[ser].serviceName}</option>)
                 })}
               </select>
+              <p>in Delhi NCR</p>
             </div>
-            <div className='vetListWrapper'>
+            <div className='serviceListWrapper'>
               {serviceList?.map((ser, index) => {
                   return(
                       <VetCard data={ser} key={index} />
