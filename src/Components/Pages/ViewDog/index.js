@@ -108,8 +108,11 @@ const ViewDog = () => {
                 </div>
                 <div className='mainInfo'>
                   <div className='listerDetailWrapper'>
-                    <img src={details?.owner?.image ? details?.owner?.image : UserPic} alt="dog listed for adoption by"/>
-                    <p>{`${details?.owner?.fName} ${details?.owner?.lName}`}</p>
+                    {/* <div> */}
+                      <img src={details?.owner?.image ? details?.owner?.image : UserPic} alt="dog listed for adoption by"/>
+                      <p>{`${details?.owner?.fName}`}</p>
+                      {/* <p>{`${details?.owner?.fName} ${details?.owner?.lName}`}</p> */}
+                    {/* </div> */}
                     <button className='whatsappEnquire' onClick={waEnquire}><img src={whatsappIcon} />Enquire</button>
                   </div>
                     

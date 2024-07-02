@@ -27,7 +27,7 @@ const PopupModal = ({img, open, setOpen, heading, subheading}) => {
               <p className='heading font-face-D'>{heading}</p>
               <p className='subHeading'>{subheading}</p>
               <div className='popupActions'>
-                <a href='https://vdo2385601y.typeform.com/to/fBb79EOi' target='_blank' rel='noreferrer' className='formButton' onClick={enquiredPet}>Find me a pooch!</a>
+                <a href='https://vdo2385601y.typeform.com/to/fBb79EOi' target='_blank' rel='noreferrer' className='formButton' onClick={enquiredPet}>Find Pooch</a>
                 <button onClick={handleClose} className='closeButton'>Close</button>
               </div>
           </Box>
